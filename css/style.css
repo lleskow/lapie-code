@@ -30,19 +30,23 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 /* permet de s'assurer que c'est le contenu et pas le header/footer qui
 prenne la place dans le flexbox */
 .contenu {
-  flex: 5 0 auto;
+  flex-grow: 1;
 }
 
 .contenu {
   width: 70%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 4em;
+  margin-bottom: auto;
 }
 
 .corps-texte {
@@ -286,10 +290,10 @@ h2 {
   display: flex;
   /*Permet d'aggrandir l'entete qd on reduit la largeur de la page*/
   height: auto;
-  flex: 0 0 auto;
+  /*flex: 0 0 auto;*/
   justify-content: space-between;
   min-height: 4em;
-  width: 100%;
+  width: 100vw;
   -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
   -ms-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
@@ -360,12 +364,13 @@ h2 {
 \* ------------------------------------ */
 
 .footer-principal {
-  flex: 1 0 auto;
+  display: block;
+  /*flex: 1 0 auto;*/
   min-height: 6em;
   margin-top: 3em;
   padding: 2em 0 0 2em;
   /*text-align: center;*/
-  width: 100%;
+  width: 100vw;
 }
 
 /* ------------------------------------ *\
@@ -391,6 +396,7 @@ h2 {
 \* ------------------------------------ */
 
 .banner-accueil {
+  height: auto;
   margin-top: 5em;
   padding: 3em;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
@@ -398,6 +404,7 @@ h2 {
   -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  width: 100vw;
 }
 
 .banner-accueil-citation {
