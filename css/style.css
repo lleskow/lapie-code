@@ -1,0 +1,517 @@
+/* ------------------------------------ *\
+    Table des matieres
+\* ------------------------------------ */
+
+/**
+* CH_0: $BASIC.............Les "resets"
+* CH_1: $TYPOGRAPHIE.......Les polices de caractères et leurs tailles
+* CH_2: $COULEURS..........Les couleurs des textes et des backgrounds
+* CH_3: $HEADER............Le header en haut de chaque page et sa navbar
+* CH_4: $FOOTER............Le footer en bas de chaque page
+* CH_5: $COMPOSENTS........Les différents composents qui seront réutilisés
+* CH_6: $BANNIERE..........La banniere sur la page d'accueil
+* CH_7: $PANEL.............Listes d'élément. Présentés dans un cadre.
+* CH_8: $SEANCE............Style d'une élément dans le cahier de texte.
+*/
+
+
+/* ------------------------------------ *\
+    CH_0: $BASIC
+\* ------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Pour toujours avoir le footer en bas de page */
+/* A remplacer par un grid un jour */
+.page-conteneur {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+/* permet de s'assurer que c'est le contenu et pas le header/footer qui
+prenne la place dans le flexbox */
+.contenu {
+  flex: 5 0 auto;
+}
+
+.contenu {
+  width: 70%;
+  margin: auto;
+  margin-top: 4em;
+}
+
+.corps-texte {
+  margin-top: 1em;
+  text-align: justify;
+}
+
+.corps-texte-list {
+  list-style: square;
+  margin: 1em 20%;
+}
+
+
+
+
+/* ------------------------------------ *\
+    CH_1: $TYPOGRAPHIE
+\* ------------------------------------ */
+
+/**
+* L'idée a priori est d'avoir deux polices, une pour les titres,
+* et l'autre pour les corps de texte.
+* Puis la gestion des tailles de polices en dessous.
+*/
+
+/**
+* Basic
+*/
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.corps-texte {
+  line-height: 1.5;
+}
+
+/**
+* Header
+*/
+
+.logo-texte-entete {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.8em;
+  text-transform: capitalize;
+  font-variant: small-caps;
+}
+
+.nav-principal-lien {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+/**
+* La banniere
+*/
+
+.banner-accueil-citation {
+  font-style: italic;
+}
+
+.banner-accueil-citation::after, .banner-accueil-citation::before {
+  font-size: 1.5em;
+}
+
+.banner-accueil-citation-auteur {
+  font-size: 0.9em;
+}
+
+/**
+* Panel
+*/
+
+.panel-header-title {
+  font-size: 1em;
+}
+
+/**
+* seance
+*/
+
+/*Le h1 des seances*/
+.seance-titre {
+  font-size: 1.2em;
+}
+
+.seance h2 {
+  font-size: 1.1em;
+}
+
+/* ------------------------------------ *\
+    CH_2: $COULEURS
+\* ------------------------------------ */
+
+/**
+* Inspiré par google material color
+* Couleur principale: teal 600 #00897b
+* Couleur principale plus foncée: teal #00675B
+* Couleur pour accentué: deap orange 500 #FF5722
+* Couleur légére: teal 50 #E0F2F1
+* Couleur plus foncée pour encadré teal 50 #AEBFBE
+*/
+
+/**
+* Basic
+*/
+
+p,
+li,
+h1,
+h2 {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.corps-texte-lien {
+  color: #FF5722;
+}
+
+/**
+* Header
+*/
+
+.entete-principal {
+  background: #00897B;
+}
+
+.logo-texte-entete {
+  color: #FFF;
+}
+
+.nav-principal-list:hover {
+  background: #00675B;
+  transition: all 1s ease;
+}
+
+.nav-principal-list--actuelle:hover {
+  background: inherit;
+}
+
+.nav-principal-list--actuelle {
+  border-bottom: 4px solid #FF5722;
+}
+
+.nav-principal-lien {
+  color: #FFF;
+}
+
+/**
+* Le footer
+*/
+
+.footer-principal {
+  background-color: #1D1F20;
+}
+
+.footer-principal-lien {
+  color: rgba(250,250,250,0.87);
+}
+
+.footer-principal-lien:hover {
+  color: #FFF;
+}
+
+/**
+* La banniere
+*/
+
+.banner-accueil {
+  background-color: #E0F2F1;
+}
+
+.banner-accueil-titre {
+  color: rgba(0,0,0,0.8);
+}
+
+.banner-accueil-citation {
+  color: rgba(0,0,0,0.75);
+}
+
+.banner-accueil-citation-auteur {
+  color: rgba(0,0,0,0.7);
+}
+
+/**
+* Panel
+*/
+
+.panel {
+  background-color: rgb(253,253,253);
+}
+
+
+
+.panel-header,
+.panel-element {
+  border-color: #AEBFBE;
+}
+
+.panel-header {
+  background: #E0F2F1;
+}
+
+.panel a {
+  color: #FF5722;
+}
+
+/*
+* Seance
+*/
+
+.seance-afaire {
+  background-color: #E0F2F1;
+  border-color: #00897B;
+}
+
+.seance-du {
+  background-color: #fbe9e7;
+  border-color: #FF5722;
+}
+
+.seance-header {
+  border-color: #AEBFBE;
+}
+
+
+/* ------------------------------------ *\
+    CH_3: $HEADER
+\* ------------------------------------ */
+
+
+.entete-principal {
+  display: flex;
+  /*Permet d'aggrandir l'entete qd on reduit la largeur de la page*/
+  height: auto;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  min-height: 4em;
+  width: 100%;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
+  -ms-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
+  -o-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
+}
+
+.logo-entete {
+  align-items: center;
+  display: flex;
+  margin-left: 2em;
+  text-align: center;
+}
+
+/* Permet de ne pas changer le curseur au survol */
+.logo-entete:hover {
+  cursor: default;
+}
+
+/* Rotation du logo */
+.logo-image-entete {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  transition: 0.50s;
+  -webkit-transition: 0.50s;
+  -moz-transition: 0.50s;
+  -ms-transition: 0.50s;
+  -o-transition: 0.50s;
+}
+
+/* Rotation du logo */
+.logo-image-entete:hover {
+  transition: 0.50s;
+  -webkit-transition: 0.50s;
+  -moz-transition: 0.50s;
+  -ms-transition: 0.50s;
+  -o-transition: 0.50s;
+  -webkit-transform: rotate(720deg);
+  -moz-transform: rotate(720deg);
+  -o-transform: rotate(720deg);
+  -ms-transform: rotate(720deg);
+  transform: rotate(720deg);
+}
+
+.nav-principal {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-principal-list {
+  list-style-type: none;
+  /*padding: 1.2em;*/
+  /*padding-top: 2.5em;*/
+}
+
+.nav-principal-lien {
+  display: block;
+  height: 100%;
+  padding: 1.2em;
+  padding-top: 2em;
+}
+
+
+
+/* ------------------------------------ *\
+    CH_4: $FOOTER
+\* ------------------------------------ */
+
+.footer-principal {
+  flex: 1 0 auto;
+  min-height: 6em;
+  margin-top: 3em;
+  padding: 2em 0 0 2em;
+  /*text-align: center;*/
+  width: 100%;
+}
+
+/* ------------------------------------ *\
+    CH_5: $COMPOSENTS
+\* ------------------------------------ */
+/**
+*Les icones
+*/
+
+/* Léger "hack" pour aligner les icones avec le texte */
+.material-icons {
+  position: relative;
+  top: 0.125em;
+}
+
+/* Pour changer la taille des icones material design */
+.material-icons.md-1 {
+  font-size: 1em;
+}
+
+/* ------------------------------------ *\
+    CH_6: $BANNIERE
+\* ------------------------------------ */
+
+.banner-accueil {
+  margin-top: 5em;
+  padding: 3em;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.banner-accueil-citation {
+  margin-top: 2em;
+  text-align: right;
+}
+
+.banner-accueil-citation::after {
+  content: "\201D";
+}
+
+/*Permet d'ajouter le symbole " (citation à gauche avant la citation)*/
+.banner-accueil-citation::before {
+  content: "\201C";
+}
+
+.banner-accueil-citation-auteur {
+  text-align: right;
+}
+
+
+/* ------------------------------------ *\
+    CH_7: $PANEL
+\* ------------------------------------ */
+
+.panel {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+  -ms-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+  -o-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+  margin-top: 1.5em;
+}
+
+.panel:first-child {
+  margin-top: 0;
+}
+
+.panel:hover {
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.26);
+  -ms-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.26);
+  -o-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.26);
+  -webkit-transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -o-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  transform: scale(1.01);
+}
+
+.panel-header,
+.panel-element {
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.6em;
+}
+
+.panel-element {
+  border-top-style: none;
+}
+
+.panel-element:last-child {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.panel-header {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.panel-intitule {
+  text-decoration: underline;
+}
+
+.panel-list {
+  margin-left: 2em;
+  list-style-type: none;
+}
+
+.panel-list li::before {
+  content: "- ";
+}
+
+
+/* ------------------------------------ *\
+    CH_8: $SEANCE
+\* ------------------------------------ */
+
+.seance {
+  margin-bottom: 2em;
+}
+
+.seance h2 {
+}
+
+.seance-header {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.seance-afaire,
+.seance-du,
+.seance-contenu {
+  margin-left: 1em;
+}
+
+.seance-contenu {
+  margin-bottom: 1em;
+}
+.seance-afaire,
+.seance-du {
+  border-left-style: solid;
+  border-left-width: 4px;
+  padding-left: 1em;
+}
