@@ -31,8 +31,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 /* permet de s'assurer que c'est le contenu et pas le header/footer qui
@@ -287,13 +286,13 @@ h2 {
 
 
 .entete-principal {
+  flex-wrap: wrap;
   display: flex;
   /*Permet d'aggrandir l'entete qd on reduit la largeur de la page*/
   height: auto;
-  /*flex: 0 0 auto;*/
   justify-content: space-between;
   min-height: 4em;
-  width: 100vw;
+  width: 100%;
   -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
   -ms-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
@@ -370,7 +369,7 @@ h2 {
   margin-top: 3em;
   padding: 2em 0 0 2em;
   /*text-align: center;*/
-  width: 100vw;
+  width: 100%;
 }
 
 /* ------------------------------------ *\
@@ -404,7 +403,7 @@ h2 {
   -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  width: 100vw;
+  width: 100%;
 }
 
 .banner-accueil-citation {
