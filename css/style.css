@@ -114,10 +114,12 @@ h1 {
 
 .banner-accueil-citation {
   font-style: italic;
+  line-height: 1.5em;
 }
 
 .banner-accueil-citation::after, .banner-accueil-citation::before {
   font-size: 1.5em;
+  /*line-height: 190%;*/
 }
 
 .banner-accueil-citation-auteur {
