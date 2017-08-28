@@ -41,7 +41,7 @@ prenne la place dans le flexbox */
 }
 
 .contenu {
-  width: 70%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4em;
@@ -291,7 +291,7 @@ h2 {
   /*Permet d'aggrandir l'entete qd on reduit la largeur de la page*/
   height: auto;
   justify-content: space-between;
-  min-height: 4em;
+  min-height: 5em;
   width: 100%;
   -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
@@ -352,8 +352,10 @@ h2 {
 .nav-principal-lien {
   display: block;
   height: 100%;
-  padding: 1.2em;
+  /*padding: 1.2em;*/
+  padding: 0.8em;
   padding-top: 2em;
+  text-align: center;
 }
 
 
