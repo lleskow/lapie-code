@@ -340,10 +340,12 @@ h2 {
 
 .nav-principal {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
 }
 
 .nav-principal-list {
+  flex-shrink: 1.2;
   list-style-type: none;
   /*padding: 1.2em;*/
   /*padding-top: 2.5em;*/
@@ -351,6 +353,7 @@ h2 {
 
 .nav-principal-lien {
   display: block;
+  flex-shrink: 1.2;
   height: 100%;
   /*padding: 1.2em;*/
   padding: 0.8em;
