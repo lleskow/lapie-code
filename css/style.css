@@ -345,22 +345,17 @@ h2 {
 }
 
 .nav-principal-list {
-  flex-shrink: 1.2;
   list-style-type: none;
-  /*padding: 1.2em;*/
-  /*padding-top: 2.5em;*/
-}
-
-.nav-principal-lien {
-  display: block;
-  flex-shrink: 1.2;
-  height: 100%;
-  /*padding: 1.2em;*/
   padding: 0.8em;
   padding-top: 2em;
   text-align: center;
 }
 
+.nav-principal-lien {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 
 
 /* ------------------------------------ *\
