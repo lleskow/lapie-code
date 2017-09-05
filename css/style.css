@@ -119,7 +119,6 @@ h1 {
 
 .banner-accueil-citation::after, .banner-accueil-citation::before {
   font-size: 1.5em;
-  /*line-height: 190%;*/
 }
 
 .banner-accueil-citation-auteur {
@@ -444,7 +443,8 @@ h2 {
   margin-top: 0;
 }
 
-.panel:hover {
+/* Enlevé car un peu moche, code conservé en cas de remords. */
+/*.panel:hover {
   -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.26);
   -ms-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.26);
@@ -455,7 +455,7 @@ h2 {
   -o-transform: scale(1.01);
   -ms-transform: scale(1.01);
   transform: scale(1.01);
-}
+}*/
 
 .panel-header,
 .panel-element {
