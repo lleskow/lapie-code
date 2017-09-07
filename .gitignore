@@ -1,0 +1,6 @@
+# Reveal.js and bundler
+
+Gemfile
+Gemfile.lock
+.bundle/
+
