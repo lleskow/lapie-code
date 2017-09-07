@@ -1,13 +1,13 @@
 :backend: revealjs
 :revealjs_theme: moon
 
-= Langage et programmation
+= Langages et programmation
 :source-highlighter: pygments
 
 == Qu'est ce qu'un programme ?
 
 [%step]
-* Un programme est un texte qui décrit un ensemble d'instruction que l'on souhaite
+* Un programme est un texte qui décrit un ensemble d'instructions que l'on souhaite
 faire executer par une machine.
 
 * A la différence d'un algorithme, il est écrit
