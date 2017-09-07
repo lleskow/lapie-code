@@ -1,0 +1,12 @@
+:backend: revealjs
+:revealjs_theme: moon
+
+= Langage et programmation
+:source-highlighter: pygments
+
+== Hello
+
+[source,python]
+----
+print("hello world")
+----
