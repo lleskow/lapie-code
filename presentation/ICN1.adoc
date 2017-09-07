@@ -4,9 +4,59 @@
 = Langage et programmation
 :source-highlighter: pygments
 
-== Hello
+== Qu'est ce qu'un programme ?
 
-[source,python]
-----
-print("hello world")
-----
+[%step]
+* Un programme est un texte qui décrit un ensemble d'instruction que l'on souhaite
+faire executer par une machine.
+
+* A la différence d'un algorithme, il est écrit
+dans un langage de programmation.
+
+== Qu'est ce qu'un langage de programmation ?
+
+[%step]
+* C'est un langage "facilement" compréhensible par un
+être humain et qui peut être "traduit" dans le
+langage machine.
+
+* Le langage machine est une suite de 0 et de 1 incompréhensible pour un humain.
+
+* Il faut donc apprendre la syntaxe et le vocabulaire du langage.
+
+== Des exemples de langage de programmation:
+
+* Le langage C
+* Javascript
+* Scratch
+* TI-basic
+* Algobox
+* Python
+* et des milliers d'autres..
+
+== Notre environnement de travail
+
+Nous utiliserons en ICN cette année le langage Python. +
+Pour faire du Python, il suffit de:
+
+[%step]
+
+* Taper des instructions dans un fichier (dont le nom termine par .py).
+* Donner ce fichier à un interpréteur qui traduira nos instructions pour que la
+machine les exécute.
+* Nous verrons deux façons de faire cela: avec un interpréteur en ligne et avec
+un interpréteur installé directement sur l'ordinateur.
+
+== En pratique:
+
+* Vous avez besoin d'une adresse mail (dont vous vous rappelez du mot de passe),
+* et de créer un compte http://dropbox.com/ pour pouvoir échanger/sauvegarder des fichiers.
+* Vous pouvez accéder au dossier dropbox de l'ICN via:
+https://tinyurl.com/icnlapie2017
+* Il faudra ensuite télécharger le dossier de la séance, dans sous dossier ICN du dossier Documents and settings.
+* La suite des explications est dans le fichier trinket.html
+
+== !
+
+Une fois le compte trinket créé et organisé, la suite se trouve dans le
+fichier TP1.html
