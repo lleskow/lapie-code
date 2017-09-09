@@ -12,6 +12,7 @@
 * CH_6: $BANNIERE..........La banniere sur la page d'accueil
 * CH_7: $PANEL.............Listes d'élément. Présentés dans un cadre.
 * CH_8: $SEANCE............Style d'une élément dans le cahier de texte.
+* CH_9: $SPLIT.............Page de séparation entre l'isn et l'icn
 */
 
 
@@ -148,6 +149,16 @@ h1 {
   font-size: 1.1em;
 }
 
+/**
+* Le split
+*/
+
+.col h1 {
+  font-size: 5.5em;
+  letter-spacing: 0.05em;
+  font-family: 'Montserrat', cursive;
+}
+
 /* ------------------------------------ *\
     CH_2: $COULEURS
 \* ------------------------------------ */
@@ -282,6 +293,21 @@ h2 {
   border-color: #AEBFBE;
 }
 
+/**
+* Le split
+*/
+
+.col-isn {
+  background-color: #00897B;
+}
+
+.col-icn {
+  background-color: #FF5722;
+}
+
+.col h1 {
+  color: rgb(240,240,240);
+}
 
 /* ------------------------------------ *\
     CH_3: $HEADER
@@ -525,4 +551,70 @@ h2 {
   border-left-width: 4px;
   padding-left: 1em;
   padding-bottom: 0.4em;
+}
+
+/* ------------------------------------ *\
+    CH_9: $SPLIT
+\* ------------------------------------ */
+
+.split {
+  display: flex;
+}
+
+.col {
+  display: flex;
+  height: 100vh;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 800px) {
+  .col {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .split {
+    flex-direction: column;
+  }
+}
+
+.col h1 {
+  text-align: center;
+}
+
+.col-icn:hover {
+  box-shadow: -1px 0 15px 27px rgba(0, 0, 0, 0.26);
+}
+
+.col-isn:hover {
+  box-shadow: 6px 0 15px 20px rgba(0, 0, 0, 0.26);
+}
+
+
+.col-isn {
+  float: left;
+}
+
+.col-icn {
+  float: right;
+}
+/* Hack dès le début, pour l'ombre à gauche */
+.col-isn:hover {
+  position: relative;
+}
+
+/* Hack dès le début, pour l'ombre à gauche */
+/* C'est mal, bouuuh ! */
+.col-isn:after:hover {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20px black;
+  z-index: -1;
 }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Le charset est à garder en haut de page pour être tout de suite "parsé" -->
+  <title>Lapie Code - Accueil</title>
+
+  <!-- gestion des favicons à l'aide du site suivant (finaliser/tester) -->
+  <!-- https://realfavicongenerator.net/ -->
+  <!-- Il faut en particulier vérifier les / devant favicon, probleme juste en local ?-->
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#b2dfdb">
+  <meta name="apple-mobile-web-app-title" content="Lapie Code">
+  <meta name="application-name" content="Lapie Code">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Fear the robots -->
+  <meta name="robots" content="none" />
+
+  <!-- Permet d'adapter le site aux portables et tablette -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <!-- Emplacement pour les polices de caractére  -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CMontserrat:400,700%7CRoboto:400,500,700" rel="stylesheet">
+  <!-- Permet d'utiliser les icones de google material -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Pour le moment une unique feuille de style semble suffisante -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <!-- Pour inverser les couleurs en ICN -->
+  <link rel="stylesheet" type="text/css" href="../css/icncolor.css">
+</head>
+
+<body>
+  <!-- Sert à pouvoir faire un flexbox sur la page et fixer le footer -->
+  <!-- A remplacer par un grid un jour surement -->
+  <div class="page-conteneur">
+
+    <!-- L'entete commune, avec un logo à gauche et une bar de navigation à droite. -->
+    <!-- Le tout est fait à grand coup de flexbox (flexbox inception) -->
+    <!-- Le tout est à rendre "responsive". -->
+    <header class="entete-principal">
+
+      <!-- Le logo  -->
+      <a href="index.html" class="logo-entete">
+        <p class="logo-texte-entete">lapie</p>
+        <img src="../images/logo-entete.png" alt="Le logo Lapie Code" class="logo-image-entete">
+        <p class="logo-texte-entete">code</p>
+      </a>
+
+      <nav class="nav-principal">
+        <ul class="nav-principal">
+          <li class="nav-principal-list nav-principal-list--actuelle">
+            <a href="index.html" class="nav-principal-lien">Accueil</a>
+          </li>
+          <li class="nav-principal-list">
+            <a href="cours.html" class="nav-principal-lien">Cours</a>
+          </li>
+          <li class="nav-principal-list">
+            <a href="cahier_texte.html" class="nav-principal-lien">Cahier de texte</a>
+          </li>
+          <li class="nav-principal-list">
+            <a href="organisation.html" class="nav-principal-lien">Organisation de l'année</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Fin du header -->
+
+    <div class="banner-accueil">
+      <h1 class="banner-accueil-titre">Informatique et Création Numérique au lycée Paul Lapie.</h1>
+
+      <blockquote>
+        <p class="banner-accueil-citation">
+          Computer science is no more about computers than astronomy is about telescopes, biology is about microscopes or chemistry is about beakers and test tubes.
+        </p>
+        <footer>
+          <p class="banner-accueil-citation-auteur">
+            Michael R. Fellows, Ian Parberry.
+          </p>
+        </footer>
+      </blockquote>
+    </div>
+    <!-- Fin de la banniere d'accueil -->
+
+    <section class="contenu">
+      <article>
+        <p class="corps-texte">
+          Site support du cours d'Informatique et Création Numérique de L. Leskow au lycée Paul Lapie à Courbevoie. <br>
+          L' I.C.N. est un enseignement d'exploration proposé aux élèves de seconde depuis la rentrée 2016-2017.
+          Cet enseignement propose une introduction à la science informatique, à la travers la découverte de
+          la programmation en Python, l'algorithmique, et des langages du langages du web.
+        </p>
+        <p class="corps-texte">
+          Cet enseignement sera aussi l'occasion de s'interroger sur les enjeux sociétaux et les usages de l'informatique.
+        </p>
+
+        <p class="corps-texte">
+          Ce site est avant tout destiné aux élèves,
+          qui y trouveront les supports de cours, le cahier de texte ainsi que les détails
+          sur:
+        </p>
+
+        <ul class="corps-texte-list">
+            <li>l'organisation globale de l'année</li>
+            <li>les projets</li>
+            <li>l'utilisation de machines virtuelles</li>
+        </ul>
+
+      </article>
+    </section>
+    <!-- Fin de la section  -->
+
+    <footer class="footer-principal">
+      <a href="mentions_legales.html" class="footer-principal-lien">L. Leskow - 2017 - Mentions légales</a>
+    </footer>
+    <!-- Fin du footer  -->
+
+  </div>
+  <!-- Fin du conteneur de la page -->
+</body>
+
+</html>
