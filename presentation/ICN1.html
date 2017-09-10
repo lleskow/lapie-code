@@ -78,10 +78,10 @@ Pour faire du Python, il suffit de:</p></div>
 <div class="ulist"><ul><li class="fragment"><p>Taper des instructions dans un fichier (dont le nom termine par .py).</p></li><li class="fragment"><p>Donner ce fichier à un interpréteur qui traduira nos instructions pour que la
 machine les exécute.</p></li><li class="fragment"><p>Nous verrons deux façons de faire cela: avec un interpréteur en ligne et avec
 un interpréteur installé directement sur l&#8217;ordinateur.</p></li></ul></div></section>
-<section id="_en_pratique"><h2>En pratique:</h2><div class="ulist"><ul><li><p>Vous avez besoin d&#8217;une adresse mail (dont vous vous rappelez du mot de passe),</p></li><li><p>et de créer un compte <a href="http://dropbox.com/" class="bare">http://dropbox.com/</a> pour pouvoir échanger/sauvegarder des fichiers.</p></li><li><p>Vous pouvez accéder au dossier dropbox de l&#8217;ICN via:
-<a href="https://tinyurl.com/icnlapie2017" class="bare">https://tinyurl.com/icnlapie2017</a></p></li><li><p>Il faudra ensuite télécharger le dossier de la séance, dans sous dossier ICN du dossier Documents and settings.</p></li><li><p>La suite des explications est dans le fichier trinket.html</p></li></ul></div></section>
-<section><div class="paragraph"><p>Une fois le compte trinket créé et organisé, la suite se trouve dans le
-fichier TP1.html</p></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<section id="_en_pratique"><h2>En pratique:</h2><div class="ulist"><ul><li><p>Rendez vous le site <a href="http://lapiecode.info/" class="bare">http://lapiecode.info/</a> , cette adresse est à retenir. Vous
+ne la trouverez pas dans les moteurs de recherche.</p></li><li><p>Sur le site lapiecode rejoignez la version ICN puis la partie cours, vous
+trouverez les informations sur le TP d&#8217;aujourd&#8217;hui.</p></li><li><p>Une fois le compte trinket créé et organisé, la suite se trouve dans le
+fichier TP1.html</p></li></ul></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,
@@ -146,15 +146,17 @@ Reveal.initialize({
   margin: 0.1,
 
   // Bounds for smallest/largest possible scale to apply to content
-  minScale: 0.2,
-  maxScale: 1.5,
+  // minScale: 0.2,
+  minScale: 1,
+  // maxScale: 1.5,
+  maxScale: 1,
 
   // Optional libraries used to extend on reveal.js
   dependencies: [
       { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
       { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
       { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      
+
       { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
       { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
   ]

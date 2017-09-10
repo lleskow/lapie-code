@@ -49,14 +49,9 @@ un interpréteur installé directement sur l'ordinateur.
 
 == En pratique:
 
-* Vous avez besoin d'une adresse mail (dont vous vous rappelez du mot de passe),
-* et de créer un compte http://dropbox.com/ pour pouvoir échanger/sauvegarder des fichiers.
-* Vous pouvez accéder au dossier dropbox de l'ICN via:
-https://tinyurl.com/icnlapie2017
-* Il faudra ensuite télécharger le dossier de la séance, dans sous dossier ICN du dossier Documents and settings.
-* La suite des explications est dans le fichier trinket.html
-
-== !
-
-Une fois le compte trinket créé et organisé, la suite se trouve dans le
+* Rendez vous le site http://lapiecode.info/ , cette adresse est à retenir. Vous
+ne la trouverez pas dans les moteurs de recherche.
+* Sur le site lapiecode rejoignez la version ICN puis la partie cours, vous 
+trouverez les informations sur le TP d'aujourd'hui.
+* Une fois le compte trinket créé et organisé, la suite se trouve dans le
 fichier TP1.html
