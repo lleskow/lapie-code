@@ -503,6 +503,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_exercice_3_dessiner_par_soi_même_bis">Exercice 3: Dessiner par soi même(bis).</a></li>
 <li><a href="#_exercice_4_premières_fonctions">Exercice 4: Premières fonctions.</a></li>
 <li><a href="#_exercice_5_un_peu_de_couleur">Exercice 5: Un peu de couleur.</a></li>
+<li><a href="#_exercice_6_première_boucle">Exercice 6: Première boucle.</a></li>
+<li><a href="#_exercice_7_plus_sur_les_boucles">Exercice 7: Plus sur les boucles.</a></li>
+<li><a href="#_exercice_8_tracer_des_polygones">Exercice 8: Tracer des polygones.</a></li>
 <li><a href="#_annexe_les_principales_commandes_du_module_turtle">Annexe: les principales commandes du module turtle</a>
 <ul class="sectlevel2">
 <li><a href="#_forme_de_la_tortue">Forme de la tortue</a></li>
@@ -695,6 +698,109 @@ D&#8217;autres couleurs existent par défaut comme green, blue, yellow..</p>
 <div class="imageblock">
 <div class="content">
 <img src="tp_langages01_6.svg" alt="maison">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_6_première_boucle">Exercice 6: Première boucle.</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nous allons maintenant chercher à reproduire le dessin de la figure  ci-dessous:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="tp_langages01_2.png" alt="carrés">
+</div>
+</div>
+<div class="paragraph">
+<p>À l’aide de la fonction carre le script n’est pas difficile à réaliser mais
+peut s’avérer fastidieux à écrire.
+Pour en faciliter l’écriture nous allons introduire la notion d’énumération.
+Si <em>enumobject</em> désigne un objet Python énumérable, le script :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-n">enumobject</span><span class="tok-p">:</span>
+  <span class="tok-n">bloc</span> <span class="tok-o">...........................</span>
+  <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">.................</span>
+  <span class="tok-n">a</span> <span class="tok-n">realiser</span> <span class="tok-o">.....................</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>va successivement attribuer à la variable <em>x</em> chacun des éléments de cette
+énumération et pour chacun d’eux exécuter le bloc d’instructions.
+C’est un concept important en Python, et de nombreux objets sont énumérables
+(de manière intuitive le plus souvent).
+Nous en découvrirons un certain nombre au cours de l’année, mais pour l’instant,
+un seul nous sera utile durant cette séance : si a, b et c sont trois entiers,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>range(a)</code> énumère tous les entiers compris entre 0 (au sens large) et a
+(au sens strict), autrement dit les entiers 0, 1, 2, . . . a − 1 ;</p>
+</li>
+<li>
+<p><code>range(a, b)</code> énumère tous les entiers compris entre a (au sens large) et
+b (au sens strict), autrement dit les entiers a, a + 1, a + 2, . . . b − 1 ;</p>
+</li>
+<li>
+<p><code>range(a, b, c)</code> énumère tous les entiers compris entre a (au sens large) et
+b (au sens strict) avec un pas de c.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>À l’aide d’une énumération, reproduire le dessin de la figure de cet exercice.
+N&#8217;oubliez pas de copier/coller le code de la fonction carré de l&#8217;exercice précédent.
+(Nous ne verrons que plus tard comment appeler une fonction se trouvant dans
+un autre fichier.)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_7_plus_sur_les_boucles">Exercice 7: Plus sur les boucles.</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Augmenter la vitesse de la tortue jusqu’à sa vitesse maximale avec l&#8217;instruction
+<code>speed(0)</code> car le dessin qui va suivre va être un peu long à tracer.</p>
+</div>
+<div class="paragraph">
+<p>À l’aide d’une énumération, faire avancer la tortue de 1,
+puis de 2, 3, 4, . . ., 500 pas en tournant d’un angle
+de 91 degrés entre chaque déplacement.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_8_tracer_des_polygones">Exercice 8: Tracer des polygones.</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Définir une fonction <code>triangle(longueur)</code> permettant de tracer un triangle équilatéral de côté <em>longueur</em>.<br></p>
+</li>
+<li>
+<p>Si ce n&#8217;est pas déjà fait, utilisez une énumération pour raccourcir votre fonction triangle.</p>
+</li>
+<li>
+<p>Tester cette fonction.</p>
+</li>
+<li>
+<p>Tracer un triangle équilatéral, un carré, un pentagone ou un hexagone réguliers ne sont pas des tâches
+fondamentalement différentes.
+Définir une fonction <code>polygone(n, longueur)</code> qui trace un polygone régulier à
+<em>n</em> côtés, chacun de côté <em>longueur</em>,</p>
+</li>
+<li>
+<p>Reproduire à l’aide de cette fonction la figure ci-dessous:</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="tp_langages01_3.png" alt="polygones">
 </div>
 </div>
 </div>
