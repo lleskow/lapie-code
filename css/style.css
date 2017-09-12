@@ -464,7 +464,7 @@ h2 {
   -ms-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
   -o-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
-  margin-top: 1.5em;
+  margin: 3.5em 0em;
 }
 
 .panel:first-child {
@@ -512,6 +512,10 @@ h2 {
 
 .panel-list {
   margin-left: 2em;
+  list-style-type: none;
+}
+
+.panel-list-file {
   list-style-type: none;
 }
 
