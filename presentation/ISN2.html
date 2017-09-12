@@ -168,6 +168,10 @@ sur des objets:</p></div>
 <span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">str</span><span class="tok-s1">&#39;&gt;</span></code></pre></div></div>
 <div class="paragraph"><p>Attention, une fois entre guillemet un nombre n&#8217;est plus du type int ou float
 mais devient une chaîne de caractère.</p></div></section>
+<section id="_conversion_de_type"><h2>Conversion de type</h2><div class="paragraph"><p>On peut parfois convertir un type en un autre à l&#8217;aide d&#8217;une fonction:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-s2">&quot;42&quot;</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">int</span><span class="tok-s1">&#39;&gt;</span></code></pre></div></div></section>
 <section id="_le_type_boolen"><h2>Le type booléen</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-bp">True</span><span class="tok-p">)</span>
 <span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">bool</span><span class="tok-s1">&#39;&gt;</span></code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>bool, pour booléen.</p></li><li class="fragment"><p>Ce type ne peut prendre que deux valeurs: True(vrai) et False(faux)</p></li></ul></div></section>
@@ -184,7 +188,60 @@ not, and et or qui sont définis par les tables suivantes :</p></div>
 <section><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">En python</th><th class="tableblock halign-left valign-top">Signification</th></tr></thead><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &lt; y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">inférieur strictement</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &lt;= y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">inférieur ou égal</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &gt; y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">supérieur strictement</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &gt;= y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">supérieur ou égal</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x == y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">égal</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x != y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">différent de</p></td></tr></tbody></table></section>
 <section><div class="paragraph"><p>On peut calculer sur les booléens:</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-p">(</span><span class="tok-mi">1</span> <span class="tok-o">+</span> <span class="tok-mi">1</span> <span class="tok-o">!=</span> <span class="tok-mi">3</span><span class="tok-p">)</span> <span class="tok-ow">and</span> <span class="tok-p">(</span><span class="tok-mi">2</span> <span class="tok-o">==</span> <span class="tok-mi">2</span><span class="tok-p">)</span>
-<span class="tok-bp">True</span></code></pre></div></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<span class="tok-bp">True</span></code></pre></div></div></section>
+<section id="_iv_structure_conditionnelle"><h2>IV. Structure conditionnelle.</h2></section>
+<section id="_structures_et_indentations"><h2>Structures et indentations.</h2><div class="ulist"><ul><li><p>Les impératifs de la programmation structurée nécessitent la définition de blocs d’instructions au sein des
+structures de contrôles (def, for, while, if, . . .).</p></li><li><p>Certains langages utilisent des délimiteurs (par exemple des {}), Python utilise l&#8217;indentation.</p></li><li><p>Le début d’un bloc d’instructions est défini par un double-point.</p></li><li><p>Le corps du bloc est alors indenté d’un nombre d’espaces fixes (quatre par défaut), et le
+retour à l’indentation de l’en-tête marque la fin du bloc.</p></li></ul></div></section>
+<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">en</span><span class="tok-err">−</span><span class="tok-n">t</span><span class="tok-err">ê</span><span class="tok-n">te</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span> <span class="tok-o">...........................</span>
+    <span class="tok-o">................................</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span><span class="tok-o">..................</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Il est possible d’imbriquer des blocs d’instructions les uns dans les autres :</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">en</span><span class="tok-err">−</span><span class="tok-n">t</span><span class="tok-err">ê</span><span class="tok-n">te</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span> <span class="tok-o">...........................</span>
+    <span class="tok-o">................................</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">.................</span>
+    <span class="tok-n">en</span><span class="tok-err">−</span><span class="tok-n">t</span><span class="tok-err">ê</span><span class="tok-n">te</span> <span class="tok-n">bis</span><span class="tok-p">:</span>
+        <span class="tok-n">bloc</span> <span class="tok-o">.......................</span>
+        <span class="tok-o">............................</span>
+        <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">.............</span>
+    <span class="tok-o">................................</span>
+    <span class="tok-o">................................</span></code></pre></div></div></section>
+<section id="_instructions_conditionnelles"><h2>Instructions conditionnelles</h2><div class="paragraph"><p>Les instructions conditionnelles se définissent à l’aide de l’instruction <code>if</code>
+et prennent la forme suivante :</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">if</span> <span class="tok-n">expression</span> <span class="tok-nb">bool</span><span class="tok-err">é</span><span class="tok-n">enne</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">1.</span><span class="tok-o">.</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">2.</span><span class="tok-o">.</span></code></pre></div></div>
+<div class="paragraph"><p>Le fonctionnement de cette instruction est le suivant : si l’expression booléenne
+de la première ligne s’évalue en 'True',
+le premier bloc d’instructions est exécuté, si elle s’évalue en 'False'
+c’est le second bloc qui est exécuté.</p></div></section>
+<section><div class="paragraph"><p>L’instruction 'else' est optionnelle si aucune instruction ne doit
+être réalisée dans le cas d’un test négatif.</p></div></section>
+<section id="_instructions_conditonnelles_multiples"><h2>Instructions conditonnelles multiples</h2><div class="paragraph"><p>En informatique il est fréquent qu’on ait à imbriquer plusieurs tests,
+aussi existe-t-il en python un mot clé <code>elif</code>
+(qui est la contraction de else if) et qui fonctionne suivant le schéma :</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">if</span> <span class="tok-n">expression</span> <span class="tok-n">booleenne</span> <span class="tok-mi">1</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">1.</span><span class="tok-o">.</span>
+<span class="tok-k">elif</span> <span class="tok-n">expression</span> <span class="tok-n">booleenne</span> <span class="tok-mi">2</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">2.</span><span class="tok-o">.</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">3.</span><span class="tok-o">.</span>
+<span class="tok-o">----</span></code></pre></div></div></section>
+<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-mi">2</span>
+<span class="tok-k">if</span> <span class="tok-n">a</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span> <span class="tok-p">:</span>
+     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;a est positif&quot;</span><span class="tok-p">)</span>
+<span class="tok-k">elif</span> <span class="tok-n">a</span> <span class="tok-o">&lt;</span> <span class="tok-mi">0</span> <span class="tok-p">:</span>
+     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;a est négatif&quot;</span><span class="tok-p">)</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;a est nul&quot;</span><span class="tok-p">)</span></code></pre></div></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,

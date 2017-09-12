@@ -366,3 +366,97 @@ On peut calculer sur les booléens:
 >>> (1 + 1 != 3) and (2 == 2)
 True
 ----
+
+== IV. Structure conditionnelle.
+
+== Structures et indentations.
+
+* Les impératifs de la programmation structurée nécessitent la définition de blocs d’instructions au sein des
+structures de contrôles (def, for, while, if, . . .).
+* Certains langages utilisent des délimiteurs (par exemple des {}), Python utilise l'indentation.
+* Le début d’un bloc d’instructions est défini par un double-point.
+* Le corps du bloc est alors indenté d’un nombre d’espaces fixes (quatre par défaut), et le
+retour à l’indentation de l’en-tête marque la fin du bloc.
+
+== !
+
+[source,python]
+----
+en−tête:
+    bloc ...........................
+    ................................
+    d instructions..................
+----
+
+== !
+
+Il est possible d’imbriquer des blocs d’instructions les uns dans les autres :
+
+[source,python]
+----
+en−tête:
+    bloc ...........................
+    ................................
+    d instructions .................
+    en−tête bis:
+        bloc .......................
+        ............................
+        d instructions .............
+    ................................
+    ................................
+----
+
+== Instructions conditionnelles
+
+Les instructions conditionnelles se définissent à l’aide de l’instruction `if`
+et prennent la forme suivante :
+
+[source,python]
+----
+if expression booléenne:
+    bloc..............
+    d instructions 1..
+else:
+    bloc..............
+    d instructions 2..
+----
+
+Le fonctionnement de cette instruction est le suivant : si l’expression booléenne
+de la première ligne s’évalue en 'True',
+le premier bloc d’instructions est exécuté, si elle s’évalue en 'False'
+c’est le second bloc qui est exécuté.
+
+== !
+
+L’instruction 'else' est optionnelle si aucune instruction ne doit
+être réalisée dans le cas d’un test négatif.
+
+== Instructions conditonnelles multiples
+
+En informatique il est fréquent qu’on ait à imbriquer plusieurs tests,
+aussi existe-t-il en python un mot clé `elif`
+(qui est la contraction de else if) et qui fonctionne suivant le schéma :
+
+[source,python]
+if expression booleenne 1:
+    bloc..............
+    d instructions 1..
+elif expression booleenne 2:
+    bloc..............
+    d instructions 2..
+else:
+    bloc..............
+    d instructions 3..
+----
+
+== !
+
+[source,python]
+----
+if a > 0 :
+     print("a est positif")
+elif a < 0 :
+     print("a est négatif")
+else:
+     print("a est nul")
+----
