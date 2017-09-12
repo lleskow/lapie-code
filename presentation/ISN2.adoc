@@ -1,0 +1,356 @@
+:backend: revealjs
+:revealjs_theme: moon
+
+= Chapitre I: Langages et programmation I
+:source-highlighter: pygments
+:pygments-style: monokai
+
+== I. Introduction
+
+== Qu'est ce qu'un programme ?
+
+[%step]
+* Un programme est un texte qui décrit un ensemble d'instructions que l'on souhaite
+faire exécuter par une machine.
+
+* A la différence d'un algorithme, il est écrit
+dans un langage de programmation.
+
+== Qu'est ce qu'un langage de programmation ?
+
+[%step]
+* Le langage machine est une suite de 0 et de 1 incompréhensible pour un humain.
+* Un langage de programmation est langage "facilement" compréhensible par un
+être humain et qui peut être "traduit" dans le
+langage machine.
+
+== Différentes façons de traduire:
+
+* Un programme peut être traduit une fois pour toute,
+et à chaque exécution, c'est la même traduction qui
+est utilisé. +
+On parle dans ce cas de *compilation*.
+* Ou il peut être traduit au fur et à mesure à
+chaque exécution.
+On parle dans ce cas *d'interprétation*.
+
+== Et dans le cas de Python ?
+
+C'est en général, l'interprétation qui est privilégié. On dit
+souvent par simplification que python
+est un langage interprété.
+
+
+== Des exemples de langage de programmation:
+
+* Le langage C
+* Javascript
+* Scratch
+* TI-basic
+* Algobox
+* Python
+* et des milliers d'autres..
+
+== L'interpréteur intéractif:
+
+* Avec Python, il est possible d’utiliser un interpréteur interactif.
+Qui permet d’entrer des instructions ou des expressions qui seront directement interprétées.
+* On peut accéder à un interpréteur interactif python sur: +
+https://trinket.io/console
+
+[%step]
+* Si on entre une expression dans l’interpréteur interactif, celle-ci est évaluée puis affichée.
+Ce n’est pas le cas d’un script python écrit dans un fichier, il faudra ajouter une instruction d’affichage.
+* L’interpréteur interactif permet d’écrire et d’exécuter du code Python à la volée, de faire des tests rapides, d’obtenir facilement des informations. Mais dans la grande majorité des cas, nous écrirons notre code dans un fichier.
+
+== !
+
+Par la suite les lignes de code entrées dans l'interpréteur interactif seront
+signalées de 3 chevrons `>>>` et suivies par leurs retours à la ligne suivante.
+
+[source,python]
+----
+>>> 3 + 5
+8
+----
+
+== II. La notion de variable.
+
+== !
+
+* Quand on exécute un programme, la machine
+nous attribue une plage de mémoire dans laquelle
+nous allons pouvoir ranger et stocker
+des données.
+
+[%step]
+* Cette plage de mémoire ne nous est prêter que pour la durée de l'exécution de notre programme,
+c'est une mémoire temporaire.
+* La mémoire se compose de cases possédant chacune
+une adresse.
+
+== !
+
+* Se référer à nos données à l'aide de leur adresse en mémoire serait beaucoup trop fastidieux. +
+D'où la notion de variable.
+
+== !
+
+* Pour stocker des données dans une variable
+il faut attribuer un nom à cette variable
+et lui associer une valeur à l’aide de
+l’opérateur d’affectation =
+
+* Le nom de la variable est une suite
+de lettres (minuscules ou majuscules,
+pas d'accents) et de chiffres, qui doit toujours commencer
+par une lettre, et qui ne contient pas de
+caractères spéciaux en dehors de l'underscore _
+
+== Un calcul d'aire:
+
+[source,python]
+----
+>>> largeur = 11
+>>> longueur = 32
+>>> aire = longueur * largeur
+>>> aire
+352
+----
+
+== Tableau de référencement
+|===
+| Nom | Adresse | valeur
+
+| largeur
+| 10914688
+| 11
+
+| longueur
+| 10915360
+| 32
+
+| aire
+| 140278290977904
+| 352
+|===
+
+
+== !
+En général les utilisateurs que nous sommes n’ont que faire de l’adresse mémoire où sont
+stockées les valeurs manipulées et celle-ci restera cachée,
+à moins d’utiliser la fonction id qui la renvoie :
+
+[source,python]
+----
+>>> id(largeur)
+10914688
+----
+
+== !
+
+Une fois définie, la valeur d’une variable peut être modifiée,
+toujours à l’aide de l’opérateur d’affectation.
+
+[source,python]
+----
+>>> largeur = 15
+>>> id(largeur)
+10914816
+>>> aire
+352
+----
+
+== !
+
+* Le calcul effectué pour l'aire utilise les valeurs des variables au moment où il a été exécuté
+et n’établit en aucune manière une liaison particulière entre les variables elles-mêmes.
+
+[%step]
+* Ce mécanisme permet de modifier le contenu d’une variable à l’aide de sa propre valeur,
+comme par exemple :
+
+== !
+
+[source,python]
+----
+>>> longueur = longueur + 1
+>>> longueur
+33
+----
+
+longueur = longueur + 1 peut aussi s'écrire
+
+[source,python]
+----
+>>> longueur += 1
+----
+
+== !
+
+* Il est important de bien distinguer le = en mathématiques et l'affectation
+notée = en Python.
+
+* Il est possible d'affecter plusieurs variables
+en simultanée, avec la syntaxe suivante:
+
+[source,python]
+----
+>>> largeur, longueur = 10, 42
+----
+
+== III. La notion de type.
+
+[%step]
+
+* Fondamental.
+* Chaque objet python en posséde un.
+* Caractérise la façon dont l'objet est stocké en mémoire.
+* Caractérise les opérations que l'on peut lui appliquer.
+
+== !
+
+[source,python]
+----
+>>> a = 5
+>>> type(a)
+<class 'int'>
+>>> type("Bonjour")
+<class 'str'>
+----
+
+[%step]
+
+* La fonction type permet de connaître le type d’un objet.
+* le type int (integer) représente les entiers.
+* le type str (string) pour les chaînes de caractères.
+
+== !
+
+Les types sont importants pour définir les opérations que l'on peut faire
+sur des objets:
+
+[source,python]
+----
+>>> 7 + "Bonjour"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+----
+
+== !
+
+Python possède également un type float, pour les nombres décimaux.
+
+[source,python]
+----
+>>> a, b = 4.25, 2.0
+>>> type(a)
+<class 'float'>
+>>> type(b)
+<class 'float'>
+>>> a + 3
+7.5
+----
+
+[%step]
+* On remarque que la "virgule" se note avec un point. (comme sur la calculatrice)
+* On peut additionner un _int_ avec un _float_
+
+== !
+
+[source,python]
+----
+>>> type("42")
+<class 'str'>
+----
+
+Attention, une fois entre guillemet un nombre n'est plus du type int ou float
+mais devient une chaîne de caractère.
+
+== Le type booléen
+
+[source,python]
+----
+>>> type(True)
+<class 'bool'>
+----
+
+[%step]
+* bool, pour booléen.
+* Ce type ne peut prendre que deux valeurs: True(vrai) et False(faux)
+
+== !
+À ce type sont associés trois opérateurs :
+not, and et or qui sont définis par les tables suivantes :
+
+|===
+| and | True | False
+| True
+| True
+| False
+
+| False
+| False
+| False
+|===
+
+== !
+
+|===
+| or | True | False
+| True
+| True
+| True
+
+| False
+| True
+| False
+|===
+
+== !
+
+Par ailleurs, un certain nombre d’opérateurs sont définis sur d’autres types
+(en particulier les types de nombres) et à valeurs dans le type _bool_.
+
+[source,python]
+----
+>>> 2 + 3 == 5
+True
+>>> 7 < 2
+False
+----
+
+== !
+
+|===
+| En python | Signification
+
+| x < y
+| inférieur strictement
+
+| x \<= y
+| inférieur ou égal
+
+| x > y
+| supérieur strictement
+
+| x >= y
+| supérieur ou égal
+
+| x == y
+| égal
+
+| x != y
+| différent de
+|===
+
+== !
+
+On peut calculer sur les booléens:
+
+[source,python]
+----
+>>> (1 + 1 != 3) and (2 == 2)
+True
+----
