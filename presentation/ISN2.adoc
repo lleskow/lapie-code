@@ -268,6 +268,18 @@ Python possède également un type float, pour les nombres décimaux.
 Attention, une fois entre guillemet un nombre n'est plus du type int ou float
 mais devient une chaîne de caractère.
 
+== Conversion de type
+
+On peut parfois convertir un type en un autre à l'aide d'une fonction:
+
+[source,python]
+----
+>>> a = int("42")
+>>> type(a)
+<class 'int'>
+----
+
+
 == Le type booléen
 
 [source,python]
