@@ -1,0 +1,98 @@
+:backend: revealjs
+:source-highlighter: pygments
+:pygments-style: monokai
+:linkattrs:
+:icons: font
+:stem: latexmath
+
+= Activité mentale: dérivation et exponentielle.
+
+== Question 1.
+
+Calculer f' pour:
+
+[stem]
+++++
+f(x) = e^{x} + \dfrac{x^2}{2} + \dfrac{1}{x}
+++++
+
+
+== Question 2.
+
+Résoudre l'équation suivante:
+
+[stem]
+++++
+e^{x^2} = e^{16}
+++++
+
+== Question 3.
+
+Résoudre l'inéquation suivante:
+
+[stem]
+++++
+e^{x} + 2 \geq 0
+++++
+
+== Question 4.
+
+Calculer f' pour:
+
+[stem]
+++++
+f(x) = \sqrt{x} e^{x}
+++++
+
+== Question 5.
+
+Simplifier l'expression suivante:
+
+[stem]
+++++
+\dfrac{e^{5} \times e^{-3}}{e^4}
+++++
+
+== Solution question 1.
+
+[stem]
+++++
+f(x) = e^{x} + \dfrac{x^2}{2} + \dfrac{1}{x} \\
+
+\forall x > 0, \; f'(x) = e^{x} + x - \dfrac{1}{x^2}
+++++
+
+
+== Solution question 2.
+
+[stem]
+++++
+e^{x^2} = e^{16} \Leftrightarrow x^2 = 16 \Leftrightarrow x = 4 \; ou \;x = -4
+++++
+
+
+== Solution question 3.
+
+L'exponentielle est positive pour tout les réels donc:
+[stem]
+++++
+S = \mathbb{R}
+++++
+
+
+== Solution question 4.
+
+[stem]
+++++
+f(x) = \sqrt{x} e^{x} \\
+\forall x > 0, \; f'(x) = \dfrac{e^{x}}{2\sqrt{x}} + \sqrt{x} e^{x}
+++++
+
+
+== Solution question 5.
+
+
+[stem]
+++++
+\dfrac{e^{5} \times e^{-3}}{e^{4}} = \dfrac{e^{2}}{e^{4}} = e^{-2}
+++++
