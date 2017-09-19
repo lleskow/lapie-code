@@ -1,0 +1,165 @@
+:backend: revealjs
+:revealjs_theme: moon
+
+= Chapitre I: Langages et programmation I
+:source-highlighter: pygments
+:pygments-style: tango
+
+== V. Structures itératives
+
+== !
+Une boucle permet de répéter des instructions. +
+Il y a deux cas possibles:
+
+[%step]
+* Le nombre de répétition est connu. +
+On parle de boucle énumérée.
+* Le nombre de répétition dépend de la réalisation ou non d’une certaine condition. +
+On parle de boucle conditionnelle.
+
+== 1. Boucles énumérées: `for`
+
+En algorithmique:
+
+[source,python]
+----
+Pour i variant de 0 a 10
+----
+
+== Le type `range`
+
+`range` donne une suite d'entier et peut prendre entre 1 et 3 arguments entiers :
+
+[%step]
+* `range(b)` commence par 0 et s'arrête juste avant `b` +
+`range(5)` correspond à [0, 1, 2, 3, 4]
+
+* `range(a,b)` commence par `a` et s'arrête juste avant `b` +
+`range(2,7)` correspond à [2, 3, 4, 5, 6]
+
+* `range(a,b,c)` commence par `a` et s'arrête juste avant `b` avec un pas de `c` +
+`range(1,10,2)` correspond à [1, 3, 5, 7, 9]
+
+
+== Boucles et range
+
+Syntaxe du for:
+
+[source,python]
+----
+for ... in range(...):
+    bloc..........................
+    ..............................
+    d instructions ...............
+----
+
+Immédiatement après le mot-clé `for` doit figurer le nom d’une variable,
+qui va prendre les différentes valeurs de l’énumération produite par l’instruction `range`.
+Pour chacune de ces valeurs, le bloc d’instructions qui suit sera exécuté.
+
+
+== Un premier exemple:
+
+[source,python]
+----
+for nbr in range(1,5):
+    print("Le carre de:", nbr, "est", nbr ** 2)
+----
+
+== Un premier exemple:
+
+[source,python]
+----
+for nbr in range(1,5):
+    print("Le carre de:", nbr, "est", nbr ** 2)
+----
+
+Va donner:
+
+[source,python]
+----
+Le carre de: 1 est 1
+Le carre de: 2 est 4
+Le carre de: 3 est 9
+Le carre de: 4 est 16
+----
+
+== Parcours d’une chaîne de caractères
+
+En Python, on peut faire des boucles sur les chaînes de caractères.
+[source,python]
+----
+for c in "Lapie !":
+  print("Je veux un:",c)
+print("Lapie !")
+----
+
+== !
+
+[source,python]
+----
+for c in "Lapie !":
+  print("Je veux un:",c)
+print("Lapie !")
+----
+
+Donne:
+
+[source,python]
+----
+Je veux un: L
+Je veux un: a
+Je veux un: p
+Je veux un: i
+Je veux un: e
+Je veux un:
+Je veux un: !
+Lapie !
+----
+
+== 2. Boucles conditionnelles: `While`
+
+En algorithmique, c'est la boucle `tant que`
+
+== Syntaxe du while
+
+[source,python]
+----
+while condition:
+    bloc..........................
+    ..............................
+    d instructions ...............
+----
+
+Tant qu’une certaine condition est réalisée, les instructions sont répétées.
+
+== Boucle infinie
+
+Attention il faut vérifier que notre boucle s'arrête !
+
+== !
+
+[source,python]
+----
+while 2 == 1 + 1:
+    print("on s'arrête ?")
+print("oui")
+----
+
+Le "oui" ne s'affichera jamais..
+
+== !
+
+[source,python]
+----
+n = 1
+while n < 10 ** 6:
+  n *= 2
+  print(n)
+----
+
+Que fait ce programme ?
+
+== !
+
+Il affiche les puissances de 2 inférieurs à un million.
