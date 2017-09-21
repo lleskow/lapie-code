@@ -84,7 +84,7 @@ nous allons pouvoir ranger et stocker
 des données.
 
 [%step]
-* Cette plage de mémoire ne nous est prêter que pour la durée de l'exécution de notre programme,
+* Cette plage de mémoire ne nous est prêté que pour la durée de l'exécution de notre programme,
 c'est une mémoire temporaire.
 * La mémoire se compose de cases possédant chacune
 une adresse.

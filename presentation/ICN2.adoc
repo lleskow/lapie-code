@@ -1,0 +1,364 @@
+:backend: revealjs
+:revealjs_theme: moon
+
+= Variables et types
+:source-highlighter: pygments
+:pygments-style: tango
+:stem: latexmath
+
+== L'interpréteur intéractif:
+
+* Avec Python, il est possible d’utiliser un interpréteur interactif.
+Qui permet d’entrer des instructions ou des expressions qui seront directement interprétées.
+* On peut accéder à un interpréteur interactif python sur: +
+https://trinket.io/console
+
+[%step]
+* Si on entre une expression dans l’interpréteur interactif, celle-ci est évaluée puis affichée.
+Ce n’est pas le cas d’un script python écrit dans un fichier, il faudra ajouter une instruction d’affichage.
+* L’interpréteur interactif permet d’écrire et d’exécuter du code Python à la volée, de faire des tests rapides, d’obtenir facilement des informations. Mais dans la grande majorité des cas, nous écrirons notre code dans un fichier.
+
+== !
+
+Par la suite les lignes de code entrées dans l'interpréteur interactif seront
+signalées de 3 chevrons `>>>` et suivies par leurs retours à la ligne suivante.
+
+[source,python]
+----
+>>> 3 + 5
+8
+----
+
+== !
+
+Les principales opérations sur les nombres en Python
+
+|===
+| x + y | somme de x et y
+
+| x - y
+| différence entre x et y
+
+| x * y
+| produit de x par y
+
+| x / y
+| quotient de x par y
+
+| x ** y
+| x puissance y
+
+| x // y
+| quotient de la division euclidienne de x par y
+
+| x % y
+| reste de la division euclidienne de x par y
+|===
+
+== !
+
+[source,python]
+----
+>>> 13 / 4
+4.333333333333333
+----
+
+== !
+[source,python]
+----
+>>> 13 // 4
+3
+----
+
+[source,python]
+----
+>>> 13 % 4
+1
+----
+
+[%step]
+
+* stem:[13 = 3 \times 4 + 1]
+
+
+== La notion de variable.
+
+== !
+
+* Quand on exécute un programme, la machine
+nous attribue une plage de mémoire dans laquelle
+nous allons pouvoir ranger et stocker
+des données.
+
+[%step]
+* Cette plage de mémoire ne nous est prêté que pour la durée de l'exécution de notre programme,
+c'est une mémoire temporaire.
+* La mémoire se compose de "cases" possédant chacune
+une adresse.
+
+== !
+
+Se référer à nos données à l'aide de leur adresse en mémoire serait beaucoup trop fastidieux. +
+D'où la notion de variable.
+
+== !
+
+* Pour stocker des données dans une variable
+il faut attribuer un nom à cette variable
+et lui associer une valeur à l’aide de
+l’opérateur d’affectation =
+
+* Le nom de la variable est une suite
+de lettres (minuscules ou majuscules,
+pas d'accents) et de chiffres, qui doit toujours commencer
+par une lettre, et qui ne contient pas de
+caractères spéciaux en dehors de l'underscore _
+
+== Un calcul d'aire:
+
+[source,python]
+----
+>>> largeur = 11
+>>> longueur = 32
+>>> aire = longueur * largeur
+>>> aire
+352
+----
+
+== !
+
+Une fois définie, la valeur d’une variable peut être modifiée,
+toujours à l’aide de l’opérateur d’affectation.
+
+[source,python]
+----
+>>> largeur = 15
+>>> aire
+352
+----
+
+[%step]
+
+* Le calcul effectué pour l'aire utilise les valeurs des variables au moment où il a été exécuté
+et n’établit en aucune manière une liaison particulière entre les variables elles-mêmes.
+
+== !
+
+Ce mécanisme permet de modifier le contenu d’une variable à l’aide de sa propre valeur,
+comme par exemple :
+
+[source,python]
+----
+>>> age = 12
+>>> age = age + 1
+>>> age
+13
+----
+
+age = age + 1 peut aussi s'écrire
+
+[source,python]
+----
+>>> age += 1
+>>> age
+14
+----
+
+== !
+
+* Il est important de bien distinguer le = en mathématiques et l'affectation
+notée = en Python.
+
+* Il est possible d'affecter plusieurs variables
+en simultanée, avec la syntaxe suivante:
+
+[source,python]
+----
+>>> largeur, longueur = 10, 42
+----
+
+== La notion de type.
+
+== !
+
+[%step]
+
+* Fondamental: caractérise la "nature" des objets.
+* Chaque objet python en posséde un.
+* Caractérise la façon dont l'objet est stocké en mémoire.
+* Caractérise les opérations que l'on peut lui appliquer.
+
+== !
+
+[source,python]
+----
+>>> a = 5
+>>> type(a)
+<class 'int'>
+>>> type("bonjour")
+<class 'str'>
+----
+
+[%step]
+
+* La fonction type permet de connaître le type d’un objet.
+* le type int (integer) représente les entiers.
+* le type str (string) pour les chaînes de caractères.
+* bonjour est une variable, "bonjour" une chaîne de caractères.
+
+== !
+
+Les types sont importants pour définir les opérations que l'on peut faire
+sur des objets:
+
+[source,python]
+----
+>>> 7 + "Bonjour"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+----
+
+== !
+
+Python possède également un type float, pour les nombres décimaux.
+
+[source,python]
+----
+>>> a, b = 4.25, 2.0
+>>> type(a)
+<class 'float'>
+>>> type(b)
+<class 'float'>
+>>> a + 3
+7.5
+----
+
+[%step]
+* On remarque que la "virgule" se note avec un point. (comme sur la calculatrice)
+* On peut additionner un _int_ avec un _float_
+
+== !
+
+[source,python]
+----
+>>> type("42")
+<class 'str'>
+----
+
+Attention, une fois entre guillemet un nombre n'est plus du type int ou float
+mais devient une chaîne de caractère.
+
+== Conversion de type
+
+On peut parfois convertir un type en un autre à l'aide d'une fonction:
+
+[source,python]
+----
+>>> a = int("42")
+>>> type(a)
+<class 'int'>
+----
+
+== Entrée/Sortie
+
+== La fonction `print`
+
+Elle permet d'afficher des messages et les valeurs des variables:
+
+[source,python]
+----
+print("Hello world !")
+----
+
+Ce programme affiche tout simplement `Hello world !`
+
+== !
+
+[source,python]
+----
+age = 12
+print(age)
+----
+
+Ce programme affiche 12.
+
+== !
+
+La fonction `print` peut prendre plusieurs arguments séparés par une virgule:
+
+[source,python]
+----
+age = 12
+print("J'ai",age,"ans.")
+----
+
+Va afficher: J'ai 12 ans.
+
+== !
+
+[%step]
+* Les caractères ne sont pas seulement des lettres mais aussi des chiffres ou
+des symboles comme @,.!#
+* Un espace et aussi un retour à la ligne sont des caractères. +
+Le retour à la ligne est noté `\n`
+
+
+== !
+
+[source,python]
+----
+>>> "Hello \n world!"
+Hello
+world!
+----
+
+
+== La fonction `input`
+
+Elle permet demander à l'utilisateur d'entrer une chaîne de caractères.
+
+== !
+
+Attention si l'on ne stocke pas le message de l'utilisateur dans une variable, il est perdu. +
+Cette fonction sera donc presque toujours associée à une affectation.
+
+[source,python]
+----
+message = input()
+print(message)
+----
+
+== !
+
+On peut aussi donner une chaîne de caractère en argument de la fonction `input`
+pour aider l'utilisateur à repondre.
+
+[source,python]
+----
+message = input("Ca va ?")
+print(message)
+----
+
+== !
+
+
+[source,python]
+----
+>>> age = input("Quel est votre âge ?")
+>>> type(age)
+<class 'str'>
+----
+
+Attention ! Ici l'âge sera une chaîne de caractère pas un nombre. +
+
+== !
+
+Si on veut manipuler la variable `age` comme un nombre:
+
+[source,python]
+----
+age = int(input("Quel est votre âge ?"))
+----
+
+Puisque la fonction `int` permet de faire la conversion.
