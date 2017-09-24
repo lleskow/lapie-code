@@ -497,7 +497,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#_la_fonction_code_print_code">La fonction <code>print</code></a></li>
 <li><a href="#_exercice_1_le_premier_programme">Exercice 1: "LE" premier programme.</a></li>
+<li><a href="#_la_fonction_code_input_code">La fonction <code>input</code></a></li>
+<li><a href="#_exercice_2_entrée_et_sortie">Exercice 2: Entrée et sortie</a></li>
+<li><a href="#_conversion_et_fonction_code_input_code">Conversion et fonction <code>input</code></a></li>
 <li><a href="#_exercice_2_i_o_les_bases">Exercice 2: i/o, les bases.</a></li>
 <li><a href="#_exercice_3_conversion">Exercice 3: Conversion.</a></li>
 <li><a href="#_exercice_4_puissance">Exercice 4: Puissance.</a></li>
@@ -508,18 +512,115 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
+<h2 id="_la_fonction_code_print_code">La fonction <code>print</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La fonction <code>print</code> permet d&#8217;afficher des messages et la valeur d&#8217;une variable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Bonjour tout le monde!&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ce programme affiche tout simplement <code>Bonjour tout le monde !</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Tester le par vous même.</strong></p>
+</div>
+<div class="paragraph">
+<p>La fonction <code>print</code> peut prendre plusieurs arguments séparés par une virgule:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">age</span> <span class="tok-o">=</span> <span class="tok-mi">12</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;J&#39;ai&quot;</span><span class="tok-p">,</span><span class="tok-n">age</span><span class="tok-p">,</span><span class="tok-s2">&quot;ans.&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Va afficher: J&#8217;ai 12 ans.</p>
+</div>
+<div class="paragraph">
+<p>Les caractères ne sont pas seulement des lettres mais aussi des chiffres ou
+des symboles comme @,.!#<br>
+Un espace et aussi un retour à la ligne sont des caractères.<br>
+Le retour à la ligne est noté <code>\n</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Tester le script suivant:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Je </span><span class="tok-se">\n</span><span class="tok-s2"> tombe.&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_exercice_1_le_premier_programme">Exercice 1: "LE" premier programme.</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
+<div class="paragraph">
 <p>Ecrire un programme affichant "Hello world !"</p>
-</li>
-<li>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_la_fonction_code_input_code">La fonction <code>input</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Elle permet demander à l&#8217;utilisateur de saisir un message sous la forme d&#8217;une chaîne de caractères.</p>
+</div>
+<div class="paragraph">
+<p>Attention si l&#8217;on ne stocke pas le message de l&#8217;utilisateur dans une variable, il est perdu.<br>
+Cette fonction sera donc presque toujours associée à une affectation.</p>
+</div>
+<div class="paragraph">
+<p>On peut aussi donner une chaîne de caractère en argument de la fonction <code>input</code>
+pour aider l&#8217;utilisateur à repondre.</p>
+</div>
+<div class="paragraph">
+<p><strong>Tester le code suivant:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">message</span> <span class="tok-o">=</span> <span class="tok-nb">input</span><span class="tok-p">(</span><span class="tok-s2">&quot;Ca va ?&quot;</span><span class="tok-p">)</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">message</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_2_entrée_et_sortie">Exercice 2: Entrée et sortie</h2>
+<div class="sectionbody">
+<div class="paragraph">
 <p>Ecrire un programme demandant à l&#8217;utilisateur son prénom.<br>
 Et qui lui répond: "Bonjour <em>son prénom</em> ! Ca va ?"</p>
-</li>
-</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conversion_et_fonction_code_input_code">Conversion et fonction <code>input</code></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">age</span> <span class="tok-o">=</span> <span class="tok-nb">input</span><span class="tok-p">(</span><span class="tok-s2">&quot;Quel est votre âge ?&quot;</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">age</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">str</span><span class="tok-s1">&#39;&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Attention ! Ici l&#8217;âge sera une chaîne de caractère pas un nombre.<br></p>
+</div>
+<div class="paragraph">
+<p>Si on veut manipuler la variable <code>age</code> comme un nombre:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">age</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-nb">input</span><span class="tok-p">(</span><span class="tok-s2">&quot;Quel est votre âge ?&quot;</span><span class="tok-p">))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Puisque la fonction <code>int</code> permet de faire la conversion.</p>
 </div>
 </div>
 </div>
