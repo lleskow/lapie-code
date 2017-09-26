@@ -49,6 +49,11 @@ prenne la place dans le flexbox */
   margin-bottom: auto;
 }
 
+/* A améliorer corriger ?, juste dans organisation */
+.article-simple {
+  margin: 1em 0 2em 0; 
+}
+
 .corps-texte {
   margin-top: 1em;
   text-align: justify;
@@ -58,8 +63,6 @@ prenne la place dans le flexbox */
   list-style: square;
   margin: 1em 10% 0;
 }
-
-
 
 
 
