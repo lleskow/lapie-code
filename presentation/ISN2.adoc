@@ -438,6 +438,7 @@ aussi existe-t-il en python un mot clé `elif`
 (qui est la contraction de else if) et qui fonctionne suivant le schéma :
 
 [source,python]
+----
 if expression booleenne 1:
     bloc..............
     d instructions 1..

@@ -1,0 +1,151 @@
+:backend: revealjs
+:revealjs_theme: moon
+
+= Si ... alors ...
+:source-highlighter: pygments
+:pygments-style: tango
+
+// Cours sur le si alors
+// Donnée le 29/09
+
+
+// Présentation oral de l'intéret du si alors
+== Instructions conditionnelles
+
+Les instructions conditionnelles se définissent à l’aide de l’instruction `if`
+et prennent la forme suivante :
+
+[source,python]
+----
+if condition:
+    bloc..............
+    d instructions 1..
+else:
+    bloc..............
+    d instructions 2..
+----
+
+== !
+
+L’instruction 'else' est optionnelle si aucune instruction ne doit
+être réalisée dans le cas d’un test négatif.
+
+== !
+
+[source,python]
+----
+x = float(input("entrez un nombre"))
+if x > 0:
+  print("le nombre est positif")
+else:
+  print("le nombre est négatif")
+----
+
+
+== !
+
+[source,python]
+----
+if n == 7 :
+    print("7, comme 60% des personnes")
+    print("c'est un bon choix")
+----
+
+== !
+
+[source,python]
+----
+#Programme 1
+if n == 7 :
+    print("7, comme 60% des personnes")
+    print("c'est un bon choix")
+----
+
+[source,python]
+----
+#Programme 2
+if n == 7 :
+    print("7, comme 60% des personnes")
+print("c'est un bon choix")
+----
+
+Quelle est la différence entre ces deux programmes ?
+
+== !
+
+Pour tester l'égalité nous avons utilisé un double égal: ==
+
+C'est un test, c'est totalement différent de l'affectation.
+
+== !
+
+Voici la liste des différents tests:
+
+|===
+| En python | Signification
+
+| x < y
+| inférieur strictement
+
+| x \<= y
+| inférieur ou égal
+
+| x > y
+| supérieur strictement
+
+| x >= y
+| supérieur ou égal
+
+| x == y
+| égal
+
+| x != y
+| différent de
+|===
+
+
+== !
+
+On peut combiner des tests avec des: et, ou
+
+[source,python]
+----
+dessert = input("répondre oui si vous voulez du dessert")
+fromage = input("répondre oui si vous voulez du fromage")
+
+if dessert == "oui" or fromage == "oui":
+  print("bon appétit")
+else:
+  print("vous ne mangez rien ?")
+----
+
+== Instructions conditonnelles multiples
+
+En informatique il est fréquent qu’on ait à imbriquer plusieurs tests,
+aussi existe-t-il en python un mot clé `elif`
+(qui est la contraction de else if) et qui fonctionne suivant le schéma :
+
+[source,python]
+----
+if expression booleenne 1:
+    bloc..............
+    d instructions 1..
+elif expression booleenne 2:
+    bloc..............
+    d instructions 2..
+else:
+    bloc..............
+    d instructions 3..
+----
+
+== !
+
+[source,python]
+----
+if a > 0 :
+     print("a est positif")
+elif a < 0 :
+     print("a est négatif")
+else:
+     print("a est nul")
+----
