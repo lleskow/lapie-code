@@ -27,11 +27,6 @@ else:
 
 == !
 
-L’instruction 'else' est optionnelle si aucune instruction ne doit
-être réalisée dans le cas d’un test négatif.
-
-== !
-
 [source,python]
 ----
 x = float(input("entrez un nombre"))
@@ -41,6 +36,10 @@ else:
   print("le nombre est négatif")
 ----
 
+== !
+
+L’instruction 'else' est optionnelle si aucune instruction ne doit
+être réalisée dans le cas d’un test négatif.
 
 == !
 
@@ -107,6 +106,8 @@ Voici la liste des différents tests:
 == !
 
 On peut combiner des tests avec des: et, ou
+
+Cela donne `or` et `and` en Python
 
 [source,python]
 ----
