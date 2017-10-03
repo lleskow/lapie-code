@@ -1,0 +1,159 @@
+:backend: revealjs
+:revealjs_theme: moon
+
+= VIII. Listes
+:source-highlighter: pygments
+:pygments-style: tango
+
+== Définition et syntaxe
+
+Une liste est une "collection" d'objets indicés.
+
+La syntaxe est la suivante:
+
+[source,python]
+----
+>>> course = ["beurre","tomates","PQ" ]
+----
+
+== !
+
+[source,python]
+----
+>>> course = ["beurre","tomates","PQ" ]
+>>> type(course)
+<class 'list'>
+----
+
+Le type `list` est un type composite, il rassemble des objets d'autres types.
+
+== !
+
+[source,python]
+----
+>>> ma_liste = [42, "toto", [4,5]]
+----
+
+Une liste peut contenir plusieurs types différents, dont des listes.
+
+== Accéder
+
+On peut accéder à un élément particulier d'une liste à l'aide de son index dans la liste:
+
+[source,python]
+----
+>>> course = ["beurre","tomates","PQ" ]
+>>> course[2]
+'PQ'
+----
+
+== !
+
+[source,python]
+----
+>>> course = ["beurre","tomates","PQ" ]
+>>> course[0]
+'beurre'
+----
+
+Attention on commence à compter à partir de 0.
+
+== Modifier
+
+On peut modifier un élément de la liste de la sorte:
+
+[source,python]
+----
+>>> course[1] = "carrotes"
+>>> course
+ ['beurre', 'carrotes', 'PQ']
+----
+
+== Ajouter
+On peut ajouter un élément à la fin de la liste de la sorte:
+
+[source,python]
+----
+>>> course.append("lait")
+>>> course
+ ['beurre', 'carrotes', 'PQ', 'lait']
+----
+
+== Supprimer
+
+Et supprimer un élément selon son indice:
+[source,python]
+----
+>>> del(course[2])
+>>> course
+ ['beurre', 'carrotes', 'lait']
+----
+
+== Conaténer
+On peut concaténer des listes avec les opérations + et *
+
+[source,python]
+----
+>>> oubli = ["huile","PQ"]
+>>> course = course + oubli
+>>> course
+ ['beurre', 'carrotes', 'lait', 'huile', 'PQ']
+----
+
+== Mesurer
+
+On peut obtenir la longueur d'une liste avec la fonction `len`
+
+[source,python]
+----
+>>> len(course)
+ 5
+----
+
+== Parcourir
+
+On peut parcourir une liste de plusieurs façon:
+
+[source,python]
+----
+>>> for i in course:
+...     print(i)
+...
+beurre
+carrotes
+lait
+huile
+PQ
+----
+
+
+[source,python]
+----
+>>> for i in range(len(course)):
+...     print(course[i])
+...
+beurre
+carrotes
+lait
+huile
+PQ
+----
+
+== !
+
+On peut créer une liste vide:
+[source,python]
+----
+>>> ma_liste = []
+----
+
+== !
+
+On peut créer une liste contenant n: 0, de la sorte:
+[source,python]
+----
+>>> n = 5
+>>> ma_liste = [0 for i in range(n)]
+>>> ma_liste
+[0, 0, 0, 0, 0]
+----
