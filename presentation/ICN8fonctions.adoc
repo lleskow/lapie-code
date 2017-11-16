@@ -1,0 +1,184 @@
+:backend: revealjs
+:revealjs_theme: moon
+
+= Fonctions
+:source-highlighter: pygments
+:pygments-style: tango
+// L'exemple de factorisation de code vient du dowek
+
+== 1. Introduction
+
+
+Observons le code suivant:
+
+link:https://trinket.io/library/trinkets/6d7c32db00[Liste des vols]
+
+== !
+
+
+L'instruction est répété trois fois.
+
+[source,python]
+----
+print("----------------------------------------")
+print()
+print()
+----
+
+Si on décide de modifier l'affichage, il faut le modifier trois fois !
+
+
+== !
+
+Au lieu de répéter la totalité de cette instruction, on va:
+
+* lui donner un nom
+* puis la remplacer par ce nom à chaque fois qu’elle est utilisée.
+
+link:https://trinket.io/library/trinkets/7eb2dd4a2f[Ce qui donne.]
+
+== Corps d'une fonction
+
+L’instruction
+[source,python]
+----
+print("----------------------------------------")
+print()
+print()
+----
+que l’on isole par la définition de la fonction tirer_trait s’appelle le
+*corps* de cette fonction.
+
+== Appel d’une fonction
+
+L’instruction `tirer_trait()` s’appelle un appel de la fonction `tirer_trait`.
+Exécuter cette instruction a pour effet d’exécuter le corps de la fonction.
+
+== !
+
+On remarque que le reste du code est très proche, mais pas identique.
+
+On va paramétrer l’instruction que l’on isole pour pouvoir choisir la
+destination et l’horaire du vol.
+
+== !
+
+On parle *d'argument* de la fonction. C'est un peu la même chose que
+la variable d'une fonction en mathématiques
+
+== !
+
+[source,python]
+----
+def annoncer_vol(destination, horaire):
+  print("Le vol en direction de ",end="")
+  print(destination,end="")
+  print(" décollera à ",end="")
+  tirer_trait()
+----
+
+link:https://trinket.io/library/trinkets/e0a45e111f[Ce qui donne.]
+
+== 2. Syntaxe
+
+
+[source,python]
+----
+def nomdelafcn(param1, param2, param3):
+  bloc ...........................
+  d instructions .................
+  a realiser .....................
+----
+
+== !
+
+Une fonction peut ne pas avoir de paramètre, en avoir un, en avoir deux, ...
+
+== Sans paramètre
+
+[source,python]
+----
+def bonjour():
+  print("hello")
+----
+
+== Retour
+
+Une fonction peut aussi renvoyer un ou des objets avec l'instruction `return`.
+
+[source,python]
+----
+def nomdelafcn(param1, param2, param3):
+  bloc ...........................
+  d instructions .................
+  a realiser .....................
+  return une expression
+----
+
+== !
+
+La fonction suivante convertie un nombre d'heure en minute:
+
+[source,python]
+----
+def h_vers_m(heure):
+  minute = 60 * heure
+  return minute
+----
+
+Elle ne diffère pas vraiment de la fonction mathématique qui à x associe 60x.
+
+== !
+
+[source,python]
+----
+def somme(a, b):
+  return a + b
+----
+
+[source,python]
+----
+>>> somme(3,4)
+ 7
+----
+
+== 3. Portée des variables
+
+[%step]
+* La portée d'une variable est l'endroit du programme où on peut accéder à la variable.
+* Les variables définies dans le bloc d'instruction d'une fonction, n'ont qu'une portée locale.
+* Autrement dit, leur contenu est inaccessible depuis l’extérieur de la fonction.
+
+== !
+
+[source,python]
+----
+def f(x):
+  carre = x ** 2
+  return carre
+
+print(carre)
+----
+
+Ce code produit l'erreur: NameError: name 'carre' is not defined
+
+== !
+
+[source,python]
+----
+a = 10		# variable globale au programme
+
+def mafonction():
+    a = 20	# variable locale à la fonction
+    print(a)
+----
+
+[source,python]
+----
+>>> a
+ 10
+>>> mafonction()
+ 20
+>>> a
+ 10
+----
