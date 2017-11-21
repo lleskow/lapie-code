@@ -634,7 +634,8 @@ correspondant à la conversion en niveau de gris de l&#8217;image <code>Lenna.pn
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Quel est la couleur des pixels verts dans l&#8217;image <code>mona_fond.png</code> ?</p>
+<p>Quelle est le code RGB de la couleur des pixels verts dans l&#8217;image
+<code>mona_fond.png</code> ?</p>
 </li>
 <li>
 <p>Ecrire un programme créant une image <code>mona_cri.png</code>, cette image devra
@@ -698,8 +699,14 @@ Et renvoie l&#8217;image convertie.</p>
 de seuil.</p>
 </li>
 <li>
-<p>Appliquer la fonction <code>inverser_gris</code> puis <code>convertir_nb</code> avec un seuil de 130
-à l&#8217;image <code>picasso.png</code>.</p>
+<p>Ecrire une fonction <code>convertir_gris</code>, qui prend en argument une image en mode
+RGB et renvoie une image en niveau de gris.
+Cette fois pour convertir en niveau de gris un pixel de code \((r,g,b)\), on
+calcule la luminance \(l\) de la sorte \(l = 0,299 r + 0,587 g + 0,114 b\)</p>
+</li>
+<li>
+<p>Appliquer la fonction <code>convertir_gris</code> puis <code>inverser_gris</code> puis
+<code>convertir_nb</code> avec un seuil de 130 à l&#8217;image <code>picasso.png</code>.</p>
 </li>
 </ol>
 </div>
