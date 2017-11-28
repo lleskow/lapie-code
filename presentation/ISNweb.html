@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Chapitre IV: Représentation de l&#8217;information II: Les langages du web.</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme"><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments  { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.listingblock .pygments .tok-g { color: #000000 } /* Generic */
+.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-l { color: #000000 } /* Literal */
+.listingblock .pygments .tok-n { color: #000000 } /* Name */
+.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
+.listingblock .pygments .tok-x { color: #000000 } /* Other */
+.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
+.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
+.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
+.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Chapitre IV: Représentation de l&#8217;information II</h1><h2>Les langages du web.</h2></section><section><section id="_de_quoi_a_t_on_besoin_pour_raliser_une_page_web"><h2>De quoi a-t-on besoin pour réaliser une page web ?</h2><div class="ulist"><ul><li><p>Un navigateur web</p></li><li><p>Un éditeur de texte</p></li></ul></div></section><section id="_en_pratique"><h2>En pratique:</h2><div class="ulist"><ul><li><p>L&#8217;éditeur de texte que nous utiliserons est
+<a href="https://www.geany.org/">Geany</a>
+<span class="image"><img src="https://www.geany.org/images/geany.png" alt="geany"></span></p></li><li><p>L&#8217;éditeur de la démonstration est Atom</p></li></ul></div></section><section id="_pour_crer_une_page_web"><h2>Pour créer une page web:</h2><div class="ulist"><ul><li><p>Créer un dossier (pour organiser ses documents)</p></li><li><p>Dans ce dossier créer un fichier <code>.html</code></p></li><li><p>Toujours dans ce dossier créer un fichier <code>style.css</code></p></li></ul></div></section></section>
+<section><section id="_de_quoi_est_fait_une_page_web"><h2>De quoi est fait une page web ?</h2></section><section><div class="paragraph"><p><span class="image" style="float: left"><img src="assets/html5-logo.png" alt="html" width="300" height="300"></span>
+<span class="image"><img src="assets/css3-logo.png" alt="css3" width="300" height="300"></span>
+<span class="image" style="float: right"><img src="assets/js-logo.png" alt="javascript" width="300" height="300"></span></p></div></section><section id="_le_contenu_et_sa_structure"><h2>Le contenu et sa structure</h2><div class="paragraph"><p><span class="image"><img src="assets/html5-logo.png" alt="html" width="350" height="350"></span></p></div>
+<div class="paragraph"><p>C&#8217;est le fond et des étiquettes.</p></div></section><section id="_l_apparence"><h2>L&#8217;apparence</h2><div class="paragraph"><p><span class="image"><img src="assets/css3-logo.png" alt="css3" width="350" height="350"></span></p></div>
+<div class="paragraph"><p>C&#8217;est la forme.</p></div></section><section id="_pour_rendre_la_page_dynamique"><h2>Pour rendre la page dynamique</h2><div class="paragraph"><p><span class="image"><img src="assets/js-logo.png" alt="javascript" width="350" height="350"></span></p></div>
+<div class="paragraph"><p>C&#8217;est un langage de programmation.</p></div></section></section>
+<section><section id="_html"><h2>HTML</h2><div class="paragraph"><p>C&#8217;est un langage de balisage.</p></div><div class="paragraph"><p>Les balises ou tag permettent d&#8217;identifier et de structurer le contenu.</p></div></section><section id="_le_squelette_d_un_fichier_html"><h2>Le squelette d&#8217;un fichier HTML</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-cp">&lt;!DOCTYPE html&gt;</span>
+
+
+
+
+
+
+
+
+
+<span class="tok-c">&lt;!-- end of file --&gt;</span></code></pre></div></div></section><section id="_le_squelette_d_un_fichier_html_2"><h2>Le squelette d&#8217;un fichier HTML</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-cp">&lt;!DOCTYPE html&gt;</span>
+<span class="tok-nt">&lt;html&gt;</span>
+
+
+
+  <span class="tok-c">&lt;!-- Le code HTML se trouvera ici --&gt;</span>
+
+
+
+<span class="tok-nt">&lt;/html&gt;</span>
+<span class="tok-c">&lt;!-- end of file --&gt;</span></code></pre></div></div></section><section id="_le_squelette_d_un_fichier_html_3"><h2>Le squelette d&#8217;un fichier HTML</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-cp">&lt;!DOCTYPE html&gt;</span>
+<span class="tok-nt">&lt;html&gt;</span>
+  <span class="tok-nt">&lt;head&gt;</span>
+
+    <span class="tok-c">&lt;!-- Pour simplifier: les meta-données --&gt;</span>
+
+  <span class="tok-nt">&lt;/head&gt;</span>
+  <span class="tok-nt">&lt;body&gt;</span>
+
+    <span class="tok-c">&lt;!-- Pour simplifier: le contenu affiché --&gt;</span>
+
+  <span class="tok-nt">&lt;/body&gt;</span>
+<span class="tok-nt">&lt;/html&gt;</span>
+<span class="tok-c">&lt;!-- end of file --&gt;</span></code></pre></div></div></section><section id="_le_squelette_d_un_fichier_html_4"><h2>Le squelette d&#8217;un fichier HTML</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-cp">&lt;!DOCTYPE html&gt;</span>
+<span class="tok-nt">&lt;html&gt;</span>
+  <span class="tok-nt">&lt;head&gt;</span>
+    <span class="tok-nt">&lt;title&gt;</span>Hello world<span class="tok-nt">&lt;/title&gt;</span>
+    <span class="tok-nt">&lt;meta</span> <span class="tok-na">charset=</span><span class="tok-s">&quot;utf-8&quot;</span><span class="tok-nt">&gt;</span>
+  <span class="tok-nt">&lt;/head&gt;</span>
+  <span class="tok-nt">&lt;body&gt;</span>
+
+    <span class="tok-c">&lt;!-- Pour simplifier: le contenu affiché --&gt;</span>
+
+  <span class="tok-nt">&lt;/body&gt;</span>
+<span class="tok-nt">&lt;/html&gt;</span>
+<span class="tok-c">&lt;!-- end of file --&gt;</span></code></pre></div></div></section><section id="_la_syntaxe_d_un_lment_html"><h2>La syntaxe d&#8217;un élément HTML:</h2><div class="paragraph"><p><span class="image"><img src="assets/syntaxebalise.png" alt="element html"></span></p></div></section><section id="_exemple"><h2>Exemple:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;a</span> <span class="tok-na">href=</span><span class="tok-s">&quot;http://lapiecode.info/&quot;</span> <span class="tok-na">target=</span><span class="tok-s">&quot;_blank&quot;</span><span class="tok-nt">&gt;</span>
+  Le site de l&#39;ISN
+<span class="tok-nt">&lt;/a&gt;</span></code></pre></div></div>
+<div class="paragraph"><p>Résultat: <a href="http://lapiecode.info/">Le site de l&#8217;ISN</a></p></div>
+<div class="paragraph"><p>Test:</p></div>
+<div class="ulist"><ul><li><p>Quel est le nom de l&#8217;élément ?</p></li><li><p>Citer le nom d&#8217;un attribut ? Sa valeur ?</p></li><li><p>Quel est le contenu de l&#8217;élément ?</p></li></ul></div></section><section id="_quelques_lments_html"><h2>Quelques éléments HTML:</h2><div class="ulist"><ul><li><p>Les titres</p></li><li><p>Les paragraphes</p></li><li><p>Les listes</p></li><li><p>Les images</p></li><li><p>Les liens</p></li></ul></div></section><section id="_les_titres"><h2>Les titres</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;h1&gt;</span>[...]<span class="tok-nt">&lt;/h1&gt;</span>  <span class="tok-c">&lt;!-- Titre principal --&gt;</span>
+<span class="tok-nt">&lt;h2&gt;</span>[...]<span class="tok-nt">&lt;/h2&gt;</span>  <span class="tok-c">&lt;!-- Sous-titre --&gt;</span>
+<span class="tok-nt">&lt;h3&gt;</span>[...]<span class="tok-nt">&lt;/h3&gt;</span>  <span class="tok-c">&lt;!-- Sous-sous-titre --&gt;</span>
+<span class="tok-nt">&lt;h4&gt;</span>[...]<span class="tok-nt">&lt;/h4&gt;</span>  <span class="tok-c">&lt;!-- Etc.. --&gt;</span>
+<span class="tok-nt">&lt;h5&gt;</span>[...]<span class="tok-nt">&lt;/h5&gt;</span>
+<span class="tok-nt">&lt;h6&gt;</span>[...]<span class="tok-nt">&lt;/h6&gt;</span></code></pre></div></div></section><section id="_les_paragraphes"><h2>Les paragraphes</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;p&gt;</span>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  Veritatis laboriosam mollitia autem at ab omnis iure quis
+  asperiores inventore eos nam aut iusto officiis deserunt
+  nihil, sequi tempore impedit quae?
+<span class="tok-nt">&lt;/p&gt;</span></code></pre></div></div></section><section id="_les_paragraphes_2"><h2>Les paragraphes</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;p&gt;</span>
+  On peut <span class="tok-nt">&lt;em&gt;</span>insister<span class="tok-nt">&lt;/em&gt;</span> plus particulièrement sur une
+  partie du texte. On peut <span class="tok-nt">&lt;strong&gt;</span>encore plus insister<span class="tok-nt">&lt;/strong&gt;</span>.
+<span class="tok-nt">&lt;/p&gt;</span></code></pre></div></div></section><section id="_les_listes"><h2>Les listes:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;h1&gt;</span>Guacamole rapide à faire<span class="tok-nt">&lt;/h1&gt;</span>
+
+<span class="tok-nt">&lt;h2&gt;</span>Ingrédients<span class="tok-nt">&lt;/h2&gt;</span>
+<span class="tok-nt">&lt;ul&gt;</span>
+  <span class="tok-nt">&lt;li&gt;</span>2 avocats (pelés et avec les noyaux retirés)<span class="tok-nt">&lt;/li&gt;</span>
+  <span class="tok-nt">&lt;li&gt;</span>le jus d&#39;un citron<span class="tok-nt">&lt;/li&gt;</span>
+  <span class="tok-nt">&lt;li&gt;</span>1 petite tomate, coupée<span class="tok-nt">&lt;/li&gt;</span>
+<span class="tok-nt">&lt;/ul&gt;</span>
+
+<span class="tok-nt">&lt;h2&gt;</span>Instructions<span class="tok-nt">&lt;/h2&gt;</span>
+<span class="tok-nt">&lt;ol&gt;</span>
+  <span class="tok-nt">&lt;li&gt;</span>Écrasez délicatement les avocats avec une fourchette<span class="tok-nt">&lt;/li&gt;</span>
+  <span class="tok-nt">&lt;li&gt;</span>Placez la purée obtenue dans un plat et arrosez avec le jus de citron<span class="tok-nt">&lt;/li&gt;</span>
+  <span class="tok-nt">&lt;li&gt;</span>Mélangez avec la tomate <span class="tok-nt">&lt;/li&gt;</span>
+  <span class="tok-nt">&lt;li&gt;</span>Gardez au frais et servir rapidement avec des tortillas<span class="tok-nt">&lt;/li&gt;</span>
+<span class="tok-nt">&lt;/ol&gt;</span></code></pre></div></div>
+<div class="paragraph"><p>Elles peuvent être ordonnées <code>ol</code> ou non ordonnées <code>ul</code>.</p></div></section><section id="_images"><h2>Images</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;img</span> <span class="tok-na">src=</span><span class="tok-s">&quot;http://lapiecode.info/images/logo-entete.png&quot;</span>
+     <span class="tok-na">alt=</span><span class="tok-s">&quot;Le logo lapie code&quot;</span><span class="tok-nt">&gt;</span></code></pre></div></div></section><section id="_les_liens"><h2>Les liens</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;a</span> <span class="tok-na">href=</span><span class="tok-s">&quot;https://developer.mozilla.org/fr/&quot;</span><span class="tok-nt">&gt;</span>
+Une très bonne référence pour le HTML et le CSS.
+<span class="tok-nt">&lt;/a&gt;</span></code></pre></div></div></section><section id="_a_votre_tour_1"><h2>A votre tour(1):</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;meta</span> <span class="tok-na">charset=</span><span class="tok-s">&quot;utf-8&quot;</span><span class="tok-nt">&gt;</span>
+<span class="tok-nt">&lt;title&gt;</span>Ma start-up<span class="tok-nt">&lt;/title&gt;</span></code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;h1&gt;</span>Notre super app<span class="tok-nt">&lt;/h1&gt;</span>
+<span class="tok-nt">&lt;p&gt;</span> Est un prétexte pour faire du HTML..<span class="tok-nt">&lt;/p&gt;</span>
+<span class="tok-nt">&lt;a</span> <span class="tok-na">href=</span><span class="tok-s">&quot;#&quot;</span><span class="tok-nt">&gt;</span> Rejoignez-nous <span class="tok-nt">&lt;a&gt;</span>
+
+<span class="tok-nt">&lt;h2&gt;</span>Rapide<span class="tok-nt">&lt;/h2&gt;</span>
+<span class="tok-nt">&lt;p&gt;</span>Vraiment super <span class="tok-nt">&lt;strong&gt;</span>rapide<span class="tok-nt">&lt;/strong&gt;</span>.<span class="tok-nt">&lt;/p&gt;</span>
+<span class="tok-nt">&lt;img</span> <span class="tok-na">src=</span><span class="tok-s">&quot;your-image.png&quot;</span> <span class="tok-na">alt=</span><span class="tok-s">&quot;picture description&quot;</span> <span class="tok-na">width=</span><span class="tok-s">&quot;100&quot;</span><span class="tok-nt">&gt;</span>
+
+<span class="tok-nt">&lt;h2&gt;</span>Simple<span class="tok-nt">&lt;/h2&gt;</span>
+<span class="tok-nt">&lt;p&gt;</span>Facile d&#39;accès<span class="tok-nt">&lt;/p&gt;</span>
+<span class="tok-nt">&lt;img</span> <span class="tok-na">src=</span><span class="tok-s">&quot;your-image.png&quot;</span> <span class="tok-na">alt=</span><span class="tok-s">&quot;picture description&quot;</span> <span class="tok-na">width=</span><span class="tok-s">&quot;100&quot;</span><span class="tok-nt">&gt;</span>
+
+<span class="tok-nt">&lt;p&gt;</span>La super application de notre super start-up<span class="tok-nt">&lt;/p&gt;</span></code></pre></div></div></section><section id="_a_votre_tour_2"><h2>A votre tour(2):</h2><div class="paragraph"><p>Pour illustrer les propriétés de votre application, utiliser des icônes PNG:</p></div>
+<div class="paragraph"><p><span class="image"><img src="assets/diamond.png" alt="diamant" width="100" height="100"></span>
+<span class="image"><img src="assets/briefcase.png" alt="valise" width="100" height="100"></span>
+<span class="image"><img src="assets/heart.png" alt="coeur" width="100" height="100"></span>
+<span class="image"><img src="assets/laptop.png" alt="ordi" width="100" height="100"></span></p></div>
+<div class="paragraph"><p>Vous pouvez en trouver plus ici:
+<a href="https://nucleoapp.com/">www.nucleoapp.com/</a></p></div></section></section>
+<section><section id="_css"><h2>CSS</h2><div class="paragraph"><p>Cascading Style Sheets</p></div></section><section id="_le_web_sans_css"><h2>Le web sans CSS</h2><div class="paragraph"><p>Aller sur
+<a href="http://www.csszengarden.com/">www.csszengarden.com</a>
+clic droit: examiner élément.<br>
+Et lui "enlever la tête".</p></div></section><section id="_lier_une_feuille_de_style"><h2>Lier une feuille de style</h2><div class="paragraph"><p><span class="image"><img src="assets/linking-css.png" alt="lier"></span></p></div></section><section id="_la_syntaxe_css"><h2>La syntaxe CSS</h2><div class="paragraph"><p><span class="image"><img src="assets/css.png" alt="syntaxe css"></span></p></div></section><section id="_exemple_2"><h2>Exemple:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nt">h2</span> <span class="tok-p">{</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-nb">red</span><span class="tok-p">;</span>
+  <span class="tok-k">font-size</span><span class="tok-o">:</span> <span class="tok-m">20px</span><span class="tok-p">;</span>
+  <span class="tok-k">font-family</span><span class="tok-o">:</span> <span class="tok-n">courier</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_couleur_1"><h2>Couleur(1)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nt">body</span> <span class="tok-p">{</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-nb">orange</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_couleur_2"><h2>Couleur(2)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nt">body</span> <span class="tok-p">{</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-m">#FFA500</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_couleur_3"><h2>Couleur(3)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nt">body</span> <span class="tok-p">{</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-k">rgb</span><span class="tok-p">(</span><span class="tok-m">145</span><span class="tok-o">,</span> <span class="tok-m">110</span><span class="tok-o">,</span> <span class="tok-m">30</span><span class="tok-p">);</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_couleur_4"><h2>Couleur(4)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nt">body</span> <span class="tok-p">{</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-n">rgba</span><span class="tok-p">(</span><span class="tok-m">145</span><span class="tok-o">,</span> <span class="tok-m">110</span><span class="tok-o">,</span> <span class="tok-m">30</span><span class="tok-o">,</span> <span class="tok-m">0</span><span class="tok-o">.</span><span class="tok-m">8</span><span class="tok-p">);</span>
+<span class="tok-p">}</span></code></pre></div></div>
+<div class="paragraph"><p>RGBA ajoute un quatrième paramètre l&#8217;opacité.</p></div></section><section id="_texte_et_arrire_plan"><h2>Texte et arrière plan:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nt">body</span> <span class="tok-p">{</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-nb">orange</span><span class="tok-p">;</span> <span class="tok-c">/* couleur du texte */</span>
+  <span class="tok-k">background-color</span><span class="tok-o">:</span> <span class="tok-nb">yellow</span><span class="tok-p">;</span> <span class="tok-c">/* couleur du fond */</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_fonts_family_1"><h2>Fonts - family (1)</h2><div class="paragraph"><p><span class="image"><img src="assets/serif.png" alt="serif"></span></p></div></section><section id="_fonts_family_2"><h2>Fonts - family (2)</h2><div class="paragraph"><p><span class="image"><img src="assets/sans-serif.png" alt="sans serif"></span></p></div></section><section id="_fonts_family_3"><h2>Fonts - family (3)</h2><div class="paragraph"><p><span class="image"><img src="assets/monospace.png" alt="monospace"></span></p></div></section><section id="_fonts_size_and_spacing"><h2>Fonts - size and spacing</h2><div class="paragraph"><p><span class="image"><img src="assets/text-spaces.png" alt="text spaces"></span></p></div></section><section id="_fonts_colors"><h2>Fonts - colors</h2><div class="paragraph"><p><span class="image"><img src="assets/text-colors.png" alt="text colors"></span></p></div></section><section id="_fonts_decoration"><h2>Fonts - decoration</h2><div class="paragraph"><p><span class="image"><img src="assets/text-decoration.png" alt="text decoration"></span></p></div></section><section id="_fonts_alignment"><h2>Fonts - alignment</h2><div class="paragraph"><p><span class="image"><img src="assets/text-align.png" alt="text align"></span></p></div></section><section id="_a_votre_tour_1_2"><h2>A votre tour(1)</h2><div class="paragraph"><p>head</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;link</span> <span class="tok-na">href=</span><span class="tok-s">&#39;style.css&#39;</span> <span class="tok-na">rel=</span><span class="tok-s">&#39;stylesheet&#39;</span><span class="tok-nt">&gt;</span></code></pre></div></div>
+<div class="paragraph"><p>style.css</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nt">body</span> <span class="tok-p">{</span>
+  <span class="tok-k">margin</span><span class="tok-o">:</span> <span class="tok-m">0px</span><span class="tok-p">;</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-nb">green</span><span class="tok-p">;</span>
+  <span class="tok-k">background</span><span class="tok-o">:</span> <span class="tok-k">rgb</span><span class="tok-p">(</span><span class="tok-m">245</span><span class="tok-o">,</span><span class="tok-m">245</span><span class="tok-o">,</span><span class="tok-m">245</span><span class="tok-p">);</span>
+<span class="tok-p">}</span>
+<span class="tok-nt">h1</span> <span class="tok-p">{</span>
+  <span class="tok-k">font-family</span><span class="tok-o">:</span> <span class="tok-n">courier</span><span class="tok-p">;</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-k">rgb</span><span class="tok-p">(</span><span class="tok-m">212</span><span class="tok-o">,</span><span class="tok-m">57</span><span class="tok-o">,</span><span class="tok-m">43</span><span class="tok-p">);</span>
+<span class="tok-p">}</span>
+<span class="tok-nt">p</span> <span class="tok-p">{</span>
+  <span class="tok-k">font-size</span><span class="tok-o">:</span> <span class="tok-m">30px</span><span class="tok-p">;</span>
+  <span class="tok-k">line-height</span><span class="tok-o">:</span> <span class="tok-m">20px</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_a_votre_tour_2_2"><h2>A votre tour(2)</h2><div class="paragraph"><p>Copier/coller le code précédent et le modifier pour que:</p></div>
+<div class="ulist"><ul><li><p>La couleur du texte dans &lt;body&gt; soit noir "cassé".</p></li><li><p>La taille du texte des paragraphes soit mieux adapté.</p></li><li><p>La couleur des titres &lt;h1&gt; soit plus adapté.
+On pourra utiliser:
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool">Le site de mozilla.</a></p></li></ul></div>
+<div class="paragraph"><p>Ou <a href="https://coolors.co">https://coolors.co</a></p></div>
+<div class="paragraph"><p>On peut aussi utiliser l&#8217;extension ColorZilla pour reconnaitre les couleurs sur le web.</p></div></section><section id="_a_votre_tour_3"><h2>A votre tour(3)</h2><div class="paragraph"><p>Utiliser le site <a href="https://www.google.com/fonts">https://www.google.com/fonts</a>
+dans votre <code>&lt;head&gt;</code>, pour:</p></div>
+<div class="ulist"><ul><li><p>Utiliser la police de votre choix pour <code>&lt;h1&gt;</code></p></li><li><p>La police <code>Open-Sans</code> dans tout le reste du <code>&lt;body&gt;</code></p></li><li><p>Vous pouvez identifier les polices avec l&#8217;extension <a href="http://fontface.ninja/">http://fontface.ninja/</a></p></li></ul></div></section></section>
+<section><section id="_structurer_une_page"><h2>Structurer une page</h2><div class="paragraph"><p>Si on va sur <em>n&#8217;importe quelle page web</em> et qu&#8217;on examine son code, on
+voit des balises <code>&lt;div&gt;</code> partout.</p></div></section><section id="_box_model_1"><h2>Box model (1)</h2><div class="paragraph"><p><span class="image"><img src="assets/box-model.png" alt="box model"></span></p></div></section><section id="_box_model_2"><h2>Box model (2)</h2><div class="paragraph"><p><span class="image"><img src="assets/box-model-detailed.png" alt="box model detailed"></span></p></div></section><section id="_syntaxe_et_raccourcis"><h2>Syntaxe et raccourcis</h2><div class="paragraph"><p><span class="image"><img src="assets/margin-shortcut.png" alt="margin shortcut"></span></p></div></section><section id="_les_bordures"><h2>Les bordures</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nt">div</span> <span class="tok-p">{</span>
+  <span class="tok-k">border-top</span><span class="tok-o">:</span> <span class="tok-m">1px</span> <span class="tok-k">solid</span> <span class="tok-nb">red</span><span class="tok-p">;</span>
+  <span class="tok-k">border-right</span><span class="tok-o">:</span> <span class="tok-m">2px</span> <span class="tok-k">dotted</span> <span class="tok-nb">black</span><span class="tok-p">;</span>
+  <span class="tok-k">border-bottom</span><span class="tok-o">:</span> <span class="tok-m">1px</span> <span class="tok-k">dashed</span> <span class="tok-nb">green</span><span class="tok-p">;</span>
+  <span class="tok-k">border-left</span><span class="tok-o">:</span> <span class="tok-m">2px</span> <span class="tok-k">dotted</span> <span class="tok-nb">black</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nt">div</span> <span class="tok-p">{</span>
+  <span class="tok-k">border</span><span class="tok-o">:</span> <span class="tok-m">1px</span> <span class="tok-k">solid</span> <span class="tok-nb">black</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_a_votre_tour_1_3"><h2>A votre tour(1)</h2><div class="paragraph"><p>Structurez votre HTML avec la balise <code>&lt;div&gt;</code></p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;body&gt;</span>
+  <span class="tok-nt">&lt;div&gt;</span>
+    <span class="tok-nt">&lt;h1&gt;</span>Notre super app<span class="tok-nt">&lt;/h1&gt;</span>
+    <span class="tok-nt">&lt;p&gt;</span> Est un prétexte pour faire du HTML..<span class="tok-nt">&lt;/p&gt;</span>
+  <span class="tok-nt">&lt;/div&gt;</span>
+
+  <span class="tok-nt">&lt;div&gt;</span>
+    <span class="tok-nt">&lt;h2&gt;</span>Rapide<span class="tok-nt">&lt;/h2&gt;</span>
+    <span class="tok-nt">&lt;p&gt;</span>Vraiment super <span class="tok-nt">&lt;strong&gt;</span>rapide<span class="tok-nt">&lt;/strong&gt;</span>.<span class="tok-nt">&lt;/p&gt;</span>
+    <span class="tok-nt">&lt;img</span> <span class="tok-na">src=</span><span class="tok-s">&quot;your-image.png&quot;</span> <span class="tok-na">alt=</span><span class="tok-s">&quot;picture description&quot;</span> <span class="tok-na">width=</span><span class="tok-s">&quot;100&quot;</span><span class="tok-nt">&gt;</span>
+  <span class="tok-nt">&lt;/div&gt;</span>
+
+  <span class="tok-c">&lt;!-- ... --&gt;</span>
+  <span class="tok-nt">&lt;div&gt;</span>
+    <span class="tok-nt">&lt;p&gt;</span>La super application de notre super start-up<span class="tok-nt">&lt;/p&gt;</span>
+  <span class="tok-nt">&lt;/div&gt;</span>
+<span class="tok-nt">&lt;/body&gt;</span></code></pre></div></div></section></section>
+<section><section id="_nommer_ses_balises"><h2>Nommer ses balises</h2></section><section id="_comment_cibler_un_lment"><h2>Comment cibler un élément ?</h2><div class="paragraph"><p><span class="image"><img src="assets/id-dilemma.png" alt="id dilemma"></span></p></div></section><section id="_nommer_une_balise_avec_code_id_code"><h2>Nommer une balise avec <code>id</code></h2><div class="paragraph"><p><span class="image"><img src="assets/id-solution.png" alt="id solution"></span></p></div></section><section id="_comment_cibler_plusieurs_lments"><h2>Comment cibler plusieurs éléments ?</h2><div class="paragraph"><p><span class="image"><img src="assets/class-dilemma.png" alt="class dilemma"></span></p></div></section><section id="_nommer_une_balise_avec_code_class_code"><h2>Nommer une balise avec <code>class</code></h2><div class="paragraph"><p><span class="image"><img src="assets/class-solution.png" alt="class solution"></span></p></div></section><section id="__code_id_code_ou_code_class_code"><h2><code>id</code> ou <code>class</code>?</h2><div class="paragraph"><p><span class="image"><img src="assets/class-or-id.png" alt="class or id"></span></p></div></section><section id="_combiner_1"><h2>combiner (1)</h2><div class="paragraph"><p><span class="image"><img src="assets/combine-class-1.png" alt="combine class 1"></span></p></div></section><section id="_combiner_2"><h2>combiner (2)</h2><div class="paragraph"><p><span class="image"><img src="assets/combine-class-2.png" alt="combine class 2"></span></p></div></section><section id="_combiner_3"><h2>combiner (3)</h2><div class="paragraph"><p><span class="image"><img src="assets/combine-class-3.png" alt="combine class 3"></span></p></div></section><section id="_a_votre_tour_1_4"><h2>A votre tour (1)</h2><div class="paragraph"><p>Nommez vos balises:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="html language-html"><span class="tok-nt">&lt;body&gt;</span>
+  <span class="tok-nt">&lt;div</span> <span class="tok-na">id=</span><span class="tok-s">&quot;mon_header&quot;</span><span class="tok-nt">&gt;</span>
+    <span class="tok-nt">&lt;h1&gt;</span>Notre super app<span class="tok-nt">&lt;/h1&gt;</span>
+    <span class="tok-nt">&lt;p&gt;</span> Est un prétexte pour faire du HTML..<span class="tok-nt">&lt;/p&gt;</span>
+  <span class="tok-nt">&lt;/div&gt;</span>
+
+  <span class="tok-nt">&lt;div</span> <span class="tok-na">class=</span><span class="tok-s">&quot;feature&quot;</span><span class="tok-nt">&gt;</span>
+    <span class="tok-nt">&lt;h2&gt;</span>Rapide<span class="tok-nt">&lt;/h2&gt;</span>
+    <span class="tok-nt">&lt;p&gt;</span>Vraiment super <span class="tok-nt">&lt;strong&gt;</span>rapide<span class="tok-nt">&lt;/strong&gt;</span>.<span class="tok-nt">&lt;/p&gt;</span>
+    <span class="tok-nt">&lt;img</span> <span class="tok-na">src=</span><span class="tok-s">&quot;your-image.png&quot;</span> <span class="tok-na">alt=</span><span class="tok-s">&quot;picture description&quot;</span><span class="tok-nt">&gt;</span>
+  <span class="tok-nt">&lt;/div&gt;</span>
+
+  <span class="tok-c">&lt;!-- ... --&gt;</span>
+  <span class="tok-nt">&lt;div</span> <span class="tok-na">id=</span><span class="tok-s">&quot;mon_footer&quot;</span><span class="tok-nt">&gt;</span>
+    <span class="tok-nt">&lt;p&gt;</span>La super application de notre super start-up<span class="tok-nt">&lt;/p&gt;</span>
+  <span class="tok-nt">&lt;/div&gt;</span>
+<span class="tok-nt">&lt;/body&gt;</span></code></pre></div></div></section><section id="_a_votre_tour_2_3"><h2>A votre tour (2)</h2><div class="paragraph"><p>Stylisez:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="css language-css"><span class="tok-nf">#mon_header</span><span class="tok-p">{</span>
+  <span class="tok-k">text-align</span><span class="tok-o">:</span> <span class="tok-k">center</span><span class="tok-p">;</span>
+  <span class="tok-k">background-image</span><span class="tok-o">:</span> <span class="tok-sx">url(&quot;https://picsum.photos/1000/800/?random&quot;)</span><span class="tok-p">;</span>
+  <span class="tok-k">background</span><span class="tok-o">-</span><span class="tok-k">size</span><span class="tok-o">:</span> <span class="tok-n">cover</span><span class="tok-p">;</span>
+  <span class="tok-k">padding</span><span class="tok-o">:</span> <span class="tok-m">150px</span><span class="tok-p">;</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-nb">white</span><span class="tok-p">;</span>
+  <span class="tok-k">text-shadow</span><span class="tok-o">:</span> <span class="tok-m">1px</span> <span class="tok-m">1px</span> <span class="tok-m">5px</span> <span class="tok-nb">black</span><span class="tok-p">;</span>
+<span class="tok-p">}</span>
+
+<span class="tok-nc">.feature</span><span class="tok-p">{</span>
+  <span class="tok-k">padding</span><span class="tok-o">:</span> <span class="tok-m">50px</span><span class="tok-p">;</span>
+  <span class="tok-k">font-weight</span><span class="tok-o">:</span> <span class="tok-m">300px</span><span class="tok-p">;</span>
+<span class="tok-p">}</span>
+
+<span class="tok-nc">.feature</span> <span class="tok-nt">img</span><span class="tok-p">{</span>
+  <span class="tok-k">padding</span><span class="tok-o">:</span> <span class="tok-m">20px</span><span class="tok-p">;</span>
+  <span class="tok-k">border</span><span class="tok-o">:</span> <span class="tok-m">2px</span> <span class="tok-k">solid</span> <span class="tok-nb">black</span><span class="tok-p">;</span>
+  <span class="tok-k">border</span><span class="tok-o">-</span><span class="tok-n">radius</span><span class="tok-o">:</span> <span class="tok-m">50%</span><span class="tok-p">;</span>
+<span class="tok-p">}</span>
+
+<span class="tok-nf">#mon_footer</span><span class="tok-p">{</span>
+  <span class="tok-k">padding</span><span class="tok-o">:</span> <span class="tok-m">30px</span><span class="tok-p">;</span>
+  <span class="tok-k">background</span><span class="tok-o">:</span> <span class="tok-k">rgb</span><span class="tok-p">(</span><span class="tok-m">30</span><span class="tok-o">,</span> <span class="tok-m">30</span><span class="tok-o">,</span> <span class="tok-m">30</span><span class="tok-p">);</span>
+  <span class="tok-k">color</span><span class="tok-o">:</span> <span class="tok-nb">lightgrey</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'solarized',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

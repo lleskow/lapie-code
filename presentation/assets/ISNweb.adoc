@@ -1,0 +1,304 @@
+:backend: revealjs
+:revealjs_theme: solarized
+
+= Chapitre IV: Représentation de l'information II: Les langages du web.
+:source-highlighter: pygments
+:pygments-style: tango
+
+== De quoi a-t-on besoin pour réaliser une page web ?
+
+* Un navigateur web
+* Un éditeur de texte
+
+=== En pratique:
+
+* L'éditeur de texte que nous utiliserons est
+link:https://www.geany.org/[Geany]
+image:https://www.geany.org/images/geany.png[geany]
+* L'éditeur de la démonstration est Atom
+
+=== Pour créer une page web:
+
+* Créer un dossier (pour organiser ses documents)
+* Dans ce dossier créer un fichier `.html`
+* Toujours dans ce dossier créer un fichier `style.css`
+
+
+=== Crééz votre page web
+
+* Créez un dossier `mon_cv` (de préférence dans mes documents en salle 206)
+* Dans ce dossier créez un fichier `mon_cv.html`
+* Toujours dans ce dossier créez un fichier `style.css`
+
+
+== De quoi est fait une page web ?
+
+=== !
+
+image:assets/html5-logo.png[html,300,300,float="left",align="center"]
+image:assets/css3-logo.png[css3,300,300,align="center"]
+image:assets/js-logo.png[javascript,300,300,float="right",align="center"]
+
+
+=== Le contenu et sa structure
+
+image:assets/html5-logo.png[html,350,350,align="center"]
+
+C'est le fond et des étiquettes.
+
+=== L'apparence
+
+image:assets/css3-logo.png[css3,350,350,align="center"]
+
+C'est la forme.
+
+=== Pour rendre la page dynamique
+
+image:assets/js-logo.png[javascript,350,350,align="center"]
+
+C'est un langage de programmation.
+
+== HTML
+
+C'est un langage de balisage.
+
+Les balises ou tag permettent d'identifier et de structurer le contenu.
+
+=== Le squelette d'un fichier HTML
+
+[source,html]
+----
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+<!-- end of file -->
+----
+
+=== Le squelette d'un fichier HTML
+
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+
+
+
+  <!-- Le code HTML se trouvera ici -->
+
+
+
+</html>
+<!-- end of file -->
+----
+
+=== Le squelette d'un fichier HTML
+
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- Pour simplifier: les meta-données -->
+
+  </head>
+  <body>
+
+    <!-- Pour simplifier: le contenu affiché -->
+
+  </body>
+</html>
+<!-- end of file -->
+----
+
+=== Le squelette d'un fichier HTML
+
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello world</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <!-- Pour simplifier: le contenu affiché -->
+
+  </body>
+</html>
+<!-- end of file -->
+----
+
+=== La syntaxe d'un élément HTML:
+
+image:assets/syntaxebalise.png[element html]
+
+=== Exemple:
+
+[source,html]
+----
+<a href="http://lapiecode.info/" target="_blank">
+  Le site de l'ISN
+</a>
+----
+
+Résultat: link:http://lapiecode.info/[Le site de l'ISN]
+
+Test:
+
+* Quel est le nom de l'élément ?
+* Citer le nom d'un attribut ? Sa valeur ?
+* Quel est le contenu de l'élément ?
+
+=== Quelques éléments HTML:
+
+* Les titres
+* Les paragraphes
+* Les listes
+* Les images
+* Les liens
+
+=== Les titres
+
+[source,html]
+----
+<h1>[...]</h1>  <!-- Titre principal -->
+<h2>[...]</h2>  <!-- Sous-titre -->
+<h3>[...]</h3>  <!-- Sous-sous-titre -->
+<h4>[...]</h4>  <!-- Etc.. -->
+<h5>[...]</h5>
+<h6>[...]</h6>
+----
+
+
+=== Les paragraphes
+
+[source,html]
+----
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  Veritatis laboriosam mollitia autem at ab omnis iure quis
+  asperiores inventore eos nam aut iusto officiis deserunt
+  nihil, sequi tempore impedit quae?
+</p>
+----
+
+
+=== Les paragraphes
+
+[source,html]
+----
+<p>
+  On peut <em>insister</em> plus particulièrement sur une
+  partie du texte. On peut <strong>encore plus insister</strong>.
+</p>
+----
+
+=== Les listes:
+
+[source,html]
+----
+<h1>Guacamole rapide à faire</h1>
+
+<h2>Ingrédients</h2>
+<ul>
+  <li>2 avocats (pelés et avec les noyaux retirés)</li>
+  <li>le jus d'un citron</li>
+  <li>1 petite tomate, coupée</li>
+</ul>
+
+<h2>Instructions</h2>
+<ol>
+  <li>Écrasez délicatement les avocats avec une fourchette</li>
+  <li>Placez la purée obtenue dans un plat et arrosez avec le jus de citron</li>
+  <li>Mélangez avec la tomate </li>
+  <li>Gardez au frais et servir rapidement avec des tortillas</li>
+</ol>
+----
+
+Elles peuvent être ordonnées `ol` ou non ordonnées `ul`.
+
+
+=== Images
+
+[source,html]
+----
+<img src="http://lapiecode.info/images/logo-entete.png"
+     alt="Le logo lapie code">
+----
+
+
+=== A votre tour(1):
+
+[source,html]
+----
+<meta charset="utf-8">
+<title>Ma start-up</title>
+----
+[source,html]
+----
+<h1>Notre super app</h1>
+<p> Est un prétexte pour faire du HTML..</p>
+
+<h2>Rapide</h2>
+<p>Vraiment super <strong>rapide</strong>.</p>
+<img src="your-image.png" alt="picture description" width="100">
+
+<h2>Simple</h2>
+<p>Facile d'accès</p>
+<img src="your-image.png" alt="picture description" width="100">
+
+<p>La super application de notre super start-up</p>
+----
+
+=== A votre tour(2):
+
+Pour illustrer les propriétés de votre application, utiliser des icônes PNG:
+
+link:https://www.iconfinder.com/[www.iconfinder.com]
+
+== CSS
+
+Cascading Style Sheets
+
+=== Le web sans CSS
+
+Aller sur
+link:http://www.csszengarden.com/[www.csszengarden.com]
+clic droit: examiner élément. +
+Et lui "enlever la tête".
+
+=== Lier une feuille de style
+
+image:assets/linking-css.png[lier]
+
+=== La syntaxe CSS
+
+image:assets/css.png[syntaxe css]
+
+=== Exemple:
+
+[source,css]
+----
+h2 {
+  color: red;
+  font-size: 20px;
+  font-family: courier;
+}
+----
+
+=== Couleur(1)
+[source,css]
+----
+body {
+  color: orange;
+}
+----
