@@ -192,8 +192,8 @@ h2 {
 .corps-texte-lien {
   background-image: linear-gradient(120deg, rgba(255,138,101,0.75) 0%, rgba(255,138,101,0.45) 100%);
   background-repeat: no-repeat;
-  background-size: 100% 0.3em;
-  background-position: 0 91%;
+  background-size: 100% 0.4em;
+  background-position: 0 97%;
   color: #1a1a1a;
   transition:all 200ms;
 }
