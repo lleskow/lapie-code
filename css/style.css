@@ -190,7 +190,7 @@ h2 {
 }
 
 .corps-texte-lien {
-  background-image: linear-gradient(120deg, rgba(255,138,101,0.9) 0%, rgba(255,138,101,0.7) 100%);
+  background-image: linear-gradient(120deg, rgba(255,87,34,0.85) 0%, rgba(255,87,34,0.7) 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.4em;
   background-position: 0 97%;
@@ -199,7 +199,7 @@ h2 {
 }
 
 .corps-texte-lien:hover {
-  background-image: linear-gradient(120deg, rgba(255,138,101,0.8) 0%, rgba(255,138,101,0.55) 100%);
+  background-image: linear-gradient(120deg, rgba(255,87,34,0.8) 0%, rgba(255,87,34,0.55) 100%);
   background-repeat: no-repeat;
   background-size: 100% 1.1em;
   background-position: 0 94%;
@@ -290,7 +290,7 @@ h2 {
 }
 
 .panel-list-file a {
-  color: rgba(255,87,34,0.8);
+  color: rgba(255,87,34,0.95);
 }
 
 .panel-list-file a:hover {
