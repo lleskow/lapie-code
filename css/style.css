@@ -667,7 +667,7 @@ h2 {
     height: 100%;
     z-index: -1;
     opacity: 0.03;
-    background-image: url("images/koenigsberg.jpg");
+    background-image: url("/images/koenigsberg.jpg");
     background-repeat: no-repeat;
     background-position: 30% 20%;
     -ms-background-size: cover;
