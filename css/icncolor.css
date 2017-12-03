@@ -16,7 +16,12 @@
 
 .corps-texte-lien {
   /*color: #FF5722;*/
-  color: #00897B;
+  /*color: #00897B;*/
+  background-image: linear-gradient(120deg, rgba(0,137,123,0.5) 0%, rgba(0,137,123,0.3) 100%);
+}
+
+.corps-texte-lien:hover {
+  background-image: linear-gradient(120deg, rgba(0,137,123,0.5) 0%, rgba(0,137,123,0.3) 100%);
 }
 
 /**
@@ -63,7 +68,11 @@
   background-color: #FBE9E7;
 }
 
-.panel a {
-  /*color: #FF5722;*/
-  color: #00897B;
+.panel-list-file a {
+  color: rgba(0,137,123,0.9);
+}
+
+.panel-list-file a:hover {
+  color: rgb(0,137,123);
+  text-shadow:0 1px 0 rgba(0,137,123,0.2);
 }
