@@ -646,3 +646,33 @@ h2 {
   box-shadow: 0 0 20px black;
   z-index: -1;
 }
+
+
+/* ------------------------------------ *\
+  $ TS
+\* ------------------------------------ */
+
+.ts {
+  position: relative;
+  background: white;
+  overflow: hidden;
+}
+.ts:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.03;
+    background-image: url("images/koenigsberg.jpg");
+    background-repeat: no-repeat;
+    background-position: 30% 20%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
