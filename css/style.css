@@ -551,7 +551,7 @@ h2 {
 \* ------------------------------------ */
 
 .seance {
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
 .seance h2 {
@@ -560,6 +560,7 @@ h2 {
 .seance-header {
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  padding-bottom: 0.5em;
 }
 
 .seance-afaire,
