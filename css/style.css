@@ -666,8 +666,8 @@ h2 {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.06;
-    background-image: url("/images/koenigsberg.jpg");
+    opacity: 0.08;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/50/E._Galois_Letter.jpg");
     background-repeat: no-repeat;
     background-position: 30% 20%;
     -ms-background-size: cover;
