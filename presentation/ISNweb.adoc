@@ -581,3 +581,58 @@ Stylisez:
   color: lightgrey;
 }
 ----
+
+== Validation W3C
+
+A la différence d'un programme en Python, une page Web peut contenir des
+erreurs de syntaxe et "fonctionner".
+
+=== ! 
+
+Pour vérifier que votre page Web est conforme aux spécifications HTML5, rendez-vous sur le site du W3C (World Wide Web Consortium) :
+link:http://validator.w3.org[http://validator.w3.org]
+
+Les éventuelles erreurs vous seront signalées avec des explications (en anglais.)
+
+Vous pouvez de même valider votre css ici: link:https://jigsaw.w3.org/css-validator/#validate_by_upload[https://jigsaw.w3.org/css-validator/]
+
+== Pour aller plus loin..
+
+=== Un site comprenant plusieurs pages:
+
+Il suffit tout simplement de faire plusieurs pages, avec plusieurs fichiers
+`.html` et de mettre des liens entre ces pages.
+
+L'attribut `href` de la balise `<a>`, peut prendre comme valeur le chemin
+d'un fichier.
+
+Par exemple, si deux pages se trouvent dans le même dossier:
+
+[source,html]
+----
+<a href="page2.html"> Un lien vers la page 2. <a>
+----
+
+Ces pages peuvent utiliser le même fichier `css`.
+
+=== !
+
+Ce cours n'est qu'une très brève introduction au `html` et au `css`.
+
+Pour en apprendre plus sur le sujet vous pouvez consulter
+link:https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3[le site Openclassrooms].
+
+
+=== Flexbox
+
+Pour réaliser des mises en page plus complexes, il peut être intéressant de découvrir la propriété `css`: `flexbox`:
+
+link:https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/la-mise-en-page-avec-flexbox[La partie sur flexbox d'Openclassrooms.]
+
+=== Réaliser une barre de navigation:
+
+Une barre de navigation est une liste de lien que l'on va styliser.
+
+On peut pour cela utiliser la propriété `flexbox`.
+
+Ou suivre le link:https://www.w3schools.com/css/css_navbar.asp[tutoriel suivant.]

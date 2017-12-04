@@ -656,6 +656,7 @@ h2 {
   position: relative;
   background: white;
 }
+
 .ts:before {
     content: ' ';
     display: block;
