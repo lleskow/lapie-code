@@ -655,7 +655,6 @@ h2 {
 .ts {
   position: relative;
   background: white;
-  overflow: hidden;
 }
 .ts:before {
     content: ' ';
