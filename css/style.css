@@ -346,10 +346,10 @@ h2 {
   min-height: 5em;
   width: 100%;
   -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
-  -ms-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
-  -o-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
+     -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
+      -ms-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
+       -o-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
+          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.26);
 }
 
 .logo-entete {
@@ -369,25 +369,25 @@ h2 {
   display: block;
   margin-right: auto;
   margin-left: auto;
-  transition: 0.50s;
+          transition: 0.50s;
   -webkit-transition: 0.50s;
-  -moz-transition: 0.50s;
-  -ms-transition: 0.50s;
-  -o-transition: 0.50s;
+     -moz-transition: 0.50s;
+      -ms-transition: 0.50s;
+       -o-transition: 0.50s;
 }
 
 /* Rotation du logo */
 .logo-image-entete:hover {
-  transition: 0.50s;
+          transition: 0.50s;
   -webkit-transition: 0.50s;
-  -moz-transition: 0.50s;
-  -ms-transition: 0.50s;
-  -o-transition: 0.50s;
-  -webkit-transform: rotate(720deg);
-  -moz-transform: rotate(720deg);
-  -o-transform: rotate(720deg);
-  -ms-transform: rotate(720deg);
-  transform: rotate(720deg);
+     -moz-transition: 0.50s;
+      -ms-transition: 0.50s;
+       -o-transition: 0.50s;
+   -webkit-transform: rotate(720deg);
+      -moz-transform: rotate(720deg);
+        -o-transform: rotate(720deg);
+       -ms-transform: rotate(720deg);
+           transform: rotate(720deg);
 }
 
 .nav-principal {
@@ -451,10 +451,10 @@ h2 {
   margin-top: 5em;
   padding: 3em;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+     -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+      -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+       -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   width: 100%;
 }
 
@@ -483,10 +483,10 @@ h2 {
 
 .panel {
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
-  -ms-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
-  -o-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+     -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+      -ms-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+       -o-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
   margin: 3.5em 0em;
 }
 
@@ -670,9 +670,9 @@ h2 {
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/50/E._Galois_Letter.jpg");
     background-repeat: no-repeat;
     background-position: 30% 20%;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
+        -ms-background-size: cover;
+         -o-background-size: cover;
+       -moz-background-size: cover;
     -webkit-background-size: cover;
-    background-size: cover;
+            background-size: cover;
 }
