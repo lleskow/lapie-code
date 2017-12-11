@@ -189,6 +189,15 @@ h2 {
   color: #1a1a1a;
 }
 
+.corps-texte-list a {
+  color: rgba(255,87,34,0.95);
+}
+
+.corps-texte-list a:hover {
+  color: #ff5722;
+  text-shadow:0 1px 0 rgba(255,87,34,0.2);
+}
+
 .corps-texte-lien {
   background-image: linear-gradient(120deg, rgba(255,87,34,0.85) 0%, rgba(255,87,34,0.7) 100%);
   background-repeat: no-repeat;
@@ -294,7 +303,7 @@ h2 {
 }
 
 .panel-list-file a:hover {
-  color: #FF5722;
+  color: #ff5722;
   text-shadow:0 1px 0 rgba(255,87,34,0.2);
 }
 
