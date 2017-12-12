@@ -581,13 +581,44 @@ Stylisez:
   color: lightgrey;
 }
 ----
+== Un peu de mise en page..
+
+=== Block - Inline
+
+En général, les éléments HTML sont de type: block ou inline.
+
+=== Block
+
+* Des éléments de type Block: h1, p, ul, ...
+* Ils prennent toutes la largeur, sauf si leur largeur est précisée.
+* Saut de ligne avant et après.
+
+=== Block
+
+image:assets/block.png[]
+
+=== Inline
+
+* Des éléments de type inline: strong, em, a, img, ...
+* Ils prennent la largeur de leur contenu.
+* Pas de saut de ligne.
+
+image:assets/inline.png[]
+
+=== float
+
+image:assets/float1.png[]
+
+=== float
+
+image:assets/float2.png[]
 
 == Validation W3C
 
 A la différence d'un programme en Python, une page Web peut contenir des
 erreurs de syntaxe et "fonctionner".
 
-=== ! 
+=== !
 
 Pour vérifier que votre page Web est conforme aux spécifications HTML5, rendez-vous sur le site du W3C (World Wide Web Consortium) :
 link:http://validator.w3.org[http://validator.w3.org]
@@ -634,5 +665,3 @@ link:https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-htm
 Une barre de navigation est une liste de lien que l'on va styliser.
 
 On peut pour cela utiliser la propriété `flexbox`.
-
-Ou suivre le link:https://www.w3schools.com/css/css_navbar.asp[tutoriel suivant.]
