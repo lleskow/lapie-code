@@ -15,10 +15,31 @@
 //
 // Nymphomaths:
 // http://www.nymphomath.ch/pj/pendu/chapitre7.pdf
+// Très bien sur la théorie et un peu tout comme d'hab
 //
 // Cours Pointal:
 // https://perso.limsi.fr/pointal/_media/python:cours:poly_cours_info-algo_sp1-1617-revu.pdf
 // https://perso.limsi.fr/pointal/_media/python:cours:tpinfopython_2016-2017_sp1-tp5.pdf
+//
+// http://www.isn.cligniez.fr/cours.php
+// http://www.isn.cligniez.fr/fichiers.php
+// Une partie intéressante sur la lecture et l'écriture de fichier
+// L'exemple de traitement d'un texte avec germinal vient de là
+//
+// https://frederic-junier.org/ISN/Cours/ISN2015-ProgrammationChap2V1.pdf
+// Bonne source d'exo comme d'hab
+//
+// http://fsincere.free.fr/isn/python/cours_python_fichier.php
+// Tjs bien avec un exemple de projet intéressant
+//
+// http://www.ac-grenoble.fr/disciplines/informatiquelycee/python_ISN_a13.html
+// Utilisé pour construire le tp
+//
+// http://www.xavierdupre.fr/site2013/enseignements/td/seance4_module_fichier_regexp.pdf
+// Semble compliqué
+//
+// http://perso.univ-perp.fr/guillaume.revy/teaching/201617/Programmation/td4.pdf
+// Exo compliqué: exo du découpage de fichier
 
 
 == I. Lecture et écriture dans un fichier
