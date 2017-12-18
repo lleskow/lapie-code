@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Le charset est à garder en haut de page pour être tout de suite "parsé" -->
+  <title>Lapie Code - Accueil</title>
+
+  <!-- gestion des favicons à l'aide du site suivant (finaliser/tester)
+https://realfavicongenerator.net/
+Il faut en particulier vérifier les / devant favicon, probleme juste en local ?-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#b2dfdb">
+  <meta name="apple-mobile-web-app-title" content="Lapie Code">
+  <meta name="application-name" content="Lapie Code">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Fear the robots -->
+  <meta name="robots" content="none" />
+
+  <!-- Permet d'adapter le site aux portables et tablette -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <!-- Emplacement pour les polices de caractére  -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CMontserrat:400,700%7CRoboto:400,500,700" rel="stylesheet">
+  <!-- Pour le moment une unique feuille de style semble suffisante -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <!-- Sert à pouvoir faire un flexbox sur la page et fixer le footer -->
+  <!-- A remplacer par un grid un jour surement -->
+  <div class="page-conteneur">
+    <section class="contenu">
+      <h1 id="titre-insp">Inspection décembre 2017</h1>
+
+      <p class="corps-texte">
+        Cette page présente les différents documents liés à l'inspection de décembre 2017.
+      </p>
+      <p class="corps-texte">
+        On peut retrouver le contenu des cours dans la partie
+        <a href="http://lapiecode.info/ISN/cours.html" class="corps-texte-lien">cours</a> du site lapiecode.info,
+        organisé par séance, à
+        l'exception d'une partie sur la représentation de l'information qui est dans le classeur.
+        Ou dans la partie <a href="#contenu" class="corps-texte-lien">contenu</a> à la fin de ce document.
+      </p>
+      <p class="corps-texte">
+        Le site lapiecode.info est composé uniquement de HTML/CSS et fait à la &laquo;main&raquo;
+        pour servir d'une base de travail avec les élèves.
+      </p>
+
+      <ul class="list-inspection">
+        <li><a href="#progression" class="corps-texte-lien">Progression et cahier de texte.</a></li>
+        <li><a href="#contexte" class="corps-texte-lien">Contexte de la séance.</a></li>
+        <li><a href="#contexte-materiel" class="corps-texte-lien">Contexte matériel de la séance.</a></li>
+        <li><a href="#production" class="corps-texte-lien">Productions et travail des élèves.</a></li>
+        <li><a href="#evaluation" class="corps-texte-lien">Evaluation.</a></li>
+        <li><a href="#pistes" class="corps-texte-lien">Pistes d'améliorations en cas de poursuite de l'enseignement.</a></li>
+        <li><a href="#contenu" class="corps-texte-lien">Contenu.</a></li>
+      </ul>
+        <article class="article-simple" id="progression">
+          <h2>Progression.</h2>
+          <p class="corps-texte">
+            On peut retrouver la production dans le classeur, ou en
+          <a href="/assets/progressionb.pdf" class="corps-texte-lien">en ligne ici</a>.
+          <br>
+            On peut retrouver le cahier de texte dans le classeur, ou en
+          <a href="http://lapiecode.info/ISN/cahier_texte.html" class="corps-texte-lien">en ligne ici</a>.
+          </p>
+        </article>
+
+        <article class="article-simple" id="contexte">
+          <h2>Contexte de la séance.</h2>
+          <p class="corps-texte">
+            Pendant la première partie de l'année les élèves ont découverts les
+            bases du langage Python. (Equivalent de l'algorithmique du tronc
+            commun, la manipulation des chaînes de caractères, les fonctions, les listes.)
+            <br>
+            Nous sommes ensuite passés à la représentation de l'information.
+            En comptant dans cette partie, le traitement des images, et les
+            langages HTML et CSS.
+            Python a été utilisé pour illustrer différentes notions de ces parties.
+            En particulier, la partie sur le traitement d'images.
+            <br>
+            La séance d'aujourd'hui, et celles qui vont suivre, sont présentées
+            comme l'occasion de revenir au langage Python.
+            <br>
+            Cette séquence a pour but d'étudier les notions de fichiers et de
+            formats (notion de formats déjà étudiée dans le cadre du traitement d'images.),
+            et de travailler sur la taille de l'information,
+            dans un premier temps, puis lors d'une prochaine séance la notion
+            d'interface graphique. Ainsi que leur manipulation via le langage
+            Python.
+          </p>
+          <p class="corps-texte">
+            Cette séquence viendra clôturer un premier &laquo;semestre&raquo; exposant un
+            maximum d'outils pouvant servir lors des projets finaux.
+            La lecture-écriture dans un fichier et une bibliothèque d'interfaces
+            graphiques sont à mon sens deux outils ouvrant un nombre important
+            de possibilités et vont considérablement enrichir la réflexion des
+            élèves sur leur projet.
+          </p>
+          <p class="corps-texte">
+            Le choix du titre du chapitre n'est peut-être pas des plus judicieux,
+            ce chapitre n'étant pas à proprement parlé un chapitre sur la programmation.
+            Néanmoins, il permet(tait) d'inclure une éventuelle partie sur la distinction
+            entre type mutable et immutable en Python.
+            <br>
+            Mais l'intérêt de présenter ce thème (en dehors d'une éventuelle apparition
+            dans un projet) me paraît de plus en plus discutable.
+          </p>
+        </article>
+
+        <article class="article-simple" id="contexte-materiel">
+          <h2>Contexte matériel de la séance.</h2>
+          <p class="corps-texte">
+            La salle où a lieu les séances d'informatique ne posséde pas de réseau
+            (autre qu'internet), d'où le choix d'organiser les séances autour d'un site
+            internet permettant de récupérer les énoncés et fichiers nécessaires.
+            <br>
+            Il est prévu depuis le début de l'année de remplacer les ordinateurs
+            de la salle, il a donc été choisi d'attendre leur arrivée plutôt que
+            de régler les problèmes des logiciels installés sur les postes actuels.
+            <br>
+            Il a donc été choisi, d'utiliser des solutions en ligne tels que
+            <a href="https://trinket.io/" target="_blank" class="corps-texte-lien">trinket.io</a>
+            et
+            <a href="https://www.pythonanywhere.com/" target="_blank" class="corps-texte-lien">pythonanywhere.com</a>
+             pour exécuter des programmes en Python.
+            <br>
+            Ces solutions ont en outre l'avantage de permettre d'exécuter du code
+            Python partout où il y a une connexion internet.
+            <br>
+            Les élèves ont pris l'habitude d'utiliser trinket, mais cette solution
+            a montré ses limites sur le traitement des images ou la gestion des
+            fichiers. Ils ont découvert pythonanywhere depuis peu.
+          </p>
+        </article>
+
+        <article class="article-simple" id="production">
+          <h2>Productions et travail des élèves.</h2>
+          <p class="corps-texte">
+            En dehors du chapitre sur les langages du web, il a été demandé
+            aux élèves de garder systématiquement une trace écrite du cours.
+          </p>
+          <p class="corps-texte">
+            Il a été demandé aux élèves d'organiser par séance leur production
+            sur Trinket et Pythonanywhere. Il leur est donc possible d'accéder
+            à tout moment à leurs réalisations passées.
+          </p>
+          <h3 class="titre-trinket">Exemples de réalisations d'élèves en ISN dans le cadre des mini-projets:</h3>
+          <div class="trinket">
+            <iframe src="https://trinket.io/embed/python/5f4d7a9838" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+          </div>
+          <div class="trinket">
+            <iframe src="https://trinket.io/embed/python/538d2b6b75" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+          </div>
+          <div class="trinket">
+            <iframe src="https://trinket.io/embed/python/fb63b9a3e9" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+          </div>
+
+          <h3 class="titre-trinket">Exemples de réalisations d'élèves en ICN dans le cadre des mini-projets:</h3>
+          <p class="corps-texte">
+            Ces projets d'ICN ne sont pas encore finalisés.
+          </p>
+
+          <div class="trinket">
+            <iframe src="https://trinket.io/embed/python/2caa2c8803" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+          </div>
+          <div class="trinket">
+            <iframe src="https://trinket.io/embed/python/38575c3a8e" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+          </div>
+          <div class="trinket">
+            <iframe src="https://trinket.io/embed/python/185d819c05" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+          </div>
+          <div class="trinket">
+            <iframe src="https://trinket.io/embed/python/01bf57bb9e" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+          </div>
+        </article>
+
+        <article class="article-simple" id="evaluation">
+          <h2>Evaluation.</h2>
+          <p class="corps-texte">
+            L'évaluation au premier trimestre s'est fait via un mini-projet, à
+            faire en groupe et en temps libre, et via un devoir surveillé.
+            <br>
+            Les énoncés sont dans le classeur donné.
+          </p>
+          <p class="corps-texte">
+            L'évaluation au deuxième trimestre devrait être similaire (Enoncé
+            des mini-projets dans le classeur.) et sera accompagné d'exposés notés.
+          </p>
+        </article>
+
+        <article class="article-simple" id="pistes">
+          <h2>Pistes d'amélioration en cas de poursuite de l'enseignement.</h2>
+          <p class="corps-texte">
+            L'évalution et l'organisation du travail personnel ne sont pas
+            satisfaisantes. L'évaluation &laquo;sur table&raquo; devrait être découpée
+            en plusieurs devoirs plus cours.
+            <br>
+            Des devoirs en temps libre, composés d'un cours exercice de
+            programmation en Python ou sur un autre thème, devraient être donnés
+            très fréquemment. (En plus des mini-projets.)
+          </p>
+          <p class="corps-texte">
+            Créations d'exercices &laquo;auto-corrigés&raquo; en Python.
+          </p>
+          <p class="corps-texte">
+            Cours d'ICN (seconde ou première), permettant la découverte de la
+            programmation via le dessin (type Processing mais avec Python) et
+            le traitement d'image.
+          </p>
+        </article>
+
+        <article class="article-simple" id="contenu">
+          <h2>Contenu.</h2>
+          <ul class="list-inspection">
+            <li><a href="http://lapiecode.info/ISN/cours/tp_langages01.html" class="corps-texte-lien">T.P introductif.</a></li>
+            <li><a href="http://lapiecode.info/presentation/ISN2.html" class="corps-texte-lien">Cours programme, variables, types, struct. cond.</a></li>
+            <li><a href="http://lapiecode.info/ISN/cours/tp_langages02.html" class="corps-texte-lien">T.P correspondant.</a></li>
+            <li><a href="http://lapiecode.info/presentation/ISN3.html" class="corps-texte-lien">Cours structure itératives.</a></li>
+            <li><a href="http://lapiecode.info/ISN/cours/tp_langages03.html" class="corps-texte-lien">T.P correspondant.</a></li>
+            <li><a href="http://lapiecode.info/presentation/ISN4.html" class="corps-texte-lien">Cours fonctions.</a></li>
+            <li><a href="http://lapiecode.info/ISN/cours/tp_langages04.html" class="corps-texte-lien">T.P correspondant.</a></li>
+
+            <li><a href="http://lapiecode.info/presentation/ISN5.html" class="corps-texte-lien">Cours listes.</a></li>
+            <li><a href="http://lapiecode.info/ISN/cours/tp_langages05.html" class="corps-texte-lien">T.P correspondant.</a></li>
+
+            <li><a href="http://lapiecode.info/presentation/ISNweb.html" class="corps-texte-lien">Cours et T.P web.</a></li>
+
+            <li><a href="http://lapiecode.info/presentation/tp_traitement_image.html" class="corps-texte-lien">T.P traitement d'images.</a></li>
+
+            <li><a href="http://lapiecode.info/presentation/ISN6.html" class="corps-texte-lien">Cours d'aujourd'hui.</a></li>
+            <li><a href="http://lapiecode.info/ISN/cours/tp_traitement_fichier.html" class="corps-texte-lien">T.P correspondant.</a></li>
+          </ul>
+
+          <p class="corps-texte">Le dernier
+            <a href="http://lapiecode.info/assets/mementopython3_20_12.pdf" class="corps-texte-lien">memento</a>
+            Python, il évolue à chaque séance.
+          </p>
+        </article>
+    </section>
+  </div>
+  <!-- Fin du conteneur de la page -->
+</body>
+
+</html>

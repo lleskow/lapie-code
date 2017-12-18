@@ -685,3 +685,26 @@ h2 {
     -webkit-background-size: cover;
             background-size: cover;
 }
+
+/* ------------------------------------ *\
+  $ Inspection
+\* ------------------------------------ */
+
+.list-inspection {
+  color: #1a1a1a;
+  list-style: square;
+  margin: 3em 10% 6em;
+}
+
+.trinket {
+  margin-top: 1.2em;
+}
+
+.titre-trinket {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+#titre-insp {
+  font-size: 2em;
+}
