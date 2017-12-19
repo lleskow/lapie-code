@@ -568,7 +568,7 @@ de chaîne de caractère</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">var = f.read(7)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">lecture des 7 caractères suivants, et les affectes à la variable <em>var</em> sous la forme
-d&#8217;une chaîne de caractère</p></td>
+d&#8217;une chaîne de caractère (renvoie une chaîne vide une fois à la fin du fichier)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">var = f.readline()</p></td>
@@ -644,7 +644,7 @@ l&#8217;éventuel contenu du fichier.</p>
 <h2 id="_exercice_2_a_vous_d_écrire">Exercice 2: A vous d&#8217;écrire</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ecrire un programme qui demande à l&#8217;utilisateur 3 noms, et les sauvegardes dans
+<p>Ecrire un programme qui demande à l&#8217;utilisateur 3 noms, et les sauvegarde dans
 un fichier <code>nom.txt</code>.<br>
 Le fichier doit contenir un nom par ligne.<br>
 Ne pas oublier de visionner le fichier pour déterminer s&#8217;il est correct.</p>
@@ -657,13 +657,14 @@ Ne pas oublier de visionner le fichier pour déterminer s&#8217;il est correct.<
 <div class="ulist">
 <ul>
 <li>
-<p>La méthode <code>chaine.lower()</code> renvoie la chaîne de caractère <em>chaine</em> avec des minuscules.</p>
+<p>La méthode <code>chaine.lower()</code> renvoie la même chaîne de caractère <em>chaine</em> en minuscules.</p>
 </li>
 <li>
-<p>La méthode <code>chaine.upper()</code> renvoie la chaîne de caractère <em>chaine</em> avec des majuscules.</p>
+<p>La méthode <code>chaine.upper()</code> renvoie la même chaîne de caractère <em>chaine</em> en majuscules.</p>
 </li>
 <li>
-<p>La méthode <code>chaine.strip(<em>param</em>)</code> renvoie la chaîne de caractère privé de la chaîne de caractère <em>param</em>.<br>
+<p>La méthode <code>chaine.rstrip(<em>param</em>)</code> retirent de la fin de la chaîne toutes les
+lettres qui sont dans la chaîne passée en paramètre.
 <em>strip</em> veut dire enlever&#8230;&#8203;</p>
 </li>
 <li>
@@ -689,11 +690,8 @@ chaîne de caractère <em>param</em> dans la chaîne <em>chaine</em>.</p>
 <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;est&quot;</span><span class="tok-p">,</span> <span class="tok-n">end</span><span class="tok-o">=</span><span class="tok-s2">&quot; &quot;</span><span class="tok-p">)</span>
 <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">phrase</span><span class="tok-o">.</span><span class="tok-n">count</span><span class="tok-p">(</span><span class="tok-s2">&quot;to&quot;</span><span class="tok-p">))</span>
 
-<span class="tok-n">phrase</span> <span class="tok-o">=</span> <span class="tok-n">phrase</span><span class="tok-o">.</span><span class="tok-n">strip</span><span class="tok-p">(</span><span class="tok-s2">&quot;to&quot;</span><span class="tok-p">)</span>
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Le nombre de to, dans:&quot;</span><span class="tok-p">)</span>
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">phrase</span><span class="tok-p">)</span>
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;est&quot;</span><span class="tok-p">,</span> <span class="tok-n">end</span><span class="tok-o">=</span><span class="tok-s2">&quot; &quot;</span><span class="tok-p">)</span>
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">phrase</span><span class="tok-o">.</span><span class="tok-n">count</span><span class="tok-p">(</span><span class="tok-s2">&quot;to&quot;</span><span class="tok-p">))</span></code></pre>
+<span class="tok-n">phrase</span> <span class="tok-o">=</span> <span class="tok-n">phrase</span><span class="tok-o">.</span><span class="tok-n">rstrip</span><span class="tok-p">(</span><span class="tok-s2">&quot;.&quot;</span><span class="tok-p">)</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">phrase</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -739,7 +737,7 @@ l&#8217;uploader dans votre dossier <code>traitement_fichiers</code> sur pythona
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-On pourra se rappeler de la méthode <code>strip</code>, pour enlever les sauts de
+On pourra se rappeler de la méthode <code>rstrip</code>, pour enlever les sauts de
 ligne intempestifs.
 </td>
 </tr>
