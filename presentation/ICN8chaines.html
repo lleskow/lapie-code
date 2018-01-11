@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Manipulation des chaînes de caractères.</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments  { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.listingblock .pygments .tok-g { color: #000000 } /* Generic */
+.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-l { color: #000000 } /* Literal */
+.listingblock .pygments .tok-n { color: #000000 } /* Name */
+.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
+.listingblock .pygments .tok-x { color: #000000 } /* Other */
+.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
+.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
+.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
+.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Manipulation des chaînes de caractères.</h1></section><section><section id="_les_caractres"><h2>Les caractères</h2><div class="paragraph"><p>Une lettre est un caractère, mais tout les caractères ne sont pas des lettres !</p></div></section><section id="_quelques_exemples_de_caractres"><h2>Quelques exemples de caractères</h2><div class="paragraph"><p>@ # &amp; , ! . * % " sont des caractères</p></div></section><section id="_les_chiffres_sont_des_caractres"><h2>Les chiffres sont des caractères</h2><div class="paragraph"><p>En Python, on distingue le nombre de 2, du symbole le représentant à l&#8217;aide
+de guillemet, "2".</p></div></section><section id="_diffrence_entre_minuscule_et_majuscule"><h2>Différence entre minuscule et majuscule:</h2><div class="paragraph"><p>Attention a et A sont deux caractères différents !</p></div></section><section id="_des_caractres_particuliers"><h2>Des caractères particuliers:</h2><div class="paragraph"><p>Le caractère " " est le caractère espace.</p></div>
+<div class="paragraph"><p>Le caractère <code>"\n"</code> est le caractère saut à la ligne.</p></div>
+<div class="paragraph"><p>Certains smileys/emoticons sont des caractères.</p></div></section></section>
+<section><section id="_les_chanes_de_caractres"><h2>Les chaînes de caractères</h2><div class="paragraph"><p>Une chaîne de caractères est une suite de caractères.</p></div><div class="paragraph"><p>Un mot ou une phrase sont des chaînes de caractères.</p></div></section><section><div class="paragraph"><p>En Python, les chaînes de caractères sont notées avec des guillemets:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-s">&quot;Je suis une chaîne !&quot;</span></code></pre></div></div></section><section><div class="paragraph"><p>On peut stocker une chaîne de caractère dans une variable:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">chaine</span> <span class="tok-o">=</span> <span class="tok-s">&quot;Un exemple!&quot;</span></code></pre></div></div></section><section><div class="paragraph"><p>Chaque caractère dans une chaîne posséde un indice:</p></div>
+<div class="imageblock" style=""><img src="assets/chaine.png" alt="chaine"></div></section><section><div class="paragraph"><p>On peut accéder à un caractère d&#8217;une chaîne en se référant à son indice:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">chaine</span> <span class="tok-o">=</span> <span class="tok-s">&quot;Un exemple!&quot;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">chaine</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">]</span>
+ <span class="tok-s">&quot;U&quot;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">chaine</span><span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">]</span>
+ <span class="tok-s">&quot;e&quot;</span></code></pre></div></div></section><section><div class="paragraph"><p>La fonction <code>len</code> renvoie la longueur d&#8217;une chaîne:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">chaine</span> <span class="tok-o">=</span> <span class="tok-s">&quot;Un exemple!&quot;</span>
+<span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">chaine</span><span class="tok-p">)</span> <span class="tok-c">#Combien vaut len(chaine)</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">chaine</span> <span class="tok-o">=</span> <span class="tok-s">&quot;Un exemple!&quot;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">chaine</span><span class="tok-p">)</span>
+  <span class="tok-mi">11</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">chaine</span> <span class="tok-o">=</span> <span class="tok-s">&quot;Un exemple!&quot;</span></code></pre></div></div>
+<div class="paragraph"><p>Quel est l&#8217;indice de ! ?</p></div></section><section><div class="paragraph"><p>C&#8217;est 10, l&#8217;indice du dernier caractère est toujours <code>len(chaine)-1</code></p></div></section></section>
+<section><section id="_quelques_exemples"><h2>Quelques exemples</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">phrase</span> <span class="tok-o">=</span> <span class="tok-nb">input</span><span class="tok-p">()</span>
+<span class="tok-k">if</span> <span class="tok-n">phrase</span><span class="tok-p">[</span><span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">phrase</span><span class="tok-p">)</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">==</span> <span class="tok-s">&quot;,&quot;</span><span class="tok-p">:</span>
+  <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;Attention à votre ponctuation&quot;</span><span class="tok-p">)</span></code></pre></div></div><div class="paragraph"><p>Que fait le programme suivant ?</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">phrase</span> <span class="tok-o">=</span> <span class="tok-nb">input</span><span class="tok-p">()</span>
+<span class="tok-n">presente</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">phrase</span><span class="tok-p">)):</span>
+  <span class="tok-k">if</span> <span class="tok-n">phrase</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span> <span class="tok-o">==</span> <span class="tok-s">&quot;a&quot;</span><span class="tok-p">:</span>
+    <span class="tok-n">present</span> <span class="tok-o">=</span> <span class="tok-bp">True</span>
+
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">presente</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>Que fait le programme suivant ?</p></div></section></section>
+<section><section id="_modifier_une_chane_de_caractre"><h2>Modifier une chaîne de caractère ?</h2></section><section><div class="paragraph"><p>On ne peut pas modifier une chaîne de caractère.</p></div></section><section><div class="paragraph"><p>On peut cependant en recréer une à l&#8217;aide de la concaténation.</p></div></section><section id="_concatnation"><h2>Concaténation</h2><div class="paragraph"><p>Concaténer veut dire mettre bout à bout.</p></div>
+<div class="paragraph"><p>La concaténation de "ba" et de "bar" est "babar"</p></div></section><section id="_en_python"><h2>En python</h2><div class="paragraph"><p>En python la concaténation se fait avec le <code>+</code></p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-s">&quot;bon&quot;</span><span class="tok-o">+</span><span class="tok-s">&quot;jour&quot;</span>
+ <span class="tok-s">&quot;bonjour&quot;</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">chaine</span> <span class="tok-o">=</span> <span class="tok-s">&quot;un exemple&quot;</span>
+<span class="tok-n">nouvelle_chaine</span> <span class="tok-o">=</span> <span class="tok-s">&quot;&quot;</span> <span class="tok-c">#crée une chaine vide</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">chaine</span><span class="tok-p">)):</span>
+  <span class="tok-n">nouvelle_chaine</span> <span class="tok-o">=</span> <span class="tok-n">nouvelle_chaine</span> <span class="tok-o">+</span> <span class="tok-n">chaine</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span> <span class="tok-o">+</span> <span class="tok-s">&quot;@&quot;</span>
+
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">nouvelle_chaine</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>Que fait ce programme ?</p></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'moon',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
