@@ -1,0 +1,210 @@
+:backend: revealjs
+:revealjs_theme: moon
+
+= Lecture et écriture dans un fichier
+:source-highlighter: pygments
+:pygments-style: tango
+
+// Version light de celle de l'ISN
+
+//***************************
+// Sources d'inspirations: **
+//**************************
+//
+// Article sur les fichiers de wikipedia
+//
+// https://eric.univ-lyon2.fr/~ricco/cours/slides/PE%20-%20fichiers%20sous%20python.pdf
+//
+// Nymphomaths:
+// http://www.nymphomath.ch/pj/pendu/chapitre7.pdf
+// Très bien sur la théorie et un peu tout comme d'hab
+//
+// Cours Pointal:
+// https://perso.limsi.fr/pointal/_media/python:cours:poly_cours_info-algo_sp1-1617-revu.pdf
+// https://perso.limsi.fr/pointal/_media/python:cours:tpinfopython_2016-2017_sp1-tp5.pdf
+//
+// http://www.isn.cligniez.fr/cours.php
+// http://www.isn.cligniez.fr/fichiers.php
+// Une partie intéressante sur la lecture et l'écriture de fichier
+// L'exemple de traitement d'un texte avec germinal vient de là
+//
+// https://frederic-junier.org/ISN/Cours/ISN2015-ProgrammationChap2V1.pdf
+// Bonne source d'exo comme d'hab
+//
+// http://fsincere.free.fr/isn/python/cours_python_fichier.php
+// Tjs bien avec un exemple de projet intéressant
+//
+// http://www.ac-grenoble.fr/disciplines/informatiquelycee/python_ISN_a13.html
+// Utilisé pour construire le tp
+//
+// http://www.xavierdupre.fr/site2013/enseignements/td/seance4_module_fichier_regexp.pdf
+// Semble compliqué
+//
+// http://perso.univ-perp.fr/guillaume.revy/teaching/201617/Programmation/td4.pdf
+// Exo compliqué: exo du découpage de fichier
+
+
+== La notion de fichier
+
+Qu'est ce qu'un fichier ?
+
+=== !
+
+[#ex-fichier]
+.Un exemple de fichier
+[link=https://en.wikipedia.org/wiki/File:IBM1130CopyCard.agr.jpg]
+image::https://upload.wikimedia.org/wikipedia/commons/d/d8/IBM1130CopyCard.agr.jpg[Un fichier]
+
+=== !
+
+Fichier: collection d’informations stockées sur une mémoire morte
+(disque dur, clé USB,...)
+
+=== Deux types de fichiers:
+
+* Les fichiers *binaires* qui ne contiennent pas que du texte.
+* Les  fichiers *textes* qui ne contiennent que du texte (lettres, ponctuations, nombres, ...).
+
+=== Binaire ou texte ?
+
+[.step]
+* .JPEG
+* .HTML
+* .txt
+* .MP3
+* .PNG
+* .SVG
+* .PPM
+* .PDF
+* .py
+
+== Accéder à un fichier texte avec Python
+
+Pour accéder à un fichier, on utilise la fonction: `open()`
+
+[source,python]
+----
+varfichier = open(nom_du_fichier, mode_d_acces, encoding = enco)
+----
+
+[.step]
+* _nom_du_fichier_: une chaîne qui contient le chemin du fichier
+* _mode_d_acces_ :
+** Le mode d'accès 'r' pour la lecture (read)
+** 'w'  pour l'écriture (write)
+** 'a'  pour l'ajout (append)
+** ...
+* encoding va correspondre à l'encodage, par défaut, _utf-8_
+
+=== !
+
+_varfichier_ fait maintenant référence à objet faisant le lien entre Python
+et le fichier.
+
+== Lire dans un fichier
+
+[source,python]
+----
+# Ouverture d'un fichier en lecture:
+f = open("spam.txt", "r")
+----
+
+=== !
+
+La lecture d'un fichier *texte* est *séquentielle*.
+
+image::assets/sequentiel.png[sequentiel,width=500,height=350]
+
+=== On peut lire caractère par caractère.
+
+[source,python]
+----
+# chars est une chaîne contenant les 50 premiers caractères
+#du fichier
+chars = f.read(50)
+# charsbis est une chaîne contenant les deux suivants
+charsbis = f.read(2)
+----
+
+[source,python]
+----
+# texte contient tout ce qu'il reste à lire dans le fichier
+texte = f.read()
+----
+
+=== On peut lire ligne par ligne
+
+[source,python]
+----
+# ligne contient la ligne suivante
+# avec le caractère "\n" à la fin
+ligne = f.readline()
+----
+
+// [source,python]
+// ----
+// # lignes contient toutes les lignes restantes sous forme de liste
+// lignes = f.readlines()
+// ----
+
+=== Python est for
+
+[source,python]
+----
+#Ces instructions permettent d'afficher le fichier ligne par ligne
+for i in f:
+  print(i)
+----
+
+== 5. Ecrire dans un fichier
+
+Deux modes d'écriture:
+
+=== Le mode "w"
+
+Il va créer le fichier ou l'*écraser* s'il existe déjà.
+
+[source,python]
+----
+# Ouverture d'un fichier en écriture:
+f = open("spam.txt", "w")
+----
+
+=== Le mode "a"
+
+Il permet d'ajouter d'écrire à la fin du fichier. (Crée un fichier s'il n'existe pas.)
+
+[source,python]
+----
+# Ouverture d'un fichier en écriture:
+f = open("spam.txt", "a")
+----
+
+=== L'écriture est aussi séquentielle
+
+[source,python]
+----
+# Pour écrire
+f.write("hello")
+# write n'ajoute pas d'espace ou de saut de ligne
+f.write(" world\n")
+f.write("!")
+----
+
+Le fichier contient maintenant la ligne "hello world". +
+Et une ligne: "!"
+
+== Libérer le fichier
+
+Un fichier est une ressource partagée, il faut le libérer après l'avoir
+utilisé avec:
+
+[source,python]
+----
+f.close()
+----
+
+=== !
+
+Idéalement, il faudrait gérer les éventuelles erreurs, et faire en sorte
+que le fichier se ferme en cas d'erreur.

@@ -1,0 +1,93 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+
+= Chapitre VII: Récursivité
+:source-highlighter: pygments
+:pygments-style: tango
+
+//***************************
+// Sources d'inspirations: **
+//**************************
+//
+//
+
+image::https://upload.wikimedia.org/wikipedia/fr/thumb/2/27/Logo_La_vache_qui_rit.svg/320px-Logo_La_vache_qui_rit.svg.png[]
+
+== Première exemple
+
+[source,python]
+----
+def encore():
+  reponse = input("Encore ? (o) ou (n)")
+  if reponse == "o":
+    encore()
+  else:
+    print("Bye")
+
+encore()
+----
+
+== Définition
+
+Une fonction récursive est une fonction qui s'appelle elle-même.
+
+== !
+
+link:https://trinket.io/python/5b6c30f06a[C'est un principe simple mais très riche]
+
+== !
+
+Qu'affiche le programme suivant ?
+
+[source,python]
+----
+def debutfin(n):
+  if n > 0:
+    print("debut",n)
+    debutfin(n-1)
+    print("fin",n)
+
+debutfin(3)
+----
+
+== Factoriel
+
+stem:[n! = n \times (n-1) \times ... \times 3 \times 2 \times 1]
+
+Donc:
+
+stem:[n ! = n \times (n-1)!]
+
+== !
+
+Pour calculer `factoriel(4)`, on fait `4xfactoriel(3)`
+
+Pour calculer `factoriel(3)`, on fait `3xfactoriel(2)`
+
+On peut donc naturellement voir la fonction factoriel comme une fonction
+récursive
+
+== En python
+
+[source,python]
+----
+def factoriel(n):
+  if n == 0:
+    return 1
+  else:
+    return n * factoriel(n-1)
+
+print(factoriel(5))
+----
+
+== Condition d'arrêt
+
+Puisqu'une fonction récursive s'appelle elle-même, il est impératif qu'on prévoit
+une condition d'arrêt à la récursion, sinon le programme ne s'arrête jamais!
+
+Dans le cas de la factoriel, la condition d'arrêt est stem:[n==0].
+
+== !
+
+L'algorithme de tri-fusion est un algorithme récursif.
