@@ -262,6 +262,18 @@ h2 {
 }
 
 /**
+* Les messages
+*/
+
+.msg {
+  background-color: #00897b;
+}
+
+.msg-titre {
+  color: rgba(240,240,240,0.8);
+}
+
+/**
 * La banniere
 */
 
@@ -450,6 +462,31 @@ h2 {
 .material-icons.md-1 {
   font-size: 1em;
 }
+
+.decouvrir-img {
+  width: 30%;
+  margin-left: 30%;
+  margin-bottom: 1em;
+}
+
+
+/**
+* Les messages
+*/
+
+.msg {
+  height: auto;
+  margin: 5em auto auto auto;
+  padding: 3em;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+     -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+      -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+       -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  width: 100%;
+  text-align: center;
+}
+
 
 /* ------------------------------------ *\
     CH_6: $BANNIERE
