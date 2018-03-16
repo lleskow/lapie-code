@@ -1,0 +1,67 @@
+:backend: revealjs
+:revealjs_theme: moon
+:revealjs_autoSlide: 10000
+:revealjs_loop: true
+= Informatique et Création numérique au lycée Paul Lapie
+:source-highlighter: pygments
+:pygments-style: tango
+
+== !
+
+image::assets/decouvrir/dec1.png[size=cover]
+
+
+== !
+
+image::assets/decouvrir/dec2.png[size=cover]
+
+== !
+
+image::assets/decouvrir/dec3.png[size=cover]
+
+== !
+
+image::assets/decouvrir/dec4.png[size=cover]
+
+== !
+
+image::assets/decouvrir/dec5.png[size=cover]
+
+== !
+
+image::assets/decouvrir/dec6.png[size=cover]
+
+
+== !
+
+image::assets/decouvrir/dec7.png[size=cover]
+
+
+== !
+
+image::assets/decouvrir/dec8.png[size=cover]
+
+
+== !
+
+image::assets/decouvrir/dec9.png[size=cover]
+
+
+== !
+
+image::assets/decouvrir/dec10.png[size=cover]
+
+
+== !
+
+image::assets/decouvrir/dec11.png[size=cover]
+
+
+== !
+
+image::assets/decouvrir/dec12.png[size=cover]
+
+
+== !
+
+image::assets/decouvrir/dec13.png[size=cover]
