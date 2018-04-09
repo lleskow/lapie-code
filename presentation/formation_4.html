@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Algorithme et programmation en Python au lycée, quatrième partie: Les points forts de Python et traitement de données.</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+tex2jax: {
+  inlineMath: [["\\(", "\\)"]],
+  displayMath: [["\\[", "\\]"]],
+  ignoreClass: "nostem|nolatexmath"
+},
+asciimath2jax: {
+  delimiters: [["\\$", "\\$"]],
+  ignoreClass: "nostem|noasciimath"
+},
+TeX: { equationNumbers: { autoNumber: "none" } }
+});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments  { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.listingblock .pygments .tok-g { color: #000000 } /* Generic */
+.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-l { color: #000000 } /* Literal */
+.listingblock .pygments .tok-n { color: #000000 } /* Name */
+.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
+.listingblock .pygments .tok-x { color: #000000 } /* Other */
+.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
+.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
+.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
+.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Algorithme et programmation en Python au lycée, quatrième partie</h1><h2>Les points forts de Python et traitement de données.</h2></section><section><section id="_les_points_forts_de_python"><h2>Les points forts de Python</h2></section><section><div class="paragraph"><p>On l&#8217;a dit, passer des langages types « calculatrices » à un langage tel que
+Python permet de redonner leur place aux fonctions, et de s&#8217;abstraire du
+«demander à l&#8217;utilisateur»/«afficher pour l&#8217;utilisateur».</p></div></section><section><div class="paragraph"><p>Mais avec un langage tel que Python et l&#8217;utilisation d&#8217;un ordinateur viennent
+d&#8217;autres possibilités:</p></div>
+<div class="ulist"><ul><li><p>Masquer les difficultés/créer des « boîtes noires »/ajouter de l&#8217;abstraction.</p></li><li><p>Regarder à l&#8217;intérieur des « boîtes noires ».</p></li><li><p>Manipuler des données de grandes tailles et de toutes les formes.</p></li><li><p>Utiliser différentes formes de visualisation.</p></li></ul></div></section></section>
+<section><section id="_masquer_les_difficults"><h2>Masquer les difficultés</h2><div class="paragraph"><p>On peut penser à trois possibilités pour masquer les difficultés:</p></div></section><section id="_donner_directement_du_code__copier_coller_aux_lves"><h2>Donner directement du code à copier/coller aux élèves.</h2></section><section id="_la_syntaxe_native_de_python"><h2>La syntaxe native de Python</h2><div class="paragraph"><p>Elle est très riche qui permet très souvent de masquer la difficulté en ajoutant
+ une couche d&#8217;abstraction.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">mot</span> <span class="tok-o">=</span> <span class="tok-s">&quot;abracabra&quot;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">mot</span><span class="tok-o">.</span><span class="tok-n">count</span><span class="tok-p">(</span><span class="tok-s">&quot;a&quot;</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-k">for</span> <span class="tok-n">lettre</span> <span class="tok-ow">in</span> <span class="tok-n">mot</span><span class="tok-p">:</span>
+<span class="tok-o">...</span>     <span class="tok-n">lettre</span><span class="tok-o">.</span><span class="tok-n">upper</span><span class="tok-p">()</span>
+<span class="tok-o">...</span>
+<span class="tok-s">&#39;A&#39;</span>
+<span class="tok-s">&#39;B&#39;</span>
+<span class="tok-s">&#39;R&#39;</span>
+<span class="tok-s">&#39;A&#39;</span>
+<span class="tok-s">&#39;C&#39;</span>
+<span class="tok-s">&#39;A&#39;</span>
+<span class="tok-s">&#39;B&#39;</span>
+<span class="tok-s">&#39;R&#39;</span>
+<span class="tok-s">&#39;A&#39;</span></code></pre></div></div></section><section id="_encapsuler"><h2>Encapsuler</h2><div class="paragraph"><p>Créer et utiliser des modules qui vont encapsuler les difficultés. Il
+est même possible de réécrire des fonctions «natives»:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">def</span> <span class="tok-nf">f</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">):</span>
+  <span class="tok-k">pass</span>
+
+<span class="tok-k">print</span> <span class="tok-o">=</span> <span class="tok-n">f</span></code></pre></div></div></section></section>
+<section id="_regarder__l_intrieur_des_botes_noires"><h2>Regarder à l&#8217;intérieur des « boîtes noires ».</h2><div class="paragraph"><p>Si Python permet de se placer à un assez haut niveau d&#8217;abstraction et de
+masquer les difficultés, c&#8217;est aussi un langage qui permet de regarder ce qu&#8217;il
+se passe dans le détail et de ne pas contourner les difficultés.</p></div></section>
+<section><section id="_manipuler_des_donnes_de_grandes_tailles_et_de_toutes_les_formes"><h2>Manipuler des données de grandes tailles et de toutes les formes.</h2><div class="paragraph"><p>Le problème de la calculatrice n&#8217;est pas tant qu&#8217;elle n&#8217;ait pas la puissance
+de calculs pour traiter des grandes quantités de donnés, c&#8217;est qu&#8217;elle ne permet
+que très difficilement de récupérer des données et sous des formats limités.</p></div><div class="paragraph"><p>A l&#8217;inverse Python permet de récupérer et de traiter des données de toutes
+tailles et de toutes formes.</p></div></section><section><div class="paragraph"><p>Quelques pistes qui seront plus ou moins approfondies par la suite:</p></div>
+<div class="ulist"><ul><li><p>Des fichiers textes.</p></li><li><p>Des données au format CSV. (format « tableur »)</p></li><li><p>Des images.</p></li></ul></div></section></section>
+<section id="_utiliser_diffrentes_formes_de_visualisation"><h2>Utiliser différentes formes de visualisation.</h2><div class="paragraph"><p>On a déjà vu les exemples du traitement d&#8217;images ou du tracé de courbe.
+Un autre exemple intéressant est l&#8217;étude du mouvement d&#8217;un solide, chute,
+trajectoire parabolique, etc, qui peut donner lieu à une animation à l&#8217;aide
+de module tel que <code>tkinter</code> ou <code>pygame</code>. (Cet exemple n&#8217;est pas développé
+dans ce document.)</p></div></section>
+<section id="_manipulation_de_donnes"><h2>Manipulation de données</h2></section>
+<section><section id="_lecture_et_criture_dans_un_fichier_texte"><h2>Lecture et écriture dans un fichier texte</h2><div class="paragraph"><p>Même si la manipulation de textes ne relève pas tout à fait du domaine des
+mathématiques, on peut imaginer au moins deux situations où cela a du sens:</p></div><div class="ulist"><ul><li><p>les statistiques</p></li><li><p>la cryptographie</p></li></ul></div></section><section id="_la_cryptographie"><h2>La cryptographie</h2><div class="paragraph"><p>Même si le mécanisme reste le même lorsque l&#8217;on crypte un mot, une phrase ou
+un roman (ou même une bibliothèque), crypter/décrypter l&#8217;intégrale de Flaubert
+plutôt que 3 lettres à tout de suite un côté plus satisfaisant/impressionnant.</p></div></section><section><div class="paragraph"><p>On peut aussi imaginer appliquer des méthodes d&#8217;attaque par analyse fréquentielle.</p></div></section><section><div class="paragraph"><p>Il est relativement simple de trouver des fichiers des textes au format <code>.txt</code>
+sur internet, on peut par exemple regarder du côté du
+<a href="http://www.gutenberg.org/wiki/FR_Litt%C3%A9rature_(Genre)">projet Gutenberg</a></p></div></section><section id="_liste_des_commandes_de_base"><h2>Liste des commandes de base:</h2><div class="paragraph"><p>Dans ce tableau, <code>f</code> désigne un nom de variable quelconque.</p></div></section><section id="_mode_lecture"><h2>Mode lecture</h2><div class="ulist"><ul><li><p>f = open("nom_fichier.txt","r") permet de lire le contenu du fichier <em>nom_fichier.txt</em> var = f.read() lecture de tout le fichier, et l&#8217;affecte à la variable <em>var</em> sous la forme
+de chaîne de caractère</p></li><li><p>var = f.read(7) lecture des 7 caractères suivants, et les affectes à la variable <em>var</em> sous la forme
+d&#8217;une chaîne de caractère (renvoie une chaîne vide une fois à la fin du fichier)</p></li><li><p>var = f.readline() lecture de la ligne suivante, et l&#8217;affecte à la variable <em>var</em> sous la forme
+de chaîne de caractère, saut de ligne <code>\n</code> inclus</p></li><li><p>for ligne in f: permet de parcourir tout le fichier, ligne par ligne</p></li></ul></div></section><section id="__modes_critures"><h2>! Modes écritures</h2><div class="ulist"><ul><li><p>f = open("nom_fichier.txt","w") créé un fichier <em>nom_fichier.txt</em>, ou l&#8217;efface s&#8217;il existe,
+permet d&#8217;écrire dans ce fichier.</p></li><li><p>f = open("nom_fichier.txt","a") créé un fichier <em>nom_fichier.txt</em>, ou l&#8217;efface s&#8217;il existe,
+permet d&#8217;écrire dans ce fichier.</p></li><li><p>f.write("mon texte\n") ajoute "mon texte\n" à la fin du fichier, ne pas oublier <code>\n</code> si on veut
+passer à la ligne</p></li></ul></div></section><section id="_important_fermer"><h2>Important: fermer</h2><div class="paragraph"><p>f.close() fermeture du fichier à ne pas oublier</p></div></section><section id="_un_exemple"><h2>Un exemple</h2><div class="paragraph"><p>Un exemple avec le <a href="http://lapiecode.info/ISN/cours/textemystere.txt">texte suivant</a>:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">f_clair</span> <span class="tok-o">=</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-s">&quot;textemystere.txt&quot;</span><span class="tok-p">,</span><span class="tok-s">&#39;r&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">f_crypte</span> <span class="tok-o">=</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-s">&quot;textecrypte.txt&quot;</span><span class="tok-p">,</span><span class="tok-s">&#39;w&#39;</span><span class="tok-p">)</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">crypte_lettre</span><span class="tok-p">(</span><span class="tok-n">lettre</span><span class="tok-p">,</span> <span class="tok-n">k</span><span class="tok-p">):</span>
+    <span class="tok-n">nbr</span> <span class="tok-o">=</span> <span class="tok-nb">ord</span><span class="tok-p">(</span><span class="tok-n">lettre</span><span class="tok-o">.</span><span class="tok-n">upper</span><span class="tok-p">())</span> <span class="tok-o">-</span> <span class="tok-mi">65</span>
+    <span class="tok-n">nbr_crypt</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">nbr</span> <span class="tok-o">+</span> <span class="tok-n">k</span><span class="tok-p">)</span> <span class="tok-o">%</span> <span class="tok-mi">26</span><span class="tok-p">)</span> <span class="tok-o">+</span> <span class="tok-mi">65</span>
+    <span class="tok-k">return</span> <span class="tok-nb">chr</span><span class="tok-p">(</span><span class="tok-n">nbr_crypt</span><span class="tok-p">)</span>
+
+<span class="tok-k">for</span> <span class="tok-n">ligne</span> <span class="tok-ow">in</span> <span class="tok-n">f_clair</span><span class="tok-p">:</span>
+    <span class="tok-n">ligne_crypte</span> <span class="tok-o">=</span> <span class="tok-s">&quot;&quot;</span>
+    <span class="tok-k">for</span> <span class="tok-n">lettre</span> <span class="tok-ow">in</span> <span class="tok-n">ligne</span><span class="tok-p">:</span>
+        <span class="tok-k">if</span> <span class="tok-n">lettre</span><span class="tok-o">.</span><span class="tok-n">isalpha</span><span class="tok-p">():</span>
+            <span class="tok-n">lettre_crypte</span> <span class="tok-o">=</span> <span class="tok-n">crypte_lettre</span><span class="tok-p">(</span><span class="tok-n">lettre</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">)</span>
+        <span class="tok-k">else</span><span class="tok-p">:</span>
+            <span class="tok-n">lettre_crypte</span> <span class="tok-o">=</span> <span class="tok-n">lettre</span>
+        <span class="tok-n">ligne_crypte</span> <span class="tok-o">=</span> <span class="tok-n">ligne_crypte</span> <span class="tok-o">+</span> <span class="tok-n">lettre_crypte</span>
+    <span class="tok-n">f_crypte</span><span class="tok-o">.</span><span class="tok-n">write</span><span class="tok-p">(</span><span class="tok-n">ligne_crypte</span><span class="tok-p">)</span>
+
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;done&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">f_clair</span><span class="tok-o">.</span><span class="tok-n">close</span><span class="tok-p">()</span>
+<span class="tok-n">f_crypte</span><span class="tok-o">.</span><span class="tok-n">close</span><span class="tok-p">()</span></code></pre></div></div></section></section>
+<section><section id="_lecture_et_criture_dans_un_fichier_csv"><h2>Lecture et écriture dans un fichier CSV</h2><div class="paragraph"><p>Le format CSV, pour comma separated values, représentent les données d&#8217;un
+tableau sous la forme de valeurs séparées par des virgules. (Ou souvent
+  des points virgules en France)</p></div></section><section><div class="paragraph"><p>On peut d&#8217;exporter un fichier excel ou ods en un fichier CSV.</p></div></section><section><div class="paragraph"><p>Python dispose d&#8217;un module CSV qui permet de manipuler facilement les fichiers
+CSV.</p></div></section><section><div class="paragraph"><p>Le <a href="resultats_electoraux.csv">fichier des résultats électoraux</a> provient de
+<a href="https://opendata.paris.fr/explore/dataset/resultats_electoraux/">opendata.paris.fr</a>.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">import</span> <span class="tok-nn">csv</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">calcul_nbr_electeur</span><span class="tok-p">(</span><span class="tok-n">nom</span><span class="tok-p">):</span>
+    <span class="tok-n">f</span> <span class="tok-o">=</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-s">&quot;resultats_electoraux.csv&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;r&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">tableur</span> <span class="tok-o">=</span> <span class="tok-n">csv</span><span class="tok-o">.</span><span class="tok-n">reader</span><span class="tok-p">(</span><span class="tok-n">f</span><span class="tok-p">,</span><span class="tok-n">delimiter</span><span class="tok-o">=</span><span class="tok-s">&quot;;&quot;</span><span class="tok-p">)</span>
+
+    <span class="tok-n">nbr_voix_total</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-k">for</span> <span class="tok-n">ligne</span> <span class="tok-ow">in</span> <span class="tok-n">tableur</span><span class="tok-p">:</span>
+        <span class="tok-k">if</span> <span class="tok-n">ligne</span><span class="tok-p">[</span><span class="tok-mi">11</span><span class="tok-p">]</span> <span class="tok-o">==</span> <span class="tok-n">nom</span><span class="tok-p">:</span>
+            <span class="tok-n">nbr_voix_total</span> <span class="tok-o">+=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">ligne</span><span class="tok-p">[</span><span class="tok-mi">13</span><span class="tok-p">])</span>
+    <span class="tok-n">f</span><span class="tok-o">.</span><span class="tok-n">close</span><span class="tok-p">()</span>
+    <span class="tok-k">return</span> <span class="tok-n">nbr_voix_total</span>
+
+
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">calcul_nbr_electeur</span><span class="tok-p">(</span><span class="tok-s">&quot;POUTOU&quot;</span><span class="tok-p">))</span></code></pre></div></div></section><section><div class="paragraph"><p>Le <a href="indicateurs_lycees.csv">fichier sur les lycées</a> provient de
+<a href="https://data.education.gouv.fr/explore/dataset/fr-en-indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/export/">data.education.gouv.fr</a>.</p></div>
+<div class="paragraph"><p>Il est aussi possible de manipuler les lignes du tableau comme des dictionnaires
+et donc de faire référence au nom de la colonne:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">import</span> <span class="tok-nn">csv</span>
+
+<span class="tok-n">f</span> <span class="tok-o">=</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-s">&quot;indicateurs_lycees.csv&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;r&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">tableau</span> <span class="tok-o">=</span> <span class="tok-n">csv</span><span class="tok-o">.</span><span class="tok-n">DictReader</span><span class="tok-p">(</span><span class="tok-n">f</span><span class="tok-p">,</span><span class="tok-n">delimiter</span><span class="tok-o">=</span><span class="tok-s">&quot;;&quot;</span><span class="tok-p">)</span>
+
+<span class="tok-k">for</span> <span class="tok-n">ligne</span> <span class="tok-ow">in</span> <span class="tok-n">tableau</span><span class="tok-p">:</span>
+    <span class="tok-k">if</span> <span class="tok-n">ligne</span><span class="tok-p">[</span><span class="tok-s">&quot;Etablissement&quot;</span><span class="tok-p">]</span> <span class="tok-o">==</span> <span class="tok-s">&quot;LYCEE PAUL LAPIE&quot;</span><span class="tok-p">:</span>
+        <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">ligne</span><span class="tok-p">[</span><span class="tok-s">&quot;Taux Brut de Réussite Total séries&quot;</span><span class="tok-p">])</span>
+
+<span class="tok-n">f</span><span class="tok-o">.</span><span class="tok-n">close</span><span class="tok-p">()</span></code></pre></div></div></section></section>
+<section><section id="_traitement_d_image"><h2>Traitement d&#8217;image</h2><div class="paragraph"><p>Une image matricielle ou bitmap est une image constituée d&#8217;une matrice de points
+ colorés souvent appelés pixel.</p></div><div class="paragraph"><p>Python permet via le module <code>PIL</code> de manipuler des images issue d&#8217;un format
+bitmap tel que le <code>.PNG</code> ou le <code>.JPEG</code>.</p></div></section><section id="_ouvrir_une_image"><h2>Ouvrir une image</h2><div class="paragraph"><p><code>from PIL import Image</code></p></div>
+<div class="paragraph"><p>On va avec ce module pouvoir charger une image et la manipuler comme un objet
+<code>Image</code> avec la commande:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">nom_variable</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">open</span><span class="tok-p">(</span><span class="tok-s">&quot;chemin_fichier&quot;</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>(Si le fichier image est dans le même dossier que le fichier <code>.py</code>, il suffit
+de préciser le nom du fichier.)</p></div></section><section><div class="paragraph"><p>On peut voir un objet Image, comme un tableau à deux dimensions de pixels.
+Dans lequel le pixel en haut à gauche a pour coordonnée \((0,0)\).</p></div></section><section><div class="paragraph"><p>Les pixels sont composées d&#8217;un entier compris entre 0 et 255 en mode niveau de
+gris, trois entiers de 0 à 255 qui vont correspondre à la quantité de rouge (Red),
+vert (Green), bleu (Blue) en mode RGB. (On passe à 4 entiers avec le mode RGBA qui
+  ajoute un canal alpha qui va de 0 à 255 aussi et qui correspond à la transparence.
+  Il vaut mieux éviter le mode RGBA pour simplifier les choses.)</p></div></section><section id="_liste_des_commandes_de_base_2"><h2>Liste des commandes de base:</h2><div class="ulist"><ul><li><p>nom_variable = Image.open("chemin_fichier") ouverture d’un fichier image</p></li><li><p>nom_variable.mode mode de l’image : "L" en niveaux de gris, "RGB" en couleurs</p></li><li><p>nom_variable.format donne le format de l’image: "PNG", "PPM", &#8230;&#8203;</p></li><li><p>nom_variable.size taille de l’image sous la forme d&#8217;un tuple (Largeur,Hauteur)</p></li></ul></div></section><section><div class="ulist"><ul><li><p>nom_variable.save("chemin_fichier") sauvegarde d&#8217;une image</p></li><li><p>nom_variable = Image.new("RGB",(L,H)) création d’une image "RGB" de dimensions (Largeur,Hauteur) (On peut remplacer
+"RGB" par "L" pour une image en niveau de gris.)</p></li><li><p>nom_variable.getpixel((x,y)) pixel de coordonnées (x,y), correspond à un nombre en mode niveau de gris,
+et à un tuple de trois nombres en mode RGB.</p></li><li><p>nom_variable.putpixel((x,y),nom_pixel) écriture de la valeur nom_pixel dans le pixel de coordonnées (x,y), nom_pixel
+doit être un nombre en mode niveau de gris, et un tuple en mode RGB.</p></li></ul></div></section><section id="_parcourir_un_tableau__deux_dimensions"><h2>Parcourir un tableau à deux dimensions:</h2><div class="paragraph"><p>Pour pouvoir traiter une image, on va souvent la modifier pixel par pixel. Il
+faut donc parcourir tous les pixels.</p></div></section><section><div class="paragraph"><p>Pour parcourir un tableau à deux dimensions, élément par élément, on peut
+utiliser deux boucles <code>for</code> imbriquées:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-n">y</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">nbr_ligne</span><span class="tok-p">):</span> <span class="tok-c">#On va parcourir toutes lignes</span>
+  <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">nbr_colonne</span><span class="tok-p">):</span> <span class="tok-c">#On parcourt toute une ligne colonne par colonne</span>
+    <span class="tok-n">tableau</span><span class="tok-p">[</span><span class="tok-n">x</span><span class="tok-p">][</span><span class="tok-n">y</span><span class="tok-p">]</span> <span class="tok-c">#On accède à l&#39;élément de coordonnées (x,y)</span></code></pre></div></div></section><section id="_pourquoi_le_traitement_d_image"><h2>Pourquoi le traitement d&#8217;image ?</h2><div class="paragraph"><p>On peut travailler sur les images pour illustrer:</p></div>
+<div class="ulist"><ul><li><p>les fonctions via des changements de contrastes ou des filtres ou de la stéganographie</p></li><li><p>les boucles bien sûr</p></li><li><p>le si alors avec des effets de seuils</p></li><li><p>la moyenne, les médianes, histogrammes, etc.</p></li><li><p>des applications du calcul matriciel</p></li></ul></div>
+<div class="paragraph"><p>Et cela de la seconde à la terminale.</p></div></section><section id="_autres"><h2>Autres</h2><div class="paragraph"><p>Python a tendance à pouvoir rendre simple d&#8217;accès des choses qu&#8217;on imagine
+complexe, on peut donc imaginer un très grand nombre d&#8217;applications, on
+peut imaginer travailler avec des collègues de S.V.T avec
+le <a href="http://biopython.org/DIST/docs/tutorial/Tutorial.html#htoc2">module BioPython</a>.</p></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'moon',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

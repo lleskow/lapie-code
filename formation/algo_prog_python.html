@@ -1,0 +1,2750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="author" content="Louis Leskow">
+<title>Algorithme et programmation en Python au lycée.</title>
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+@import "asciidoctor.css"; /* Default asciidoc style framework - important */
+
+/* CUSTOMISATIONS */
+/* Change the values in root for quick customisation. If you want even more fine grain... venture further. */
+
+:root{
+--maincolor:#FFFFFF;
+--primarycolor:#009688; /* Teal 500 */
+--secondarycolor:#ba3925;
+--tertiarycolor: #186d7a;
+--sidebarbackground:#004d40; /* Teal 900 */
+--linkcolor:#80cbc4; /* Teal 200 */
+--linkcoloralternate:#f44336;
+--white:#FFFFFF;
+--black:#000000;
+}
+
+body{font-family: "Noto Sans",sans-serif;}
+
+#header{background-color:var(--primarycolor); padding:25px;max-width: none;}
+#footer{background-color: var(--sidebarbackground);}
+h1,h2,h3{background-color:var(--primarycolor);color:var(--white) !important;font-family:"Noto Sans",sans-serif;text-decoration:none;padding:10px;}
+h4,h5,h6{color:var(--primarycolor);}
+.title{color:var(--sidebarbackground) !important;font-family:"Noto Sans",sans-serif;font-style: normal; font-weight: normal;}
+p{font-family: "Noto Sans",sans-serif ! important}
+#toc.toc2 a:link{color:white;}
+
+a {
+  text-decoration: none;
+  color: var(--linkcolor);
+}
+a:hover {
+  color: var(--sidebarbackground);
+}
+.quoteblock blockquote::before {
+  color: var(--linkcolor);
+}
+mark {
+  color: var(--white);
+  background-color: #80cbc4;
+}
+
+/* Card styling */
+.sect1{border-bottom:1px solid grey;border-radius:8px;}
+
+/* Table styles */
+th{background-color: #80cbc4;color:#FFFFFF;}
+
+#toc.toc2{background-color:var(--sidebarbackground);color:white !important;}
+#toc.toc2.a{color:var(--white);}
+#toc.toc2.a:active{color:var(--white) !important;}
+#toc.toc2.a:visited{color:var(--white) !important;}
+#toctitle{color:white;font-size: 16px;}
+
+/* Responsiveness fixes */
+video {
+  max-width: 100%;
+}
+
+@media all and (max-width: 600px) {
+table {
+  width: 55vw!important;
+  font-size: 3vw;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+.listingblock .pygments .hll { background-color: #49483e }
+.listingblock .pygments, .listingblock .pygments code { background: #272822; color: #f8f8f2 }
+.listingblock .pygments .tok-c { color: #75715e } /* Comment */
+.listingblock .pygments .tok-err { color: #960050; background-color: #1e0010 } /* Error */
+.listingblock .pygments .tok-k { color: #66d9ef } /* Keyword */
+.listingblock .pygments .tok-l { color: #ae81ff } /* Literal */
+.listingblock .pygments .tok-n { color: #f8f8f2 } /* Name */
+.listingblock .pygments .tok-o { color: #f92672 } /* Operator */
+.listingblock .pygments .tok-p { color: #f8f8f2 } /* Punctuation */
+.listingblock .pygments .tok-ch { color: #75715e } /* Comment.Hashbang */
+.listingblock .pygments .tok-cm { color: #75715e } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #75715e } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #75715e } /* Comment.PreprocFile */
+.listingblock .pygments .tok-c1 { color: #75715e } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #75715e } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #f92672 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gi { color: #a6e22e } /* Generic.Inserted */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #75715e } /* Generic.Subheading */
+.listingblock .pygments .tok-kc { color: #66d9ef } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #66d9ef } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #f92672 } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #66d9ef } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #66d9ef } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #66d9ef } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #e6db74 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #ae81ff } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #e6db74 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #a6e22e } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #f8f8f2 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #a6e22e } /* Name.Class */
+.listingblock .pygments .tok-no { color: #66d9ef } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #a6e22e } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #f8f8f2 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #a6e22e } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #a6e22e } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f8f8f2 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #f8f8f2 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #a6e22e } /* Name.Other */
+.listingblock .pygments .tok-py { color: #f8f8f2 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #f92672 } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #f8f8f2 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #f92672 } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f2 } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #ae81ff } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #ae81ff } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #ae81ff } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #ae81ff } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #ae81ff } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #e6db74 } /* Literal.String.Affix */
+.listingblock .pygments .tok-sb { color: #e6db74 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #e6db74 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #e6db74 } /* Literal.String.Delimiter */
+.listingblock .pygments .tok-sd { color: #e6db74 } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #e6db74 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #ae81ff } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #e6db74 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #e6db74 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #e6db74 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #e6db74 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #e6db74 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #e6db74 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #a6e22e } /* Name.Function.Magic */
+.listingblock .pygments .tok-vc { color: #f8f8f2 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #f8f8f2 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.listingblock .pygments .tok-il { color: #ae81ff } /* Literal.Number.Integer.Long */
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Algorithme et programmation en Python au lycée.</h1>
+<div class="details">
+<span id="author" class="author">Louis Leskow</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#_analyse_de_l_aménagement_des_programmes_et_de_l_évolution_de_l_écriture_des_algorithmes">1. Analyse de l&#8217;aménagement des programmes et de l&#8217;évolution de l&#8217;écriture des algorithmes.</a>
+<ul class="sectlevel2">
+<li><a href="#_instructions_d_entrée_sortie_et_fonction">1.1. Instructions d&#8217;entrée-sortie et fonction</a></li>
+<li><a href="#_l_interprète_de_commande">1.2. L’interprète de commande</a></li>
+</ul>
+</li>
+<li><a href="#_utiliser_python_en_pratique">2. Utiliser Python en pratique</a>
+<ul class="sectlevel2">
+<li><a href="#_avec_anaconda">2.1. Avec Anaconda</a></li>
+<li><a href="#_les_solutions_en_lignes">2.2. Les solutions en lignes</a></li>
+<li><a href="#_avec_trinket">2.3. Avec trinket</a></li>
+</ul>
+</li>
+<li><a href="#_le_langage_python">3. Le langage Python</a>
+<ul class="sectlevel2">
+<li><a href="#_les_types">3.1. Les types</a></li>
+<li><a href="#_l_affectation">3.2. L&#8217;affectation</a></li>
+<li><a href="#_sortie">3.3. Sortie</a></li>
+<li><a href="#_arithmétique_en_python">3.4. Arithmétique en Python</a></li>
+<li><a href="#_présentation_générale_de_la_syntaxe_python">3.5. Présentation générale de la syntaxe Python</a></li>
+<li><a href="#_instructions_conditionnelles">3.6. Instructions conditionnelles</a></li>
+<li><a href="#_structures_itératives">3.7. Structures itératives</a></li>
+<li><a href="#_le_type_list">3.8. Le type list</a></li>
+<li><a href="#_fonctions">3.9. Fonctions</a></li>
+<li><a href="#_portée_des_variables">3.10. Portée des variables</a></li>
+</ul>
+</li>
+<li><a href="#_les_modules">4. Les modules</a>
+<ul class="sectlevel2">
+<li><a href="#_utilisation_de_modules">4.1. Utilisation de modules</a></li>
+<li><a href="#_aléatoire_avec_python">4.2. Aléatoire avec Python</a></li>
+<li><a href="#_arithmétique_des_flottants">4.3. Arithmétique des flottants</a></li>
+<li><a href="#_le_module_turtle">4.4. Le module Turtle</a></li>
+<li><a href="#_le_module_matplotlib">4.5. Le module Matplotlib</a></li>
+<li><a href="#_le_module_sympy">4.6. Le module Sympy</a></li>
+</ul>
+</li>
+<li><a href="#_les_points_forts_de_python">5. Les points forts de Python</a>
+<ul class="sectlevel2">
+<li><a href="#_masquer_les_difficultés">5.1. Masquer les difficultés</a></li>
+<li><a href="#_regarder_à_l_intérieur_des_boîtes_noires">5.2. Regarder à l&#8217;intérieur des « boîtes noires ».</a></li>
+<li><a href="#_manipuler_des_données_de_grandes_tailles_et_de_toutes_les_formes">5.3. Manipuler des données de grandes tailles et de toutes les formes.</a></li>
+<li><a href="#_utiliser_différentes_formes_de_visualisation">5.4. Utiliser différentes formes de visualisation.</a></li>
+</ul>
+</li>
+<li><a href="#_manipulation_de_données">6. Manipulation de données</a>
+<ul class="sectlevel2">
+<li><a href="#_lecture_et_écriture_dans_un_fichier_texte">6.1. Lecture et écriture dans un fichier texte</a></li>
+<li><a href="#_lecture_et_écriture_dans_un_fichier_csv">6.2. Lecture et écriture dans un fichier CSV</a></li>
+<li><a href="#_traitement_d_image">6.3. Traitement d&#8217;image</a></li>
+<li><a href="#_autres">6.4. Autres</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ce document accompagne une présentation, proposée à l&#8217;équipe de mathématiques
+du lycée Paul Lapie de Courbevoie, sur l&#8217;aménagement de la partie algorithmique
+du programme de seconde qui a eu lieu en 2017.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;idée est d&#8217;analyser les modifications du programme ainsi que l&#8217;évolution de
+l&#8217;écriture des algorithmes aux examens, et de voir en quoi ces changements
+demandent l&#8217;introduction d&#8217;un langage de programmation interprété.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup></p>
+</div>
+<div class="paragraph">
+<p>Un tel langage, Python
+<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup>
+, ainsi que son utilisation seront en suite présentées.
+Le but n&#8217;étant pas de devenir un expert en Python, mais d&#8217;avoir les bases
+nécessaires pour illustrer la pensée algorithmique naturellement présente en
+mathématiques, l&#8217;accent sera donc mis sur une présentation très peu &laquo;
+Pythonesque&raquo; de Python.<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnote_3" title="View footnote.">3</a>]</sup></p>
+</div>
+<div class="paragraph">
+<p>Différentes applications permettant de programmer en Python seront présentés,
+ainsi que l&#8217;utilisation du <em>notebook</em> Jupyter.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_analyse_de_l_aménagement_des_programmes_et_de_l_évolution_de_l_écriture_des_algorithmes">1. Analyse de l&#8217;aménagement des programmes et de l&#8217;évolution de l&#8217;écriture des algorithmes.</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>On pourra retrouver
+<a href="http://media.education.gouv.fr/file/30/52/3/programme_mathematiques_seconde_65523.pdf#page=9">la version non aménagée du programme ici</a>
+ et
+<a href="http://cache.media.education.gouv.fr/file/18/95/3/ensel512_maths_757953.pdf#page=9">la version aménagée ici</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La première différence notable est l&#8217;apparition du mot programmation dans le
+titre. Cependant, l&#8217;ancienne version du programme parlait déjà de logiciel
+de programmation et le mot programmer était déjà présent, on peut donc se
+demander s&#8217;il y a un vrai changement à ce niveau.</p>
+</li>
+<li>
+<p>Une deuxième différence est la disparition de la mention: &laquo;objectifs pour le lycée
+&raquo;, cela laisse donc penser que ce sont désormais des objectifs pour la
+classe de seconde, reste cependant à voir les éventuelles évolutions des programmes
+de première et terminale&#8230;&#8203;</p>
+</li>
+<li>
+<p>Une autre différence notable est l&#8217;emploi du terme &laquo;langage de programmation
+textuel&raquo;, il n&#8217;y <em>a priori</em> pas de changement majeur ici mais une volonté
+de séparer clairement ce qui relève du collège et de ce qui relève lycée.</p>
+</li>
+<li>
+<p>La notion de <em>type</em> apparait de façon explicite, on peut cependant remarquer
+qu&#8217;elle était déjà présente de façon implicite.</p>
+</li>
+<li>
+<p>On arrive maintenant à la principale différence: l&#8217;apparition de la notion
+de fonction et la disparition des instructions d’entrées et sorties.</p>
+</li>
+</ul>
+</div>
+<div class="openblock float-group">
+<div class="content">
+<div class="imageblock left">
+<div class="content">
+<img src="images/ancienprogramme.png" alt="Ancienne version" width="400">
+</div>
+</div>
+<div class="imageblock left">
+<div class="content">
+<img src="images/nouveauprogramme.png" alt="Nouvelle version" width="500">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_instructions_d_entrée_sortie_et_fonction">1.1. Instructions d&#8217;entrée-sortie et fonction</h3>
+<div class="paragraph">
+<p>Voyons pourquoi c&#8217;est la principale différence et pourquoi les deux sont liées.</p>
+</div>
+<div class="paragraph">
+<p>Une des principales critiques qui étaient faites sur l&#8217;enseignement de
+l&#8217;algorithmique au lycée, était le découpage: entrées-corps-sortie.
+Cela pose, en effet, problème à deux niveaux, d&#8217;une part car cela est une structure
+un peu simpliste, d&#8217;autre part car cela présente les programmes comme ne communiquant
+qu&#8217;avec l&#8217;utilisateur.</p>
+</div>
+<div class="paragraph">
+<p>On demande à l&#8217;utilisateur de <em>saisir</em> (<code>input()</code>) des données, et on <em>affiche</em>
+(<code>print()</code>) les résultats pour lui. On ne peut donc pas réutiliser directement
+notre algorithme dans un autre, puisqu&#8217;avec cette présentation, les algorithmes
+ne peuvent communiquer entre eux. Cela fait disparaitre l&#8217;idée de réutilisation
+et de modularisation. Il n&#8217;est donc pas possible de comprendre que c&#8217;est l&#8217;imbrication
+de petits algorithmes qui permet d&#8217;atteindre la complexité à laquelle nous
+sommes habitués dans un système informatique.</p>
+</div>
+<div class="paragraph">
+<p>Le problème vient du fait que, <em>saisir</em>/<em>afficher</em> ne sont tout simplement pas
+des notions d&#8217;algorithmique mais un détail d&#8217;implémentation d&#8217;un programme.</p>
+</div>
+<div class="paragraph">
+<p>En algorithmique, la provenance des données n&#8217;a, <em>a priori</em>, pas d&#8217;importance.
+Il n&#8217;y a pas de raison de mentionner une saisie par l&#8217;utilisateur. (D&#8217;autant
+plus, que dans la pratique ce n&#8217;est presque jamais le cas&#8230;&#8203;) Il n&#8217;y pas non plus
+à mentionner dans un algorithme un éventuel affichage.</p>
+</div>
+<div class="paragraph">
+<p>Ce qui compte, c&#8217;est que l&#8217;algorithme prend des données en paramètres et renvoie
+des données en réponse. Ce qui correspond donc à la notion de fonction.</p>
+</div>
+<div class="paragraph">
+<p>On remarque donc que la modification du programme n&#8217;apporte pas plus de
+programmation mais en enlève. Ces instructions d&#8217;entrée-sortie qui
+relevaient de la programmation sont remplacées par la notion de fonction, qui
+elle, est parfaitement algorithmique.</p>
+</div>
+<div class="paragraph">
+<p>On retrouve cette idée dans deux documents officiels,
+<a href="http://cache.media.eduscol.education.fr/file/Mathematiques/73/3/Algorithmique_et_programmation_787733.pdf">le nouveau document ressource sur l&#8217;algorithmiqe</a>
+qui nous dit:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+On notera que les notions d’entrées-sorties (fonctions input et print)
+ne  sont  pas  développées dans ce document: elles ne relèvent pas de la
+pensée algorithmique et l’accent mis par le programme sur la notion de fonction
+permet de s’en libérer complètement.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Et dans <a href="https://euler.ac-versailles.fr/IMG/pdf/evolution_ecriture_algorithmes.pdf">le document sur l&#8217;écriture des algorithmes produit par l&#8217;inspection générale.</a>:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+Dans un objectif de simplicité et de cohérence, il est proposé une évolution de
+ l’écriture des algorithmes dans les sujets de baccalauréat obéissant aux
+ principes suivants : [&#8230;&#8203;] suppression des entrées-sorties ;
+</blockquote>
+</div>
+<div class="paragraph">
+<p>On peut aussi observer l&#8217;exemple très explicite suivant:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nouvelleecriture.png" alt="alt">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_l_interprète_de_commande">1.2. L’interprète de commande</h3>
+<div class="paragraph">
+<p>A ce moment, il pourrait paraitre raisonnable de se dire, &laquo;euh&#8230;&#8203; mais
+sans <code>input</code>/<code>print</code>, on ne peut rien faire, c&#8217;est pas très malin&#8230;&#8203; !!! &raquo;.</p>
+</div>
+<div class="paragraph">
+<p>C&#8217;est là que la demande d&#8217;utiliser un langage interprété prend
+tout son sens.<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnote_4" title="View footnote.">4</a>]</sup></p>
+</div>
+<div class="paragraph">
+<p>En effet, il est possible d&#8217;utiliser les langages interprétés dans un
+interprèteur intéractif de commande, on parle aussi de mode console, et en anglais de
+Read–eval–print loop (Repl).</p>
+</div>
+<div class="paragraph">
+<p>Le mode console va nous permettre d&#8217;interagir avec la machine et d&#8217;utiliser
+les fonctions que nous avons programmées sans avoir à utiliser d' <code>input()</code>/<code>print()</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_utiliser_python_en_pratique">2. Utiliser Python en pratique</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_avec_anaconda">2.1. Avec Anaconda</h3>
+<div class="paragraph">
+<p>Ouvrir l&#8217;IDE Spyder directement depuis le bureau ou en passant par Anaconda:
+image::images/anaconda.png[alt]</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;idée est de créer des fonctions dans un fichier .py, manipulée dans la
+partie de gauche, passer ce code à l&#8217;interpréteur (via la fléche verte) puis
+utiliser ces fonctions dans l&#8217;interpréteur.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/anaconda2.png" alt="alt">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_solutions_en_lignes">2.2. Les solutions en lignes</h3>
+<div class="paragraph">
+<p>Il existe de nombreuses solutions pour exécuter en ligne du code Python</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.pythonanywhere.com/">pythonanywhere.com</a> Très bien mais pose
+deux problèmes, le code est exécuté à distance, c&#8217;est donc souvent très lent au
+lycée. Et il n&#8217;est pas possible d&#8217;utiliser turtle.</p>
+</li>
+<li>
+<p><a href="https://repl.it/">repl.it</a> Même problème avec un code qui est exécuté à
+distance, de plus s&#8217;il y a bien une console de proposée, il est assez
+complexe de faire le lien avec l&#8217;éditeur de texte sur le côté. (<code>import sys</code>, puis <code>sys.path.append('/home/runner')</code> )</p>
+</li>
+<li>
+<p><a href="https://trinket.io/">trinket.io</a> Il est possible d&#8217;exécuter le code à
+distance ou directement dans le navigateur. (mais sans les bibliothéques scientifiques)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_avec_trinket">2.3. Avec trinket</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/tr-choix23.png" alt="version" width="300" height="100">
+</div>
+</div>
+<div class="paragraph">
+<p>Il y a deux modes possibles, python et python3, il n&#8217;est pas possible de
+sauvegarder avec le mode python3 et le code est exécuté à distance mais il
+est possible d&#8217;utiliser les bibliothéques scientifiques.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque l&#8217;on utilise le mode python, il faut entrer le shebang: <code>#!/bin/python3</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tr-shebang.png" alt="hebang" width="300" height="100">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tr-console.png" alt="console" width="300" height="100">
+</div>
+</div>
+<div class="paragraph">
+<p>Il faut passer systématiquement en mode console. Et cliquer sur console pour
+exécuter le code.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_le_langage_python">3. Le langage Python</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_les_types">3.1. Les types</h3>
+<div class="sect3">
+<h4 id="_les_types_simples">3.1.1. Les types simples</h4>
+<div class="paragraph">
+<p>Il y a 3 types au programme: entier, flottant et chaîne de caractères.
+En Python, ils vont correspondre au type <em>int</em> (integer), <em>float</em>, <em>str</em> (string).</p>
+</div>
+<div class="paragraph">
+<p>Il n&#8217;y pas de type caractère en Python, uniquement un type chaîne de caractères. (c&#8217;est-à-dire plusieurs
+caractère.) Il existe plusieurs syntaxe pour les chaines de caractères:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-s2">&quot;Je suis une chaîne !&quot;</span>
+<span class="tok-s1">&#39;Moi aussi&#39;</span>
+<span class="tok-sd">&quot;&quot;&quot;Et moi !&quot;&quot;&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-s1">&#39;Cela qui permet, cela: &quot;&#39;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: Il existe aussi un type booléen qui ne contient que les valeurs <code>True</code> et
+<code>False</code> dont il ne semble pas nécessaire de parler aux élèves.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_la_fonction_type">3.1.2. La fonction type</h4>
+<div class="paragraph">
+<p>La fonction <code>type()</code> renvoie le type d&#8217;une donnée:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-s2">&quot;p&quot;</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">str</span><span class="tok-s1">&#39;&gt;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-mi">2</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">int</span><span class="tok-s1">&#39;&gt;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-s2">&quot;2&quot;</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">str</span><span class="tok-s1">&#39;&gt;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-mf">2.0</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">float</span><span class="tok-s1">&#39;&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conversion">3.1.3. Conversion</h4>
+<div class="paragraph">
+<p>Il existe plusieurs fonctions qui permettent de forcer le type d&#8217;une variable en un autre type.</p>
+</div>
+<div class="paragraph">
+<p>Par exemple <code>int()</code>: permet de modifier une variable en entier.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;2&quot;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">b</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">int</span><span class="tok-s1">&#39;&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_les_types_composées">3.1.4. Les types composées</h4>
+<div class="paragraph">
+<p>Il existe en Python des types composées de plusieurs types, tels que les tuples
+et les listes. Ces types ne sont pas au programme, cependant le type tuple est
+important pour comprendre l&#8217;affectation et le type liste peut très vite être utile.
+(Nous parlerons des listes plus loin.)</p>
+</div>
+<div class="paragraph">
+<p>Un tuple correspond en fait à ce que nous appellerions un \(n\)-uplet, il
+s&#8217;écrit: \((elem1, elem2, ...)\)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">((</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">,</span><span class="tok-mi">7</span><span class="tok-p">,</span><span class="tok-o">-</span><span class="tok-mi">2</span><span class="tok-p">))</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">tuple</span><span class="tok-s1">&#39;&gt;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">((</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-s2">&quot;toto&quot;</span><span class="tok-p">))</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">tuple</span><span class="tok-s1">&#39;&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les parenthèses sont optionnelles:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">4</span>
+<span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les tuples ne sont pas mutables. (Nous verrons plus loin ce que cela veut dire.)</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_l_affectation">3.2. L&#8217;affectation</h3>
+<div class="paragraph">
+<p>La syntaxe pour l&#8217;affectation en Python est: =</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-mi">5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Python est un langage dont le typage est dynamique. Cela signifie que c’est
+l’ordinateur, et non pas le programmeur, qui se charge de « typer » les variables.</p>
+</div>
+<div class="paragraph">
+<p>La déclaration est implicite lors de l&#8217;affectation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-mi">3</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">int</span><span class="tok-s1">&#39;&gt;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;toto&quot;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">str</span><span class="tok-s1">&#39;&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le fait que l&#8217;affectation se note = est un drame pour l&#8217;enseignant et une terrible
+source de confusion pour les élèves. Il y a un travail important à fournir pour
+distinguer = en Python du = mathématiques.
+En particulier, il ne faut jamais prononcer le = en Python « égal ».
+On parle d&#8217;affectation, on dit qu&#8217;on stocke la donnée dans la variable, etc.</p>
+</div>
+<div class="paragraph">
+<p>A l&#8217;écrit/en pseudo-code, il faut bien insister sur le fait que l&#8217;affectation
+se note \(\longleftarrow\)</p>
+</div>
+<div class="paragraph">
+<p>Le nom de la variable est une suite de lettres (minuscules ou majuscules,
+pas d&#8217;accents) et de chiffres, qui doit toujours commencer
+par une lettre, et qui ne contient pas de
+caractères spéciaux en dehors de l&#8217;underscore _</p>
+</div>
+<div class="sect3">
+<h4 id="_le_modèle_des_boîtes">3.2.1. Le modèle des boîtes:</h4>
+<div class="paragraph">
+<p>On présente très souvent les variables comme étant une boite avec un nom.
+Affecter 2 à la variable A revient à stocker 2 dans la boite appelée A.
+Cette présentation des variables et de l&#8217;affection est une bonne façon de
+présenter ces notions aux élèves et a de nombreuses vertus pédagogiques.</p>
+</div>
+<div class="paragraph">
+<p>Cependant, cela ne correspond pas vraiment au fonctionnement du langage Python.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/boite_classique.png" alt="Modèle classique" width="700">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/boite_python.png" alt="Modèle Python" width="700">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_affectation_et_tuples">3.2.2. Affectation et tuples:</h4>
+<div class="paragraph">
+<p>La syntaxe pour les tuples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">t</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">t</span>
+<span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span><span class="tok-n">b</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span>
+<span class="tok-mi">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or, nous avons vu que les parenthèses étaient optionnelles, on peut donc faire:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">a</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span>
+<span class="tok-mi">2</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">b</span>
+<span class="tok-mi">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ce qui permet d&#8217;échanger les valeurs de deux variables sans difficultés.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_idées_d_exercices_sur_l_affectation">3.2.3. Idées d&#8217;exercices sur l&#8217;affectation</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Applications de différentes formules: aires, volumes, IMC, physiques</p>
+</li>
+<li>
+<p>Programme de calcul</p>
+</li>
+<li>
+<p>Formule de la distance</p>
+</li>
+<li>
+<p>Formule du milieu</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sortie">3.3. Sortie</h3>
+<div class="paragraph">
+<p>Si <code>afficher</code>, <code>lire</code>/<code>saisir</code> sont à proscrire en algorithmique et qu&#8217;il vaut
+mieux privilégier l&#8217;utilisation d&#8217;une console en programmation, la fonction
+<code>print()</code> reste très utile à des fins de débuggage.</p>
+</div>
+<div class="paragraph">
+<p>Sa syntaxe est simple:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">)</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Hello world !&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il y par défaut un saut à la ligne. Pour l&#8217;éviter, on peut modifier le paramètre
+ <code>end</code> de la sorte:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-n">end</span><span class="tok-o">=</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">)</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Hello world !&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_arithmétique_en_python">3.4. Arithmétique en Python</h3>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Les principales opérations sur les nombres:</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">x + y</th>
+<th class="tableblock halign-left valign-top">somme de x et y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x - y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">différence entre x et y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x * y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">produit de x par y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x / y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quotient de x par y, renvoie un flottant</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x ** y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x puissance y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x // y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quotient de la division euclidienne de x par y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x % y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reste de la division euclidienne de x par y</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Il n&#8217;y a pas vraiment de surprise ici sauf peut être pour le calcul d&#8217;une
+puissance.
+On peut noter que les élèves ont tendance à oublier la syntaxe de
+la puissance et que les puissances non entières sont acceptées.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_présentation_générale_de_la_syntaxe_python">3.5. Présentation générale de la syntaxe Python</h3>
+<div class="paragraph">
+<p>La principale caractéristique de la syntaxe de Python est que l&#8217;indentation
+est significative et permet de délimiter les blocs d&#8217;instructions.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-k">while</span> <span class="tok-n">i</span> <span class="tok-o">&lt;</span> <span class="tok-mi">100</span><span class="tok-p">:</span>
+  <span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-n">i</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)</span>
+<span class="tok-c1">#Ce programme affiche 100</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-k">while</span> <span class="tok-n">i</span> <span class="tok-o">&lt;</span> <span class="tok-mi">100</span><span class="tok-p">:</span>
+  <span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-n">i</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+  <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)</span>
+<span class="tok-c1">#Ce programme affiche tout les nombres de 1 à 100</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Par convention l&#8217;indentation est de 4 espaces mais cela n&#8217;est qu&#8217;une convention,
+un code écrit avec une indentation représentée par une tabulation ou juste 2
+espaces ne posera pas de problème.</p>
+</div>
+<div class="paragraph">
+<p>Il faut cependant rester cohérent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-k">while</span> <span class="tok-n">i</span> <span class="tok-o">&lt;</span> <span class="tok-mi">100</span><span class="tok-p">:</span>
+  <span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-n">i</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+   <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)</span>
+<span class="tok-c1">#Il y aura une erreur car l&#39;indentation n&#39;est pas</span>
+<span class="tok-c1">#la même sur les deux dernières lignes.</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span> <span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-c1">#Ici aussi il y a une erreur</span>
+<span class="tok-c1"># Il y a un espace entre le début de ligne et le `i`</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette erreur est très courante chez les élèves et peut être pénible à
+détecter. Une autre source d&#8217;erreur est le copier/coller de code, en particulier,
+ il est possible que l&#8217;indentation apparaisse exacte sans l&#8217;être dans le cas
+ où l&#8217;éditeur de texte fait une différence entre une tabulation et 4 espaces.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le début d’un bloc d’instructions est défini par un double-point.</p>
+</li>
+<li>
+<p>Le corps du bloc est alors indenté d’un nombre d’espaces fixes (quatre par défaut),
+et le retour à l’indentation de l’en-tête marque la fin du bloc.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">en</span><span class="tok-err">−</span><span class="tok-n">t</span><span class="tok-err">ê</span><span class="tok-n">te</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span> <span class="tok-o">...........................</span>
+    <span class="tok-o">................................</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span><span class="tok-o">..................</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Les élèves ont souvent des difficultés à se souvenir du deux points <code>:</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Il est possible d’imbriquer des blocs d’instructions les uns dans les autres :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">en</span><span class="tok-err">−</span><span class="tok-n">t</span><span class="tok-err">ê</span><span class="tok-n">te</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span> <span class="tok-o">...........................</span>
+    <span class="tok-o">................................</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">.................</span>
+    <span class="tok-n">en</span><span class="tok-err">−</span><span class="tok-n">t</span><span class="tok-err">ê</span><span class="tok-n">te</span> <span class="tok-n">bis</span><span class="tok-p">:</span>
+        <span class="tok-n">bloc</span> <span class="tok-o">.......................</span>
+        <span class="tok-o">............................</span>
+        <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">.............</span>
+    <span class="tok-o">................................</span>
+    <span class="tok-o">................................</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_instructions_conditionnelles">3.6. Instructions conditionnelles</h3>
+<div class="paragraph">
+<p>Les instructions conditionnelles se définissent à l’aide de l’instruction <code>if</code>
+et prennent la forme suivante :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">if</span> <span class="tok-n">expression</span> <span class="tok-nb">bool</span><span class="tok-err">é</span><span class="tok-n">enne</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">1.</span><span class="tok-o">.</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">2.</span><span class="tok-o">.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le fonctionnement de cette instruction est le suivant : si l’expression booléenne
+de la première ligne s’évalue en 'True',
+le premier bloc d’instructions est exécuté, si elle s’évalue en 'False'
+c’est le second bloc qui est exécuté.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-mi">7</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-k">if</span> <span class="tok-p">(</span><span class="tok-n">a</span> <span class="tok-o">%</span> <span class="tok-mi">2</span> <span class="tok-o">==</span> <span class="tok-mi">0</span><span class="tok-p">):</span>
+<span class="tok-o">...</span>    <span class="tok-s2">&quot;a est pair&quot;</span>
+<span class="tok-o">...</span> <span class="tok-k">else</span><span class="tok-p">:</span>
+<span class="tok-o">...</span>    <span class="tok-s2">&quot;a est impair&quot;</span>
+<span class="tok-o">...</span>
+<span class="tok-s2">&quot;impair&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>L’instruction 'else' est optionnelle si aucune instruction ne doit
+être réalisée dans le cas d’un test négatif.</p>
+</div>
+<div class="sect3">
+<h4 id="_instructions_conditonnelles_multiples">3.6.1. Instructions conditonnelles multiples</h4>
+<div class="paragraph">
+<p>En informatique il est fréquent qu’on ait à imbriquer plusieurs tests,
+aussi existe-t-il en python un mot clé <code>elif</code>
+(qui est la contraction de else if) et qui fonctionne suivant le schéma :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">if</span> <span class="tok-n">expression</span> <span class="tok-n">booleenne</span> <span class="tok-mi">1</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">1.</span><span class="tok-o">.</span>
+<span class="tok-k">elif</span> <span class="tok-n">expression</span> <span class="tok-n">booleenne</span> <span class="tok-mi">2</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">2.</span><span class="tok-o">.</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..............</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">3.</span><span class="tok-o">.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il semble préférable d&#8217;éviter de présenter <code>elif</code> aux élèves, et garder
+une syntaxe la plus concise possible.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Il n&#8217;y a pas de <code>switch</code> en Python.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_opérateurs_de_comparaison">3.6.2. Opérateurs de comparaison</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">En python</th>
+<th class="tableblock halign-left valign-top">Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x &lt; y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inférieur strictement</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x &lt;= y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inférieur ou égal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x &gt; y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">supérieur strictement</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x &gt;= y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">supérieur ou égal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x == y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">égal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x != y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">différent de</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Même si cela ne relève pas du programme de seconde il peut être utile de savoir
+que les opérateurs et, ou, non se notent tout simplement <code>and</code>, <code>or</code> et <code>not</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_idées_d_exercices_sur_l_instruction_conditionnelle">3.6.3. Idées d&#8217;exercices sur l&#8217;instruction conditionnelle</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Déterminer si un triangle est rectangle, isocèle, équilatéral. Séparé ou non.</p>
+</li>
+<li>
+<p>Fonction affine par morceau (valeur absolue, seuil, prix photocopie, etc.)</p>
+</li>
+<li>
+<p>Admis/2nd groupe/Recalé</p>
+</li>
+<li>
+<p>Application IMC</p>
+</li>
+<li>
+<p>Parité, divisibilité</p>
+</li>
+<li>
+<p>Année bissextile</p>
+</li>
+<li>
+<p>Jour correspondant à une date (bien avec les dictionnaires Python)</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_structures_itératives">3.7. Structures itératives</h3>
+<div class="sect3">
+<h4 id="_boucle_for_pour">3.7.1. Boucle for/Pour</h4>
+<div class="paragraph">
+<p>Syntaxe du for:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">for</span> <span class="tok-o">...</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-o">...</span><span class="tok-p">):</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..........................</span>
+    <span class="tok-o">..............................</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">...............</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Immédiatement après le mot-clé <code>for</code> doit figurer le nom d’une variable,
+qui va prendre les différentes valeurs de l’énumération produite par l’instruction <code>range</code>.
+Pour chacune de ces valeurs, le bloc d’instructions qui suit sera exécuté.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">):</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Hello world !&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dans ce cas la variable d&#8217;énumération n&#8217;est pas utilisée. Ce cas est en
+général relativement bien compris par les élèves.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">for</span> <span class="tok-n">nbr</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">5</span><span class="tok-p">):</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Le carre de:&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span><span class="tok-p">,</span> <span class="tok-s2">&quot;est&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span> <span class="tok-o">**</span> <span class="tok-mi">2</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La variable d&#8217;énumération est ici utilisée. D&#8217;expérience, cela pose beaucoup
+plus de problèmes aux élèves et le <code>range</code> de Python semble ne pas aider,
+il peut donc être préférable de commencer par utiliser une boucle
+tant que pour ce genre de cas.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_le_type_code_range_code">3.7.2. Le type <code>range</code></h4>
+<div class="paragraph">
+<p><code>range</code> donne une suite d&#8217;entier et peut prendre entre 1 et 3 arguments entiers :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>range(b)</code> commence par 0 et s&#8217;arrête juste avant <code>b</code><br>
+<code>range(5)</code> correspond à [0, 1, 2, 3, 4]</p>
+</li>
+<li>
+<p><code>range(a,b)</code> commence par <code>a</code> et s&#8217;arrête juste avant <code>b</code><br>
+<code>range(2,7)</code> correspond à [2, 3, 4, 5, 6]</p>
+</li>
+<li>
+<p><code>range(a,b,c)</code> commence par <code>a</code> et s&#8217;arrête juste avant <code>b</code> avec un pas de <code>c</code><br>
+<code>range(1,10,2)</code> correspond à [1, 3, 5, 7, 9]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Il ne semble pas utile de mentionner que <code>range</code> est un type, et il est sûrement
+préférable de se limiter à un seul paramètre compte tenu des difficultés des
+élèves avec ces notions.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_les_types_itérables">3.7.3. Les types itérables</h4>
+<div class="paragraph">
+<p>Un grand nombre de types en Python est dit itérable, c&#8217;est le cas par
+exemple des chaînes de caractères, des tuples, des listes, etc.</p>
+</div>
+<div class="paragraph">
+<p>On peut directement boucler sur les itérables:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-k">for</span> <span class="tok-n">c</span> <span class="tok-ow">in</span> <span class="tok-s2">&quot;Lapie !&quot;</span><span class="tok-p">:</span>
+<span class="tok-o">...</span>     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Donnez moi un&quot;</span><span class="tok-p">,</span> <span class="tok-n">c</span><span class="tok-p">)</span>
+<span class="tok-o">...</span>
+<span class="tok-n">Donnez</span> <span class="tok-n">moi</span> <span class="tok-n">un</span> <span class="tok-n">L</span>
+<span class="tok-n">Donnez</span> <span class="tok-n">moi</span> <span class="tok-n">un</span> <span class="tok-n">a</span>
+<span class="tok-n">Donnez</span> <span class="tok-n">moi</span> <span class="tok-n">un</span> <span class="tok-n">p</span>
+<span class="tok-n">Donnez</span> <span class="tok-n">moi</span> <span class="tok-n">un</span> <span class="tok-n">i</span>
+<span class="tok-n">Donnez</span> <span class="tok-n">moi</span> <span class="tok-n">un</span> <span class="tok-n">e</span>
+<span class="tok-n">Donnez</span> <span class="tok-n">moi</span> <span class="tok-n">un</span>
+<span class="tok-n">Donnez</span> <span class="tok-n">moi</span> <span class="tok-n">un</span> <span class="tok-err">!</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La boucle <code>Pour</code> en Python est donc extrêmement riche et permet de faire un très
+grand nombre de choses, de sorte que la boucle <code>tant que</code> est en pratique
+relativement peu utilisé en général. Il faut donc faire l&#8217;effort de laisser
+toute sa place à la boucle tant que.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_boucle_while_tant_que">3.7.4. Boucle while/tant que</h4>
+<div class="paragraph">
+<p>La syntaxe est simple:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">while</span> <span class="tok-n">condition</span><span class="tok-p">:</span>
+    <span class="tok-n">bloc</span><span class="tok-o">..........................</span>
+    <span class="tok-o">..............................</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">...............</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il est bien sûr important de mettre en garde les élèves contre les boucles
+infinis.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_idées_d_exercices_sur_les_boucles">3.7.5. Idées d&#8217;exercices sur les boucles</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Calcul d&#8217;intérêt</p>
+</li>
+<li>
+<p>Chute d&#8217;un corps</p>
+</li>
+<li>
+<p>Calcul de différentes sommes: (limite de la somme des inverses des carrés ?)</p>
+</li>
+<li>
+<p>Répétition d&#8217;expériences probabilistes</p>
+</li>
+<li>
+<p>Tracé de courbes</p>
+</li>
+<li>
+<p>Suites</p>
+</li>
+<li>
+<p>Rang</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_type_list">3.8. Le type list</h3>
+<div class="paragraph">
+<p>Il n&#8217;y pas de tableau en Python, il y a à la place un type <code>list</code> très puissant
+qui est une sorte de mélange entre un tableau dynamique et une liste doublement
+chaînée.</p>
+</div>
+<div class="paragraph">
+<p>Le type <code>list</code> ou les tableaux ne sont pas au programme, cependant il est
+difficile de s&#8217;en passer pour illustrer certaines notions, et il semble donc
+raisonnable d&#8217;utiliser les listes dans certains T.P.</p>
+</div>
+<div class="sect3">
+<h4 id="_définition_et_syntaxe">3.8.1. Définition et syntaxe</h4>
+<div class="paragraph">
+<p>Une liste est une "collection" d&#8217;objets indicés.</p>
+</div>
+<div class="paragraph">
+<p>La syntaxe est la suivante:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;PQ&quot;</span> <span class="tok-p">]</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">course</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">list</span><span class="tok-s1">&#39;&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le type <code>list</code> est un type composite, il rassemble des objets d&#8217;autres types.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">ma_liste</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-mi">42</span><span class="tok-p">,</span> <span class="tok-s2">&quot;toto&quot;</span><span class="tok-p">,</span> <span class="tok-p">[</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">]]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_opérations_sur_les_listes">3.8.2. Opérations sur les listes</h4>
+<div class="paragraph">
+<p>On peut accéder à un élément particulier d&#8217;une liste à l&#8217;aide de son index dans la liste:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;PQ&quot;</span> <span class="tok-p">]</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">]</span>
+<span class="tok-s1">&#39;PQ&#39;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">]</span>
+<span class="tok-s1">&#39;beurre&#39;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Attention on commence à compter à partir de 0.</p>
+</div>
+<div class="paragraph">
+<p>On peut modifier un élément de la liste de la sorte:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;carrotes&quot;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span>
+ <span class="tok-p">[</span><span class="tok-s1">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;PQ&#39;</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut ajouter un élément à la fin de la liste de la sorte:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-s2">&quot;lait&quot;</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span>
+ <span class="tok-p">[</span><span class="tok-s1">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;PQ&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;lait&#39;</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Et supprimer un élément selon son indice:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-k">del</span><span class="tok-p">(</span><span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">])</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span>
+ <span class="tok-p">[</span><span class="tok-s1">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;lait&#39;</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut concaténer des listes avec les opérations + et *</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">oubli</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;huile&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;PQ&quot;</span><span class="tok-p">]</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-n">course</span> <span class="tok-o">+</span> <span class="tok-n">oubli</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span>
+ <span class="tok-p">[</span><span class="tok-s1">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;lait&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;huile&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;PQ&#39;</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut obtenir la longueur d&#8217;une liste avec la fonction <code>len</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">course</span><span class="tok-p">)</span>
+ <span class="tok-mi">5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut parcourir une liste de plusieurs façon:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-n">course</span><span class="tok-p">:</span>
+<span class="tok-o">...</span>     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)</span>
+<span class="tok-o">...</span>
+<span class="tok-n">beurre</span>
+<span class="tok-n">carrotes</span>
+<span class="tok-n">lait</span>
+<span class="tok-n">huile</span>
+<span class="tok-n">PQ</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">course</span><span class="tok-p">)):</span>
+<span class="tok-o">...</span>     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">])</span>
+<span class="tok-o">...</span>
+<span class="tok-n">beurre</span>
+<span class="tok-n">carrotes</span>
+<span class="tok-n">lait</span>
+<span class="tok-n">huile</span>
+<span class="tok-n">PQ</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut créer une liste vide:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">ma_liste</span> <span class="tok-o">=</span> <span class="tok-p">[]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_mutable">3.8.3. Type mutable</h4>
+<div class="paragraph">
+<p>Tous les types que nous avons vu jusqu&#8217;à présent étaient immutables, cela veut
+dire qu&#8217;on ne pouvait pas les modifier.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-mi">2</span> <span class="tok-c1">#On met l&#39;étiquette a sur 2</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-n">a</span> <span class="tok-c1">#On met l&#39;étiquette b sur 2</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-mi">3</span> <span class="tok-c1">#2 n&#39;est pas modifié, seule l&#39;étiquette a est placé sur 3</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">b</span>     <span class="tok-c1">#l&#39;étiquette b est toujours sur 3</span>
+<span class="tok-mi">2</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">]</span> <span class="tok-c1">#On met l&#39;étiquette a sur la liste [4,5]</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-n">a</span> <span class="tok-c1">#On met l&#39;étiquette b sur la liste [4,5]</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-mi">6</span> <span class="tok-c1">#Ici la liste a est modifiée</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">b</span>     <span class="tok-c1">#l&#39;étiquette b est toujours sur la même liste</span>
+<span class="tok-p">[</span><span class="tok-mi">6</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Inutile de dire que c&#8217;est une source d&#8217;erreur importante, et qu&#8217;il faut faire
+attention lors de la manipulation des listes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tri">3.8.4. Tri</h4>
+<div class="paragraph">
+<p>Pour trier une liste, on peut utiliser:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">ma_liste</span><span class="tok-o">.</span><span class="tok-n">sort</span><span class="tok-p">()</span> <span class="tok-c1">#ce qui modifie la liste</span>
+<span class="tok-n">nouvelle_lst</span> <span class="tok-o">=</span> <span class="tok-nb">sorted</span><span class="tok-p">(</span><span class="tok-n">ma_liste</span><span class="tok-p">)</span> <span class="tok-c1">#une nouvelle liste est crée</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_listes_en_compréhension">3.8.5. Listes en compréhension</h4>
+<div class="paragraph">
+<p>La notion de liste en compréhension s&#8217;inspire des ensembles mathématiques
+de la forme \(\{ x \; | \; P(x) \}\) ou encore \(\{ f(x) \; | \; x \in E \}\)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">carres</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-n">x</span> <span class="tok-o">**</span> <span class="tok-mi">2</span> <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">10</span><span class="tok-p">)]</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">carres</span>
+<span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">9</span><span class="tok-p">,</span> <span class="tok-mi">16</span><span class="tok-p">,</span> <span class="tok-mi">25</span><span class="tok-p">,</span> <span class="tok-mi">36</span><span class="tok-p">,</span> <span class="tok-mi">49</span><span class="tok-p">,</span> <span class="tok-mi">64</span><span class="tok-p">,</span> <span class="tok-mi">81</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">pairs</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-n">i</span> <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">10</span><span class="tok-p">)</span> <span class="tok-k">if</span> <span class="tok-n">i</span> <span class="tok-o">%</span> <span class="tok-mi">2</span> <span class="tok-o">==</span> <span class="tok-mi">0</span> <span class="tok-p">]</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">pairs</span>
+<span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-mi">8</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Même si la notion de liste en compréhension n&#8217;est pas primordiale, c&#8217;est souvent
+la façon la plus lisible de créer des listes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_autres_types_proches">3.8.6. Autres types proches</h4>
+<div class="paragraph">
+<p>A noter que la manipulation de listes est assez lente, pour les applications
+gourmandes en calculs, on ira plutôt chercher d&#8217;autres types beaucoup plus proche
+de la machine dans des modules tels que numpy ou array.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fonctions">3.9. Fonctions</h3>
+<div class="paragraph">
+<p>L&#8217;introduction de la notion de fonction est le fait marquant de l&#8217;aménagement
+du programme, il est sûrement plus important que l&#8217;utilisation de Python,
+et amène une nouvelle façon d&#8217;écrire les algorithmes.</p>
+</div>
+<div class="sect3">
+<h4 id="_syntaxe">3.9.1. Syntaxe</h4>
+<div class="paragraph">
+<p>On définit une fonction en python à l’aide du mot clé <code>def</code>.
+Il faut lui attribuer un nom, préciser la liste de ses paramètres et enfin
+décrire les différentes instructions à réaliser.
+La syntaxe générale est la suivante :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">nomdelafcn</span><span class="tok-p">(</span><span class="tok-n">liste</span> <span class="tok-n">de</span> <span class="tok-n">param</span><span class="tok-err">è</span><span class="tok-n">tres</span><span class="tok-p">):</span>
+  <span class="tok-n">bloc</span> <span class="tok-o">...........................</span>
+  <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">.................</span>
+  <span class="tok-n">a</span> <span class="tok-n">realiser</span> <span class="tok-o">.....................</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_return">3.9.2. Return</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">hi</span><span class="tok-p">():</span>
+  <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;hello world !&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">f</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">):</span>
+  <span class="tok-k">return</span> <span class="tok-n">x</span> <span class="tok-o">**</span> <span class="tok-mi">2</span> <span class="tok-o">-</span> <span class="tok-mi">3</span> <span class="tok-o">*</span> <span class="tok-n">x</span> <span class="tok-o">+</span> <span class="tok-mi">4</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On distingue en général en informatique deux types de routines: les procédures,
+qui ne retournent pas de résultat et qui agissent sur l&#8217;environnement (par
+  exemple avec un <code>print()</code>), et les fonctions, qui retournent un résultat en
+général par le biais de l&#8217;instruction <code>return</code>.</p>
+</div>
+<div class="paragraph">
+<p>En Python, il n’existe que des fonctions: lorsque l&#8217;instruction <code>return</code> n&#8217;est
+pas utilisée, la valeur <code>None</code> est retournée.</p>
+</div>
+<div class="paragraph">
+<p>Dans le cadre du programme de seconde, il est préférable que les fonctions
+renvoient systématiquement et explicitement une valeur</p>
+</div>
+<div class="paragraph">
+<p>Un exemple:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">pgcd</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span><span class="tok-n">b</span><span class="tok-p">)</span> <span class="tok-p">:</span>
+   <span class="tok-k">while</span> <span class="tok-n">a</span><span class="tok-o">%</span><span class="tok-n">b</span> <span class="tok-o">!=</span> <span class="tok-mi">0</span> <span class="tok-p">:</span>
+      <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">a</span><span class="tok-o">%</span><span class="tok-n">b</span>
+   <span class="tok-k">return</span> <span class="tok-n">b</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La rencontre de l&#8217;instruction <code>return</code> lors que l&#8217;exécution marque la fin
+de l&#8217;exécution de la fonction.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">pgcd</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span><span class="tok-n">b</span><span class="tok-p">)</span> <span class="tok-p">:</span>
+  <span class="tok-k">if</span> <span class="tok-n">b</span> <span class="tok-o">==</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+    <span class="tok-k">return</span> <span class="tok-n">a</span>
+  <span class="tok-k">while</span> <span class="tok-n">a</span><span class="tok-o">%</span><span class="tok-n">b</span> <span class="tok-o">!=</span> <span class="tok-mi">0</span> <span class="tok-p">:</span>
+    <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">a</span><span class="tok-o">%</span><span class="tok-n">b</span>
+    <span class="tok-k">return</span> <span class="tok-n">b</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il peut donc y avoir plusieurs <code>return</code> dans une fonction.</p>
+</div>
+<div class="paragraph">
+<p>Il y a deux traductions de <code>return</code> en pseudo-code, Retourner
+et Renvoyer.</p>
+</div>
+<div class="paragraph">
+<p>Dans le document sur l&#8217;évolution de l&#8217;écriture, c&#8217;est le mot Retourner qui
+est privilégié, mais il est assez probable qu&#8217;à l&#8217;avenir cela change en faveur
+de Renvoyer. Il faut donc habituer les élèves aux deux formulations.</p>
+</div>
+<div class="paragraph">
+<p>Il est possible de renvoyer plusieurs valeurs à l&#8217;aide des tuples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">premier_terme</span><span class="tok-p">(</span><span class="tok-n">M</span><span class="tok-p">):</span>
+  <span class="tok-n">u</span> <span class="tok-o">=</span> <span class="tok-mi">1</span>
+  <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+  <span class="tok-k">while</span> <span class="tok-n">u</span> <span class="tok-o">&lt;</span> <span class="tok-n">M</span><span class="tok-p">:</span>
+    <span class="tok-n">u</span> <span class="tok-o">=</span> <span class="tok-n">u</span> <span class="tok-o">*</span> <span class="tok-mi">2</span>
+    <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">n</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+  <span class="tok-k">return</span> <span class="tok-n">n</span><span class="tok-p">,</span> <span class="tok-n">u</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">premier_terme</span><span class="tok-p">(</span><span class="tok-mi">1000</span><span class="tok-p">)</span>
+<span class="tok-p">(</span><span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-mi">1024</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paramètre_d_une_fonction">3.9.3. Paramètre d&#8217;une fonction</h4>
+<div class="paragraph">
+<p>Le document ressource propose l&#8217;exemple suivant:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">dichotomie</span><span class="tok-p">(</span><span class="tok-n">f</span><span class="tok-p">,</span><span class="tok-n">a</span><span class="tok-p">,</span><span class="tok-n">b</span><span class="tok-p">,</span><span class="tok-n">epsilon</span><span class="tok-o">=</span><span class="tok-mf">0.0001</span><span class="tok-p">):</span>
+  <span class="tok-k">while</span> <span class="tok-n">b</span> <span class="tok-o">-</span> <span class="tok-n">a</span> <span class="tok-o">&gt;</span> <span class="tok-n">epsilon</span><span class="tok-p">:</span>
+    <span class="tok-n">c</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-o">+</span><span class="tok-n">b</span><span class="tok-p">)</span><span class="tok-o">/</span><span class="tok-mi">2</span>
+    <span class="tok-k">if</span> <span class="tok-n">f</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">)</span><span class="tok-o">*</span><span class="tok-n">f</span><span class="tok-p">(</span><span class="tok-n">c</span><span class="tok-p">)</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+      <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">c</span>
+    <span class="tok-k">else</span><span class="tok-p">:</span>
+      <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-n">c</span><span class="tok-p">,</span> <span class="tok-n">b</span>
+  <span class="tok-k">return</span> <span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-o">+</span><span class="tok-n">b</span><span class="tok-p">)</span><span class="tok-o">/</span><span class="tok-mi">2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ici l&#8217;un des paramètres est une fonction, et effectivement les fonctions sont
+des paramètres parfaitement valables. On peut cependant se demander si un tel
+cas peut être traité par les élèves, verront-ils une fonction de fonction
+comme une abstraction byzantine ou quelque chose de naturel, il faudra expérimenter
+pour y répondre.</p>
+</div>
+<div class="paragraph">
+<p>On remarque également, le <code>epsilon=0.0001</code>, cela correspond à un paramètre par
+défaut, c&#8217;est à dire que si l&#8217;utilisateur n&#8217;entre pas de valeurs pour ce
+paramètre, il vaudra <code>0.0001</code> par défaut.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-k">def</span> <span class="tok-nf">cube</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">):</span>
+<span class="tok-o">...</span>     <span class="tok-k">return</span> <span class="tok-n">x</span> <span class="tok-o">**</span> <span class="tok-mi">3</span>
+<span class="tok-o">...</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">dichotomie</span><span class="tok-p">(</span><span class="tok-n">cube</span><span class="tok-p">,</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">)</span>
+<span class="tok-o">-</span><span class="tok-mf">3.0517578125e-05</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">dichotomie</span><span class="tok-p">(</span><span class="tok-n">cube</span><span class="tok-p">,</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mf">0.1</span><span class="tok-p">)</span>
+<span class="tok-o">-</span><span class="tok-mf">0.03125</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">dichotomie</span><span class="tok-p">(</span><span class="tok-n">cube</span><span class="tok-p">,</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-n">epsilon</span><span class="tok-o">=</span><span class="tok-mf">0.01</span><span class="tok-p">)</span>
+<span class="tok-o">-</span><span class="tok-mf">0.00390625</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il semble préférable d&#8217;éviter de demander aux élèves de créer des fonctions avec
+des paramètres optionnelles, mais ils peuvent se révéler particulièrement
+pratiques dans le cas de création d&#8217;une bibliothèque par l&#8217;enseignant.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_assert">3.9.4. Assert</h4>
+<div class="paragraph">
+<p>On retrouve dans le document ressource l&#8217;utilisation de l&#8217;instruction <code>assert</code>
+qui permet de renvoyer une erreur si certaines conditions ne sont pas vérifiées.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">pgcd</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span><span class="tok-n">b</span><span class="tok-p">)</span> <span class="tok-p">:</span>
+  <span class="tok-k">assert</span><span class="tok-p">(</span><span class="tok-n">a</span> <span class="tok-o">&gt;</span><span class="tok-mi">0</span> <span class="tok-ow">and</span> <span class="tok-n">b</span><span class="tok-o">&gt;</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+  <span class="tok-k">while</span> <span class="tok-n">a</span><span class="tok-o">%</span><span class="tok-n">b</span> <span class="tok-o">!=</span> <span class="tok-mi">0</span> <span class="tok-p">:</span>
+    <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">a</span><span class="tok-o">%</span><span class="tok-n">b</span>
+    <span class="tok-k">return</span> <span class="tok-n">b</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">pgcd</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+<span class="tok-n">Traceback</span> <span class="tok-p">(</span><span class="tok-n">most</span> <span class="tok-n">recent</span> <span class="tok-n">call</span> <span class="tok-n">last</span><span class="tok-p">):</span>
+  <span class="tok-n">File</span> <span class="tok-s2">&quot;&lt;stdin&gt;&quot;</span><span class="tok-p">,</span> <span class="tok-n">line</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-ow">in</span> <span class="tok-o">&lt;</span><span class="tok-n">module</span><span class="tok-o">&gt;</span>
+  <span class="tok-n">File</span> <span class="tok-s2">&quot;&lt;stdin&gt;&quot;</span><span class="tok-p">,</span> <span class="tok-n">line</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-ow">in</span> <span class="tok-n">pgcd</span>
+<span class="tok-ne">AssertionError</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il semble cependant plus simple d&#8217;éviter les cas problématiques avec les élèves
+plutôt que d&#8217;introduire cette notion.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_portée_des_variables">3.10. Portée des variables</h3>
+<div class="paragraph">
+<p>La notion de portée des variables est relativement complexe, en tout cas sûrement
+trop complexe pour un élève que de lycée qui a peu de temps à y consacrer.
+Il est donc préférable d&#8217;éviter d&#8217;avoir à en parler mais pour cela, il faut
+bien comprendre cette notion.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La portée d&#8217;une variable est l&#8217;endroit du programme où on peut accéder à la variable.</p>
+</li>
+<li>
+<p>Les variables définies dans le bloc d&#8217;instruction d&#8217;une fonction, n&#8217;ont qu&#8217;une portée locale.</p>
+</li>
+<li>
+<p>Autrement dit, leur contenu est inaccessible depuis l’extérieur de la fonction.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">f</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">):</span>
+  <span class="tok-n">carre</span> <span class="tok-o">=</span> <span class="tok-n">x</span> <span class="tok-o">**</span> <span class="tok-mi">2</span>
+  <span class="tok-k">return</span> <span class="tok-n">carre</span>
+
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">carre</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ce code produit l&#8217;erreur: NameError: name 'carre' is not defined</p>
+</div>
+<div class="paragraph">
+<p>Les variables définies à l&#8217;extérieur d&#8217;une fonction sont des variables globales.
+Leur contenu est « visible » de l&#8217;intérieur d&#8217;une fonction, mais la fonction ne
+peut pas le modifier.</p>
+</div>
+<div class="paragraph">
+<p>
+<iframe width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=a%20%3D%2010%20%20%20%20%20%20%20%20%23%20variable%20globale%20au%20programme%0A%0Adef%20mafonction%28%29%3A%0A%20%20%20%20a%20%3D%2020%20%20%20%20%23%20variable%20locale%20%C3%A0%20la%20fonction%0A%20%20%20%20print%28a%29%0A%20%20%20%20%0Aprint%28a%29%0Amafonction%28%29%0Aprint%28a%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+</p>
+</div>
+<div class="paragraph">
+<p>Le site <a href="http://pythontutor.com/">pythontutor</a> permet de bien visualiser
+les différents espaces de noms et la portée des variables.</p>
+</div>
+<div class="paragraph">
+<p>Les risques « d&#8217;accidents » sont surtout probables si on travail avec des listes:</p>
+</div>
+<div id="fonction-mutable" class="imageblock">
+<div class="content">
+<a class="image" href="https://goo.gl/oqT7GY"><img src="images/fonctionmutable.png" alt="fonctionmutable"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_modules">4. Les modules</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_utilisation_de_modules">4.1. Utilisation de modules</h3>
+<div class="sect3">
+<h4 id="_importer_un_module">4.1.1. Importer un module</h4>
+<div class="paragraph">
+<p>Les fonctions tels que la racine carrée, cosinus, sinus, etc. ne sont pas
+directement accessibles, cependant Python propose un module/bibliothèque contenant
+ces fonctions.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;instruction <code>import</code> permet d’importer un module et d&#8217;accéder à son contenu.<br>
+L’importation d’un module peut se faire de deux manière.</p>
+</div>
+<div class="paragraph">
+<p>La première solution est de désigner le module que l’on souhaite utiliser, son
+contenu est alors utilisable de manière «scopée», c’est-à-dire en préfixant le
+nom de la fonctionnalité du nom du module.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-kn">import</span> <span class="tok-nn">math</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">math</span><span class="tok-o">.</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">)</span> <span class="tok-c1">#sqrt permet de calculer la racine carrée</span>
+<span class="tok-mf">2.0</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">math</span><span class="tok-o">.</span><span class="tok-n">cos</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+<span class="tok-mf">1.0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut créer un alias abrégeant le nom:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-kn">import</span> <span class="tok-nn">random</span> <span class="tok-kn">as</span> <span class="tok-nn">rd</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">rd</span><span class="tok-o">.</span><span class="tok-n">randint</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">6</span><span class="tok-p">)</span>
+<span class="tok-mi">5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La seconde solution repose sur la construction <code>from import</code> où l’on identifie la
+ou les fonctionnalités que l’on souhaite importer d’un module.
+Dans le cas d’un import de plusieurs fonctionnalités, les noms sont séparés par
+des virgules.
+L’utilisation se fait alors sans préfixer par le nom du module.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-kn">from</span> <span class="tok-nn">math</span> <span class="tok-kn">import</span> <span class="tok-n">sin</span><span class="tok-p">,</span> <span class="tok-n">cos</span><span class="tok-p">,</span> <span class="tok-n">pi</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">sin</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+<span class="tok-mf">0.0</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">pi</span>
+<span class="tok-mf">3.141592653589793</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Enfin, il est possible d’importer, avec cette seconde approche,
+tous les éléments d’un module en utilisant la notation *
+Cependant avec cette dernière forme, il peut il y avoir conflits entre les
+noms.
+Cela est donc considéré comme une très mauvaise pratique en programmation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_installer_un_module">4.1.2. Installer un module</h4>
+<div class="paragraph">
+<p>Un certain nombre de modules «standards» est installé par défaut avec chaque
+distribution Python et il est possible d&#8217;en installer davantage.</p>
+</div>
+<div class="paragraph">
+<p>Pour faire cela, on utilise un gestionnaire de paquets, les deux gestionnaires
+de paquets les plus utilisés sont:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>conda, qui est présent dans Anaconda</p>
+</li>
+<li>
+<p>pip, qui est présent dans la distribution «classique» de Python. (attention
+en général sous linux ce n&#8217;est pas le cas) Le problème de pip est qu&#8217;il ne
+permet pas l&#8217;installation des bibliothèques scientifiques telles que Numpy ou
+Sympy.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_créer_un_module">4.1.3. Créer un module</h4>
+<div class="paragraph">
+<p>On peut voir n&#8217;importe quel fichier .py comme un module. Ce qui permet par
+exemple d&#8217;écrire une fonction <code>pgcd</code> dans un fichier <code>arith.py</code> puis d&#8217;utiliser
+avec <code>import</code> cette fonction dans le fichier <code>rsa.py</code>.</p>
+</div>
+<div class="paragraph">
+<p>Il faut cependant faire attention à ce que le fichier <code>arith.py</code> et <code>rsa.py</code>
+soient dans le même dossier.</p>
+</div>
+<div class="paragraph">
+<p>En général, cela permet de décomposer et d&#8217;organiser un code long en plusieurs
+fichiers. Cependant, il existe deux cas d&#8217;utilisations beaucoup plus utiles
+dans le cadre du lycée:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les élèves créent leur propre bibliothèque qu&#8217;ils peuvent conserver et
+réutiliser. On peut par exemple imaginer que dans un T.D. ils ont créé une
+fonction donnant les racines d&#8217;un polynôme du second degré. Et qu&#8217;ils
+réutilisent cette fonction dans un autre T.D.</p>
+</li>
+<li>
+<p>Le professeur crée une bibliothèque que les élèves vont utiliser. Cela permet
+par exemple de masquer des difficultés ou de simplifier l&#8217;utilisation de
+certaines fonctionnalités de Python.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Un exemple de ce dernier cas d&#8217;utilisation est le module <code>lycee</code> d&#8217;EduPython
+<a href="https://edupython.tuxfamily.org/">module lycée</a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aléatoire_avec_python">4.2. Aléatoire avec Python</h3>
+<div class="paragraph">
+<p>Le module random permet d&#8217;obtenir des nombres pseudo-aléatoires.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">fonction</th>
+<th class="tableblock halign-left valign-top">Valeur renvoyé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">randint(a,b)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">un entier \(n\) avec \(a \leq n \leq b\)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">random()</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">un flottant \(x\) avec \(0 \leq x \leq 1\)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uniform(a,b)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">un flottant \(x\) avec \(a \leq x \leq b\)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">choice(ma_liste)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">un des éléments de ma_liste</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">random</span> <span class="tok-kn">import</span> <span class="tok-n">randint</span>
+<span class="tok-k">def</span> <span class="tok-nf">de</span><span class="tok-p">():</span>
+  <span class="tok-k">return</span> <span class="tok-n">randint</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">6</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-kn">from</span> <span class="tok-nn">random</span> <span class="tok-kn">import</span> <span class="tok-n">random</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-n">random</span><span class="tok-p">()</span> <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">5</span><span class="tok-p">)]</span>
+<span class="tok-p">[</span><span class="tok-mf">0.37810322700869836</span><span class="tok-p">,</span> <span class="tok-mf">0.16833320846159427</span><span class="tok-p">,</span> <span class="tok-mf">0.5846220948570566</span><span class="tok-p">,</span> <span class="tok-mf">0.4903930533286457</span><span class="tok-p">,</span> <span class="tok-mf">0.4488602627914511</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">random</span> <span class="tok-kn">import</span> <span class="tok-n">choice</span>
+<span class="tok-n">portes</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;chévre&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;chévre&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;voiture&quot;</span><span class="tok-p">]</span>
+<span class="tok-n">nbr_voiture</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">10000</span><span class="tok-p">):</span>
+  <span class="tok-k">if</span> <span class="tok-n">choice</span><span class="tok-p">(</span><span class="tok-n">portes</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;voiture&quot;</span><span class="tok-p">:</span>
+    <span class="tok-n">nbr_voiture</span> <span class="tok-o">=</span> <span class="tok-n">nbr_voiture</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">nbr_voiture</span> <span class="tok-o">/</span> <span class="tok-mi">10000</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_arithmétique_des_flottants">4.3. Arithmétique des flottants</h3>
+<div class="paragraph">
+<p>Le document d&#8217;accompagnement mentionne:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+Un ordinateur ne travaille pas avec des nombres réels, mais avec des
+flottants, c’est-à-dire un sous-ensemble des nombres décimaux dont la précision
+ est limitée par des contraintes liées au codage en mémoire.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Effectivement les flottants sont des nombres dyadiques représentés en mémoire
+en base 2, et comme certains nombres décimaux comme \(0,1\) ne sont pas
+des nombres dyadiques, une approximation est donc réalisée, ce qui donne:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span>
+<span class="tok-mf">0.2</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span>
+<span class="tok-mf">0.30000000000000004</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notons que Python suit ici la norme IEEE 754 comme la très large majorité
+des langages de programmation.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Tester l&#8217;égalité entre deux flottants n&#8217;a pas de sens, on travaillera
+plutôt avec une précision donnée.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span><span class="tok-p">,</span> <span class="tok-mf">0.3</span>
+<span class="tok-n">epsilon</span> <span class="tok-o">=</span> <span class="tok-mf">0.00001</span>
+<span class="tok-k">if</span> <span class="tok-nb">abs</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-p">)</span> <span class="tok-o">&lt;</span> <span class="tok-n">epsilon</span><span class="tok-p">:</span>
+  <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Assez proche&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">u</span> <span class="tok-o">=</span> <span class="tok-mi">1</span>
+<span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-k">while</span> <span class="tok-n">u</span> <span class="tok-o">&lt;</span> <span class="tok-mi">10</span><span class="tok-p">:</span>
+  <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">n</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+  <span class="tok-n">u</span> <span class="tok-o">=</span> <span class="tok-n">u</span> <span class="tok-o">+</span> <span class="tok-n">u</span> <span class="tok-o">/</span> <span class="tok-mi">2</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">numpy</span> <span class="tok-kn">import</span> <span class="tok-n">sqrt</span>
+<span class="tok-k">def</span> <span class="tok-nf">solve</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">c</span><span class="tok-p">):</span>
+  <span class="tok-n">delta</span> <span class="tok-o">=</span> <span class="tok-n">b</span> <span class="tok-o">*</span> <span class="tok-n">b</span> <span class="tok-o">-</span> <span class="tok-mi">4</span> <span class="tok-o">*</span> <span class="tok-n">a</span> <span class="tok-o">*</span> <span class="tok-n">c</span>
+  <span class="tok-k">if</span> <span class="tok-n">delta</span> <span class="tok-o">&lt;</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+    <span class="tok-k">return</span> <span class="tok-bp">None</span>
+  <span class="tok-k">elif</span> <span class="tok-n">delta</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+    <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-o">-</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-n">delta</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-o">+</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-n">delta</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-n">a</span>
+    <span class="tok-k">return</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-o">-</span><span class="tok-n">b</span> <span class="tok-o">/</span> <span class="tok-mi">2</span> <span class="tok-o">/</span> <span class="tok-n">a</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">solve</span><span class="tok-p">(</span><span class="tok-mf">0.01</span><span class="tok-p">,</span><span class="tok-mf">0.2</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">)</span>
+<span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-mf">10.000000131708903</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mf">9.999999868291098</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">solve</span><span class="tok-p">(</span><span class="tok-mf">0.011025</span><span class="tok-p">,</span> <span class="tok-mf">0.21</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour le problème ici est que \(\Delta\) est très petit par rapport
+à \(b^2\), il faudrait donc faire:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">numpy</span> <span class="tok-kn">import</span> <span class="tok-n">sqrt</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">solve</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">c</span><span class="tok-p">,</span> <span class="tok-n">epsilon</span><span class="tok-o">=</span><span class="tok-mi">2</span><span class="tok-o">**</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-mi">52</span><span class="tok-p">)):</span>
+  <span class="tok-n">delta</span> <span class="tok-o">=</span> <span class="tok-n">b</span> <span class="tok-o">*</span> <span class="tok-n">b</span> <span class="tok-o">-</span> <span class="tok-mi">4</span> <span class="tok-o">*</span> <span class="tok-n">a</span> <span class="tok-o">*</span> <span class="tok-n">c</span>
+  <span class="tok-k">if</span> <span class="tok-n">delta</span> <span class="tok-o">&lt;</span> <span class="tok-o">-</span><span class="tok-n">epsilon</span><span class="tok-o">*</span><span class="tok-n">b</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">:</span>
+    <span class="tok-k">return</span> <span class="tok-bp">None</span>
+  <span class="tok-k">elif</span> <span class="tok-n">delta</span> <span class="tok-o">&gt;</span> <span class="tok-n">epsilon</span><span class="tok-o">*</span><span class="tok-n">b</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">:</span>
+    <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-o">-</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-n">delta</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-o">+</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-n">delta</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-n">a</span>
+    <span class="tok-k">return</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-o">-</span><span class="tok-n">b</span> <span class="tok-o">/</span> <span class="tok-mi">2</span> <span class="tok-o">/</span> <span class="tok-n">a</span>
+    <span class="tok-k">return</span> <span class="tok-n">x</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ici, il semble judicieux d&#8217;éviter les difficultés et se limiter à un travail
+sur les entiers.</p>
+</div>
+<div class="paragraph">
+<p>Si on veut absolument travailler avec des décimaux, il existe un module <code>decimal</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">decimal</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">decimal</span><span class="tok-o">.</span><span class="tok-n">Decimal</span><span class="tok-p">(</span><span class="tok-mf">0.1</span><span class="tok-p">))</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">decimal</span><span class="tok-o">.</span><span class="tok-n">Decimal</span><span class="tok-p">(</span><span class="tok-s2">&quot;0.1&quot;</span><span class="tok-p">))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cependant cela ne semble pas être une bonne idée.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Il existe un module <code>fraction</code> assez similaire pour manipuler les
+fractions.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_module_turtle">4.4. Le module Turtle</h3>
+<div class="paragraph">
+<p>Ce qu’on appelle aujourd’hui les graphismes « tortue » trouvent leur origine
+dans le langage Logo, inventé dans les années 1960 dans un but pédagogique.
+Ce langage comportait un certain nombre d’instructions qui permettaient de commander
+un robot pouvant tracer des lignes sur une feuille de papier.
+La forme de ce robot (qui évoquait vaguement une tortue) a donné son nom à cette
+manière de produire des dessins.
+Le module turtle de Python implémente une tortue virtuelle qui reproduit
+les déplacements de son ancêtre dans une fenêtre de l’écran de votre ordinateur.</p>
+</div>
+<div class="paragraph">
+<p>Le module turtle permet de faire un lien avec Scratch, lui-même très influencé
+par le langage Logo.</p>
+</div>
+<div class="paragraph">
+<p>Un exemple:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">turtle</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+
+<span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">180</span><span class="tok-p">)</span>
+<span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">90</span><span class="tok-p">)</span>
+<span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">100</span><span class="tok-p">)</span>
+<span class="tok-n">right</span><span class="tok-p">(</span><span class="tok-mi">240</span><span class="tok-p">)</span>
+<span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">50</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_annexe_les_principales_commandes_du_module_turtle">4.4.1. Annexe: les principales commandes du module turtle</h4>
+<div class="sect4">
+<h5 id="_déplacement_de_la_tortue">Déplacement de la tortue</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>forward(n)</code> avance la tortue de n pas dans la direction qui lui fait face ;</p>
+</li>
+<li>
+<p><code>backward(n)</code> recule la tortue de n pas ;</p>
+</li>
+<li>
+<p><code>left(n)</code> tourne la tortue d’un angle de n degrés dans le sens trigonométrique ;</p>
+</li>
+<li>
+<p><code>right(n)</code> tourne la tortue d’un angle de n degrés dans le sens horaire ;</p>
+</li>
+<li>
+<p><code>speed(n)</code> modifie la vitesse de déplacement de la tortue de n = 1
+(lent) à n = 10 (rapide) ;
+n = 0(le plus rapide) supprime toute animation. Par défaut n = 3.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_tracé_du_chemin_de_la_tortue">Tracé du chemin de la tortue</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>penup() soulève le crayon de sorte que le déplacement de la tortue ne trace pas de trait ;</p>
+</li>
+<li>
+<p><code>pendown()</code> baisse le crayon de sorte que le déplacement de la tortue trace un trait ;</p>
+</li>
+<li>
+<p><code>pensize(n)</code> modifie l’épaisseur de la ligne que la tortue trace en se déplaçant (par défaut n = 1) ;</p>
+</li>
+<li>
+<p><code>pencolor(c)</code> modifie la couleur de la ligne que la tortue trace ;</p>
+</li>
+<li>
+<p><code>bgcolor(c)</code> modifie la couleur de la fenêtre où a lieu le tracé.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_commandes_diverses">Commandes diverses</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>position()</code> retourne les coordonnées (x, y) de la tortue ;</p>
+</li>
+<li>
+<p><code>heading()</code> retourne l’angle de la tortue par rapport à l’horizontale ;</p>
+</li>
+<li>
+<p><code>setposition(x, y)</code> déplace la tortue au point de coordonnées (x, y) ;</p>
+</li>
+<li>
+<p><code>setheading(n)</code> dirige la tortue dans la direction correspondant à un angle de
+n degrés ;</p>
+</li>
+<li>
+<p><code>distance(x, y)</code> retourne la distance entre la tortue et le point de coordonnées (x, y);</p>
+</li>
+<li>
+<p><code>towards(x, y)</code> retourne l’angle avec l’horizontale que fait la droite reliant
+la tortue au point de coordonnées (x, y);</p>
+</li>
+<li>
+<p><code>home()</code> déplace la tortue au point de coordonnées (0,0) en la dirigeant vers l’est ;</p>
+</li>
+<li>
+<p><code>reset()</code> efface tous les tracés et replace la tortue à sa position initiale</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_module_matplotlib">4.5. Le module Matplotlib</h3>
+<div class="paragraph">
+<p>Le module <code>matplotlib.pyplot</code> permet de tracer des courbes, il est <em>a</em> <em>priori</em>
+assez similaire à Matlab.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">matplotlib.pyplot</span> <span class="tok-kn">as</span> <span class="tok-nn">plt</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">],</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">9</span><span class="tok-p">,</span><span class="tok-mi">16</span><span class="tok-p">],</span> <span class="tok-s1">&#39;ro&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">],</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">9</span><span class="tok-p">,</span><span class="tok-mi">16</span><span class="tok-p">])</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">axis</span><span class="tok-p">([</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">])</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On donne à la fonction <code>plot</code> deux listes de nombres, la première liste
+correspond aux abscisses et la seconde aux ordonnées des points à placer.
+Le troisième argument ici correspond à l&#8217;apparence des points, et à la façon
+dont ils sont reliés ou non.</p>
+</div>
+<div class="paragraph">
+<p>Le paramètre dans la fonction <code>axis</code> correspond à <code>[xmin, xmax, ymin, ymax]</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">matplotlib.pyplot</span> <span class="tok-kn">as</span> <span class="tok-nn">plt</span>
+
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">],</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">9</span><span class="tok-p">,</span><span class="tok-mi">16</span><span class="tok-p">])</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">xlabel</span><span class="tok-p">(</span><span class="tok-s1">&#39;abscisses&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">ylabel</span><span class="tok-p">(</span><span class="tok-s1">&#39;ordonnées&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">grid</span><span class="tok-p">()</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il n&#8217;est pas nécessaire de préciser les axes, le module "zoom" automatiquement.
+On peut ajouter une grille avec <code>grid</code>, les points sont reliés par des segments
+par défaut.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">savefig</span><span class="tok-p">(</span><span class="tok-s1">&#39;graph.png&#39;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il est possible de sauvegarder le graphique sous la forme d&#8217;une image, cela
+permet aussi d&#8217;utiliser Matplotlib sur repl.it et pythonanywhere.com</p>
+</div>
+<div class="paragraph">
+<p>Pour tracer les courbes représentatives d&#8217;une fonction, on a donc différentes
+possibilités:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">matplotlib.pyplot</span> <span class="tok-kn">as</span> <span class="tok-nn">plt</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">cube</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">):</span>
+  <span class="tok-k">return</span> <span class="tok-n">x</span><span class="tok-o">**</span><span class="tok-mi">3</span>
+
+<span class="tok-n">n</span><span class="tok-p">,</span> <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span>
+<span class="tok-n">abscisses</span> <span class="tok-o">=</span> <span class="tok-p">[]</span>
+<span class="tok-k">for</span> <span class="tok-n">k</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">):</span>
+  <span class="tok-n">abscisses</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-o">+</span><span class="tok-p">(</span><span class="tok-n">k</span><span class="tok-o">*</span><span class="tok-p">(</span><span class="tok-n">b</span><span class="tok-o">-</span><span class="tok-n">a</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-n">n</span><span class="tok-p">)</span>
+
+<span class="tok-n">ordonnees</span> <span class="tok-o">=</span> <span class="tok-p">[]</span>
+<span class="tok-k">for</span> <span class="tok-n">k</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">):</span>
+  <span class="tok-n">ordonnees</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-n">cube</span><span class="tok-p">(</span><span class="tok-n">abscisses</span><span class="tok-p">[</span><span class="tok-n">k</span><span class="tok-p">]))</span>
+
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">(</span><span class="tok-n">abscisses</span><span class="tok-p">,</span> <span class="tok-n">ordonnees</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">X</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-n">a</span><span class="tok-o">+</span><span class="tok-p">(</span><span class="tok-n">k</span><span class="tok-o">*</span><span class="tok-p">(</span><span class="tok-n">b</span><span class="tok-o">-</span><span class="tok-n">a</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-n">n</span> <span class="tok-k">for</span> <span class="tok-n">k</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">)]</span>
+<span class="tok-n">Y</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-n">cube</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">)</span> <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-n">X</span><span class="tok-p">]</span>
+
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">,</span><span class="tok-n">Y</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On utilise souvent Matplotlib avec le module Numpy. (Module de calcul numérique/matriciel)
+Cela vient du faire que le module Numpy possède un type <code>array</code>, beaucoup plus
+proche d&#8217;un tableau classique et très pratique.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">matplotlib.pyplot</span> <span class="tok-kn">as</span> <span class="tok-nn">plt</span>
+<span class="tok-kn">import</span> <span class="tok-nn">numpy</span> <span class="tok-kn">as</span> <span class="tok-nn">np</span>
+
+<span class="tok-n">X</span> <span class="tok-o">=</span> <span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">linspace</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">pi</span><span class="tok-p">,</span> <span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">pi</span><span class="tok-p">,</span> <span class="tok-mi">256</span><span class="tok-p">)</span>
+<span class="tok-n">C</span><span class="tok-p">,</span><span class="tok-n">S</span> <span class="tok-o">=</span> <span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">cos</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">),</span> <span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">sin</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">)</span>
+
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">,</span><span class="tok-n">C</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">,</span><span class="tok-n">S</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">axis</span><span class="tok-p">([</span><span class="tok-o">-</span><span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">pi</span><span class="tok-p">,</span><span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">pi</span><span class="tok-p">,</span><span class="tok-o">-</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">])</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>np.linspace(-np.pi, np.pi, 256)</code> renvoie un tableau contenant 256 valeurs allant de \(\pi\) \(\pi\)</p>
+</div>
+<div class="paragraph">
+<p>Il est possible d&#8217;appliquer directement la fonction \(\cos\) à tout le tableau.</p>
+</div>
+<div class="paragraph">
+<p>Le module Matplotlib permet de tracer différents types de graphique dont des
+histogrammes. (Il existe même un module matplotlib-venn, permettant de tracer
+  des diagrammes de Venn)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_module_sympy">4.6. Le module Sympy</h3>
+<div class="paragraph">
+<p>Sympy est une bibliothéque de calcul formel:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">sympy</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+<span class="tok-kn">from</span> <span class="tok-nn">__future__</span> <span class="tok-kn">import</span> <span class="tok-n">division</span>
+<span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">z</span><span class="tok-p">,</span> <span class="tok-n">t</span> <span class="tok-o">=</span> <span class="tok-n">symbols</span><span class="tok-p">(</span><span class="tok-s1">&#39;x y z t&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">k</span><span class="tok-p">,</span> <span class="tok-n">m</span><span class="tok-p">,</span> <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">symbols</span><span class="tok-p">(</span><span class="tok-s1">&#39;k m n&#39;</span><span class="tok-p">,</span> <span class="tok-n">integer</span><span class="tok-o">=</span><span class="tok-bp">True</span><span class="tok-p">)</span>
+<span class="tok-n">f</span><span class="tok-p">,</span> <span class="tok-n">g</span><span class="tok-p">,</span> <span class="tok-n">h</span> <span class="tok-o">=</span> <span class="tok-n">symbols</span><span class="tok-p">(</span><span class="tok-s1">&#39;f g h&#39;</span><span class="tok-p">,</span> <span class="tok-bp">cls</span><span class="tok-o">=</span><span class="tok-n">Function</span><span class="tok-p">)</span>
+<span class="tok-n">init_printing</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le code ci-dessus permet de définir quelques expressions symboliques et d&#8217;avoir
+un affichage plus adaptée.</p>
+</div>
+<div class="paragraph">
+<p>Quelques possibilitées:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">expand</span><span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-n">y</span><span class="tok-p">)</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">)</span>
+<span class="tok-n">factor</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">**</span><span class="tok-mi">2</span> <span class="tok-o">+</span> <span class="tok-n">x</span><span class="tok-p">)</span>
+<span class="tok-n">M</span> <span class="tok-o">=</span> <span class="tok-n">Matrix</span><span class="tok-p">([[</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">],[</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">]])</span>
+<span class="tok-n">M</span>
+<span class="tok-n">M</span><span class="tok-o">**</span><span class="tok-n">n</span>
+<span class="tok-n">M</span><span class="tok-o">**-</span><span class="tok-mi">1</span> <span class="tok-c1">#Calcul aussi une inverse pr les matrices non inversibles..</span>
+<span class="tok-n">limit</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-n">n</span><span class="tok-p">,</span><span class="tok-n">n</span><span class="tok-p">,</span><span class="tok-n">oo</span><span class="tok-p">)</span>
+<span class="tok-n">diff</span><span class="tok-p">(</span><span class="tok-n">sin</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">)</span><span class="tok-o">*</span><span class="tok-n">exp</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">),</span> <span class="tok-n">x</span><span class="tok-p">)</span>
+<span class="tok-n">integrate</span><span class="tok-p">(</span><span class="tok-n">sin</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-n">oo</span><span class="tok-p">,</span> <span class="tok-n">oo</span><span class="tok-p">))</span>
+<span class="tok-n">solve</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">**</span><span class="tok-mi">2</span> <span class="tok-o">-</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">)</span>
+<span class="tok-n">latex</span><span class="tok-p">(</span><span class="tok-n">Integral</span><span class="tok-p">(</span><span class="tok-n">cos</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">)</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">pi</span><span class="tok-p">)))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Utiliser Python pour faire du calcul formel peut cependant créer une confusion
+entre calcul formel et langage de programmation, et est peut-être à éviter.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_points_forts_de_python">5. Les points forts de Python</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>On l&#8217;a dit, passer des langages types « calculatrices » à un langage tel que
+Python permet de redonner leur place aux fonctions, et de s&#8217;abstraire du
+« demander à l&#8217;utilisateur »/« afficher pour l&#8217;utilisateur ».</p>
+</div>
+<div class="paragraph">
+<p>Mais avec un langage tel que Python et l&#8217;utilisation d&#8217;un ordinateur viennent
+d&#8217;autres possibilités:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Masquer les difficultés/créer des « boîtes noires »/ajouter de l&#8217;abstraction.</p>
+</li>
+<li>
+<p>Regarder à l&#8217;intérieur des « boîtes noires ».</p>
+</li>
+<li>
+<p>Manipuler des données de grandes tailles et de toutes les formes.</p>
+</li>
+<li>
+<p>Utiliser différentes formes de visualisation.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_masquer_les_difficultés">5.1. Masquer les difficultés</h3>
+<div class="paragraph">
+<p>On peut penser à trois possibilités pour masquer les difficultés:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Donner directement du code à copier/coller aux élèves.</p>
+</li>
+<li>
+<p>La syntaxe native de Python très riche qui permet très souvent de masquer la
+difficulté en ajoutant une couche d&#8217;abstraction.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">mot</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;abracabra&quot;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">mot</span><span class="tok-o">.</span><span class="tok-n">count</span><span class="tok-p">(</span><span class="tok-s2">&quot;a&quot;</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-k">for</span> <span class="tok-n">lettre</span> <span class="tok-ow">in</span> <span class="tok-n">mot</span><span class="tok-p">:</span>
+<span class="tok-o">...</span>     <span class="tok-n">lettre</span><span class="tok-o">.</span><span class="tok-n">upper</span><span class="tok-p">()</span>
+<span class="tok-o">...</span>
+<span class="tok-s1">&#39;A&#39;</span>
+<span class="tok-s1">&#39;B&#39;</span>
+<span class="tok-s1">&#39;R&#39;</span>
+<span class="tok-s1">&#39;A&#39;</span>
+<span class="tok-s1">&#39;C&#39;</span>
+<span class="tok-s1">&#39;A&#39;</span>
+<span class="tok-s1">&#39;B&#39;</span>
+<span class="tok-s1">&#39;R&#39;</span>
+<span class="tok-s1">&#39;A&#39;</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Créer et utiliser des modules qui vont encapsuler les difficultés. Il
+est même possible de réécrire des fonctions «natives»:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">f</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">):</span>
+  <span class="tok-k">pass</span>
+
+<span class="tok-k">print</span> <span class="tok-o">=</span> <span class="tok-n">f</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_regarder_à_l_intérieur_des_boîtes_noires">5.2. Regarder à l&#8217;intérieur des « boîtes noires ».</h3>
+<div class="paragraph">
+<p>Dans un monde très marqué par le numérique, et qui propose sans cesse plus de
+ «boîtes noires», «boîtes noires» très rarement questionnées par les élèves, le
+rôle de l&#8217;enseignant est bien sûr de dévoiler le fonctionnement de ces boîtes
+noires, cependant cela ne peut pas se faire en une fois.
+Et de même qu&#8217;il ne viendrait à l&#8217;esprit de personne de demander aux élèves de
+comprendre les algorithmes utilisés par le(s) processeur(s) pour faire une addition
+avant de les laisser utiliser l&#8217;addition, il ne faut pas s&#8217;interdire l&#8217;utilisation
+de fonctions <em>ad hoc</em> .</p>
+</div>
+<div class="paragraph">
+<p>Si Python permet de se placer à un assez haut niveau d&#8217;abstraction et de
+masquer les difficultés, c&#8217;est aussi un langage qui permet de regarder ce qu&#8217;il
+se passe dans le détail et de ne pas contourner les difficultés.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_manipuler_des_données_de_grandes_tailles_et_de_toutes_les_formes">5.3. Manipuler des données de grandes tailles et de toutes les formes.</h3>
+<div class="paragraph">
+<p>Le problème de la calculatrice n&#8217;est pas tant qu&#8217;elle n&#8217;ait pas la puissance
+de calculs pour traiter des grandes quantités de donnés, c&#8217;est qu&#8217;elle ne permet
+que très difficilement de récupérer des données et sous des formats limités.</p>
+</div>
+<div class="paragraph">
+<p>A l&#8217;inverse Python permet de récupérer et de traiter des données de toutes
+tailles et de toutes formes.</p>
+</div>
+<div class="paragraph">
+<p>Quelques pistes qui seront plus ou moins approfondies par la suite:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Des fichiers textes.</p>
+</li>
+<li>
+<p>Des données au format CSV. (format « tableur »)</p>
+</li>
+<li>
+<p>Des images.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_utiliser_différentes_formes_de_visualisation">5.4. Utiliser différentes formes de visualisation.</h3>
+<div class="paragraph">
+<p>On a déjà vu les exemples du traitement d&#8217;images ou du tracé de courbe.
+Un autre exemple intéressant est l&#8217;étude du mouvement d&#8217;un solide, chute,
+trajectoire parabolique, etc, qui peut donner lieu à une animation à l&#8217;aide
+de module tel que <code>tkinter</code> ou <code>pygame</code>. (Cet exemple n&#8217;est pas développé
+dans ce document.)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_manipulation_de_données">6. Manipulation de données</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_lecture_et_écriture_dans_un_fichier_texte">6.1. Lecture et écriture dans un fichier texte</h3>
+<div class="paragraph">
+<p>Même si la manipulation de textes ne relève pas tout à fait du domaine des
+mathématiques, on peut imaginer au moins deux situations où cela a du sens:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>les statistiques</p>
+</li>
+<li>
+<p>la cryptographie</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Même si le mécanisme reste le même lorsque l&#8217;on crypte un mot, une phrase ou
+un roman (ou même une bibliothèque), crypter/décrypter l&#8217;intégrale de Flaubert
+plutôt que 3 lettres à tout de suite un côté plus satisfaisant/impressionnant.</p>
+</div>
+<div class="paragraph">
+<p>On peut aussi imaginer appliquer des méthodes d&#8217;attaque par analyse fréquentielle.</p>
+</div>
+<div class="paragraph">
+<p>Il est relativement simple de trouver des fichiers des textes au format <code>.txt</code>
+sur internet, on peut par exemple regarder du côté du
+<a href="http://www.gutenberg.org/wiki/FR_Litt%C3%A9rature_(Genre)">projet Gutenberg</a></p>
+</div>
+<div class="sect3">
+<h4 id="_liste_des_commandes_de_base">6.1.1. Liste des commandes de base:</h4>
+<div class="paragraph">
+<p>Dans ce tableau, <code>f</code> désigne un nom de variable quelconque.</p>
+</div>
+<table class="tableblock frame-all grid-rows spread">
+<colgroup>
+<col style="width: 37.5%;">
+<col style="width: 62.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle" colspan="2"><strong>Principales fonctionnalités sur les fichiers</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle" colspan="2"><p class="tableblock"><strong>Mode lecture</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">f = open("nom_fichier.txt","r")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">permet de lire le contenu du fichier <em>nom_fichier.txt</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">var = f.read()</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lecture de tout le fichier, et l&#8217;affecte à la variable <em>var</em> sous la forme
+de chaîne de caractère</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">var = f.read(7)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lecture des 7 caractères suivants, et les affectes à la variable <em>var</em> sous la forme
+d&#8217;une chaîne de caractère (renvoie une chaîne vide une fois à la fin du fichier)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">var = f.readline()</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lecture de la ligne suivante, et l&#8217;affecte à la variable <em>var</em> sous la forme
+de chaîne de caractère, saut de ligne <code>\n</code> inclus</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for ligne in f:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">permet de parcourir tout le fichier, ligne par ligne</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle" colspan="2"><p class="tableblock"><strong>Modes écritures</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">f = open("nom_fichier.txt","w")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">créé un fichier <em>nom_fichier.txt</em>, ou l&#8217;efface s&#8217;il existe,
+permet d&#8217;écrire dans ce fichier.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">f = open("nom_fichier.txt","a")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">créé un fichier <em>nom_fichier.txt</em>, ou l&#8217;efface s&#8217;il existe,
+permet d&#8217;écrire dans ce fichier.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">f.write("mon texte\n")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ajoute "mon texte\n" à la fin du fichier, ne pas oublier <code>\n</code> si on veut
+passer à la ligne</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle" colspan="2"><p class="tableblock"><strong>Important: fermer</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">f.close()</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fermeture du fichier à ne pas oublier</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_un_exemple">6.1.2. Un exemple</h4>
+<div class="paragraph">
+<p>Un exemple avec le <a href="http://lapiecode.info/ISN/cours/textemystere.txt">texte suivant</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">f_clair</span> <span class="tok-o">=</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-s2">&quot;textemystere.txt&quot;</span><span class="tok-p">,</span><span class="tok-s1">&#39;r&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">f_crypte</span> <span class="tok-o">=</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-s2">&quot;textecrypte.txt&quot;</span><span class="tok-p">,</span><span class="tok-s1">&#39;w&#39;</span><span class="tok-p">)</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">crypte_lettre</span><span class="tok-p">(</span><span class="tok-n">lettre</span><span class="tok-p">,</span> <span class="tok-n">k</span><span class="tok-p">):</span>
+    <span class="tok-n">nbr</span> <span class="tok-o">=</span> <span class="tok-nb">ord</span><span class="tok-p">(</span><span class="tok-n">lettre</span><span class="tok-o">.</span><span class="tok-n">upper</span><span class="tok-p">())</span> <span class="tok-o">-</span> <span class="tok-mi">65</span>
+    <span class="tok-n">nbr_crypt</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">nbr</span> <span class="tok-o">+</span> <span class="tok-n">k</span><span class="tok-p">)</span> <span class="tok-o">%</span> <span class="tok-mi">26</span><span class="tok-p">)</span> <span class="tok-o">+</span> <span class="tok-mi">65</span>
+    <span class="tok-k">return</span> <span class="tok-nb">chr</span><span class="tok-p">(</span><span class="tok-n">nbr_crypt</span><span class="tok-p">)</span>
+
+<span class="tok-k">for</span> <span class="tok-n">ligne</span> <span class="tok-ow">in</span> <span class="tok-n">f_clair</span><span class="tok-p">:</span>
+    <span class="tok-n">ligne_crypte</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;&quot;</span>
+    <span class="tok-k">for</span> <span class="tok-n">lettre</span> <span class="tok-ow">in</span> <span class="tok-n">ligne</span><span class="tok-p">:</span>
+        <span class="tok-k">if</span> <span class="tok-n">lettre</span><span class="tok-o">.</span><span class="tok-n">isalpha</span><span class="tok-p">():</span>
+            <span class="tok-n">lettre_crypte</span> <span class="tok-o">=</span> <span class="tok-n">crypte_lettre</span><span class="tok-p">(</span><span class="tok-n">lettre</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">)</span>
+        <span class="tok-k">else</span><span class="tok-p">:</span>
+            <span class="tok-n">lettre_crypte</span> <span class="tok-o">=</span> <span class="tok-n">lettre</span>
+        <span class="tok-n">ligne_crypte</span> <span class="tok-o">=</span> <span class="tok-n">ligne_crypte</span> <span class="tok-o">+</span> <span class="tok-n">lettre_crypte</span>
+    <span class="tok-n">f_crypte</span><span class="tok-o">.</span><span class="tok-n">write</span><span class="tok-p">(</span><span class="tok-n">ligne_crypte</span><span class="tok-p">)</span>
+
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;done&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">f_clair</span><span class="tok-o">.</span><span class="tok-n">close</span><span class="tok-p">()</span>
+<span class="tok-n">f_crypte</span><span class="tok-o">.</span><span class="tok-n">close</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+En bon Python, on aurait plutôt tendance à passer par des listes, la
+concaténation de chaîne étant "lente"&#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lecture_et_écriture_dans_un_fichier_csv">6.2. Lecture et écriture dans un fichier CSV</h3>
+<div class="paragraph">
+<p>Le format CSV, pour comma separated values, représentent les données d&#8217;un
+tableau sous la forme de valeurs séparées par des virgules. (Ou souvent
+  des points virgules en France)</p>
+</div>
+<div class="paragraph">
+<p>On peut d&#8217;exporter un fichier excel ou ods en un fichier CSV.</p>
+</div>
+<div class="paragraph">
+<p>Python dispose d&#8217;un module CSV qui permet de manipuler facilement les fichiers
+CSV.</p>
+</div>
+<div class="paragraph">
+<p>Le <a href="resultats_electoraux.csv">fichier des résultats électoraux</a> provient de
+<a href="https://opendata.paris.fr/explore/dataset/resultats_electoraux/">opendata.paris.fr</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">csv</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">calcul_nbr_electeur</span><span class="tok-p">(</span><span class="tok-n">nom</span><span class="tok-p">):</span>
+    <span class="tok-n">f</span> <span class="tok-o">=</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-s2">&quot;resultats_electoraux.csv&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;r&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">tableur</span> <span class="tok-o">=</span> <span class="tok-n">csv</span><span class="tok-o">.</span><span class="tok-n">reader</span><span class="tok-p">(</span><span class="tok-n">f</span><span class="tok-p">,</span><span class="tok-n">delimiter</span><span class="tok-o">=</span><span class="tok-s2">&quot;;&quot;</span><span class="tok-p">)</span>
+
+    <span class="tok-n">nbr_voix_total</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-k">for</span> <span class="tok-n">ligne</span> <span class="tok-ow">in</span> <span class="tok-n">tableur</span><span class="tok-p">:</span>
+        <span class="tok-k">if</span> <span class="tok-n">ligne</span><span class="tok-p">[</span><span class="tok-mi">11</span><span class="tok-p">]</span> <span class="tok-o">==</span> <span class="tok-n">nom</span><span class="tok-p">:</span>
+            <span class="tok-n">nbr_voix_total</span> <span class="tok-o">+=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">ligne</span><span class="tok-p">[</span><span class="tok-mi">13</span><span class="tok-p">])</span>
+    <span class="tok-n">f</span><span class="tok-o">.</span><span class="tok-n">close</span><span class="tok-p">()</span>
+    <span class="tok-k">return</span> <span class="tok-n">nbr_voix_total</span>
+
+
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">calcul_nbr_electeur</span><span class="tok-p">(</span><span class="tok-s2">&quot;POUTOU&quot;</span><span class="tok-p">))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le <a href="indicateurs_lycees.csv">fichier sur les lycées</a> provient de
+<a href="https://data.education.gouv.fr/explore/dataset/fr-en-indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/export/">data.education.gouv.fr</a>.</p>
+</div>
+<div class="paragraph">
+<p>Il est aussi possible de manipuler les lignes du tableau comme des dictionnaires
+et donc de faire référence au nom de la colonne:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">csv</span>
+
+<span class="tok-n">f</span> <span class="tok-o">=</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-s2">&quot;indicateurs_lycees.csv&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;r&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">tableau</span> <span class="tok-o">=</span> <span class="tok-n">csv</span><span class="tok-o">.</span><span class="tok-n">DictReader</span><span class="tok-p">(</span><span class="tok-n">f</span><span class="tok-p">,</span><span class="tok-n">delimiter</span><span class="tok-o">=</span><span class="tok-s2">&quot;;&quot;</span><span class="tok-p">)</span>
+
+<span class="tok-k">for</span> <span class="tok-n">ligne</span> <span class="tok-ow">in</span> <span class="tok-n">tableau</span><span class="tok-p">:</span>
+    <span class="tok-k">if</span> <span class="tok-n">ligne</span><span class="tok-p">[</span><span class="tok-s2">&quot;Etablissement&quot;</span><span class="tok-p">]</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;LYCEE PAUL LAPIE&quot;</span><span class="tok-p">:</span>
+        <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">ligne</span><span class="tok-p">[</span><span class="tok-s2">&quot;Taux Brut de Réussite Total séries&quot;</span><span class="tok-p">])</span>
+
+<span class="tok-n">f</span><span class="tok-o">.</span><span class="tok-n">close</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_traitement_d_image">6.3. Traitement d&#8217;image</h3>
+<div class="paragraph">
+<p>Une image matricielle ou bitmap est une image constituée d&#8217;une matrice de points
+ colorés souvent appelés pixel.</p>
+</div>
+<div class="paragraph">
+<p>Python permet via le module <code>PIL</code> de manipuler des images issue d&#8217;un format
+bitmap tel que le <code>.PNG</code> ou le <code>.JPEG</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_ouvrir_une_image">6.3.1. Ouvrir une image</h4>
+<div class="paragraph">
+<p><code>from PIL import Image</code></p>
+</div>
+<div class="paragraph">
+<p>On va avec ce module pouvoir charger une image et la manipuler comme un objet
+<code>Image</code> avec la commande:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">nom_variable</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">open</span><span class="tok-p">(</span><span class="tok-s2">&quot;chemin_fichier&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(Si le fichier image est dans le même dossier que le fichier <code>.py</code>, il suffit
+de préciser le nom du fichier.)</p>
+</div>
+<div class="paragraph">
+<p>On peut voir un objet Image, comme un tableau à deux dimensions de pixels.
+Dans lequel le pixel en haut à gauche a pour coordonnée \((0,0)\).</p>
+</div>
+<div class="paragraph">
+<p>Les pixels sont composées d&#8217;un entier compris entre 0 et 255 en mode niveau de
+gris, trois entiers de 0 à 255 qui vont correspondre à la quantité de rouge (Red),
+vert (Green), bleu (Blue) en mode RGB. (On passe à 4 entiers avec le mode RGBA qui
+  ajoute un canal alpha qui va de 0 à 255 aussi et qui correspond à la transparence.
+  Il vaut mieux éviter le mode RGBA pour simplifier les choses.)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_liste_des_commandes_de_base_2">6.3.2. Liste des commandes de base:</h4>
+<table class="tableblock frame-none grid-rows spread">
+<colgroup>
+<col style="width: 37.5%;">
+<col style="width: 62.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle" colspan="2">Principales fonctionnalités du module Image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nom_variable = Image.open("chemin_fichier")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ouverture d’un fichier image</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nom_variable.mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mode de l’image : "L" en niveaux de gris, "RGB" en couleurs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nom_variable.format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">donne le format de l’image: "PNG", "PPM", &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nom_variable.size</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">taille de l’image sous la forme d&#8217;un tuple (Largeur,Hauteur)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nom_variable.save("chemin_fichier")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sauvegarde d&#8217;une image</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nom_variable = Image.new("RGB",(L,H))</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">création d’une image "RGB" de dimensions (Largeur,Hauteur) (On peut remplacer
+  "RGB" par "L" pour une image en niveau de gris.)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nom_variable.getpixel((x,y))</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pixel de coordonnées (x,y), correspond à un nombre en mode niveau de gris,
+  et à un tuple de trois nombres en mode RGB.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nom_variable.putpixel((x,y),nom_pixel)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">écriture de la valeur nom_pixel dans le pixel de coordonnées (x,y), nom_pixel
+  doit être un nombre en mode niveau de gris, et un tuple en mode RGB.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_parcourir_un_tableau_à_deux_dimensions">6.3.3. Parcourir un tableau à deux dimensions:</h4>
+<div class="paragraph">
+<p>Pour pouvoir traiter une image, on va souvent la modifier pixel par pixel. Il
+faut donc parcourir tous les pixels.</p>
+</div>
+<div class="paragraph">
+<p>Or, nous avons dit qu&#8217;un objet Image pouvait
+être traité comme un tableau à deux dimension.</p>
+</div>
+<div class="paragraph">
+<p>Pour parcourir un tableau à deux dimensions, élément par élément, on peut
+utiliser deux boucles <code>for</code> imbriquées:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">for</span> <span class="tok-n">y</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">nbr_ligne</span><span class="tok-p">):</span> <span class="tok-c1">#On va parcourir toutes lignes</span>
+  <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">nbr_colonne</span><span class="tok-p">):</span> <span class="tok-c1">#On parcourt toute une ligne colonne par colonne</span>
+    <span class="tok-n">tableau</span><span class="tok-p">[</span><span class="tok-n">x</span><span class="tok-p">][</span><span class="tok-n">y</span><span class="tok-p">]</span> <span class="tok-c1">#On accède à l&#39;élément de coordonnées (x,y)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pourquoi_le_traitement_d_image">6.3.4. Pourquoi le traitement d&#8217;image ?</h4>
+<div class="paragraph">
+<p>Le traitement d&#8217;image est un domaine très mathématiques qui utilise et illustre
+des mathématiques de tout niveau, de la recherche la plus avancée sur les EDP
+aux fonctions en seconde.</p>
+</div>
+<div class="paragraph">
+<p>On peut travailler sur les images pour illustrer:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>les fonctions via des changements de contrastes ou des filtres ou de la stéganographie</p>
+</li>
+<li>
+<p>les boucles bien sûr</p>
+</li>
+<li>
+<p>le si alors avec des effets de seuils</p>
+</li>
+<li>
+<p>la moyenne, les médianes, histogrammes, etc.</p>
+</li>
+<li>
+<p>des applications du calcul matriciel</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Et cela de la seconde à la terminale.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_autres">6.4. Autres</h3>
+<div class="paragraph">
+<p>Python a tendance à pouvoir rendre simple d&#8217;accès des choses qu&#8217;on imagine
+complexe, on peut donc imaginer un très grand nombre d&#8217;applications, on
+peut imaginer travailler avec des collègues de S.V.T avec
+le <a href="http://biopython.org/DIST/docs/tutorial/Tutorial.html#htoc2">module BioPython</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnote_1">
+<a href="#_footnoteref_1">1</a>. C&#8217;est un abus de langage (no pun intended), un langage n&#8217;est pas en soi interprété ou compilé, et dans la pratique, en général, les implémentations d&#8217;un langage tel que Python ne sont ni purement interprétées ni purement compilées, voir <a href="https://fr.wikipedia.org/wiki/Interpr%C3%A8te_(informatique)">l&#8217;article wikipedia sur les interpréteurs.</a>
+</div>
+<div class="footnote" id="_footnote_2">
+<a href="#_footnoteref_2">2</a>. D&#8217;autres langages, tels que Ruby, Lua ou Julia auraient pu convenir. Mais Python étant en soi un très bon choix et le choix que tout le monde semble faire, il ne semble pas nécessaire de débattre à ce sujet.
+</div>
+<div class="footnote" id="_footnote_3">
+<a href="#_footnoteref_3">3</a>. Un des principes fondamentaux de Python est de proposer systématiquement une unique &laquo;bonne&raquo; façon de faire les choses, Python n&#8217;est donc absolument pas un langage <em>agnostique</em>. On fait du Python &laquo;Pythonesque&raquo; ou on fait mal du Python. La présentation <em>agnostique</em> proposée ici de Python est donc une très mauvaise façon de programmer en Python. Il sera cependant en général signalé lorsque nous faisons du &laquo;mauvais&raquo; Python et pourquoi.
+</div>
+<div class="footnote" id="_footnote_4">
+<a href="#_footnoteref_4">4</a>. Encore une fois, cette notion n&#8217;a pas vraiment de sens, et en pratique, des applications permettent de se servir de langages compilés tel Ocaml avec un mode console..
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

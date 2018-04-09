@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Algorithme et programmation en Python au lycée, troisième partie: Les modules</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+tex2jax: {
+  inlineMath: [["\\(", "\\)"]],
+  displayMath: [["\\[", "\\]"]],
+  ignoreClass: "nostem|nolatexmath"
+},
+asciimath2jax: {
+  delimiters: [["\\$", "\\$"]],
+  ignoreClass: "nostem|noasciimath"
+},
+TeX: { equationNumbers: { autoNumber: "none" } }
+});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments  { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.listingblock .pygments .tok-g { color: #000000 } /* Generic */
+.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-l { color: #000000 } /* Literal */
+.listingblock .pygments .tok-n { color: #000000 } /* Name */
+.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
+.listingblock .pygments .tok-x { color: #000000 } /* Other */
+.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
+.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
+.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
+.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Algorithme et programmation en Python au lycée, troisième partie</h1><h2>Les modules</h2></section><section><div class="imageblock" style=""><img src="https://media2.giphy.com/media/JqEHCKdSEe5KU/200w.gif" alt="500" width="500"></div></section>
+<section><section id="_utilisation_de_modules"><h2>Utilisation de modules</h2></section><section id="_importer_un_module"><h2>Importer un module</h2><div class="paragraph"><p>Les fonctions tels que la racine carrée, cosinus, sinus, etc. ne sont pas
+directement accessibles, cependant Python propose un module/bibliothèque contenant
+ces fonctions.</p></div></section><section><div class="paragraph"><p>L&#8217;instruction <code>import</code> permet d’importer un module et d&#8217;accéder à son contenu.<br>
+L’importation d’un module peut se faire de deux manières.</p></div></section><section><div class="paragraph"><p>La première solution est de désigner le module que l’on souhaite utiliser, son
+contenu est alors utilisable de manière «scopée», c’est-à-dire en préfixant le
+nom de la fonctionnalité du nom du module.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-kn">import</span> <span class="tok-nn">math</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">math</span><span class="tok-o">.</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">)</span> <span class="tok-c">#sqrt permet de calculer la racine carrée</span>
+<span class="tok-mf">2.0</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">math</span><span class="tok-o">.</span><span class="tok-n">cos</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+<span class="tok-mf">1.0</span></code></pre></div></div></section><section><div class="paragraph"><p>On peut créer un alias abrégeant le nom:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-kn">import</span> <span class="tok-nn">random</span> <span class="tok-kn">as</span> <span class="tok-nn">rd</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">rd</span><span class="tok-o">.</span><span class="tok-n">randint</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">6</span><span class="tok-p">)</span>
+<span class="tok-mi">5</span></code></pre></div></div></section><section><div class="paragraph"><p>La seconde solution repose sur la construction <code>from import</code> où l’on identifie la
+ou les fonctionnalités que l’on souhaite importer d’un module.
+Dans le cas d’un import de plusieurs fonctionnalités, les noms sont séparés par
+des virgules.
+L’utilisation se fait alors sans préfixer par le nom du module.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-kn">from</span> <span class="tok-nn">math</span> <span class="tok-kn">import</span> <span class="tok-n">sin</span><span class="tok-p">,</span> <span class="tok-n">cos</span><span class="tok-p">,</span> <span class="tok-n">pi</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">sin</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+<span class="tok-mf">0.0</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">pi</span>
+<span class="tok-mf">3.141592653589793</span></code></pre></div></div></section><section><div class="paragraph"><p>Enfin, il est possible d’importer, avec cette seconde approche,
+tous les éléments d’un module en utilisant la notation *</p></div>
+<div class="paragraph"><p>Cependant avec cette dernière forme, il peut il y avoir conflits entre les
+noms.</p></div>
+<div class="paragraph"><p>Cela est donc considéré comme une très mauvaise pratique en programmation.</p></div></section></section>
+<section><section id="_installer_un_module"><h2>Installer un module</h2><div class="paragraph"><p>Un certain nombre de modules «standards» est installé par défaut avec chaque
+distribution Python et il est possible d&#8217;en installer davantage.</p></div></section><section><div class="paragraph"><p>Pour faire cela, on utilise un gestionnaire de paquets, les deux gestionnaires
+de paquets les plus utilisés sont:</p></div>
+<div class="ulist"><ul><li><p>conda, qui est présent dans Anaconda</p></li><li><p>pip, qui est présent dans la distribution «classique» de Python. (attention
+en général sous linux ce n&#8217;est pas le cas) Le problème de pip est qu&#8217;il ne
+permet pas l&#8217;installation des bibliothèques scientifiques telles que Numpy ou
+Sympy.</p></li></ul></div></section><section id="_crer_un_module"><h2>Créer un module</h2><div class="paragraph"><p>On peut voir n&#8217;importe quel fichier .py comme un module. Ce qui permet par
+exemple d&#8217;écrire une fonction <code>pgcd</code> dans un fichier <code>arith.py</code> puis d&#8217;utiliser
+avec <code>import</code> cette fonction dans le fichier <code>rsa.py</code>.</p></div></section><section><div class="paragraph"><p>Il faut cependant faire attention à ce que le fichier <code>arith.py</code> et <code>rsa.py</code>
+soient dans le même dossier. (Pour faciliter les choses)</p></div></section><section><div class="paragraph"><p>En général, cela permet de décomposer et d&#8217;organiser un code long en plusieurs
+fichiers. Cependant, il existe deux cas d&#8217;utilisations beaucoup plus utiles
+dans le cadre du lycée:</p></div>
+<div class="ulist"><ul><li><p>Les élèves créent leur propre bibliothèque qu&#8217;ils peuvent conserver et
+réutiliser. On peut par exemple imaginer que dans un T.D. ils ont créé une
+fonction donnant les racines d&#8217;un polynôme du second degré. Et qu&#8217;ils
+réutilisent cette fonction dans un autre T.D.</p></li><li><p>Le professeur crée une bibliothèque que les élèves vont utiliser. Cela permet
+par exemple de masquer des difficultés ou de simplifier l&#8217;utilisation de
+certaines fonctionnalités de Python.</p></li></ul></div></section><section><div class="paragraph"><p>Un exemple de ce dernier cas d&#8217;utilisation est le module <code>lycee</code> d&#8217;EduPython
+<a href="https://edupython.tuxfamily.org/">module lycée</a></p></div></section></section>
+<section><section id="_alatoire_avec_python"><h2>Aléatoire avec Python</h2><div class="paragraph"><p>Le module random permet d&#8217;obtenir des nombres pseudo-aléatoires.</p></div></section><section><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">fonction</th><th class="tableblock halign-left valign-top">Valeur renvoyé</th></tr></thead><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">randint(a,b)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">un entier \(n\) avec \(a \leq n \leq b\)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">random()</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">un flottant \(x\) avec \(0 \leq x \leq 1\)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">uniform(a,b)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">un flottant \(x\) avec \(a \leq x \leq b\)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">choice(ma_liste)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">un des éléments de ma_liste</p></td></tr></tbody></table></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">from</span> <span class="tok-nn">random</span> <span class="tok-kn">import</span> <span class="tok-n">randint</span>
+<span class="tok-k">def</span> <span class="tok-nf">de</span><span class="tok-p">():</span>
+  <span class="tok-k">return</span> <span class="tok-n">randint</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">6</span><span class="tok-p">)</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-kn">from</span> <span class="tok-nn">random</span> <span class="tok-kn">import</span> <span class="tok-n">random</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-p">[</span><span class="tok-n">random</span><span class="tok-p">()</span> <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">5</span><span class="tok-p">)]</span>
+<span class="tok-p">[</span><span class="tok-mf">0.37810322700869836</span><span class="tok-p">,</span> <span class="tok-mf">0.16833320846159427</span><span class="tok-p">,</span> <span class="tok-mf">0.5846220948570566</span><span class="tok-p">,</span> <span class="tok-mf">0.4903930533286457</span><span class="tok-p">,</span> <span class="tok-mf">0.4488602627914511</span><span class="tok-p">]</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">from</span> <span class="tok-nn">random</span> <span class="tok-kn">import</span> <span class="tok-n">choice</span>
+<span class="tok-n">portes</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s">&quot;chévre&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;chévre&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;voiture&quot;</span><span class="tok-p">]</span>
+<span class="tok-n">nbr_voiture</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">10000</span><span class="tok-p">):</span>
+  <span class="tok-k">if</span> <span class="tok-n">choice</span><span class="tok-p">(</span><span class="tok-n">portes</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-s">&quot;voiture&quot;</span><span class="tok-p">:</span>
+    <span class="tok-n">nbr_voiture</span> <span class="tok-o">=</span> <span class="tok-n">nbr_voiture</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">nbr_voiture</span> <span class="tok-o">/</span> <span class="tok-mi">10000</span><span class="tok-p">)</span></code></pre></div></div></section><section id="_avec_le_module_numpy"><h2>Avec le module Numpy</h2><div class="paragraph"><p>Le module Numpy propose les lois de probabilités classiques.</p></div></section></section>
+<section><section id="_arithmtique_des_flottants"><h2>Arithmétique des flottants</h2><div class="paragraph"><p>Le document d&#8217;accompagnement mentionne:</p></div><div class="quoteblock"><blockquote>Un ordinateur ne travaille pas avec des nombres réels, mais avec des
+flottants, c’est-à-dire un sous-ensemble des nombres décimaux dont la précision
+ est limitée par des contraintes liées au codage en mémoire.</blockquote></div></section><section><div class="paragraph"><p>Effectivement les flottants sont des nombres dyadiques représentés en mémoire
+en base 2, et comme certains nombres décimaux comme \(0,1\) ne sont pas
+des nombres dyadiques, une approximation est donc réalisée, ce qui donne:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span>
+<span class="tok-mf">0.2</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span>
+<span class="tok-mf">0.30000000000000004</span></code></pre></div></div></section><section><div class="paragraph"><p>Notons que Python suit ici la norme IEEE 754 comme la très large majorité
+des langages de programmation. (Et qu&#8217;il ne sert donc à rien de blâmer Python.)</p></div></section><section><div class="paragraph"><p>Tester l&#8217;égalité entre deux flottants n&#8217;a pas de sens, on travaillera
+plutôt avec une précision donnée.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span> <span class="tok-o">+</span> <span class="tok-mf">0.1</span><span class="tok-p">,</span> <span class="tok-mf">0.3</span>
+<span class="tok-n">epsilon</span> <span class="tok-o">=</span> <span class="tok-mf">0.00001</span>
+<span class="tok-k">if</span> <span class="tok-nb">abs</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-p">)</span> <span class="tok-o">&lt;</span> <span class="tok-n">epsilon</span><span class="tok-p">:</span>
+  <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;Assez proche&quot;</span><span class="tok-p">)</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-kn">import</span> <span class="tok-nn">sys</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">float_info</span><span class="tok-o">.</span><span class="tok-n">epsilon</span> <span class="tok-c">#Pour obtenir l&#39;epsilon machine</span>
+<span class="tok-mf">2.220446049250313e-16</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mi">2</span><span class="tok-o">**</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-mi">52</span><span class="tok-p">)</span> <span class="tok-c">#il correspond en général</span>
+<span class="tok-mf">2.220446049250313e-16</span></code></pre></div></div></section><section><div class="paragraph"><p>Les programmes classiques au programme ne pose pas de problème avec les flottants</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">u</span> <span class="tok-o">=</span> <span class="tok-mi">1</span>
+<span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-k">while</span> <span class="tok-n">u</span> <span class="tok-o">&lt;</span> <span class="tok-mi">10</span><span class="tok-p">:</span>
+  <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">n</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+  <span class="tok-n">u</span> <span class="tok-o">=</span> <span class="tok-n">u</span> <span class="tok-o">+</span> <span class="tok-n">u</span> <span class="tok-o">/</span> <span class="tok-mi">2</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">)</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">from</span> <span class="tok-nn">numpy</span> <span class="tok-kn">import</span> <span class="tok-n">sqrt</span>
+<span class="tok-k">def</span> <span class="tok-nf">solve</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">c</span><span class="tok-p">):</span>
+  <span class="tok-n">delta</span> <span class="tok-o">=</span> <span class="tok-n">b</span> <span class="tok-o">*</span> <span class="tok-n">b</span> <span class="tok-o">-</span> <span class="tok-mi">4</span> <span class="tok-o">*</span> <span class="tok-n">a</span> <span class="tok-o">*</span> <span class="tok-n">c</span>
+  <span class="tok-k">if</span> <span class="tok-n">delta</span> <span class="tok-o">&lt;</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+    <span class="tok-k">return</span> <span class="tok-bp">None</span>
+  <span class="tok-k">elif</span> <span class="tok-n">delta</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+    <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-o">-</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-n">delta</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-o">+</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-n">delta</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-n">a</span>
+    <span class="tok-k">return</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-o">-</span><span class="tok-n">b</span> <span class="tok-o">/</span> <span class="tok-mi">2</span> <span class="tok-o">/</span> <span class="tok-n">a</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">solve</span><span class="tok-p">(</span><span class="tok-mf">0.01</span><span class="tok-p">,</span><span class="tok-mf">0.2</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">)</span>
+<span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-mf">10.000000131708903</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mf">9.999999868291098</span><span class="tok-p">)</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">solve</span><span class="tok-p">(</span><span class="tok-mf">0.011025</span><span class="tok-p">,</span> <span class="tok-mf">0.21</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>Le problème ici est que \(\Delta\) est très petit par rapport
+à \(b^2\)</p></div></section><section><div class="paragraph"><p>Il faudrait donc faire:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">from</span> <span class="tok-nn">numpy</span> <span class="tok-kn">import</span> <span class="tok-n">sqrt</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">solve</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">c</span><span class="tok-p">,</span> <span class="tok-n">epsilon</span><span class="tok-o">=</span><span class="tok-mi">2</span><span class="tok-o">**</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-mi">52</span><span class="tok-p">)):</span>
+  <span class="tok-n">delta</span> <span class="tok-o">=</span> <span class="tok-n">b</span> <span class="tok-o">*</span> <span class="tok-n">b</span> <span class="tok-o">-</span> <span class="tok-mi">4</span> <span class="tok-o">*</span> <span class="tok-n">a</span> <span class="tok-o">*</span> <span class="tok-n">c</span>
+  <span class="tok-k">if</span> <span class="tok-n">delta</span> <span class="tok-o">&lt;</span> <span class="tok-o">-</span><span class="tok-n">epsilon</span><span class="tok-o">*</span><span class="tok-n">b</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">:</span>
+    <span class="tok-k">return</span> <span class="tok-bp">None</span>
+  <span class="tok-k">elif</span> <span class="tok-n">delta</span> <span class="tok-o">&gt;</span> <span class="tok-n">epsilon</span><span class="tok-o">*</span><span class="tok-n">b</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">:</span>
+    <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-o">-</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-n">delta</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">b</span><span class="tok-o">+</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-n">delta</span><span class="tok-p">))</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-n">a</span>
+    <span class="tok-k">return</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-o">-</span><span class="tok-n">b</span> <span class="tok-o">/</span> <span class="tok-mi">2</span> <span class="tok-o">/</span> <span class="tok-n">a</span>
+    <span class="tok-k">return</span> <span class="tok-n">x</span></code></pre></div></div></section><section><div class="paragraph"><p>Ici, il semble judicieux d&#8217;éviter les difficultés et se limiter à un travail
+sur les entiers.</p></div></section><section><div class="paragraph"><p>Si on veut absolument travailler avec des décimaux, il existe un module <code>decimal</code></p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">import</span> <span class="tok-nn">decimal</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">decimal</span><span class="tok-o">.</span><span class="tok-n">Decimal</span><span class="tok-p">(</span><span class="tok-mf">0.1</span><span class="tok-p">))</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">decimal</span><span class="tok-o">.</span><span class="tok-n">Decimal</span><span class="tok-p">(</span><span class="tok-s">&quot;0.1&quot;</span><span class="tok-p">))</span></code></pre></div></div>
+<div class="paragraph"><p>Cependant cela ne semble pas être une bonne idée.</p></div></section><section><div class="paragraph"><p>Il existe un module <code>fraction</code> assez similaire pour manipuler les
+fractions.</p></div></section></section>
+<section><section id="_le_module_turtle"><h2>Le module Turtle</h2><div class="paragraph"><p>Le module turtle permet de faire un lien avec Scratch, lui-même très influencé
+par le langage Logo.</p></div></section><section><div class="paragraph"><p>Un exemple:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">from</span> <span class="tok-nn">turtle</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+
+<span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">180</span><span class="tok-p">)</span>
+<span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">90</span><span class="tok-p">)</span>
+<span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">100</span><span class="tok-p">)</span>
+<span class="tok-n">right</span><span class="tok-p">(</span><span class="tok-mi">240</span><span class="tok-p">)</span>
+<span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">50</span><span class="tok-p">)</span></code></pre></div></div></section><section id="_ides_d_exercices_avec_le_module_turtle"><h2>Idées d&#8217;exercices avec le module Turtle</h2><div class="olist arabic"><ol class="arabic"><li><p>Reproduire un simple dessin</p></li><li><p>Fonction traçant un carré avec/sans la taille en paramètre</p></li><li><p>Fonction traçant un triangle équilatéral</p></li><li><p>Boucle + carré</p></li><li><p>Fonction traçant un polygone régulier à n côtés</p></li></ol></div></section><section id="_dplacement_de_la_tortue"><h2>Déplacement de la tortue</h2><div class="ulist"><ul><li><p><code>forward(n)</code> avance la tortue de n pas dans la direction qui lui fait face ;</p></li><li><p><code>backward(n)</code> recule la tortue de n pas ;</p></li><li><p><code>left(n)</code> tourne la tortue d’un angle de n degrés dans le sens trigonométrique ;</p></li><li><p><code>right(n)</code> tourne la tortue d’un angle de n degrés dans le sens horaire ;</p></li><li><p><code>speed(n)</code> modifie la vitesse de déplacement de la tortue de n = 1
+(lent) à n = 10 (rapide) ;
+n = 0(le plus rapide) supprime toute animation. Par défaut n = 3.</p></li></ul></div></section><section id="_trac_du_chemin_de_la_tortue"><h2>Tracé du chemin de la tortue</h2><div class="ulist"><ul><li><p>penup() soulève le crayon de sorte que le déplacement de la tortue ne trace pas de trait ;</p></li><li><p><code>pendown()</code> baisse le crayon de sorte que le déplacement de la tortue trace un trait ;</p></li><li><p><code>pensize(n)</code> modifie l’épaisseur de la ligne que la tortue trace en se déplaçant (par défaut n = 1) ;</p></li><li><p><code>pencolor(c)</code> modifie la couleur de la ligne que la tortue trace ;</p></li><li><p><code>bgcolor(c)</code> modifie la couleur de la fenêtre où a lieu le tracé.</p></li></ul></div></section><section id="_commandes_diverses"><h2>Commandes diverses</h2><div class="ulist"><ul><li><p><code>position()</code> retourne les coordonnées (x, y) de la tortue ;</p></li><li><p><code>heading()</code> retourne l’angle de la tortue par rapport à l’horizontale ;</p></li><li><p><code>setposition(x, y)</code> déplace la tortue au point de coordonnées (x, y) ;</p></li><li><p><code>setheading(n)</code> dirige la tortue dans la direction correspondant à un angle de
+n degrés ;</p></li><li><p><code>distance(x, y)</code> retourne la distance entre la tortue et le point de coordonnées (x, y);</p></li><li><p><code>towards(x, y)</code> retourne l’angle avec l’horizontale que fait la droite reliant
+la tortue au point de coordonnées (x, y);</p></li><li><p><code>home()</code> déplace la tortue au point de coordonnées (0,0) en la dirigeant vers l’est ;</p></li><li><p><code>reset()</code> efface tous les tracés et replace la tortue à sa position initiale</p></li></ul></div></section></section>
+<section><section id="_le_module_matplotlib"><h2>Le module Matplotlib</h2><div class="paragraph"><p>Le module <code>matplotlib.pyplot</code> permet de tracer des courbes, il est <em>a</em> <em>priori</em>
+assez similaire à Matlab.</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">import</span> <span class="tok-nn">matplotlib.pyplot</span> <span class="tok-kn">as</span> <span class="tok-nn">plt</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">],</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">9</span><span class="tok-p">,</span><span class="tok-mi">16</span><span class="tok-p">],</span> <span class="tok-s">&#39;ro&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">axis</span><span class="tok-p">([</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">])</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre></div></div>
+<div class="paragraph"><p>Fonction <code>plot</code>:
+* Première liste: abscisses des points
+* Seconde: ordonnées des points
+* Le troisième argument ici correspond à l&#8217;apparence des points, et à la façon
+dont ils sont reliés ou non.</p></div></section><section><div class="paragraph"><p>Le paramètre dans la fonction <code>axis</code> correspond à <code>[xmin, xmax, ymin, ymax]</code>.</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">import</span> <span class="tok-nn">matplotlib.pyplot</span> <span class="tok-kn">as</span> <span class="tok-nn">plt</span>
+
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">],</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">9</span><span class="tok-p">,</span><span class="tok-mi">16</span><span class="tok-p">])</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">xlabel</span><span class="tok-p">(</span><span class="tok-s">&#39;abscisses&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">ylabel</span><span class="tok-p">(</span><span class="tok-s">&#39;ordonnées&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">grid</span><span class="tok-p">()</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre></div></div>
+<div class="paragraph"><p>Il n&#8217;est pas nécessaire de préciser les axes, le module "zoom" automatiquement.
+On peut ajouter une grille avec <code>grid</code>, les points sont reliés par des segments
+par défaut.</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">savefig</span><span class="tok-p">(</span><span class="tok-s">&#39;graph.png&#39;</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>Il est possible de sauvegarder le graphique sous la forme d&#8217;une image, cela
+permet aussi d&#8217;utiliser Matplotlib sur repl.it et pythonanywhere.com</p></div></section><section><div class="paragraph"><p>Pour tracer les courbes représentatives d&#8217;une fonction, on a donc différentes
+possibilités:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">import</span> <span class="tok-nn">matplotlib.pyplot</span> <span class="tok-kn">as</span> <span class="tok-nn">plt</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">cube</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">):</span>
+  <span class="tok-k">return</span> <span class="tok-n">x</span><span class="tok-o">**</span><span class="tok-mi">3</span>
+
+<span class="tok-n">n</span><span class="tok-p">,</span> <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span>
+<span class="tok-n">pas</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-n">b</span><span class="tok-o">-</span><span class="tok-n">a</span><span class="tok-p">)</span> <span class="tok-o">/</span> <span class="tok-n">n</span>
+<span class="tok-n">abscisses</span> <span class="tok-o">=</span> <span class="tok-p">[]</span>
+<span class="tok-k">for</span> <span class="tok-n">k</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">):</span>
+  <span class="tok-n">abscisses</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-o">+</span><span class="tok-n">k</span><span class="tok-o">*</span><span class="tok-n">pas</span><span class="tok-p">)</span>
+
+<span class="tok-n">ordonnees</span> <span class="tok-o">=</span> <span class="tok-p">[]</span>
+<span class="tok-k">for</span> <span class="tok-n">k</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">):</span>
+  <span class="tok-n">ordonnees</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-n">cube</span><span class="tok-p">(</span><span class="tok-n">abscisses</span><span class="tok-p">[</span><span class="tok-n">k</span><span class="tok-p">]))</span>
+
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">(</span><span class="tok-n">abscisses</span><span class="tok-p">,</span> <span class="tok-n">ordonnees</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">X</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-n">a</span><span class="tok-o">+</span><span class="tok-n">k</span><span class="tok-o">*</span><span class="tok-n">pas</span> <span class="tok-k">for</span> <span class="tok-n">k</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">)]</span>
+<span class="tok-n">Y</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-n">cube</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">)</span> <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-n">X</span><span class="tok-p">]</span>
+
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">,</span><span class="tok-n">Y</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre></div></div></section><section><div class="paragraph"><p>On utilise souvent Matplotlib avec le module Numpy. (Module de calcul numérique/matriciel)
+Cela vient du faire que le module Numpy possède un type <code>array</code>, beaucoup plus
+proche d&#8217;un tableau classique et très pratique.</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">import</span> <span class="tok-nn">matplotlib.pyplot</span> <span class="tok-kn">as</span> <span class="tok-nn">plt</span>
+<span class="tok-kn">import</span> <span class="tok-nn">numpy</span> <span class="tok-kn">as</span> <span class="tok-nn">np</span>
+
+<span class="tok-n">X</span> <span class="tok-o">=</span> <span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">linspace</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">pi</span><span class="tok-p">,</span> <span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">pi</span><span class="tok-p">,</span> <span class="tok-mi">256</span><span class="tok-p">)</span>
+<span class="tok-n">C</span><span class="tok-p">,</span><span class="tok-n">S</span> <span class="tok-o">=</span> <span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">cos</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">),</span> <span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">sin</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">)</span>
+
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">,</span><span class="tok-n">C</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">plot</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-p">,</span><span class="tok-n">S</span><span class="tok-p">)</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">axis</span><span class="tok-p">([</span><span class="tok-o">-</span><span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">pi</span><span class="tok-p">,</span><span class="tok-n">np</span><span class="tok-o">.</span><span class="tok-n">pi</span><span class="tok-p">,</span><span class="tok-o">-</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">])</span>
+<span class="tok-n">plt</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre></div></div></section><section><div class="paragraph"><p><code>np.linspace(-np.pi, np.pi, 256)</code> renvoie un tableau contenant 256 valeurs allant de \(\pi\) \(\pi\)</p></div>
+<div class="paragraph"><p>Il est possible d&#8217;appliquer directement la fonction \(\cos\) à tout le tableau.</p></div></section><section><div class="paragraph"><p>Le module Matplotlib permet de tracer différents types de graphique dont des
+histogrammes. (Il existe même un module matplotlib-venn, permettant de tracer
+  des diagrammes de Venn)</p></div></section></section>
+<section><section id="_le_module_sympy"><h2>Le module Sympy</h2><div class="paragraph"><p>Sympy est une bibliothéque de calcul formel:</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">from</span> <span class="tok-nn">sympy</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+<span class="tok-kn">from</span> <span class="tok-nn">__future__</span> <span class="tok-kn">import</span> <span class="tok-n">division</span>
+<span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">z</span><span class="tok-p">,</span> <span class="tok-n">t</span> <span class="tok-o">=</span> <span class="tok-n">symbols</span><span class="tok-p">(</span><span class="tok-s">&#39;x y z t&#39;</span><span class="tok-p">)</span>
+<span class="tok-n">k</span><span class="tok-p">,</span> <span class="tok-n">m</span><span class="tok-p">,</span> <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">symbols</span><span class="tok-p">(</span><span class="tok-s">&#39;k m n&#39;</span><span class="tok-p">,</span> <span class="tok-n">integer</span><span class="tok-o">=</span><span class="tok-bp">True</span><span class="tok-p">)</span>
+<span class="tok-n">f</span><span class="tok-p">,</span> <span class="tok-n">g</span><span class="tok-p">,</span> <span class="tok-n">h</span> <span class="tok-o">=</span> <span class="tok-n">symbols</span><span class="tok-p">(</span><span class="tok-s">&#39;f g h&#39;</span><span class="tok-p">,</span> <span class="tok-n">cls</span><span class="tok-o">=</span><span class="tok-n">Function</span><span class="tok-p">)</span>
+<span class="tok-n">init_printing</span><span class="tok-p">()</span></code></pre></div></div>
+<div class="paragraph"><p>Le code ci-dessus permet de définir quelques expressions symboliques et d&#8217;avoir
+un affichage plus adaptée.</p></div></section><section><div class="paragraph"><p>Quelques possibilitées:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">expand</span><span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-n">y</span><span class="tok-p">)</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">)</span>
+<span class="tok-n">factor</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">**</span><span class="tok-mi">2</span> <span class="tok-o">+</span> <span class="tok-n">x</span><span class="tok-p">)</span>
+<span class="tok-n">M</span> <span class="tok-o">=</span> <span class="tok-n">Matrix</span><span class="tok-p">([[</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">],[</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">]])</span>
+<span class="tok-n">M</span>
+<span class="tok-n">M</span><span class="tok-o">**</span><span class="tok-n">n</span>
+<span class="tok-n">M</span><span class="tok-o">**-</span><span class="tok-mi">1</span> <span class="tok-c">#Calcul aussi une inverse pr les matrices non inversibles..</span>
+<span class="tok-n">limit</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-n">n</span><span class="tok-p">,</span><span class="tok-n">n</span><span class="tok-p">,</span><span class="tok-n">oo</span><span class="tok-p">)</span>
+<span class="tok-n">diff</span><span class="tok-p">(</span><span class="tok-n">sin</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">)</span><span class="tok-o">*</span><span class="tok-n">exp</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">),</span> <span class="tok-n">x</span><span class="tok-p">)</span>
+<span class="tok-n">integrate</span><span class="tok-p">(</span><span class="tok-n">sin</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-n">oo</span><span class="tok-p">,</span> <span class="tok-n">oo</span><span class="tok-p">))</span>
+<span class="tok-n">solve</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">**</span><span class="tok-mi">2</span> <span class="tok-o">-</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">)</span>
+<span class="tok-n">latex</span><span class="tok-p">(</span><span class="tok-n">Integral</span><span class="tok-p">(</span><span class="tok-n">cos</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">)</span><span class="tok-o">**</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">pi</span><span class="tok-p">)))</span></code></pre></div></div></section><section><div class="paragraph"><p>Utiliser Python pour faire du calcul formel peut cependant créer une confusion
+entre calcul formel et langage de programmation, et est peut-être à éviter.</p></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'moon',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

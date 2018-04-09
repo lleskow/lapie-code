@@ -1,0 +1,539 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+
+= Algorithme et programmation en Python au lycée, troisième partie: Les modules
+:source-highlighter: pygments
+:pygments-style: tango
+
+== !
+
+image::https://media2.giphy.com/media/JqEHCKdSEe5KU/200w.gif[500,500]
+
+== Utilisation de modules
+
+=== Importer un module
+
+Les fonctions tels que la racine carrée, cosinus, sinus, etc. ne sont pas
+directement accessibles, cependant Python propose un module/bibliothèque contenant
+ces fonctions.
+
+=== !
+
+L'instruction `import` permet d’importer un module et d'accéder à son contenu. +
+L’importation d’un module peut se faire de deux manières.
+
+=== !
+
+La première solution est de désigner le module que l’on souhaite utiliser, son
+contenu est alors utilisable de manière «scopée», c’est-à-dire en préfixant le
+nom de la fonctionnalité du nom du module.
+
+[source,python]
+----
+>>> import math
+>>> math.sqrt(4) #sqrt permet de calculer la racine carrée
+2.0
+>>> math.cos(0)
+1.0
+----
+
+=== !
+
+On peut créer un alias abrégeant le nom:
+
+[source,python]
+----
+>>> import random as rd
+>>> rd.randint(1,6)
+5
+----
+
+=== !
+
+La seconde solution repose sur la construction `from import` où l’on identifie la
+ou les fonctionnalités que l’on souhaite importer d’un module.
+Dans le cas d’un import de plusieurs fonctionnalités, les noms sont séparés par
+des virgules.
+L’utilisation se fait alors sans préfixer par le nom du module.
+
+[source,python]
+----
+>>> from math import sin, cos, pi
+>>> sin(0)
+0.0
+>>> pi
+3.141592653589793
+----
+
+=== !
+
+Enfin, il est possible d’importer, avec cette seconde approche,
+tous les éléments d’un module en utilisant la notation *
+
+Cependant avec cette dernière forme, il peut il y avoir conflits entre les
+noms.
+
+Cela est donc considéré comme une très mauvaise pratique en programmation.
+
+== Installer un module
+
+Un certain nombre de modules «standards» est installé par défaut avec chaque
+distribution Python et il est possible d'en installer davantage.
+
+=== !
+
+Pour faire cela, on utilise un gestionnaire de paquets, les deux gestionnaires
+de paquets les plus utilisés sont:
+
+* conda, qui est présent dans Anaconda
+* pip, qui est présent dans la distribution «classique» de Python. (attention
+en général sous linux ce n'est pas le cas) Le problème de pip est qu'il ne
+permet pas l'installation des bibliothèques scientifiques telles que Numpy ou
+Sympy.
+
+=== Créer un module
+
+On peut voir n'importe quel fichier .py comme un module. Ce qui permet par
+exemple d'écrire une fonction `pgcd` dans un fichier `arith.py` puis d'utiliser
+avec `import` cette fonction dans le fichier `rsa.py`.
+
+=== !
+
+Il faut cependant faire attention à ce que le fichier `arith.py` et `rsa.py`
+soient dans le même dossier. (Pour faciliter les choses)
+
+=== !
+
+En général, cela permet de décomposer et d'organiser un code long en plusieurs
+fichiers. Cependant, il existe deux cas d'utilisations beaucoup plus utiles
+dans le cadre du lycée:
+
+* Les élèves créent leur propre bibliothèque qu'ils peuvent conserver et
+réutiliser. On peut par exemple imaginer que dans un T.D. ils ont créé une
+fonction donnant les racines d'un polynôme du second degré. Et qu'ils
+réutilisent cette fonction dans un autre T.D.
+* Le professeur crée une bibliothèque que les élèves vont utiliser. Cela permet
+par exemple de masquer des difficultés ou de simplifier l'utilisation de
+certaines fonctionnalités de Python.
+
+=== !
+
+Un exemple de ce dernier cas d'utilisation est le module `lycee` d'EduPython
+link:https://edupython.tuxfamily.org/[module lycée]
+
+== Aléatoire avec Python
+
+Le module random permet d'obtenir des nombres pseudo-aléatoires.
+
+=== !
+
+|===
+| fonction | Valeur renvoyé
+
+| randint(a,b)
+| un entier stem:[n] avec stem:[a \leq n \leq b]
+
+| random()
+| un flottant stem:[x] avec stem:[0 \leq x \leq 1]
+
+| uniform(a,b)
+| un flottant stem:[x] avec stem:[a \leq x \leq b]
+
+| choice(ma_liste)
+| un des éléments de ma_liste
+|===
+
+=== !
+
+[source,python]
+----
+from random import randint
+def de():
+  return randint(1,6)
+----
+
+=== !
+
+[source,python]
+----
+>>> from random import random
+>>> [random() for i in range(5)]
+[0.37810322700869836, 0.16833320846159427, 0.5846220948570566, 0.4903930533286457, 0.4488602627914511]
+----
+
+=== !
+
+[source,python]
+----
+from random import choice
+portes = ["chévre", "chévre", "voiture"]
+nbr_voiture = 0
+for i in range(10000):
+  if choice(portes) == "voiture":
+    nbr_voiture = nbr_voiture + 1
+print(nbr_voiture / 10000)
+----
+
+=== Avec le module Numpy
+
+Le module Numpy propose les lois de probabilités classiques.
+
+== Arithmétique des flottants
+
+Le document d'accompagnement mentionne:
+
+[quote]
+Un ordinateur ne travaille pas avec des nombres réels, mais avec des
+flottants, c’est-à-dire un sous-ensemble des nombres décimaux dont la précision
+ est limitée par des contraintes liées au codage en mémoire.
+
+=== !
+
+Effectivement les flottants sont des nombres dyadiques représentés en mémoire
+en base 2, et comme certains nombres décimaux comme stem:[0,1] ne sont pas
+des nombres dyadiques, une approximation est donc réalisée, ce qui donne:
+
+[source,python]
+----
+>>> 0.1 + 0.1
+0.2
+>>> 0.1 + 0.1 + 0.1
+0.30000000000000004
+----
+
+=== !
+
+Notons que Python suit ici la norme IEEE 754 comme la très large majorité
+des langages de programmation. (Et qu'il ne sert donc à rien de blâmer Python.)
+
+=== !
+
+Tester l'égalité entre deux flottants n'a pas de sens, on travaillera
+plutôt avec une précision donnée.
+
+[source,python]
+----
+a, b = 0.1 + 0.1 + 0.1, 0.3
+epsilon = 0.00001
+if abs(a-b) < epsilon:
+  print("Assez proche")
+----
+
+=== !
+
+[source,python]
+----
+>>> import sys
+>>> sys.float_info.epsilon #Pour obtenir l'epsilon machine
+2.220446049250313e-16
+>>> 2**(-52) #il correspond en général
+2.220446049250313e-16
+----
+
+=== !
+
+Les programmes classiques au programme ne pose pas de problème avec les flottants
+
+[source,python]
+----
+u = 1
+n = 0
+while u < 10:
+  n = n + 1
+  u = u + u / 2
+print(n)
+----
+
+=== !
+
+[source,python]
+----
+from numpy import sqrt
+def solve(a, b, c):
+  delta = b * b - 4 * a * c
+  if delta < 0:
+    return None
+  elif delta > 0:
+    x, y = (-b-sqrt(delta))/2/a, (-b+sqrt(delta))/2/a
+    return (x, y)
+  else:
+    x = -b / 2 / a
+----
+
+=== !
+
+[source,python]
+----
+>>> solve(0.01,0.2,1)
+(-10.000000131708903, -9.999999868291098)
+>>> solve(0.011025, 0.21, 1)
+----
+
+Le problème ici est que stem:[\Delta] est très petit par rapport
+à stem:[b^2]
+
+=== !
+
+Il faudrait donc faire:
+
+[source,python]
+----
+from numpy import sqrt
+
+def solve(a, b, c, epsilon=2**(-52)):
+  delta = b * b - 4 * a * c
+  if delta < -epsilon*b**2:
+    return None
+  elif delta > epsilon*b**2:
+    x, y = (-b-sqrt(delta))/2/a, (-b+sqrt(delta))/2/a
+    return (x, y)
+  else:
+    x = -b / 2 / a
+    return x
+----
+
+=== !
+
+Ici, il semble judicieux d'éviter les difficultés et se limiter à un travail
+sur les entiers.
+
+=== !
+
+Si on veut absolument travailler avec des décimaux, il existe un module `decimal`
+
+[source,python]
+----
+import decimal
+print(decimal.Decimal(0.1))
+print(decimal.Decimal("0.1"))
+----
+
+Cependant cela ne semble pas être une bonne idée.
+
+=== !
+
+Il existe un module `fraction` assez similaire pour manipuler les
+fractions.
+
+== Le module Turtle
+
+Le module turtle permet de faire un lien avec Scratch, lui-même très influencé
+par le langage Logo.
+
+=== !
+
+Un exemple:
+
+[source,python]
+----
+from turtle import *
+
+forward(180)
+left(90)
+forward(100)
+right(240)
+forward(50)
+----
+
+=== Idées d'exercices avec le module Turtle
+
+. Reproduire un simple dessin
+. Fonction traçant un carré avec/sans la taille en paramètre
+. Fonction traçant un triangle équilatéral
+. Boucle + carré
+. Fonction traçant un polygone régulier à n côtés
+
+=== Déplacement de la tortue
+* `forward(n)` avance la tortue de n pas dans la direction qui lui fait face ;
+* `backward(n)` recule la tortue de n pas ;
+* `left(n)` tourne la tortue d’un angle de n degrés dans le sens trigonométrique ;
+* `right(n)` tourne la tortue d’un angle de n degrés dans le sens horaire ;
+* `speed(n)` modifie la vitesse de déplacement de la tortue de n = 1
+(lent) à n = 10 (rapide) ;
+n = 0(le plus rapide) supprime toute animation. Par défaut n = 3.
+
+=== Tracé du chemin de la tortue
+* penup() soulève le crayon de sorte que le déplacement de la tortue ne trace pas de trait ;
+* `pendown()` baisse le crayon de sorte que le déplacement de la tortue trace un trait ;
+* `pensize(n)` modifie l’épaisseur de la ligne que la tortue trace en se déplaçant (par défaut n = 1) ;
+* `pencolor(c)` modifie la couleur de la ligne que la tortue trace ;
+* `bgcolor(c)` modifie la couleur de la fenêtre où a lieu le tracé.
+
+=== Commandes diverses
+* `position()` retourne les coordonnées (x, y) de la tortue ;
+* `heading()` retourne l’angle de la tortue par rapport à l’horizontale ;
+* `setposition(x, y)` déplace la tortue au point de coordonnées (x, y) ;
+* `setheading(n)` dirige la tortue dans la direction correspondant à un angle de
+n degrés ;
+* `distance(x, y)` retourne la distance entre la tortue et le point de coordonnées (x, y);
+* `towards(x, y)` retourne l’angle avec l’horizontale que fait la droite reliant
+la tortue au point de coordonnées (x, y);
+* `home()` déplace la tortue au point de coordonnées (0,0) en la dirigeant vers l’est ;
+* `reset()` efface tous les tracés et replace la tortue à sa position initiale
+
+== Le module Matplotlib
+
+Le module `matplotlib.pyplot` permet de tracer des courbes, il est _a_ _priori_
+assez similaire à Matlab.
+
+=== !
+
+[source,python]
+----
+import matplotlib.pyplot as plt
+plt.plot([1,2,3,4], [1,4,9,16], 'ro')
+plt.axis([0, 6, 0, 20])
+plt.show()
+----
+
+Fonction `plot`:
+* Première liste: abscisses des points
+* Seconde: ordonnées des points
+* Le troisième argument ici correspond à l'apparence des points, et à la façon
+dont ils sont reliés ou non.
+
+=== !
+
+Le paramètre dans la fonction `axis` correspond à `[xmin, xmax, ymin, ymax]`.
+
+=== !
+
+[source,python]
+----
+import matplotlib.pyplot as plt
+
+plt.plot([1,2,3,4], [1,4,9,16])
+plt.xlabel('abscisses')
+plt.ylabel('ordonnées')
+plt.grid()
+plt.show()
+----
+
+Il n'est pas nécessaire de préciser les axes, le module "zoom" automatiquement.
+On peut ajouter une grille avec `grid`, les points sont reliés par des segments
+par défaut.
+
+=== !
+
+[source,python]
+----
+plt.savefig('graph.png')
+----
+
+Il est possible de sauvegarder le graphique sous la forme d'une image, cela
+permet aussi d'utiliser Matplotlib sur repl.it et pythonanywhere.com
+
+=== !
+
+Pour tracer les courbes représentatives d'une fonction, on a donc différentes
+possibilités:
+
+[source,python]
+----
+import matplotlib.pyplot as plt
+
+def cube(x):
+  return x**3
+
+n, a, b = 100, -1, 1
+pas = (b-a) / n
+abscisses = []
+for k in range(n):
+  abscisses.append(a+k*pas)
+
+ordonnees = []
+for k in range(n):
+  ordonnees.append(cube(abscisses[k]))
+
+plt.plot(abscisses, ordonnees)
+plt.show()
+----
+
+=== !
+
+[source,python]
+----
+X = [a+k*pas for k in range(n)]
+Y = [cube(x) for x in X]
+
+plt.plot(X,Y)
+plt.show()
+----
+
+=== !
+
+On utilise souvent Matplotlib avec le module Numpy. (Module de calcul numérique/matriciel)
+Cela vient du faire que le module Numpy possède un type `array`, beaucoup plus
+proche d'un tableau classique et très pratique.
+
+=== !
+
+[source,python]
+----
+import matplotlib.pyplot as plt
+import numpy as np
+
+X = np.linspace(-np.pi, np.pi, 256)
+C,S = np.cos(X), np.sin(X)
+
+plt.plot(X,C)
+plt.plot(X,S)
+plt.axis([-np.pi,np.pi,-2,2])
+plt.show()
+----
+
+=== !
+
+`np.linspace(-np.pi, np.pi, 256)` renvoie un tableau contenant 256 valeurs allant de stem:[\pi] stem:[\pi]
+
+Il est possible d'appliquer directement la fonction stem:[\cos] à tout le tableau.
+
+=== !
+
+Le module Matplotlib permet de tracer différents types de graphique dont des
+histogrammes. (Il existe même un module matplotlib-venn, permettant de tracer
+  des diagrammes de Venn)
+
+== Le module Sympy
+
+Sympy est une bibliothéque de calcul formel:
+
+=== !
+
+[source,python]
+----
+from sympy import *
+from __future__ import division
+x, y, z, t = symbols('x y z t')
+k, m, n = symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+init_printing()
+----
+
+Le code ci-dessus permet de définir quelques expressions symboliques et d'avoir
+un affichage plus adaptée.
+
+=== !
+
+Quelques possibilitées:
+
+[source,python]
+----
+expand((x+y)**2)
+factor(x**2 + x)
+M = Matrix([[2,3],[2,1]])
+M
+M**n
+M**-1 #Calcul aussi une inverse pr les matrices non inversibles..
+limit(1/n,n,oo)
+diff(sin(x)*exp(x), x)
+integrate(sin(x**2), (x, -oo, oo))
+solve(x**2 - 2, x)
+latex(Integral(cos(x)**2, (x, 0, pi)))
+----
+
+=== !
+
+Utiliser Python pour faire du calcul formel peut cependant créer une confusion
+entre calcul formel et langage de programmation, et est peut-être à éviter.

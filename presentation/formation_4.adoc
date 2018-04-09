@@ -1,0 +1,330 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+
+= Algorithme et programmation en Python au lycée, quatrième partie: Les points forts de Python et traitement de données.
+:source-highlighter: pygments
+:pygments-style: tango
+
+== Les points forts de Python
+
+=== !
+
+On l'a dit, passer des langages types « calculatrices » à un langage tel que
+Python permet de redonner leur place aux fonctions, et de s'abstraire du
+«demander à l'utilisateur»/«afficher pour l'utilisateur».
+
+=== !
+
+Mais avec un langage tel que Python et l'utilisation d'un ordinateur viennent
+d'autres possibilités:
+
+* Masquer les difficultés/créer des « boîtes noires »/ajouter de l'abstraction.
+* Regarder à l'intérieur des « boîtes noires ».
+* Manipuler des données de grandes tailles et de toutes les formes.
+* Utiliser différentes formes de visualisation.
+
+== Masquer les difficultés
+
+On peut penser à trois possibilités pour masquer les difficultés:
+
+=== Donner directement du code à copier/coller aux élèves.
+
+=== La syntaxe native de Python
+
+Elle est très riche qui permet très souvent de masquer la difficulté en ajoutant
+ une couche d'abstraction.
+
+[source,python]
+----
+>>> mot = "abracabra"
+>>> mot.count("a")
+>>> for lettre in mot:
+...     lettre.upper()
+...
+'A'
+'B'
+'R'
+'A'
+'C'
+'A'
+'B'
+'R'
+'A'
+----
+=== Encapsuler
+
+Créer et utiliser des modules qui vont encapsuler les difficultés. Il
+est même possible de réécrire des fonctions «natives»:
+
+[source,python]
+----
+def f(x):
+  pass
+
+print = f
+----
+
+== Regarder à l'intérieur des « boîtes noires ».
+
+Si Python permet de se placer à un assez haut niveau d'abstraction et de
+masquer les difficultés, c'est aussi un langage qui permet de regarder ce qu'il
+se passe dans le détail et de ne pas contourner les difficultés.
+
+== Manipuler des données de grandes tailles et de toutes les formes.
+
+Le problème de la calculatrice n'est pas tant qu'elle n'ait pas la puissance
+de calculs pour traiter des grandes quantités de donnés, c'est qu'elle ne permet
+que très difficilement de récupérer des données et sous des formats limités.
+
+A l'inverse Python permet de récupérer et de traiter des données de toutes
+tailles et de toutes formes.
+
+=== !
+
+Quelques pistes qui seront plus ou moins approfondies par la suite:
+
+* Des fichiers textes.
+* Des données au format CSV. (format « tableur »)
+* Des images.
+
+
+== Utiliser différentes formes de visualisation.
+
+On a déjà vu les exemples du traitement d'images ou du tracé de courbe.
+Un autre exemple intéressant est l'étude du mouvement d'un solide, chute,
+trajectoire parabolique, etc, qui peut donner lieu à une animation à l'aide
+de module tel que `tkinter` ou `pygame`. (Cet exemple n'est pas développé
+dans ce document.)
+
+== Manipulation de données
+
+== Lecture et écriture dans un fichier texte
+
+Même si la manipulation de textes ne relève pas tout à fait du domaine des
+mathématiques, on peut imaginer au moins deux situations où cela a du sens:
+
+* les statistiques
+* la cryptographie
+
+=== La cryptographie
+
+Même si le mécanisme reste le même lorsque l'on crypte un mot, une phrase ou
+un roman (ou même une bibliothèque), crypter/décrypter l'intégrale de Flaubert
+plutôt que 3 lettres à tout de suite un côté plus satisfaisant/impressionnant.
+
+=== !
+
+On peut aussi imaginer appliquer des méthodes d'attaque par analyse fréquentielle.
+
+=== !
+
+Il est relativement simple de trouver des fichiers des textes au format `.txt`
+sur internet, on peut par exemple regarder du côté du
+link:http://www.gutenberg.org/wiki/FR_Litt%C3%A9rature_(Genre)[projet Gutenberg]
+
+
+=== Liste des commandes de base:
+
+Dans ce tableau, `f` désigne un nom de variable quelconque.
+
+=== Mode lecture
+
+* f = open("nom_fichier.txt","r") permet de lire le contenu du fichier _nom_fichier.txt_ var = f.read() lecture de tout le fichier, et l'affecte à la variable _var_ sous la forme
+de chaîne de caractère
+* var = f.read(7) lecture des 7 caractères suivants, et les affectes à la variable _var_ sous la forme
+d'une chaîne de caractère (renvoie une chaîne vide une fois à la fin du fichier)
+* var = f.readline() lecture de la ligne suivante, et l'affecte à la variable _var_ sous la forme
+de chaîne de caractère, saut de ligne `\n` inclus
+* for ligne in f: permet de parcourir tout le fichier, ligne par ligne
+
+=== ! Modes écritures
+* f = open("nom_fichier.txt","w") créé un fichier _nom_fichier.txt_, ou l'efface s'il existe,
+permet d'écrire dans ce fichier.
+* f = open("nom_fichier.txt","a") créé un fichier _nom_fichier.txt_, ou l'efface s'il existe,
+permet d'écrire dans ce fichier.
+* f.write("mon texte\n") ajoute "mon texte\n" à la fin du fichier, ne pas oublier `\n` si on veut
+passer à la ligne
+
+=== Important: fermer
+
+f.close() fermeture du fichier à ne pas oublier
+
+=== Un exemple
+
+Un exemple avec le link:http://lapiecode.info/ISN/cours/textemystere.txt[texte suivant]:
+
+[source,python]
+----
+f_clair = open("textemystere.txt",'r')
+f_crypte = open("textecrypte.txt",'w')
+
+def crypte_lettre(lettre, k):
+    nbr = ord(lettre.upper()) - 65
+    nbr_crypt = ((nbr + k) % 26) + 65
+    return chr(nbr_crypt)
+
+for ligne in f_clair:
+    ligne_crypte = ""
+    for lettre in ligne:
+        if lettre.isalpha():
+            lettre_crypte = crypte_lettre(lettre,1)
+        else:
+            lettre_crypte = lettre
+        ligne_crypte = ligne_crypte + lettre_crypte
+    f_crypte.write(ligne_crypte)
+
+print("done")
+f_clair.close()
+f_crypte.close()
+----
+
+== Lecture et écriture dans un fichier CSV
+
+Le format CSV, pour comma separated values, représentent les données d'un
+tableau sous la forme de valeurs séparées par des virgules. (Ou souvent
+  des points virgules en France)
+
+=== !
+
+On peut d'exporter un fichier excel ou ods en un fichier CSV.
+
+=== !
+
+Python dispose d'un module CSV qui permet de manipuler facilement les fichiers
+CSV.
+
+=== !
+Le link:resultats_electoraux.csv[fichier des résultats électoraux] provient de
+link:https://opendata.paris.fr/explore/dataset/resultats_electoraux/[opendata.paris.fr].
+
+[source,python]
+----
+import csv
+
+def calcul_nbr_electeur(nom):
+    f = open("resultats_electoraux.csv","r")
+    tableur = csv.reader(f,delimiter=";")
+
+    nbr_voix_total = 0
+    for ligne in tableur:
+        if ligne[11] == nom:
+            nbr_voix_total += int(ligne[13])
+    f.close()
+    return nbr_voix_total
+
+
+print(calcul_nbr_electeur("POUTOU"))
+----
+
+=== !
+
+Le link:indicateurs_lycees.csv[fichier sur les lycées] provient de
+link:https://data.education.gouv.fr/explore/dataset/fr-en-indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/export/[data.education.gouv.fr].
+
+Il est aussi possible de manipuler les lignes du tableau comme des dictionnaires
+et donc de faire référence au nom de la colonne:
+
+[source,python]
+----
+import csv
+
+f = open("indicateurs_lycees.csv","r")
+tableau = csv.DictReader(f,delimiter=";")
+
+for ligne in tableau:
+    if ligne["Etablissement"] == "LYCEE PAUL LAPIE":
+        print(ligne["Taux Brut de Réussite Total séries"])
+
+f.close()
+----
+
+== Traitement d'image
+
+Une image matricielle ou bitmap est une image constituée d'une matrice de points
+ colorés souvent appelés pixel.
+
+Python permet via le module `PIL` de manipuler des images issue d'un format
+bitmap tel que le `.PNG` ou le `.JPEG`.
+
+
+=== Ouvrir une image
+
+`from PIL import Image`
+
+On va avec ce module pouvoir charger une image et la manipuler comme un objet
+`Image` avec la commande:
+
+[source,python]
+----
+nom_variable = Image.open("chemin_fichier")
+----
+
+(Si le fichier image est dans le même dossier que le fichier `.py`, il suffit
+de préciser le nom du fichier.)
+
+=== !
+
+On peut voir un objet Image, comme un tableau à deux dimensions de pixels.
+Dans lequel le pixel en haut à gauche a pour coordonnée stem:[(0,0)].
+
+=== !
+
+Les pixels sont composées d'un entier compris entre 0 et 255 en mode niveau de
+gris, trois entiers de 0 à 255 qui vont correspondre à la quantité de rouge (Red),
+vert (Green), bleu (Blue) en mode RGB. (On passe à 4 entiers avec le mode RGBA qui
+  ajoute un canal alpha qui va de 0 à 255 aussi et qui correspond à la transparence.
+  Il vaut mieux éviter le mode RGBA pour simplifier les choses.)
+
+=== Liste des commandes de base:
+
+* nom_variable = Image.open("chemin_fichier") ouverture d’un fichier image
+* nom_variable.mode mode de l’image : "L" en niveaux de gris, "RGB" en couleurs
+* nom_variable.format donne le format de l’image: "PNG", "PPM", ...
+* nom_variable.size taille de l’image sous la forme d'un tuple (Largeur,Hauteur)
+
+=== !
+
+* nom_variable.save("chemin_fichier") sauvegarde d'une image
+* nom_variable = Image.new("RGB",(L,H)) création d’une image "RGB" de dimensions (Largeur,Hauteur) (On peut remplacer
+  "RGB" par "L" pour une image en niveau de gris.)
+* nom_variable.getpixel\((x,y)) pixel de coordonnées (x,y), correspond à un nombre en mode niveau de gris,
+  et à un tuple de trois nombres en mode RGB.
+* nom_variable.putpixel((x,y),nom_pixel) écriture de la valeur nom_pixel dans le pixel de coordonnées (x,y), nom_pixel
+doit être un nombre en mode niveau de gris, et un tuple en mode RGB.
+
+=== Parcourir un tableau à deux dimensions:
+
+Pour pouvoir traiter une image, on va souvent la modifier pixel par pixel. Il
+faut donc parcourir tous les pixels.
+
+=== !
+
+Pour parcourir un tableau à deux dimensions, élément par élément, on peut
+utiliser deux boucles `for` imbriquées:
+
+[source,python]
+----
+for y in range(nbr_ligne): #On va parcourir toutes lignes
+  for x in range(nbr_colonne): #On parcourt toute une ligne colonne par colonne
+    tableau[x][y] #On accède à l'élément de coordonnées (x,y)
+----
+
+=== Pourquoi le traitement d'image ?
+
+On peut travailler sur les images pour illustrer:
+
+* les fonctions via des changements de contrastes ou des filtres ou de la stéganographie
+* les boucles bien sûr
+* le si alors avec des effets de seuils
+* la moyenne, les médianes, histogrammes, etc.
+* des applications du calcul matriciel
+
+Et cela de la seconde à la terminale.
+
+=== Autres
+
+Python a tendance à pouvoir rendre simple d'accès des choses qu'on imagine
+complexe, on peut donc imaginer un très grand nombre d'applications, on
+peut imaginer travailler avec des collègues de S.V.T avec
+le link:http://biopython.org/DIST/docs/tutorial/Tutorial.html#htoc2[module BioPython].

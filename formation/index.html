@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Le charset est à garder en haut de page pour être tout de suite "parsé" -->
+  <title>Lapie Code - Accueil</title>
+
+  <!-- gestion des favicons à l'aide du site suivant (finaliser/tester)
+https://realfavicongenerator.net/
+Il faut en particulier vérifier les / devant favicon, probleme juste en local ?-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="../image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="../image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#b2dfdb">
+  <meta name="apple-mobile-web-app-title" content="Lapie Code">
+  <meta name="application-name" content="Lapie Code">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Fear the robots -->
+  <meta name="robots" content="none" />
+
+  <!-- Permet d'adapter le site aux portables et tablette -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <!-- Emplacement pour les polices de caractére  -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CMontserrat:400,700%7CRoboto:400,500,700" rel="stylesheet">
+  <!-- Pour le moment une unique feuille de style semble suffisante -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body>
+  <!-- Sert à pouvoir faire un flexbox sur la page et fixer le footer -->
+  <!-- A remplacer par un grid un jour surement -->
+  <div class="page-conteneur">
+    <section class="contenu">
+      <h1 id="titre-insp">Formation algorithmique et Python avril 2018</h1>
+
+      <p class="corps-texte">
+        Cette page présente les différents documents liés à la formation Python.
+      </p>
+
+      <article class="article-simple">
+        <h2>Les documents liées à la formation:</h2>
+        <ul class="list-inspection">
+          <li><a href="../presentation/formation_1" class="corps-texte-lien">La première partie de la</a>
+            présentation proposée pendant la formation.
+          </li>
+          <li><a href="../presentation/formation_2" class="corps-texte-lien">La deuxième partie de la</a>
+            présentation, le langage Python.
+          </li>
+          <li><a href="../presentation/formation_3" class="corps-texte-lien">La troisième partie de la</a>
+            présentation, les modules.
+          </li>
+          <li><a href="../presentation/formation_>" class="corps-texte-lien">La quatrième partie de la</a>
+            présentation, les points forts de Python et traitement de données.
+          </li>
+          <li><a href="algo_prog_python.html" class="corps-texte-lien">Les notes de la formation</a> , elles correspondent à une version rédigée de la totalité de la présentation.
+          </li>
+          <li><a href="http://lapiecode.info/assets/mementopython3_04_10.pdf" class="corps-texte-lien">Memento</a> Python
+          qui correspond au niveau I.S.N, issue du
+          <a href="https://perso.limsi.fr/pointal/_media/python:cours:mementopython3.pdf" class="corps-texte-lien">memento</a>
+          plus complet de L. Pointal, une version seconde encore plus simplifiée reste à faire.
+          </li>
+        </ul>
+
+      </article>
+
+      <article class="article-simple">
+        <h2>Liens et documents utiles:</h2>
+        <br>
+        <h3>Documents institutionnels:</h3>
+        <ul class="list-inspection">
+          <li><a href="http://cache.media.eduscol.education.fr/file/Mathematiques/73/3/Algorithmique_et_programmation_787733.pdf" class="corps-texte-lien">Document ressources</a>
+            sur l'algorithme et la programmation au lycée.
+          </li>
+          <li><a href="http://cache.media.education.gouv.fr/file/18/95/3/ensel512_maths_757953.pdf#page=9" class="corps-texte-lien">Le programme de seconde.</a>
+          </li>
+          <li><a href="https://euler.ac-versailles.fr/IMG/pdf/evolution_ecriture_algorithmes.pdf" class="corps-texte-lien">Evolution de l'écriture des algorithmes.</a>
+          </li>
+        </ul>
+
+        <h3>Cours complets de Python:</h3>
+        <ul class="list-inspection">
+          <li><a href="https://inforef.be/swi/python.htm" class="corps-texte-lien">Apprendre à programmer avec Python</a> de Gérard Swinnen.</li>
+          <li><a href="https://perso.limsi.fr/pointal/python:courspython3" class="corps-texte-lien">Introduction à Python 3</a> par Bob Cordeau et Laurent Pointal </li>
+        </ul>
+
+        <h3>Utiliser Python en ligne:</h3>
+        <ul class="list-inspection">
+          <li><a href="https://repl.it/" class="corps-texte-lien">Repl.it</a></li>
+          <li><a href="https://trinket.io/" class="corps-texte-lien">Trinket.io</a></li>
+          <li><a href="https://www.pythonanywhere.com/" class="corps-texte-lien">www.pythonanywhere.com</a></li>
+        </ul>
+
+        <h3>Tutoriels avec exercices auto-corrigés:</h3>
+        <ul class="list-inspection">
+          <li><a href="https://www.codecademy.com/" class="corps-texte-lien">Codecademy.com</a> Intéressant pour apprendre la syntaxe Python, moins de bug dans la version française</li>
+          <li><a href="http://www.france-ioi.org/" class="corps-texte-lien">France-ioi</a> Très bien fait, très utilisé en I.C.N/I.S.N mais les histoires sont un peu infantilisantes.</li>
+          <li><a href="https://www.pythonanywhere.com/" class="corps-texte-lien">www.pythonanywhere.com</a></li>
+        </ul>
+
+        <h3>Autres:</h3>
+        <ul class="list-inspection">
+          <li><a href="http://revue.sesamath.net/spip.php?article1039" class="corps-texte-lien">Article</a>
+             proposant un grand nombre d'algorithme donnée au bac réécrit en suivant la nouvelle convention. </li>
+          <li><a href="https://www.yannsalmon.fr/naffichez-plus-les-resultats-dalgorithmes/" class="corps-texte-lien">Article</a>
+            intéressant sur l'écriture des algorithmes.</li>
+          <li><a href="http://www.cafepedagogique.net/LEXPRESSO/Pages/2018/04/03042018Article636583349113569515.aspx" class="corps-texte-lien">Article</a>
+            du cafepedagogique sur les futurs horaires du lycée.
+          </li>
+        </ul>
+
+      </article>
+
+    </section>
+  </div>
+  <!-- Fin du conteneur de la page -->
+</body>
+
+</html>
