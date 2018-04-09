@@ -269,9 +269,6 @@ image:assets/briefcase.png[valise,100,100]
 image:assets/heart.png[coeur,100,100]
 image:assets/laptop.png[ordi,100,100]
 
-Vous pouvez en trouver plus ici:
-link:https://nucleoapp.com/[www.nucleoapp.com/]
-
 == CSS
 
 Cascading Style Sheets
