@@ -1,0 +1,114 @@
+:backend: revealjs
+:last-update-label!:
+:icons: font
+:revealjs_theme: moon
+:source-highlighter: pygments
+:pygments-style: tango
+:stem: latexmath
+
+= Jupyter notebook
+
+== Qu'est-ce que Jupyter notebook
+
+=== !
+
+Jupyter est une application Web qui va mélanger deux composantes habituellement
+séparées:
+
+[%step]
+* documents multimédias: textes, images, graphiques, formules mathématiques,
+animations, video
+* l'exécution de code informatique
+
+=== !
+C'est un peu comme une page web avec des morceaux de codes que l'on peut modifier
+et exécuter.
+
+=== !
+
+Les documents Jupyter sont appelés des notebooks.
+Un fichier notebook est reconnaissable par son extension .ipynb.
+
+===  !
+
+L'application Jupyter permet de faire fonctionner et d'éditer des notebooks
+via un navigateur Web.
+
+=== !
+
+Il est bien sûr possible d'exécuter du code Python, mais aussi, du code issue
+d'autres langages de programmation. (lua, ruby, julia et bien d'autres...)
+
+
+== Installation de Jupyter
+
+Jupyter est installé avec Anaconda.
+
+Si vous n'utilisez pas Anaconda, il est conseillé d'installer Jupyter via
+pip.
+
+[source]
+----
+python3 -m pip install jupyter
+----
+
+link:http://jupyter.org/install[La documentation officielle pour l'installation]
+
+== Lancer un notebook
+
+Téléchargez le fichier suivant icon:download[link="prise_en_main.ipynb"]
+
+=== !
+
+Puis lancez un serveur:
+
+* Soit, en ligne de commande:
+[source]
+----
+jupyter notebook
+----
+* Soit, depuis Anaconda Navigator.
+
+=== !
+
+Un onglet a du s'ouvrir dans votre navigateur, dans cet onglet
+naviguez dans vos dossiers pour trouver et ouvrir le fichier `prise_en_main.ipynb`
+que vous venez de télécharger.
+
+
+== Jupyter en ligne
+
+Nous venons de voir comment lancer un notebook depuis un serveur local.
+
+=== !
+
+Il est aussi possible de lancer un notebook depuis un serveur en ligne, il
+y a pour cela trois solutions:
+
+[%step]
+* le faire nous même
+* link:https://mybinder.org/[le site mybinder]
+* Google
+
+=== Le faire nous même
+
+Avec un serveur au lycée  (Juste à côté de l'enclos des licornes.)
+et un système de login pour les élèves.
+
+=== mybinder
+
+link:https://mybinder.org/[le site mybinder] très
+très simple à utiliser, si on est un peu habitué à github, assez simple sinon. Le
+principal problème c'est que le site ne restera pas entièrement gratuit (ou alors
+  ils feront faillite). Vous pouvez tester link:https://mybinder.org/v2/gh/lleskow/jupyter-lycee/master[le notebook de prise en main de cette façon].
+
+=== Google colaboratory
+
+Passer par google drive/link:https://colab.research.google.com/[google colaboratory] (Il y a
+des notebooks d'introductions mieux fait que le mien fait par google, dommage que colaboratory arrive à la fin
+de la présentation...)
+
+=== !
+
+Avantage de la solution en ligne: les élèves utilisent Python sous la forme
+que l'on souhaite à la maison sans installation.
