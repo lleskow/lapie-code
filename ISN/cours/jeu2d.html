@@ -506,6 +506,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_un_exemple_un_début_de_morpion_sans_interface_graphique">Un exemple: un début de morpion sans interface graphique</a></li>
 <li><a href="#_un_exemple_un_début_de_jeu_2d_avec_interface_graphique">Un exemple: un début de jeu 2d avec interface graphique</a></li>
+<li><a href="#_un_exemple_d_interface_graphique_pour_un_jeu_type_mastermind">Un exemple d&#8217;interface graphique pour un jeu type Mastermind</a></li>
 </ul>
 </div>
 </div>
@@ -645,6 +646,90 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span class="tok-n">label_joueur</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
 <span class="tok-n">affiche_grille</span><span class="tok-p">()</span>
 <span class="tok-c1"># Il n&#39;y pas besoin de boucle, on réagit aux événements</span>
+<span class="tok-n">Fenetre</span><span class="tok-o">.</span><span class="tok-n">mainloop</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_un_exemple_d_interface_graphique_pour_un_jeu_type_mastermind">Un exemple d&#8217;interface graphique pour un jeu type Mastermind</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-ch">#!/usr/bin/env python3</span>
+<span class="tok-c1"># -*- coding: utf-8 -*-</span>
+<span class="tok-kn">from</span> <span class="tok-nn">tkinter</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+<span class="tok-kn">from</span> <span class="tok-nn">random</span> <span class="tok-kn">import</span> <span class="tok-n">choice</span>
+<span class="tok-n">Fenetre</span> <span class="tok-o">=</span> <span class="tok-n">Tk</span><span class="tok-p">()</span>
+<span class="tok-n">Fenetre</span><span class="tok-o">.</span><span class="tok-n">geometry</span><span class="tok-p">(</span><span class="tok-s2">&quot;900x600&quot;</span><span class="tok-p">)</span>
+
+<span class="tok-n">HAUTEUR</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+
+<span class="tok-c1"># On va définir 3 sous-fenêtres:</span>
+<span class="tok-c1"># Une où, on sélectionne une combinaison</span>
+<span class="tok-n">zone_selection</span> <span class="tok-o">=</span> <span class="tok-n">Frame</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">)</span>
+<span class="tok-n">zone_selection</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">(</span><span class="tok-n">side</span><span class="tok-o">=</span><span class="tok-n">LEFT</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-n">BOTH</span><span class="tok-p">)</span>
+<span class="tok-c1"># Une où s&#39;affiche les combinaisons joués</span>
+<span class="tok-n">zone_combinaison</span> <span class="tok-o">=</span> <span class="tok-n">Frame</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span><span class="tok-n">height</span><span class="tok-o">=</span><span class="tok-n">HAUTEUR</span><span class="tok-p">,</span><span class="tok-n">width</span><span class="tok-o">=</span><span class="tok-mi">400</span><span class="tok-p">,</span><span class="tok-n">bg</span><span class="tok-o">=</span><span class="tok-s2">&quot;red&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">zone_combinaison</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">(</span><span class="tok-n">side</span><span class="tok-o">=</span><span class="tok-n">LEFT</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-n">BOTH</span><span class="tok-p">)</span>
+<span class="tok-c1"># Une où s&#39;affiche les réponses</span>
+<span class="tok-n">zone_reponse</span> <span class="tok-o">=</span> <span class="tok-n">Frame</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span><span class="tok-n">height</span><span class="tok-o">=</span><span class="tok-n">HAUTEUR</span><span class="tok-p">,</span><span class="tok-n">width</span><span class="tok-o">=</span><span class="tok-mi">400</span><span class="tok-p">,</span><span class="tok-n">bg</span><span class="tok-o">=</span><span class="tok-s2">&quot;blue&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">zone_reponse</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">(</span><span class="tok-n">side</span><span class="tok-o">=</span><span class="tok-n">LEFT</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-n">BOTH</span><span class="tok-p">)</span>
+
+<span class="tok-c1"># Dictionnaire permettant de traduire les couleurs en anglais, pratique car tkinter</span>
+<span class="tok-c1"># utilise les couleurs en anglais</span>
+<span class="tok-n">traduction</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-s2">&quot;vert&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;green&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;rouge&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;red&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;orange&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;orange&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;jaune&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;yellow&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;violet&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;purple&quot;</span><span class="tok-p">}</span>
+
+
+<span class="tok-c1"># L&#39;idée ici est de proposer le choix de la couleur via le widget OptionMenu</span>
+<span class="tok-c1"># Ce widget prend en paramètre un tuple, on peut convertir les listes en tuples</span>
+<span class="tok-c1"># via la fonction tuple()</span>
+
+<span class="tok-n">couleurs_selectionnables</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-s2">&quot;vert&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;rouge&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;orange&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;jaune&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;violet&quot;</span><span class="tok-p">)</span>
+
+<span class="tok-c1"># Le code ci-dessous est un exemple de création d&#39;un seul menu</span>
+<span class="tok-n">co</span> <span class="tok-o">=</span> <span class="tok-n">StringVar</span><span class="tok-p">()</span> <span class="tok-c1"># la valeur sélectionnée doit être stocké dans une variable propre à tkinter</span>
+<span class="tok-n">co</span><span class="tok-o">.</span><span class="tok-n">set</span><span class="tok-p">(</span><span class="tok-n">couleurs_selectionnables</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">])</span> <span class="tok-c1"># la valeur présélectionnée</span>
+<span class="tok-n">menu_co</span> <span class="tok-o">=</span> <span class="tok-n">OptionMenu</span><span class="tok-p">(</span><span class="tok-n">zone_selection</span><span class="tok-p">,</span> <span class="tok-n">co</span><span class="tok-p">,</span> <span class="tok-o">*</span><span class="tok-n">couleurs_selectionnables</span><span class="tok-p">)</span>
+<span class="tok-n">menu_co</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">(</span><span class="tok-n">pady</span><span class="tok-o">=</span><span class="tok-mi">20</span><span class="tok-p">)</span>
+
+<span class="tok-c1"># le code ci-dessous permet de créer directement les 4 menus de sélection</span>
+<span class="tok-n">selection</span> <span class="tok-o">=</span> <span class="tok-p">[]</span>
+<span class="tok-n">menu_selection</span> <span class="tok-o">=</span> <span class="tok-p">[]</span>
+<span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">):</span>
+    <span class="tok-n">selection</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-n">StringVar</span><span class="tok-p">())</span>
+    <span class="tok-n">selection</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">set</span><span class="tok-p">(</span><span class="tok-n">couleurs_selectionnables</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">])</span>
+    <span class="tok-n">OptionMenu</span><span class="tok-p">(</span><span class="tok-n">zone_selection</span><span class="tok-p">,</span> <span class="tok-n">selection</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">],</span> <span class="tok-o">*</span><span class="tok-n">couleurs_selectionnables</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">genere_code_mystere</span><span class="tok-p">():</span>
+    <span class="tok-k">pass</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">affiche_combinaison</span><span class="tok-p">(</span><span class="tok-n">combinaison</span><span class="tok-p">):</span>
+    <span class="tok-c1"># Une piste pour l&#39;affichage des combinaisons</span>
+    <span class="tok-n">repr_comb</span> <span class="tok-o">=</span> <span class="tok-n">Canvas</span><span class="tok-p">(</span><span class="tok-n">zone_combinaison</span><span class="tok-p">,</span><span class="tok-n">height</span><span class="tok-o">=</span><span class="tok-n">HAUTEUR</span><span class="tok-o">/</span><span class="tok-mi">10</span><span class="tok-p">,</span><span class="tok-n">width</span><span class="tok-o">=</span><span class="tok-mi">400</span><span class="tok-p">)</span>
+    <span class="tok-n">repr_comb</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
+    <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">r</span> <span class="tok-o">=</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">40</span><span class="tok-p">,</span> <span class="tok-mi">20</span>
+    <span class="tok-n">repr_comb</span><span class="tok-o">.</span><span class="tok-n">create_oval</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">-</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-o">-</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-n">traduction</span><span class="tok-p">[</span><span class="tok-n">combinaison</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">]])</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">affiche_reponse</span><span class="tok-p">(</span><span class="tok-n">reponse</span><span class="tok-p">):</span>
+    <span class="tok-k">pass</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">verification_combinaison</span><span class="tok-p">(</span><span class="tok-n">combinaison</span><span class="tok-p">):</span>
+    <span class="tok-k">pass</span>
+
+<span class="tok-n">code_mystere</span> <span class="tok-o">=</span> <span class="tok-n">genere_code_mystere</span><span class="tok-p">()</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">validation</span><span class="tok-p">():</span>
+    <span class="tok-n">combinaison</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">]</span>
+    <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">):</span>
+        <span class="tok-n">combinaison</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">selection</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">()</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">combinaison</span><span class="tok-p">)</span>
+    <span class="tok-n">affiche_combinaison</span><span class="tok-p">(</span><span class="tok-n">combinaison</span><span class="tok-p">)</span>
+    <span class="tok-n">verification_combinaison</span><span class="tok-p">(</span><span class="tok-n">combinaison</span><span class="tok-p">)</span>
+
+<span class="tok-n">bouton_validation</span> <span class="tok-o">=</span> <span class="tok-n">Button</span><span class="tok-p">(</span><span class="tok-n">zone_selection</span><span class="tok-p">,</span><span class="tok-n">text</span><span class="tok-o">=</span><span class="tok-s2">&quot;Valider sélection&quot;</span><span class="tok-p">,</span><span class="tok-n">command</span><span class="tok-o">=</span><span class="tok-n">validation</span><span class="tok-p">)</span>
+<span class="tok-n">bouton_validation</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">(</span><span class="tok-n">padx</span><span class="tok-o">=</span><span class="tok-mi">15</span><span class="tok-p">,</span><span class="tok-n">pady</span><span class="tok-o">=</span><span class="tok-mi">20</span><span class="tok-p">)</span>
+
 <span class="tok-n">Fenetre</span><span class="tok-o">.</span><span class="tok-n">mainloop</span><span class="tok-p">()</span></code></pre>
 </div>
 </div>
