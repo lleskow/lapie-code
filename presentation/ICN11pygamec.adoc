@@ -1,0 +1,78 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+= Interface graphique avec Pygame
+:source-highlighter: pygments
+:pygments-style: tango
+
+== Ne pas sortir de l'écran
+
+[source,python]
+----
+    x, y = x + x_change, y + y_change
+    if x < 0:
+        x = 0
+    elif x > largeur_fen - largeur_vais:
+        x = largeur_fen - largeur_vais
+    if y < 0:
+        pygame.quit()
+    elif y > hauteur_fen - hauteur_vais:
+        y = hauteur_fen - hauteur_vais
+----
+
+== Asteroid
+
+=== !
+L'Asteroid apparait au hasard "au dessus" de l'écran, on a besoin de générer
+des nombres aléatoires.
+
+[source,python]
+----
+import random
+----
+
+=== !
+
+[source,python]
+----
+#####################
+# Gestion asteroids #
+#####################
+cote_ast = 50
+x_ast = random.randint(1, largeur_fen - cote_ast- 1)
+y_ast = -cote_ast
+v_ast = 15
+couleur_ast = (133, 83, 15)
+----
+
+=== Dans la boucle de jeu:
+
+[source,python]
+----
+y_ast = y_ast + v_ast
+
+...
+
+rect_ast = pygame.Rect(x_ast, y_ast, cote_ast, cote_ast)
+pygame.draw.rect(affi_surface, marron, rect_ast)
+----
+
+=== Faire réapparaitre l'Asteroid
+
+[source,python]
+----
+if y_ast > hauteur_fen:
+    x_ast = random.randint(1, largeur_fen - cote_ast- 1)
+    y_ast = -cote_ast
+----
+
+== Collision
+
+[source,python]
+----
+if x < x_ast + cote_ast and
+   x_ast < x + largeur_vais and
+   y < y_ast + cote_ast and
+   y_ast < y + hauteur_vais:
+    print("collide")
+----
