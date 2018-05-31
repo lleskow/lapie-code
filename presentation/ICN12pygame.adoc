@@ -1,0 +1,97 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+= Interface graphique avec Pygame II
+:source-highlighter: pygments
+:pygments-style: tango
+
+== Améliorons les graphiques de notre jeu
+
+=== !
+
+Pour améliorer les graphiques de notre jeu, nous
+allons intégrer des images.
+
+=== Le blit
+
+Un blit consiste à recopier des pixels, d'un tableau à deux dimensions
+de pixel à un autre.
+
+=== Charger une image
+
+Pour afficher une image avec pygame, il faut d'abord la charger:
+
+[source,python]
+----
+img_var = pygame.image.load("nom_img.png")
+----
+
+=== Convertir une image
+
+Convertir l'image va permettre à pygame de faire les calculs sur l'image
+plus rapidement.
+
+[source,python]
+----
+img_var = pygame.image.load("nom_img.png").convert()
+----
+
+=== La transparence
+
+Un pixel a trois couleurs, on parle de code RGB (red, green, blue). Et on dit
+qu'il y a trois canaux.
+
+On peut ajouter un quatrième canal, qui va correspondre à la transparence.
+On parle de canal alpha.
+
+=== Gérer la transparence
+
+[source,python]
+----
+img_var = pygame.image.load("nom_img.png").convert_alpha()
+----
+
+=== Recopier l'image
+
+[source,python]
+----
+surface.blit(img_var, (x, y))
+----
+
+Où `surface` est le nom de la zone où l'on souhaite recopier l'image,
+et `x` et `y`, l'abscisse et l'ordonnée du coin haut de la position de l'image.
+
+== Afficher du texte
+
+Un exemple:
+
+[source,python]
+----
+fontObj = pygame.font.Font('freesansbold.ttf', 32)
+textSurfaceObj = fontObj.render('Hello world!', True, GREEN, BLUE)
+textRectObj = textSurfaceObj.get_rect()
+textRectObj.center = (200, 150)
+----
+
+=== !
+
+C'est un peu long nous allons donc créer une fonction.
+
+=== !
+
+[source,python]
+----
+def affiche_texte(taille, message, couleur_texte, couleur_fond, pos_x, pos_y):
+    fontObj = pygame.font.Font('freesansbold.ttf', taille)
+    textSurfaceObj = fontObj.render(message, True, couleur_texte, couleur_fond)
+    textRectObj = textSurfaceObj.get_rect()
+    textRectObj.center = (pos_x, pos_y)
+    affi_surface.blit(textSurfaceObj, textRectObj)
+----
+
+=== Testons notre fonction
+
+[source,python]
+----
+affiche_texte(32, "hello world", noir, blanc, 400, 400)
+----
