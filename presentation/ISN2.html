@@ -7,10 +7,8 @@
 .listingblock .pygments .tok-n { color: #f8f8f2 } /* Name */
 .listingblock .pygments .tok-o { color: #f92672 } /* Operator */
 .listingblock .pygments .tok-p { color: #f8f8f2 } /* Punctuation */
-.listingblock .pygments .tok-ch { color: #75715e } /* Comment.Hashbang */
 .listingblock .pygments .tok-cm { color: #75715e } /* Comment.Multiline */
 .listingblock .pygments .tok-cp { color: #75715e } /* Comment.Preproc */
-.listingblock .pygments .tok-cpf { color: #75715e } /* Comment.PreprocFile */
 .listingblock .pygments .tok-c1 { color: #75715e } /* Comment.Single */
 .listingblock .pygments .tok-cs { color: #75715e } /* Comment.Special */
 .listingblock .pygments .tok-gd { color: #f92672 } /* Generic.Deleted */
@@ -48,10 +46,8 @@
 .listingblock .pygments .tok-mh { color: #ae81ff } /* Literal.Number.Hex */
 .listingblock .pygments .tok-mi { color: #ae81ff } /* Literal.Number.Integer */
 .listingblock .pygments .tok-mo { color: #ae81ff } /* Literal.Number.Oct */
-.listingblock .pygments .tok-sa { color: #e6db74 } /* Literal.String.Affix */
 .listingblock .pygments .tok-sb { color: #e6db74 } /* Literal.String.Backtick */
 .listingblock .pygments .tok-sc { color: #e6db74 } /* Literal.String.Char */
-.listingblock .pygments .tok-dl { color: #e6db74 } /* Literal.String.Delimiter */
 .listingblock .pygments .tok-sd { color: #e6db74 } /* Literal.String.Doc */
 .listingblock .pygments .tok-s2 { color: #e6db74 } /* Literal.String.Double */
 .listingblock .pygments .tok-se { color: #ae81ff } /* Literal.String.Escape */
@@ -62,142 +58,111 @@
 .listingblock .pygments .tok-s1 { color: #e6db74 } /* Literal.String.Single */
 .listingblock .pygments .tok-ss { color: #e6db74 } /* Literal.String.Symbol */
 .listingblock .pygments .tok-bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
-.listingblock .pygments .tok-fm { color: #a6e22e } /* Name.Function.Magic */
 .listingblock .pygments .tok-vc { color: #f8f8f2 } /* Name.Variable.Class */
 .listingblock .pygments .tok-vg { color: #f8f8f2 } /* Name.Variable.Global */
 .listingblock .pygments .tok-vi { color: #f8f8f2 } /* Name.Variable.Instance */
-.listingblock .pygments .tok-vm { color: #f8f8f2 } /* Name.Variable.Magic */
-.listingblock .pygments .tok-il { color: #ae81ff } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Chapitre I</h1><h2>Langages et programmation I</h2></section><section id="_i_introduction"><h2>I. Introduction</h2></section>
-<section id="_qu_est_ce_qu_un_programme"><h2>Qu&#8217;est ce qu&#8217;un programme ?</h2><div class="ulist"><ul><li class="fragment"><p>Un programme est un texte qui décrit un ensemble d&#8217;instructions que l&#8217;on souhaite
+.listingblock .pygments .tok-il { color: #ae81ff } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Chapitre I</h1><h2>Langages et programmation I</h2></section><section><section id="_i_introduction"><h2>I. Introduction</h2></section><section id="_qu_est_ce_qu_un_programme"><h2>Qu&#8217;est ce qu&#8217;un programme ?</h2><div class="ulist"><ul><li class="fragment"><p>Un programme est un texte qui décrit un ensemble d&#8217;instructions que l&#8217;on souhaite
 faire exécuter par une machine.</p></li><li class="fragment"><p>A la différence d&#8217;un algorithme, il est écrit
-dans un langage de programmation.</p></li></ul></div></section>
-<section id="_qu_est_ce_qu_un_langage_de_programmation"><h2>Qu&#8217;est ce qu&#8217;un langage de programmation ?</h2><div class="ulist"><ul><li class="fragment"><p>Le langage machine est une suite de 0 et de 1 incompréhensible pour un humain.</p></li><li class="fragment"><p>Un langage de programmation est langage "facilement" compréhensible par un
+dans un langage de programmation.</p></li></ul></div></section><section id="_qu_est_ce_qu_un_langage_de_programmation"><h2>Qu&#8217;est ce qu&#8217;un langage de programmation ?</h2><div class="ulist"><ul><li class="fragment"><p>Le langage machine est une suite de 0 et de 1 incompréhensible pour un humain.</p></li><li class="fragment"><p>Un langage de programmation est langage "facilement" compréhensible par un
 être humain et qui peut être "traduit" dans le
-langage machine.</p></li></ul></div></section>
-<section id="_diffrentes_faons_de_traduire"><h2>Différentes façons de traduire:</h2><div class="ulist"><ul><li><p>Un programme peut être traduit une fois pour toute,
+langage machine.</p></li></ul></div></section><section id="_diffrentes_faons_de_traduire"><h2>Différentes façons de traduire:</h2><div class="ulist"><ul><li><p>Un programme peut être traduit une fois pour toute,
 et à chaque exécution, c&#8217;est la même traduction qui
 est utilisé.<br>
 On parle dans ce cas de <strong>compilation</strong>.</p></li><li><p>Ou il peut être traduit au fur et à mesure à
 chaque exécution.
-On parle dans ce cas <strong>d&#8217;interprétation</strong>.</p></li></ul></div></section>
-<section id="_et_dans_le_cas_de_python"><h2>Et dans le cas de Python ?</h2><div class="paragraph"><p>C&#8217;est en général, l&#8217;interprétation qui est privilégié. On dit
+On parle dans ce cas <strong>d&#8217;interprétation</strong>.</p></li></ul></div></section><section id="_et_dans_le_cas_de_python"><h2>Et dans le cas de Python ?</h2><div class="paragraph"><p>C&#8217;est en général, l&#8217;interprétation qui est privilégié. On dit
 souvent par simplification que python
-est un langage interprété.</p></div></section>
-<section id="_des_exemples_de_langage_de_programmation"><h2>Des exemples de langage de programmation:</h2><div class="ulist"><ul><li><p>Le langage C</p></li><li><p>Javascript</p></li><li><p>Scratch</p></li><li><p>TI-basic</p></li><li><p>Algobox</p></li><li><p>Python</p></li><li><p>et des milliers d&#8217;autres..</p></li></ul></div></section>
-<section id="_l_interprteur_intractif"><h2>L&#8217;interpréteur intéractif:</h2><div class="ulist"><ul><li><p>Avec Python, il est possible d’utiliser un interpréteur interactif.
+est un langage interprété.</p></div></section><section id="_des_exemples_de_langage_de_programmation"><h2>Des exemples de langage de programmation:</h2><div class="ulist"><ul><li><p>Le langage C</p></li><li><p>Javascript</p></li><li><p>Scratch</p></li><li><p>TI-basic</p></li><li><p>Algobox</p></li><li><p>Python</p></li><li><p>et des milliers d&#8217;autres..</p></li></ul></div></section><section id="_l_interprteur_intractif"><h2>L&#8217;interpréteur intéractif:</h2><div class="ulist"><ul><li><p>Avec Python, il est possible d’utiliser un interpréteur interactif.
 Qui permet d’entrer des instructions ou des expressions qui seront directement interprétées.</p></li><li><p>On peut accéder à un interpréteur interactif python sur:<br>
 <a href="https://trinket.io/console" class="bare">https://trinket.io/console</a></p></li></ul></div>
 <div class="ulist"><ul><li class="fragment"><p>Si on entre une expression dans l’interpréteur interactif, celle-ci est évaluée puis affichée.
-Ce n’est pas le cas d’un script python écrit dans un fichier, il faudra ajouter une instruction d’affichage.</p></li><li class="fragment"><p>L’interpréteur interactif permet d’écrire et d’exécuter du code Python à la volée, de faire des tests rapides, d’obtenir facilement des informations. Mais dans la grande majorité des cas, nous écrirons notre code dans un fichier.</p></li></ul></div></section>
-<section><div class="paragraph"><p>Par la suite les lignes de code entrées dans l&#8217;interpréteur interactif seront
+Ce n’est pas le cas d’un script python écrit dans un fichier, il faudra ajouter une instruction d’affichage.</p></li><li class="fragment"><p>L’interpréteur interactif permet d’écrire et d’exécuter du code Python à la volée, de faire des tests rapides,
+d’obtenir facilement des informations.
+Mais dans la grande majorité des cas, nous écrirons notre code dans un fichier.</p></li></ul></div></section><section><div class="paragraph"><p>Par la suite les lignes de code entrées dans l&#8217;interpréteur interactif seront
 signalées de 3 chevrons <code>&gt;&gt;&gt;</code> et suivies par leurs retours à la ligne suivante.</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mi">3</span> <span class="tok-o">+</span> <span class="tok-mi">5</span>
-<span class="tok-mi">8</span></code></pre></div></div></section>
-<section id="_ii_la_notion_de_variable"><h2>II. La notion de variable.</h2></section>
-<section><div class="ulist"><ul><li><p>Quand on exécute un programme, la machine
+<span class="tok-mi">8</span></code></pre></div></div></section></section>
+<section><section id="_ii_la_notion_de_variable"><h2>II. La notion de variable.</h2></section><section><div class="ulist"><ul><li><p>Quand on exécute un programme, la machine
 nous attribue une plage de mémoire dans laquelle
 nous allons pouvoir ranger et stocker
 des données.</p></li></ul></div>
 <div class="ulist"><ul><li class="fragment"><p>Cette plage de mémoire ne nous est prêté que pour la durée de l&#8217;exécution de notre programme,
 c&#8217;est une mémoire temporaire.</p></li><li class="fragment"><p>La mémoire se compose de cases possédant chacune
-une adresse.</p></li></ul></div></section>
-<section><div class="ulist"><ul><li><p>Se référer à nos données à l&#8217;aide de leur adresse en mémoire serait beaucoup trop fastidieux.<br>
-D&#8217;où la notion de variable.</p></li></ul></div></section>
-<section><div class="ulist"><ul><li><p>Pour stocker des données dans une variable
+une adresse.</p></li></ul></div></section><section><div class="ulist"><ul><li><p>Se référer à nos données à l&#8217;aide de leur adresse en mémoire serait beaucoup trop fastidieux.<br>
+D&#8217;où la notion de variable.</p></li></ul></div></section><section><div class="ulist"><ul><li><p>Pour stocker des données dans une variable
 il faut attribuer un nom à cette variable
 et lui associer une valeur à l’aide de
 l’opérateur d’affectation =</p></li><li><p>Le nom de la variable est une suite
 de lettres (minuscules ou majuscules,
 pas d&#8217;accents) et de chiffres, qui doit toujours commencer
 par une lettre, et qui ne contient pas de
-caractères spéciaux en dehors de l&#8217;underscore _</p></li></ul></div></section>
-<section id="_un_calcul_d_aire"><h2>Un calcul d&#8217;aire:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">largeur</span> <span class="tok-o">=</span> <span class="tok-mi">11</span>
+caractères spéciaux en dehors de l&#8217;underscore _</p></li></ul></div></section><section id="_un_calcul_d_aire"><h2>Un calcul d&#8217;aire:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">largeur</span> <span class="tok-o">=</span> <span class="tok-mi">11</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">longueur</span> <span class="tok-o">=</span> <span class="tok-mi">32</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">aire</span> <span class="tok-o">=</span> <span class="tok-n">longueur</span> <span class="tok-o">*</span> <span class="tok-n">largeur</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">aire</span>
-<span class="tok-mi">352</span></code></pre></div></div></section>
-<section id="_tableau_de_rfrencement"><h2>Tableau de référencement</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Nom</th><th class="tableblock halign-left valign-top">Adresse</th><th class="tableblock halign-left valign-top">valeur</th></tr></thead><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">largeur</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">10914688</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">longueur</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">10915360</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">aire</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">140278290977904</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">352</p></td></tr></tbody></table></section>
-<section><div class="paragraph"><p>En général les utilisateurs que nous sommes n’ont que faire de l’adresse mémoire où sont
+<span class="tok-mi">352</span></code></pre></div></div></section><section id="_tableau_de_rfrencement"><h2>Tableau de référencement</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Nom</th><th class="tableblock halign-left valign-top">Adresse</th><th class="tableblock halign-left valign-top">valeur</th></tr></thead><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">largeur</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">10914688</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">longueur</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">10915360</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">aire</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">140278290977904</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">352</p></td></tr></tbody></table></section><section><div class="paragraph"><p>En général les utilisateurs que nous sommes n’ont que faire de l’adresse mémoire où sont
 stockées les valeurs manipulées et celle-ci restera cachée,
 à moins d’utiliser la fonction id qui la renvoie :</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">id</span><span class="tok-p">(</span><span class="tok-n">largeur</span><span class="tok-p">)</span>
-<span class="tok-mi">10914688</span></code></pre></div></div></section>
-<section><div class="paragraph"><p>Une fois définie, la valeur d’une variable peut être modifiée,
+<span class="tok-mi">10914688</span></code></pre></div></div></section><section><div class="paragraph"><p>Une fois définie, la valeur d’une variable peut être modifiée,
 toujours à l’aide de l’opérateur d’affectation.</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">largeur</span> <span class="tok-o">=</span> <span class="tok-mi">15</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">id</span><span class="tok-p">(</span><span class="tok-n">largeur</span><span class="tok-p">)</span>
 <span class="tok-mi">10914816</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">aire</span>
-<span class="tok-mi">352</span></code></pre></div></div></section>
-<section><div class="ulist"><ul><li><p>Le calcul effectué pour l&#8217;aire utilise les valeurs des variables au moment où il a été exécuté
+<span class="tok-mi">352</span></code></pre></div></div></section><section><div class="ulist"><ul><li><p>Le calcul effectué pour l&#8217;aire utilise les valeurs des variables au moment où il a été exécuté
 et n’établit en aucune manière une liaison particulière entre les variables elles-mêmes.</p></li></ul></div>
 <div class="ulist"><ul><li class="fragment"><p>Ce mécanisme permet de modifier le contenu d’une variable à l’aide de sa propre valeur,
-comme par exemple :</p></li></ul></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">longueur</span> <span class="tok-o">=</span> <span class="tok-n">longueur</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+comme par exemple :</p></li></ul></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">longueur</span> <span class="tok-o">=</span> <span class="tok-n">longueur</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">longueur</span>
 <span class="tok-mi">33</span></code></pre></div></div>
 <div class="paragraph"><p>longueur = longueur + 1 peut aussi s&#8217;écrire</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">longueur</span> <span class="tok-o">+=</span> <span class="tok-mi">1</span></code></pre></div></div></section>
-<section><div class="ulist"><ul><li><p>Il est important de bien distinguer le = en mathématiques et l&#8217;affectation
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">longueur</span> <span class="tok-o">+=</span> <span class="tok-mi">1</span></code></pre></div></div></section><section><div class="ulist"><ul><li><p>Il est important de bien distinguer le = en mathématiques et l&#8217;affectation
 notée = en Python.</p></li><li><p>Il est possible d&#8217;affecter plusieurs variables
 en simultanée, avec la syntaxe suivante:</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">largeur</span><span class="tok-p">,</span> <span class="tok-n">longueur</span> <span class="tok-o">=</span> <span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-mi">42</span></code></pre></div></div></section>
-<section id="_iii_la_notion_de_type"><h2>III. La notion de type.</h2><div class="ulist"><ul><li class="fragment"><p>Fondamental.</p></li><li class="fragment"><p>Chaque objet python en posséde un.</p></li><li class="fragment"><p>Caractérise la façon dont l&#8217;objet est stocké en mémoire.</p></li><li class="fragment"><p>Caractérise les opérations que l&#8217;on peut lui appliquer.</p></li></ul></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-mi">5</span>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">largeur</span><span class="tok-p">,</span> <span class="tok-n">longueur</span> <span class="tok-o">=</span> <span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-mi">42</span></code></pre></div></div></section></section>
+<section><section id="_iii_la_notion_de_type"><h2>III. La notion de type.</h2><div class="ulist"><ul><li class="fragment"><p>Fondamental.</p></li><li class="fragment"><p>Chaque objet python en posséde un.</p></li><li class="fragment"><p>Caractérise la façon dont l&#8217;objet est stocké en mémoire.</p></li><li class="fragment"><p>Caractérise les opérations que l&#8217;on peut lui appliquer.</p></li></ul></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-mi">5</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">)</span>
-<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">int</span><span class="tok-s1">&#39;&gt;</span>
-<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-s2">&quot;Bonjour&quot;</span><span class="tok-p">)</span>
-<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">str</span><span class="tok-s1">&#39;&gt;</span></code></pre></div></div>
-<div class="ulist"><ul><li class="fragment"><p>La fonction type permet de connaître le type d’un objet.</p></li><li class="fragment"><p>le type int (integer) représente les entiers.</p></li><li class="fragment"><p>le type str (string) pour les chaînes de caractères.</p></li></ul></div></section>
-<section><div class="paragraph"><p>Les types sont importants pour définir les opérations que l&#8217;on peut faire
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">int</span><span class="tok-s">&#39;&gt;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-s">&quot;Bonjour&quot;</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">str</span><span class="tok-s">&#39;&gt;</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>La fonction type permet de connaître le type d’un objet.</p></li><li class="fragment"><p>le type int (integer) représente les entiers.</p></li><li class="fragment"><p>le type str (string) pour les chaînes de caractères.</p></li></ul></div></section><section><div class="paragraph"><p>Les types sont importants pour définir les opérations que l&#8217;on peut faire
 sur des objets:</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mi">7</span> <span class="tok-o">+</span> <span class="tok-s2">&quot;Bonjour&quot;</span>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mi">7</span> <span class="tok-o">+</span> <span class="tok-s">&quot;Bonjour&quot;</span>
 <span class="tok-n">Traceback</span> <span class="tok-p">(</span><span class="tok-n">most</span> <span class="tok-n">recent</span> <span class="tok-n">call</span> <span class="tok-n">last</span><span class="tok-p">):</span>
-  <span class="tok-n">File</span> <span class="tok-s2">&quot;&lt;stdin&gt;&quot;</span><span class="tok-p">,</span> <span class="tok-n">line</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-ow">in</span> <span class="tok-o">&lt;</span><span class="tok-n">module</span><span class="tok-o">&gt;</span>
-<span class="tok-ne">TypeError</span><span class="tok-p">:</span> <span class="tok-n">unsupported</span> <span class="tok-n">operand</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">s</span><span class="tok-p">)</span> <span class="tok-k">for</span> <span class="tok-o">+</span><span class="tok-p">:</span> <span class="tok-s1">&#39;int&#39;</span> <span class="tok-ow">and</span> <span class="tok-s1">&#39;str&#39;</span></code></pre></div></div></section>
-<section><div class="paragraph"><p>Python possède également un type float, pour les nombres décimaux.</p></div>
+  <span class="tok-n">File</span> <span class="tok-s">&quot;&lt;stdin&gt;&quot;</span><span class="tok-p">,</span> <span class="tok-n">line</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-ow">in</span> <span class="tok-o">&lt;</span><span class="tok-n">module</span><span class="tok-o">&gt;</span>
+<span class="tok-ne">TypeError</span><span class="tok-p">:</span> <span class="tok-n">unsupported</span> <span class="tok-n">operand</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">s</span><span class="tok-p">)</span> <span class="tok-k">for</span> <span class="tok-o">+</span><span class="tok-p">:</span> <span class="tok-s">&#39;int&#39;</span> <span class="tok-ow">and</span> <span class="tok-s">&#39;str&#39;</span></code></pre></div></div></section><section><div class="paragraph"><p>Python possède également un type float, pour les nombres décimaux.</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-mf">4.25</span><span class="tok-p">,</span> <span class="tok-mf">2.0</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">)</span>
-<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">float</span><span class="tok-s1">&#39;&gt;</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">float</span><span class="tok-s">&#39;&gt;</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">b</span><span class="tok-p">)</span>
-<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">float</span><span class="tok-s1">&#39;&gt;</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">float</span><span class="tok-s">&#39;&gt;</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">+</span> <span class="tok-mi">3</span>
 <span class="tok-mf">7.5</span></code></pre></div></div>
-<div class="ulist"><ul><li class="fragment"><p>On remarque que la "virgule" se note avec un point. (comme sur la calculatrice)</p></li><li class="fragment"><p>On peut additionner un <em>int</em> avec un <em>float</em></p></li></ul></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-s2">&quot;42&quot;</span><span class="tok-p">)</span>
-<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">str</span><span class="tok-s1">&#39;&gt;</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>On remarque que la "virgule" se note avec un point. (comme sur la calculatrice)</p></li><li class="fragment"><p>On peut additionner un <em>int</em> avec un <em>float</em></p></li></ul></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-s">&quot;42&quot;</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">str</span><span class="tok-s">&#39;&gt;</span></code></pre></div></div>
 <div class="paragraph"><p>Attention, une fois entre guillemet un nombre n&#8217;est plus du type int ou float
-mais devient une chaîne de caractère.</p></div></section>
-<section id="_conversion_de_type"><h2>Conversion de type</h2><div class="paragraph"><p>On peut parfois convertir un type en un autre à l&#8217;aide d&#8217;une fonction:</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-s2">&quot;42&quot;</span><span class="tok-p">)</span>
+mais devient une chaîne de caractère.</p></div></section><section id="_conversion_de_type"><h2>Conversion de type</h2><div class="paragraph"><p>On peut parfois convertir un type en un autre à l&#8217;aide d&#8217;une fonction:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-s">&quot;42&quot;</span><span class="tok-p">)</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">)</span>
-<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">int</span><span class="tok-s1">&#39;&gt;</span></code></pre></div></div></section>
-<section id="_le_type_boolen"><h2>Le type booléen</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-bp">True</span><span class="tok-p">)</span>
-<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">bool</span><span class="tok-s1">&#39;&gt;</span></code></pre></div></div>
-<div class="ulist"><ul><li class="fragment"><p>bool, pour booléen.</p></li><li class="fragment"><p>Ce type ne peut prendre que deux valeurs: True(vrai) et False(faux)</p></li></ul></div></section>
-<section><div class="paragraph"><p>À ce type sont associés trois opérateurs :
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">int</span><span class="tok-s">&#39;&gt;</span></code></pre></div></div></section><section id="_le_type_boolen"><h2>Le type booléen</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-bp">True</span><span class="tok-p">)</span>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">bool</span><span class="tok-s">&#39;&gt;</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>bool, pour booléen.</p></li><li class="fragment"><p>Ce type ne peut prendre que deux valeurs: True(vrai) et False(faux)</p></li></ul></div></section><section><div class="paragraph"><p>À ce type sont associés trois opérateurs :
 not, and et or qui sont définis par les tables suivantes :</p></div>
-<table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">and</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr></tbody></table></section>
-<section><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">or</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr></tbody></table></section>
-<section><div class="paragraph"><p>Par ailleurs, un certain nombre d’opérateurs sont définis sur d’autres types
+<table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">and</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr></tbody></table></section><section><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">or</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td></tr></tbody></table></section><section><div class="paragraph"><p>Par ailleurs, un certain nombre d’opérateurs sont définis sur d’autres types
 (en particulier les types de nombres) et à valeurs dans le type <em>bool</em>.</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mi">2</span> <span class="tok-o">+</span> <span class="tok-mi">3</span> <span class="tok-o">==</span> <span class="tok-mi">5</span>
 <span class="tok-bp">True</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mi">7</span> <span class="tok-o">&lt;</span> <span class="tok-mi">2</span>
-<span class="tok-bp">False</span></code></pre></div></div></section>
-<section><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">En python</th><th class="tableblock halign-left valign-top">Signification</th></tr></thead><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &lt; y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">inférieur strictement</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &lt;= y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">inférieur ou égal</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &gt; y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">supérieur strictement</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &gt;= y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">supérieur ou égal</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x == y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">égal</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x != y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">différent de</p></td></tr></tbody></table></section>
-<section><div class="paragraph"><p>On peut calculer sur les booléens:</p></div>
+<span class="tok-bp">False</span></code></pre></div></div></section><section><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">En python</th><th class="tableblock halign-left valign-top">Signification</th></tr></thead><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &lt; y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">inférieur strictement</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &lt;= y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">inférieur ou égal</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &gt; y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">supérieur strictement</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x &gt;= y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">supérieur ou égal</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x == y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">égal</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">x != y</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">différent de</p></td></tr></tbody></table></section><section><div class="paragraph"><p>On peut calculer sur les booléens:</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-p">(</span><span class="tok-mi">1</span> <span class="tok-o">+</span> <span class="tok-mi">1</span> <span class="tok-o">!=</span> <span class="tok-mi">3</span><span class="tok-p">)</span> <span class="tok-ow">and</span> <span class="tok-p">(</span><span class="tok-mi">2</span> <span class="tok-o">==</span> <span class="tok-mi">2</span><span class="tok-p">)</span>
-<span class="tok-bp">True</span></code></pre></div></div></section>
-<section id="_iv_structure_conditionnelle"><h2>IV. Structure conditionnelle.</h2></section>
-<section id="_structures_et_indentations"><h2>Structures et indentations.</h2><div class="ulist"><ul><li><p>Les impératifs de la programmation structurée nécessitent la définition de blocs d’instructions au sein des
+<span class="tok-bp">True</span></code></pre></div></div></section></section>
+<section><section id="_iv_structure_conditionnelle"><h2>IV. Structure conditionnelle.</h2></section><section id="_structures_et_indentations"><h2>Structures et indentations.</h2><div class="ulist"><ul><li><p>Les impératifs de la programmation structurée nécessitent la définition de blocs d’instructions au sein des
 structures de contrôles (def, for, while, if, . . .).</p></li><li><p>Certains langages utilisent des délimiteurs (par exemple des {}), Python utilise l&#8217;indentation.</p></li><li><p>Le début d’un bloc d’instructions est défini par un double-point.</p></li><li><p>Le corps du bloc est alors indenté d’un nombre d’espaces fixes (quatre par défaut), et le
-retour à l’indentation de l’en-tête marque la fin du bloc.</p></li></ul></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">en</span><span class="tok-err">−</span><span class="tok-n">t</span><span class="tok-err">ê</span><span class="tok-n">te</span><span class="tok-p">:</span>
+retour à l’indentation de l’en-tête marque la fin du bloc.</p></li></ul></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">en</span><span class="tok-err">−</span><span class="tok-n">t</span><span class="tok-err">ê</span><span class="tok-n">te</span><span class="tok-p">:</span>
     <span class="tok-n">bloc</span> <span class="tok-o">...........................</span>
     <span class="tok-o">................................</span>
-    <span class="tok-n">d</span> <span class="tok-n">instructions</span><span class="tok-o">..................</span></code></pre></div></div></section>
-<section><div class="paragraph"><p>Il est possible d’imbriquer des blocs d’instructions les uns dans les autres :</p></div>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span><span class="tok-o">..................</span></code></pre></div></div></section><section><div class="paragraph"><p>Il est possible d’imbriquer des blocs d’instructions les uns dans les autres :</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">en</span><span class="tok-err">−</span><span class="tok-n">t</span><span class="tok-err">ê</span><span class="tok-n">te</span><span class="tok-p">:</span>
     <span class="tok-n">bloc</span> <span class="tok-o">...........................</span>
     <span class="tok-o">................................</span>
@@ -207,8 +172,7 @@ retour à l’indentation de l’en-tête marque la fin du bloc.</p></li></ul></
         <span class="tok-o">............................</span>
         <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">.............</span>
     <span class="tok-o">................................</span>
-    <span class="tok-o">................................</span></code></pre></div></div></section>
-<section id="_instructions_conditionnelles"><h2>Instructions conditionnelles</h2><div class="paragraph"><p>Les instructions conditionnelles se définissent à l’aide de l’instruction <code>if</code>
+    <span class="tok-o">................................</span></code></pre></div></div></section><section id="_instructions_conditionnelles"><h2>Instructions conditionnelles</h2><div class="paragraph"><p>Les instructions conditionnelles se définissent à l’aide de l’instruction <code>if</code>
 et prennent la forme suivante :</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">if</span> <span class="tok-n">expression</span> <span class="tok-nb">bool</span><span class="tok-err">é</span><span class="tok-n">enne</span><span class="tok-p">:</span>
     <span class="tok-n">bloc</span><span class="tok-o">..............</span>
@@ -219,10 +183,8 @@ et prennent la forme suivante :</p></div>
 <div class="paragraph"><p>Le fonctionnement de cette instruction est le suivant : si l’expression booléenne
 de la première ligne s’évalue en 'True',
 le premier bloc d’instructions est exécuté, si elle s’évalue en 'False'
-c’est le second bloc qui est exécuté.</p></div></section>
-<section><div class="paragraph"><p>L’instruction 'else' est optionnelle si aucune instruction ne doit
-être réalisée dans le cas d’un test négatif.</p></div></section>
-<section id="_instructions_conditonnelles_multiples"><h2>Instructions conditonnelles multiples</h2><div class="paragraph"><p>En informatique il est fréquent qu’on ait à imbriquer plusieurs tests,
+c’est le second bloc qui est exécuté.</p></div></section><section><div class="paragraph"><p>L’instruction 'else' est optionnelle si aucune instruction ne doit
+être réalisée dans le cas d’un test négatif.</p></div></section><section id="_instructions_conditonnelles_multiples"><h2>Instructions conditonnelles multiples</h2><div class="paragraph"><p>En informatique il est fréquent qu’on ait à imbriquer plusieurs tests,
 aussi existe-t-il en python un mot clé <code>elif</code>
 (qui est la contraction de else if) et qui fonctionne suivant le schéma :</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">if</span> <span class="tok-n">expression</span> <span class="tok-n">booleenne</span> <span class="tok-mi">1</span><span class="tok-p">:</span>
@@ -233,13 +195,12 @@ aussi existe-t-il en python un mot clé <code>elif</code>
     <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">2.</span><span class="tok-o">.</span>
 <span class="tok-k">else</span><span class="tok-p">:</span>
     <span class="tok-n">bloc</span><span class="tok-o">..............</span>
-    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">3.</span><span class="tok-o">.</span></code></pre></div></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">if</span> <span class="tok-n">a</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span> <span class="tok-p">:</span>
-     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;a est positif&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-mf">3.</span><span class="tok-o">.</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">if</span> <span class="tok-n">a</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span> <span class="tok-p">:</span>
+     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;a est positif&quot;</span><span class="tok-p">)</span>
 <span class="tok-k">elif</span> <span class="tok-n">a</span> <span class="tok-o">&lt;</span> <span class="tok-mi">0</span> <span class="tok-p">:</span>
-     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;a est négatif&quot;</span><span class="tok-p">)</span>
+     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;a est négatif&quot;</span><span class="tok-p">)</span>
 <span class="tok-k">else</span><span class="tok-p">:</span>
-     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;a est nul&quot;</span><span class="tok-p">)</span></code></pre></div></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+     <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;a est nul&quot;</span><span class="tok-p">)</span></code></pre></div></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,

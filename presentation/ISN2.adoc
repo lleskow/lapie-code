@@ -7,7 +7,7 @@
 
 == I. Introduction
 
-== Qu'est ce qu'un programme ?
+=== Qu'est ce qu'un programme ?
 
 [%step]
 * Un programme est un texte qui décrit un ensemble d'instructions que l'on souhaite
@@ -16,7 +16,7 @@ faire exécuter par une machine.
 * A la différence d'un algorithme, il est écrit
 dans un langage de programmation.
 
-== Qu'est ce qu'un langage de programmation ?
+=== Qu'est ce qu'un langage de programmation ?
 
 [%step]
 * Le langage machine est une suite de 0 et de 1 incompréhensible pour un humain.
@@ -24,7 +24,7 @@ dans un langage de programmation.
 être humain et qui peut être "traduit" dans le
 langage machine.
 
-== Différentes façons de traduire:
+=== Différentes façons de traduire:
 
 * Un programme peut être traduit une fois pour toute,
 et à chaque exécution, c'est la même traduction qui
@@ -34,14 +34,14 @@ On parle dans ce cas de *compilation*.
 chaque exécution.
 On parle dans ce cas *d'interprétation*.
 
-== Et dans le cas de Python ?
+=== Et dans le cas de Python ?
 
 C'est en général, l'interprétation qui est privilégié. On dit
 souvent par simplification que python
 est un langage interprété.
 
 
-== Des exemples de langage de programmation:
+=== Des exemples de langage de programmation:
 
 * Le langage C
 * Javascript
@@ -51,7 +51,7 @@ est un langage interprété.
 * Python
 * et des milliers d'autres..
 
-== L'interpréteur intéractif:
+=== L'interpréteur intéractif:
 
 * Avec Python, il est possible d’utiliser un interpréteur interactif.
 Qui permet d’entrer des instructions ou des expressions qui seront directement interprétées.
@@ -61,9 +61,11 @@ https://trinket.io/console
 [%step]
 * Si on entre une expression dans l’interpréteur interactif, celle-ci est évaluée puis affichée.
 Ce n’est pas le cas d’un script python écrit dans un fichier, il faudra ajouter une instruction d’affichage.
-* L’interpréteur interactif permet d’écrire et d’exécuter du code Python à la volée, de faire des tests rapides, d’obtenir facilement des informations. Mais dans la grande majorité des cas, nous écrirons notre code dans un fichier.
+* L’interpréteur interactif permet d’écrire et d’exécuter du code Python à la volée, de faire des tests rapides,
+d’obtenir facilement des informations.
+Mais dans la grande majorité des cas, nous écrirons notre code dans un fichier.
 
-== !
+=== !
 
 Par la suite les lignes de code entrées dans l'interpréteur interactif seront
 signalées de 3 chevrons `>>>` et suivies par leurs retours à la ligne suivante.
@@ -76,7 +78,7 @@ signalées de 3 chevrons `>>>` et suivies par leurs retours à la ligne suivante
 
 == II. La notion de variable.
 
-== !
+=== !
 
 * Quand on exécute un programme, la machine
 nous attribue une plage de mémoire dans laquelle
@@ -89,12 +91,12 @@ c'est une mémoire temporaire.
 * La mémoire se compose de cases possédant chacune
 une adresse.
 
-== !
+=== !
 
 * Se référer à nos données à l'aide de leur adresse en mémoire serait beaucoup trop fastidieux. +
 D'où la notion de variable.
 
-== !
+=== !
 
 * Pour stocker des données dans une variable
 il faut attribuer un nom à cette variable
@@ -107,7 +109,7 @@ pas d'accents) et de chiffres, qui doit toujours commencer
 par une lettre, et qui ne contient pas de
 caractères spéciaux en dehors de l'underscore _
 
-== Un calcul d'aire:
+=== Un calcul d'aire:
 
 [source,python]
 ----
@@ -118,7 +120,7 @@ caractères spéciaux en dehors de l'underscore _
 352
 ----
 
-== Tableau de référencement
+=== Tableau de référencement
 |===
 | Nom | Adresse | valeur
 
@@ -136,7 +138,7 @@ caractères spéciaux en dehors de l'underscore _
 |===
 
 
-== !
+=== !
 En général les utilisateurs que nous sommes n’ont que faire de l’adresse mémoire où sont
 stockées les valeurs manipulées et celle-ci restera cachée,
 à moins d’utiliser la fonction id qui la renvoie :
@@ -147,7 +149,7 @@ stockées les valeurs manipulées et celle-ci restera cachée,
 10914688
 ----
 
-== !
+=== !
 
 Une fois définie, la valeur d’une variable peut être modifiée,
 toujours à l’aide de l’opérateur d’affectation.
@@ -161,7 +163,7 @@ toujours à l’aide de l’opérateur d’affectation.
 352
 ----
 
-== !
+=== !
 
 * Le calcul effectué pour l'aire utilise les valeurs des variables au moment où il a été exécuté
 et n’établit en aucune manière une liaison particulière entre les variables elles-mêmes.
@@ -170,7 +172,7 @@ et n’établit en aucune manière une liaison particulière entre les variables
 * Ce mécanisme permet de modifier le contenu d’une variable à l’aide de sa propre valeur,
 comme par exemple :
 
-== !
+=== !
 
 [source,python]
 ----
@@ -186,7 +188,7 @@ longueur = longueur + 1 peut aussi s'écrire
 >>> longueur += 1
 ----
 
-== !
+=== !
 
 * Il est important de bien distinguer le = en mathématiques et l'affectation
 notée = en Python.
@@ -208,7 +210,7 @@ en simultanée, avec la syntaxe suivante:
 * Caractérise la façon dont l'objet est stocké en mémoire.
 * Caractérise les opérations que l'on peut lui appliquer.
 
-== !
+=== !
 
 [source,python]
 ----
@@ -225,7 +227,7 @@ en simultanée, avec la syntaxe suivante:
 * le type int (integer) représente les entiers.
 * le type str (string) pour les chaînes de caractères.
 
-== !
+=== !
 
 Les types sont importants pour définir les opérations que l'on peut faire
 sur des objets:
@@ -238,7 +240,7 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 ----
 
-== !
+=== !
 
 Python possède également un type float, pour les nombres décimaux.
 
@@ -257,7 +259,7 @@ Python possède également un type float, pour les nombres décimaux.
 * On remarque que la "virgule" se note avec un point. (comme sur la calculatrice)
 * On peut additionner un _int_ avec un _float_
 
-== !
+=== !
 
 [source,python]
 ----
@@ -268,7 +270,7 @@ Python possède également un type float, pour les nombres décimaux.
 Attention, une fois entre guillemet un nombre n'est plus du type int ou float
 mais devient une chaîne de caractère.
 
-== Conversion de type
+=== Conversion de type
 
 On peut parfois convertir un type en un autre à l'aide d'une fonction:
 
@@ -280,7 +282,7 @@ On peut parfois convertir un type en un autre à l'aide d'une fonction:
 ----
 
 
-== Le type booléen
+=== Le type booléen
 
 [source,python]
 ----
@@ -292,7 +294,8 @@ On peut parfois convertir un type en un autre à l'aide d'une fonction:
 * bool, pour booléen.
 * Ce type ne peut prendre que deux valeurs: True(vrai) et False(faux)
 
-== !
+=== !
+
 À ce type sont associés trois opérateurs :
 not, and et or qui sont définis par les tables suivantes :
 
@@ -307,7 +310,7 @@ not, and et or qui sont définis par les tables suivantes :
 | False
 |===
 
-== !
+=== !
 
 |===
 | or | True | False
@@ -320,7 +323,7 @@ not, and et or qui sont définis par les tables suivantes :
 | False
 |===
 
-== !
+=== !
 
 Par ailleurs, un certain nombre d’opérateurs sont définis sur d’autres types
 (en particulier les types de nombres) et à valeurs dans le type _bool_.
@@ -333,7 +336,7 @@ True
 False
 ----
 
-== !
+=== !
 
 |===
 | En python | Signification
@@ -357,7 +360,7 @@ False
 | différent de
 |===
 
-== !
+=== !
 
 On peut calculer sur les booléens:
 
@@ -369,7 +372,7 @@ True
 
 == IV. Structure conditionnelle.
 
-== Structures et indentations.
+=== Structures et indentations.
 
 * Les impératifs de la programmation structurée nécessitent la définition de blocs d’instructions au sein des
 structures de contrôles (def, for, while, if, . . .).
@@ -378,7 +381,7 @@ structures de contrôles (def, for, while, if, . . .).
 * Le corps du bloc est alors indenté d’un nombre d’espaces fixes (quatre par défaut), et le
 retour à l’indentation de l’en-tête marque la fin du bloc.
 
-== !
+=== !
 
 [source,python]
 ----
@@ -388,7 +391,7 @@ en−tête:
     d instructions..................
 ----
 
-== !
+=== !
 
 Il est possible d’imbriquer des blocs d’instructions les uns dans les autres :
 
@@ -406,7 +409,7 @@ en−tête:
     ................................
 ----
 
-== Instructions conditionnelles
+=== Instructions conditionnelles
 
 Les instructions conditionnelles se définissent à l’aide de l’instruction `if`
 et prennent la forme suivante :
@@ -426,12 +429,12 @@ de la première ligne s’évalue en 'True',
 le premier bloc d’instructions est exécuté, si elle s’évalue en 'False'
 c’est le second bloc qui est exécuté.
 
-== !
+=== !
 
 L’instruction 'else' est optionnelle si aucune instruction ne doit
 être réalisée dans le cas d’un test négatif.
 
-== Instructions conditonnelles multiples
+=== Instructions conditonnelles multiples
 
 En informatique il est fréquent qu’on ait à imbriquer plusieurs tests,
 aussi existe-t-il en python un mot clé `elif`
@@ -450,7 +453,7 @@ else:
     d instructions 3..
 ----
 
-== !
+=== !
 
 [source,python]
 ----
