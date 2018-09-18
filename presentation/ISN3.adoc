@@ -26,7 +26,7 @@ En algorithmique:
 Pour i variant de 0 a 10
 ----
 
-== Le type `range`
+=== Le type `range`
 
 `range` donne une suite d'entier et peut prendre entre 1 et 3 arguments entiers :
 
@@ -41,7 +41,7 @@ Pour i variant de 0 a 10
 `range(1,10,2)` correspond à [1, 3, 5, 7, 9]
 
 
-== Boucles et range
+=== Boucles et range
 
 Syntaxe du for:
 
@@ -58,7 +58,7 @@ qui va prendre les différentes valeurs de l’énumération produite par l’in
 Pour chacune de ces valeurs, le bloc d’instructions qui suit sera exécuté.
 
 
-== Un premier exemple:
+=== Un premier exemple:
 
 [source,python]
 ----
@@ -66,7 +66,7 @@ for nbr in range(1,5):
     print("Le carre de:", nbr, "est", nbr ** 2)
 ----
 
-== Un premier exemple:
+=== Un premier exemple:
 
 [source,python]
 ----
@@ -84,7 +84,7 @@ Le carre de: 3 est 9
 Le carre de: 4 est 16
 ----
 
-== Parcours d’une chaîne de caractères
+=== Parcours d’une chaîne de caractères
 
 En Python, on peut faire des boucles sur les chaînes de caractères.
 [source,python]
@@ -94,7 +94,7 @@ for c in "Lapie !":
 print("Lapie !")
 ----
 
-== !
+=== !
 
 [source,python]
 ----
@@ -121,7 +121,7 @@ Lapie !
 
 En algorithmique, c'est la boucle `tant que`
 
-== Syntaxe du while
+=== Syntaxe du while
 
 [source,python]
 ----
@@ -133,11 +133,11 @@ while condition:
 
 Tant qu’une certaine condition est réalisée, les instructions sont répétées.
 
-== Boucle infinie
+=== Boucle infinie
 
 Attention il faut vérifier que notre boucle s'arrête !
 
-== !
+=== !
 
 [source,python]
 ----
@@ -148,18 +148,18 @@ print("oui")
 
 Le "oui" ne s'affichera jamais..
 
-== !
+=== !
 
 [source,python]
 ----
 n = 1
 while n < 10 ** 6:
-  n *= 2
+  n = n * 2
   print(n)
 ----
 
 Que fait ce programme ?
 
-== !
+=== !
 
 Il affiche les puissances de 2 inférieurs à un million.

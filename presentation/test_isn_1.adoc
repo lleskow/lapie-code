@@ -1,0 +1,236 @@
+:backend: revealjs
+:revealjs_theme: moon
+:source-highlighter: pygments
+:pygments-style: tango
+
+== Test 1
+
+Prendre une feuille pour indiquer vos réponses.
+
+== Question 1
+
+[source,python]
+----
+a = 4
+a = a + 2
+print(a)
+----
+
+Qu'affiche ce programme ?
+
+== Question 2
+
+[source,python]
+----
+a = 4
+a = a + 2
+print("a")
+----
+
+Qu'affiche ce programme ?
+
+== Question 3
+
+[source,python]
+----
+toto = 42
+----
+
+Quel est le type de la variable `toto` ?
+
+== Question 4
+
+[source,python]
+----
+a = 0
+b = a + 10
+a = 20
+print(b)
+----
+
+Qu'affiche ce programme ?
+
+== Question 5
+
+[source,python]
+----
+a = 5
+if a > 2:
+    print("A")
+else:
+    print("B")
+----
+
+Qu'affiche ce programme ?
+
+== Question 6
+
+[source,python]
+----
+toto = True
+----
+
+Quel est le type de la variable `toto` ?
+
+== Question 7
+
+[source,python]
+----
+a = 0
+if a > 1000:
+    print("A")
+----
+
+Qu'affiche ce programme ?
+
+== Question 8
+
+[source,python]
+----
+a = 8 % 2
+print(a)
+----
+
+Qu'affiche ce programme ?
+
+== Question 9
+
+[source,python]
+----
+toto = "42"
+----
+
+Quel est le type de la variable `toto` ?
+
+== Question 10
+
+[source,python]
+----
+age = input("Votre âge est ?")
+----
+
+Quel est le type de la variable `age` ?
+
+== Solution 1
+
+[source,python]
+----
+a = 4
+a = a + 2
+print(a)
+----
+
+Qu'affiche ce programme ?
+
+*6*
+
+== solution 2
+
+[source,python]
+----
+a = 4
+a = a + 2
+print("a")
+----
+
+Qu'affiche ce programme ?
+
+*a*
+
+== solution 3
+
+[source,python]
+----
+toto = 42
+----
+
+Quel est le type de la variable `toto` ?
+
+*int, integer, entier sont des réponses valables*
+
+== solution 4
+
+[source,python]
+----
+a = 0
+b = a + 10
+a = 20
+print(b)
+----
+
+Qu'affiche ce programme ?
+
+*10*
+
+== solution 5
+
+[source,python]
+----
+a = 5
+if a > 2:
+    print("A")
+else:
+    print("B")
+----
+
+Qu'affiche ce programme ?
+
+*A*
+
+== solution 6
+
+[source,python]
+----
+toto = True
+----
+
+Quel est le type de la variable `toto` ?
+
+*bool et booléen sont des réponses valables*
+
+== solution 7
+
+[source,python]
+----
+a = 0
+if a > 1000:
+    print("A")
+----
+
+Qu'affiche ce programme ?
+
+*rien*
+
+== solution 8
+
+[source,python]
+----
+a = 8 % 2
+print(a)
+----
+
+Qu'affiche ce programme ?
+
+*0 (car c'est le reste de la division euclidienne de 8 par 2)*
+
+== solution 9
+
+[source,python]
+----
+toto = "42"
+----
+
+Quel est le type de la variable `toto` ?
+
+*str, string, chaîne de caractères et chaîne sont des réponses valables*
+
+== solution 10
+
+[source,python]
+----
+age = input("Votre âge est ?")
+----
+
+Quel est le type de la variable `age` ?
+
+*str, string, chaîne de caractères et chaîne sont des réponses valables*

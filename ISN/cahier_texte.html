@@ -2,151 +2,186 @@
 <html lang="fr">
 
 <head>
-  <meta charset="utf-8">
-  <!-- Le charset est à garder en haut de page pour être tout de suite "parsé" -->
-  <title>Lapie Code - Accueil</title>
+    <meta charset="utf-8">
+    <!-- Le charset est à garder en haut de page pour être tout de suite "parsé" -->
+    <title>Lapie Code - Accueil</title>
 
-  <!-- gestion des favicons à l'aide du site suivant (finaliser/tester) -->
-  <!-- https://realfavicongenerator.net/ -->
-  <!-- Il faut en particulier vérifier les / devant favicon, probleme juste en local ?-->
-  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-  <link rel="manifest" href="../manifest.json">
-  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#b2dfdb">
-  <meta name="apple-mobile-web-app-title" content="Lapie Code">
-  <meta name="application-name" content="Lapie Code">
-  <meta name="theme-color" content="#ffffff">
+    <!-- gestion des favicons à l'aide du site suivant (finaliser/tester) -->
+    <!-- https://realfavicongenerator.net/ -->
+    <!-- Il faut en particulier vérifier les / devant favicon, probleme juste en local ?-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#b2dfdb">
+    <meta name="apple-mobile-web-app-title" content="Lapie Code">
+    <meta name="application-name" content="Lapie Code">
+    <meta name="theme-color" content="#ffffff">
 
-  <!-- Fear the robots -->
-  <meta name="robots" content="none" />
+    <!-- Fear the robots -->
+    <meta name="robots" content="none" />
 
-  <!-- Permet d'adapter le site aux portables et tablette -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <!-- Emplacement pour les polices de caractére  -->
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CMontserrat:400,700%7CRoboto:400,500,700" rel="stylesheet">
-  <!-- Permet d'utiliser les icones de google material -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Pour le moment une unique feuille de style semble suffisante -->
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Permet d'adapter le site aux portables et tablette -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Emplacement pour les polices de caractére  -->
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CMontserrat:400,700%7CRoboto:400,500,700" rel="stylesheet">
+    <!-- Permet d'utiliser les icones de google material -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Pour le moment une unique feuille de style semble suffisante -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
 <body>
-  <!-- Sert à pouvoir faire un flexbox sur la page et fixer le footer -->
-  <!-- A remplacer par un grid un jour surement -->
-  <div class="page-conteneur">
+    <!-- Sert à pouvoir faire un flexbox sur la page et fixer le footer -->
+    <!-- A remplacer par un grid un jour surement -->
+    <div class="page-conteneur">
 
-    <!-- L'entete commune, avec un logo à gauche et une bar de navigation à droite. -->
-    <!-- Le tout est fait à grand coup de flexbox (flexbox inception) -->
-    <!-- Le tout est à rendre "responsive". -->
-    <header class="entete-principal">
+        <!-- L'entete commune, avec un logo à gauche et une bar de navigation à droite. -->
+        <!-- Le tout est fait à grand coup de flexbox (flexbox inception) -->
+        <!-- Le tout est à rendre "responsive". -->
+        <header class="entete-principal">
 
-      <!-- Le logo  -->
-      <a href="index.html" class="logo-entete">
-        <p class="logo-texte-entete">lapie</p>
-        <img src="../images/logo-entete.png" alt="Le logo Lapie Code" class="logo-image-entete">
-        <p class="logo-texte-entete">code</p>
-      </a>
+            <!-- Le logo  -->
+            <a href="index.html" class="logo-entete">
+                <p class="logo-texte-entete">lapie</p>
+                <img src="../images/logo-entete.png" alt="Le logo Lapie Code" class="logo-image-entete">
+                <p class="logo-texte-entete">code</p>
+            </a>
 
-      <nav class="nav-principal">
-        <ul class="nav-principal">
-          <li class="nav-principal-list">
-            <a href="index.html" class="nav-principal-lien">Accueil</a>
-          </li>
-          <li class="nav-principal-list">
-            <a href="cours.html" class="nav-principal-lien">Cours</a>
-          </li>
-          <li class="nav-principal-list nav-principal-list--actuelle">
-            <a href="cahier_texte.html" class="nav-principal-lien">Cahier de texte</a>
-          </li>
-          <li class="nav-principal-list">
-            <a href="organisation.html" class="nav-principal-lien">Organisation de l'année</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <!-- Fin du header -->
+            <nav class="nav-principal">
+                <ul class="nav-principal">
+                    <li class="nav-principal-list">
+                        <a href="index.html" class="nav-principal-lien">Accueil</a>
+                    </li>
+                    <li class="nav-principal-list">
+                        <a href="cours.html" class="nav-principal-lien">Cours</a>
+                    </li>
+                    <li class="nav-principal-list nav-principal-list--actuelle">
+                        <a href="cahier_texte.html" class="nav-principal-lien">Cahier de texte</a>
+                    </li>
+                    <li class="nav-principal-list">
+                        <a href="organisation.html" class="nav-principal-lien">Organisation de l'année</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Fin du header -->
 
-    <section class="contenu">
+        <section class="contenu">
 
-      <article class="seance">
-        <header class="seance-header">
-          <h1 class="seance-titre">
+            <article class="seance">
+                <header class="seance-header">
+                    <h1 class="seance-titre">
           Séance du 05 septembre
           </h1>
-        </header>
-        <div class="seance-contenu">
-          <p class="corps-texte">
-            Présentation du déroulé de l'année.
-            <br> Premiers contacts avec Python à l'aide du module turtle.
-          </p>
-        </div>
-        <div class="seance-afaire">
-          <h2>A faire pour le 12 septembre:</h2>
-          <p class="corps-texte">
-            Envoyer un email à l'adresse donnée en classe. Contenant:
-            <ul class="corps-texte-list">
-              <li>nom, prénom;</li>
-              <li>vos projets d'orientations, que ce soit précis ou non, si vous ne savez pas ce que vous voulez faire: indiquez ce que vous ne voulez pas faire;</li>
-              <li>vos éventuelles connaissances et réalisations dans le domaine de l'informatique;</li>
-              <li>le systéme d'exploitation que vous utilisez chez vous si celui ci n'est pas windows;</li>
-              <li>un lien vers votre trinket de la séance 1.</li>
-            </ul>
-          </p>
-        </div>
-        <!-- <div class="seance-du">
+                </header>
+                <div class="seance-contenu">
+                    <p class="corps-texte">
+                        Présentation du déroulé de l'année.
+                        <br> Premiers contacts avec Python à l'aide du module turtle.
+                    </p>
+                </div>
+                <div class="seance-afaire">
+                    <h2>A faire pour le 12 septembre:</h2>
+                    <p class="corps-texte">
+                        Envoyer un email à l'adresse donnée en classe. Contenant:
+                        <ul class="corps-texte-list">
+                            <li>nom, prénom;</li>
+                            <li>vos projets d'orientations, que ce soit précis ou non, si vous ne savez pas ce que vous voulez faire: indiquez ce que vous ne voulez pas faire;</li>
+                            <li>vos éventuelles connaissances et réalisations dans le domaine de l'informatique;</li>
+                            <li>le systéme d'exploitation que vous utilisez chez vous si celui ci n'est pas windows;</li>
+                            <li>un lien vers votre trinket de la séance 1.</li>
+                        </ul>
+                    </p>
+                </div>
+                <!-- <div class="seance-du">
           <h2>A faire pour cette séance:</h2>
           <p class="corps-texte">
             Encore des exercices.
           </p>
         </div> -->
-      </article>
-      <!-- Fin de l'article seance du 05 septembre -->
+            </article>
+            <!-- Fin de l'article seance du 05 septembre -->
 
-      <article class="seance">
-        <header class="seance-header">
-          <h1 class="seance-titre">
+            <article class="seance">
+                <header class="seance-header">
+                    <h1 class="seance-titre">
           Séance du 12 septembre
           </h1>
-        </header>
-        <div class="seance-contenu">
-          <p class="corps-texte">
-            Notions de variable, d'affectation et de type.
-            <br> Entrée/Sortie basiques.
-            <br> Présentation du type booléen et des structures conditionnelles.
-          </p>
-        </div>
-        <div class="seance-afaire">
-          <h2>A faire pour le 19 septembre:</h2>
-          <p class="corps-texte">
-            Interrogation blanche sur le contenu de la séance.
-            <br> Présentation du type booléen et des structures conditionnelles.
-          </p>
-          <p class="corps-texte">
-            Sur France-ioi: Dans le parcours lycée, niveau I. Tout les exercices
-             de la partie Affichage de texte, suite d'instructions sauf les
-            challenges. Attention, cela est noté.
-          </p>
-        </div>
-        <div class="seance-du">
-          <h2>A faire pour cette séance:</h2>
-          <p class="corps-texte">
-            Envoie d'un mail de contact.
-            <br> Voir le cahier de texte de la séance précédente pour les détails.
-          </p>
-        </div>
-      </article>
-      <!-- Fin de l'article seance du 12 septembre -->
-    </section>
-    <!-- Fin de la section  contenu -->
+                </header>
+                <div class="seance-contenu">
+                    <p class="corps-texte">
+                        Notions de variable, d'affectation et de type.
+                        <br> Entrée/Sortie basiques.
+                        <br> Présentation du type booléen et des structures conditionnelles.
+                    </p>
+                </div>
+                <div class="seance-afaire">
+                    <h2>A faire pour le 19 septembre:</h2>
+                    <p class="corps-texte">
+                        Interrogation blanche sur le contenu de la séance.
+                        <br> Présentation du type booléen et des structures conditionnelles.
+                    </p>
+                    <p class="corps-texte">
+                        Sur France-ioi: Dans le parcours lycée, niveau I. Tout les exercices de la partie Affichage de texte, suite d'instructions sauf les challenges. Attention, cela est noté.
+                    </p>
+                </div>
+                <div class="seance-du">
+                    <h2>A faire pour cette séance:</h2>
+                    <p class="corps-texte">
+                        Envoie d'un mail de contact.
+                        <br> Voir le cahier de texte de la séance précédente pour les détails.
+                    </p>
+                </div>
+            </article>
+            <!-- Fin de l'article seance du 12 septembre -->
 
-    <footer class="footer-principal">
-      <a href="/mentions_legales.html" class="footer-principal-lien">L. Leskow - 2017 - Mentions légales</a>
-    </footer>
-    <!-- Fin du footer  -->
 
-  </div>
-  <!-- Fin du conteneur de la page -->
+            <article class="seance">
+                <header class="seance-header">
+                    <h1 class="seance-titre">
+          Séance du 19 septembre
+          </h1>
+                </header>
+                <div class="seance-contenu">
+                    <p class="corps-texte">
+                        Structures itératives: boucle 'for' et 'while'.
+                        <br> Eléments sur la manipulation des chaînes de caractères et sur la fonction 'print'.
+                    </p>
+                </div>
+                <div class="seance-afaire">
+                    <h2>A faire pour le 26 septembre:</h2>
+                    <p class="corps-texte">
+                        Interrogation sur le contenu de cette séance et de la précédente.
+                    </p>
+
+                    <p class="corps-texte">
+                        Sur France-ioi: Dans le parcours lycée, niveau I. Tout les exercices de la partie 2 Répétitions d'instructions sauf les challenges. Attention, cela est noté.
+                    </p>
+                </div>
+                <div class="seance-du">
+                    <h2>A faire pour cette séance:</h2>
+                    <p class="corps-texte">
+                        Interrogation blanche sur le contenu de la séance.
+                        <br> Présentation du type booléen et des structures conditionnelles.
+                    </p>
+                    <p class="corps-texte">
+                        Sur France-ioi: Dans le parcours lycée, niveau I. Tout les exercices de la partie Affichage de texte, suite d'instructions sauf les challenges. Attention, cela est noté.
+                    </p>
+                </div>
+            </article>
+            <!-- Fin de l'article seance du 20 septembre -->
+
+        </section>
+        <!-- Fin de la section  contenu -->
+
+        <footer class="footer-principal">
+            <a href="/mentions_legales.html" class="footer-principal-lien">L. Leskow - 2017 - Mentions légales</a>
+        </footer>
+        <!-- Fin du footer  -->
+
+    </div>
+    <!-- Fin du conteneur de la page -->
 </body>
 
 </html>

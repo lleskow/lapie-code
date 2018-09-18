@@ -9,10 +9,8 @@
 .listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
 .listingblock .pygments .tok-x { color: #000000 } /* Other */
 .listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
-.listingblock .pygments .tok-ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
 .listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
 .listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
-.listingblock .pygments .tok-cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
 .listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
 .listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
 .listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
@@ -55,10 +53,8 @@
 .listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
 .listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
 .listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
-.listingblock .pygments .tok-sa { color: #4e9a06 } /* Literal.String.Affix */
 .listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
 .listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
-.listingblock .pygments .tok-dl { color: #4e9a06 } /* Literal.String.Delimiter */
 .listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
 .listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
 .listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
@@ -69,48 +65,39 @@
 .listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
 .listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
 .listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
-.listingblock .pygments .tok-fm { color: #000000 } /* Name.Function.Magic */
 .listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
 .listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
 .listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
-.listingblock .pygments .tok-vm { color: #000000 } /* Name.Variable.Magic */
 .listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Chapitre I</h1><h2>Langages et programmation I</h2></section><section id="_v_structures_itratives"><h2>V. Structures itératives</h2></section>
 <section><div class="paragraph"><p>Une boucle permet de répéter des instructions.<br>
 Il y a deux cas possibles:</p></div>
 <div class="ulist"><ul><li class="fragment"><p>Le nombre de répétition est connu.<br>
 On parle de boucle énumérée.</p></li><li class="fragment"><p>Le nombre de répétition dépend de la réalisation ou non d’une certaine condition.<br>
 On parle de boucle conditionnelle.</p></li></ul></div></section>
-<section id="_1_boucles_numres_code_for_code"><h2>1. Boucles énumérées: <code>for</code></h2><div class="paragraph"><p>En algorithmique:</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">Pour</span> <span class="tok-n">i</span> <span class="tok-n">variant</span> <span class="tok-n">de</span> <span class="tok-mi">0</span> <span class="tok-n">a</span> <span class="tok-mi">10</span></code></pre></div></div></section>
-<section id="_le_type_code_range_code"><h2>Le type <code>range</code></h2><div class="paragraph"><p><code>range</code> donne une suite d&#8217;entier et peut prendre entre 1 et 3 arguments entiers :</p></div>
+<section><section id="_1_boucles_numres_code_for_code"><h2>1. Boucles énumérées: <code>for</code></h2><div class="paragraph"><p>En algorithmique:</p></div><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">Pour</span> <span class="tok-n">i</span> <span class="tok-n">variant</span> <span class="tok-n">de</span> <span class="tok-mi">0</span> <span class="tok-n">a</span> <span class="tok-mi">10</span></code></pre></div></div></section><section id="_le_type_code_range_code"><h2>Le type <code>range</code></h2><div class="paragraph"><p><code>range</code> donne une suite d&#8217;entier et peut prendre entre 1 et 3 arguments entiers :</p></div>
 <div class="ulist"><ul><li class="fragment"><p><code>range(b)</code> commence par 0 et s&#8217;arrête juste avant <code>b</code><br>
 <code>range(5)</code> correspond à [0, 1, 2, 3, 4]</p></li><li class="fragment"><p><code>range(a,b)</code> commence par <code>a</code> et s&#8217;arrête juste avant <code>b</code><br>
 <code>range(2,7)</code> correspond à [2, 3, 4, 5, 6]</p></li><li class="fragment"><p><code>range(a,b,c)</code> commence par <code>a</code> et s&#8217;arrête juste avant <code>b</code> avec un pas de <code>c</code><br>
-<code>range(1,10,2)</code> correspond à [1, 3, 5, 7, 9]</p></li></ul></div></section>
-<section id="_boucles_et_range"><h2>Boucles et range</h2><div class="paragraph"><p>Syntaxe du for:</p></div>
+<code>range(1,10,2)</code> correspond à [1, 3, 5, 7, 9]</p></li></ul></div></section><section id="_boucles_et_range"><h2>Boucles et range</h2><div class="paragraph"><p>Syntaxe du for:</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-o">...</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-o">...</span><span class="tok-p">):</span>
     <span class="tok-n">bloc</span><span class="tok-o">..........................</span>
     <span class="tok-o">..............................</span>
     <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">...............</span></code></pre></div></div>
 <div class="paragraph"><p>Immédiatement après le mot-clé <code>for</code> doit figurer le nom d’une variable,
 qui va prendre les différentes valeurs de l’énumération produite par l’instruction <code>range</code>.
-Pour chacune de ces valeurs, le bloc d’instructions qui suit sera exécuté.</p></div></section>
-<section id="_un_premier_exemple"><h2>Un premier exemple:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-n">nbr</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">):</span>
-    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Le carre de:&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span><span class="tok-p">,</span> <span class="tok-s2">&quot;est&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span> <span class="tok-o">**</span> <span class="tok-mi">2</span><span class="tok-p">)</span></code></pre></div></div></section>
-<section id="_un_premier_exemple_2"><h2>Un premier exemple:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-n">nbr</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">):</span>
-    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Le carre de:&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span><span class="tok-p">,</span> <span class="tok-s2">&quot;est&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span> <span class="tok-o">**</span> <span class="tok-mi">2</span><span class="tok-p">)</span></code></pre></div></div>
+Pour chacune de ces valeurs, le bloc d’instructions qui suit sera exécuté.</p></div></section><section id="_un_premier_exemple"><h2>Un premier exemple:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-n">nbr</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">):</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;Le carre de:&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span><span class="tok-p">,</span> <span class="tok-s">&quot;est&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span> <span class="tok-o">**</span> <span class="tok-mi">2</span><span class="tok-p">)</span></code></pre></div></div></section><section id="_un_premier_exemple_2"><h2>Un premier exemple:</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-n">nbr</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">):</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;Le carre de:&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span><span class="tok-p">,</span> <span class="tok-s">&quot;est&quot;</span><span class="tok-p">,</span> <span class="tok-n">nbr</span> <span class="tok-o">**</span> <span class="tok-mi">2</span><span class="tok-p">)</span></code></pre></div></div>
 <div class="paragraph"><p>Va donner:</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">Le</span> <span class="tok-n">carre</span> <span class="tok-n">de</span><span class="tok-p">:</span> <span class="tok-mi">1</span> <span class="tok-n">est</span> <span class="tok-mi">1</span>
 <span class="tok-n">Le</span> <span class="tok-n">carre</span> <span class="tok-n">de</span><span class="tok-p">:</span> <span class="tok-mi">2</span> <span class="tok-n">est</span> <span class="tok-mi">4</span>
 <span class="tok-n">Le</span> <span class="tok-n">carre</span> <span class="tok-n">de</span><span class="tok-p">:</span> <span class="tok-mi">3</span> <span class="tok-n">est</span> <span class="tok-mi">9</span>
-<span class="tok-n">Le</span> <span class="tok-n">carre</span> <span class="tok-n">de</span><span class="tok-p">:</span> <span class="tok-mi">4</span> <span class="tok-n">est</span> <span class="tok-mi">16</span></code></pre></div></div></section>
-<section id="_parcours_d_une_chane_de_caractres"><h2>Parcours d’une chaîne de caractères</h2><div class="paragraph"><p>En Python, on peut faire des boucles sur les chaînes de caractères.</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-n">c</span> <span class="tok-ow">in</span> <span class="tok-s2">&quot;Lapie !&quot;</span><span class="tok-p">:</span>
-  <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Je veux un:&quot;</span><span class="tok-p">,</span><span class="tok-n">c</span><span class="tok-p">)</span>
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Lapie !&quot;</span><span class="tok-p">)</span></code></pre></div></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-n">c</span> <span class="tok-ow">in</span> <span class="tok-s2">&quot;Lapie !&quot;</span><span class="tok-p">:</span>
-  <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Je veux un:&quot;</span><span class="tok-p">,</span><span class="tok-n">c</span><span class="tok-p">)</span>
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Lapie !&quot;</span><span class="tok-p">)</span></code></pre></div></div>
+<span class="tok-n">Le</span> <span class="tok-n">carre</span> <span class="tok-n">de</span><span class="tok-p">:</span> <span class="tok-mi">4</span> <span class="tok-n">est</span> <span class="tok-mi">16</span></code></pre></div></div></section><section id="_parcours_d_une_chane_de_caractres"><h2>Parcours d’une chaîne de caractères</h2><div class="paragraph"><p>En Python, on peut faire des boucles sur les chaînes de caractères.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-n">c</span> <span class="tok-ow">in</span> <span class="tok-s">&quot;Lapie !&quot;</span><span class="tok-p">:</span>
+  <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;Je veux un:&quot;</span><span class="tok-p">,</span><span class="tok-n">c</span><span class="tok-p">)</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;Lapie !&quot;</span><span class="tok-p">)</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">for</span> <span class="tok-n">c</span> <span class="tok-ow">in</span> <span class="tok-s">&quot;Lapie !&quot;</span><span class="tok-p">:</span>
+  <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;Je veux un:&quot;</span><span class="tok-p">,</span><span class="tok-n">c</span><span class="tok-p">)</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;Lapie !&quot;</span><span class="tok-p">)</span></code></pre></div></div>
 <div class="paragraph"><p>Donne:</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">Je</span> <span class="tok-n">veux</span> <span class="tok-n">un</span><span class="tok-p">:</span> <span class="tok-n">L</span>
 <span class="tok-n">Je</span> <span class="tok-n">veux</span> <span class="tok-n">un</span><span class="tok-p">:</span> <span class="tok-n">a</span>
@@ -119,24 +106,19 @@ Pour chacune de ces valeurs, le bloc d’instructions qui suit sera exécuté.</
 <span class="tok-n">Je</span> <span class="tok-n">veux</span> <span class="tok-n">un</span><span class="tok-p">:</span> <span class="tok-n">e</span>
 <span class="tok-n">Je</span> <span class="tok-n">veux</span> <span class="tok-n">un</span><span class="tok-p">:</span>
 <span class="tok-n">Je</span> <span class="tok-n">veux</span> <span class="tok-n">un</span><span class="tok-p">:</span> <span class="tok-err">!</span>
-<span class="tok-n">Lapie</span> <span class="tok-err">!</span></code></pre></div></div></section>
-<section id="_2_boucles_conditionnelles_code_while_code"><h2>2. Boucles conditionnelles: <code>While</code></h2><div class="paragraph"><p>En algorithmique, c&#8217;est la boucle <code>tant que</code></p></div></section>
-<section id="_syntaxe_du_while"><h2>Syntaxe du while</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">while</span> <span class="tok-n">condition</span><span class="tok-p">:</span>
+<span class="tok-n">Lapie</span> <span class="tok-err">!</span></code></pre></div></div></section></section>
+<section><section id="_2_boucles_conditionnelles_code_while_code"><h2>2. Boucles conditionnelles: <code>While</code></h2><div class="paragraph"><p>En algorithmique, c&#8217;est la boucle <code>tant que</code></p></div></section><section id="_syntaxe_du_while"><h2>Syntaxe du while</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">while</span> <span class="tok-n">condition</span><span class="tok-p">:</span>
     <span class="tok-n">bloc</span><span class="tok-o">..........................</span>
     <span class="tok-o">..............................</span>
     <span class="tok-n">d</span> <span class="tok-n">instructions</span> <span class="tok-o">...............</span></code></pre></div></div>
-<div class="paragraph"><p>Tant qu’une certaine condition est réalisée, les instructions sont répétées.</p></div></section>
-<section id="_boucle_infinie"><h2>Boucle infinie</h2><div class="paragraph"><p>Attention il faut vérifier que notre boucle s&#8217;arrête !</p></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">while</span> <span class="tok-mi">2</span> <span class="tok-o">==</span> <span class="tok-mi">1</span> <span class="tok-o">+</span> <span class="tok-mi">1</span><span class="tok-p">:</span>
-    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;on s&#39;arrête ?&quot;</span><span class="tok-p">)</span>
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;oui&quot;</span><span class="tok-p">)</span></code></pre></div></div>
-<div class="paragraph"><p>Le "oui" ne s&#8217;affichera jamais..</p></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-mi">1</span>
+<div class="paragraph"><p>Tant qu’une certaine condition est réalisée, les instructions sont répétées.</p></div></section><section id="_boucle_infinie"><h2>Boucle infinie</h2><div class="paragraph"><p>Attention il faut vérifier que notre boucle s&#8217;arrête !</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">while</span> <span class="tok-mi">2</span> <span class="tok-o">==</span> <span class="tok-mi">1</span> <span class="tok-o">+</span> <span class="tok-mi">1</span><span class="tok-p">:</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;on s&#39;arrête ?&quot;</span><span class="tok-p">)</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s">&quot;oui&quot;</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>Le "oui" ne s&#8217;affichera jamais..</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-mi">1</span>
 <span class="tok-k">while</span> <span class="tok-n">n</span> <span class="tok-o">&lt;</span> <span class="tok-mi">10</span> <span class="tok-o">**</span> <span class="tok-mi">6</span><span class="tok-p">:</span>
-  <span class="tok-n">n</span> <span class="tok-o">*=</span> <span class="tok-mi">2</span>
+  <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-n">n</span> <span class="tok-o">*</span> <span class="tok-mi">2</span>
   <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">)</span></code></pre></div></div>
-<div class="paragraph"><p>Que fait ce programme ?</p></div></section>
-<section><div class="paragraph"><p>Il affiche les puissances de 2 inférieurs à un million.</p></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<div class="paragraph"><p>Que fait ce programme ?</p></div></section><section><div class="paragraph"><p>Il affiche les puissances de 2 inférieurs à un million.</p></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,
