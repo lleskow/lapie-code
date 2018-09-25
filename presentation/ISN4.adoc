@@ -7,11 +7,74 @@
 
 == 1. Introduction
 
-Il arrive souvent qu'une suite d'instruction doive être utilisée à plusieurs
-reprises dans un ou des programmes.
+Observons le code suivant:
 
-Pour ne pas avoir à se répéter une solution consiste à utiliser une fonction.
-Une fonction est une portion de code que l'on peut appeler au besoin (c'est une sorte de sous-programme).
+link:https://trinket.io/library/trinkets/6d7c32db00[Liste des vols]
+
+=== !
+
+
+L'instruction est répété trois fois.
+
+[source,python]
+----
+print("----------------------------------------")
+print()
+print()
+----
+
+Si on décide de modifier l'affichage, il faut le modifier trois fois !
+
+=== !
+
+Au lieu de répéter la totalité de cette instruction, on va:
+
+* lui donner un nom
+* puis la remplacer par ce nom à chaque fois qu’elle est utilisée.
+
+link:https://trinket.io/library/trinkets/7eb2dd4a2f[Ce qui donne.]
+
+=== Corps d'une fonction
+
+L’instruction
+[source,python]
+----
+print("----------------------------------------")
+print()
+print()
+----
+que l’on isole par la définition de la fonction tirer_trait s’appelle le
+*corps* de cette fonction.
+
+== Appel d’une fonction
+
+L’instruction `tirer_trait()` s’appelle un appel de la fonction `tirer_trait`.
+Exécuter cette instruction a pour effet d’exécuter le corps de la fonction.
+
+=== !
+
+On remarque que le reste du code est très proche, mais pas identique.
+
+On va paramétrer l’instruction que l’on isole pour pouvoir choisir la
+destination et l’horaire du vol.
+
+=== !
+
+On parle *d'arguments* ou de *paramètres* de la fonction.
+C'est un peu la même chose que la variable d'une fonction en mathématiques
+
+=== !
+
+[source,python]
+----
+def annoncer_vol(destination, horaire):
+  print("Le vol en direction de ", destination, " décollera à ", horaire)
+  tirer_trait()
+----
+
+link:https://trinket.io/library/trinkets/e0a45e111f[Ce qui donne.]
+
+=== !
 
 Nous avons déjà vu beaucoup de fonctions : `print()`, `type()`, `input()`, ...
 
@@ -26,11 +89,11 @@ def nomdelafcn(param1, param2, param3):
   a realiser .....................
 ----
 
-== !
+=== !
 
 Une fonction peut ne pas avoir de paramètre, en avoir un, en avoir deux, ...
 
-== Sans paramètre
+=== Sans paramètre
 
 [source,python]
 ----
@@ -38,7 +101,7 @@ def bonjour():
   print("hello")
 ----
 
-== Retour
+=== Retour
 
 Une fonction peut aussi renvoyer un ou des objets avec l'instruction `return`.
 
@@ -51,7 +114,7 @@ def nomdelafcn(param1, param2, param3):
   return une expression
 ----
 
-== !
+=== !
 
 [source,python]
 ----
@@ -78,8 +141,7 @@ print("hey") #moi aussi
 print("#pas moi, car je suis entre des guillements")
 ----
 
-
-== Commentaires et fonctions
+=== Commentaires et fonctions
 
 Avec la syntaxe suivante:
 
@@ -104,7 +166,7 @@ On ajoute un commentaire sensé décrire la fonction et qui apparaitra dans l'ai
 * Les variables définies dans le bloc d'instruction d'une fonction, n'ont qu'une portée locale.
 * Autrement dit, leur contenu est inaccessible depuis l’extérieur de la fonction.
 
-== !
+=== !
 
 [source,python]
 ----
@@ -117,7 +179,7 @@ print(carre)
 
 Ce code produit l'erreur: NameError: name 'carre' is not defined
 
-== !
+=== !
 
 [source,python]
 ----
@@ -140,12 +202,12 @@ def mafonction():
 
 == VII. Utilisation d’un module
 
-== !
+=== !
 
 `import` permet d'accéder à des fonctions, variables... déjà codé. +
 L’importation d’un module peut se faire de deux manières.
 
-== Méthode 1:
+=== Méthode 1:
 
 On désigne le module à importer par son nom, il faut préfixer par son nom à chaque fois:
 
@@ -157,7 +219,7 @@ y = math.cos(0)
 print(x,y)
 ----
 
-== Méthode 2:
+=== Méthode 2:
 
 `from import` permet d'importer des fonctionnalités précises
 Dans le cas d’un import de plusieurs fonctionnalités,les noms sont séparés par des virgules.
@@ -169,7 +231,7 @@ x = sin(0)
 print(x)
 ----
 
-== !
+=== !
 
 Enfin, il est possible d’importer, avec cette seconde approche,
 tous les éléments d’un module en utilisant la notation *
