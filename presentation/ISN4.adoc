@@ -46,7 +46,7 @@ print()
 que l’on isole par la définition de la fonction tirer_trait s’appelle le
 *corps* de cette fonction.
 
-== Appel d’une fonction
+=== Appel d’une fonction
 
 L’instruction `tirer_trait()` s’appelle un appel de la fonction `tirer_trait`.
 Exécuter cette instruction a pour effet d’exécuter le corps de la fonction.
