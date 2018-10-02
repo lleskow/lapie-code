@@ -1,0 +1,127 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "30000"
+
+== Question 1
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = 4x + 7]*
+
+Calculer stem:[f'(x)]
+
+
+== Question 2
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = x^2]*
+
+Calculer stem:[f'(x)]
+
+
+== Question 3
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = -x^2 + 11x + 3]*
+
+Calculer stem:[f'(x)]
+
+
+== Question 4
+
+stem:[\forall x > 0,] *stem:[\quad f(x) =  \sqrt{x}]*
+
+Calculer stem:[f'(x)]
+
+== Question 5
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  6 - 2x]*
+
+Calculer stem:[f'(x)]
+
+
+== Question 6
+
+stem:[(u\times v)' =  ?]
+
+== Question 7
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  4x^3]*
+
+Calculer stem:[f'(x)]
+
+== Question 8
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  10x^3 + x^2 +9x - 5]*
+
+Calculer stem:[f'(x)]
+
+== Question 9
+
+stem:[\forall x \in \mathbb{R}^*,] *stem:[\quad f(x) =  \frac{1}{x}]*
+
+Calculer stem:[f'(x)]
+
+== Question 10
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  \frac{2}{3}]*
+
+Calculer stem:[f'(x)]
+
+== Solution 1
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = 4x + 7]*
+
+stem:[f'(x) =  4]
+
+== Solution 2
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = x^2]*
+
+stem:[f'(x) = 2x]
+
+
+== Solution 3
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = -x^2 + 11x + 3]*
+
+stem:[f'(x) = -2x + 11]
+
+
+== Solution 4
+
+stem:[\forall x > 0] *stem:[\quad f(x) =  \sqrt{x}]*
+
+stem:[f'(x) = \frac{1}{2\sqrt{x}}]
+
+== Solution 5
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  6 - 2x]*
+
+stem:[f'(x) = -2]
+
+
+== Solution 6
+
+stem:[(u\times v)' =  u'v + v'u]
+
+== Solution 7
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  4x^3]*
+
+stem:[f'(x) = 12x^2]
+
+== Solution 8
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  10x^3 + x^2 +9x - 5]*
+
+stem:[f'(x) = 30x^2+2x+9]
+
+== Solution 9
+
+stem:[\forall x \in \mathbb{R}^*,] *stem:[\quad f(x) =  \frac{1}{x}]*
+
+stem:[f'(x) = -\frac{1}{x^2}]
+
+== Solution 10
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  \frac{2}{3}]*
+
+stem:[f'(x) = 0]
