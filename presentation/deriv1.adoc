@@ -1,0 +1,130 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "30000"
+
+== Question 1
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = 6x + 3]*
+
+Calculer stem:[f'(x)]
+
+
+== Question 2
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = x^3]*
+
+Calculer stem:[f'(x)]
+
+
+== Question 3
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = 2x^2 - 3x + 1]*
+
+Calculer stem:[f'(x)]
+
+
+== Question 4
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  -5]*
+
+Calculer stem:[f'(x)]
+
+== Question 5
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  7 - x]*
+
+Calculer stem:[f'(x)]
+
+
+== Question 6
+
+stem:[(u\times v)' =  ?]
+
+== Question 7
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  3x^4]*
+
+Calculer stem:[f'(x)]
+
+== Question 8
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  2x^3 + 4x^2 +5x - 2]*
+
+Calculer stem:[f'(x)]
+
+== Question 9
+
+stem:[(\frac{u}{v})' =  ?]
+
+== Question 10
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  \frac{3}{2}]*
+
+Calculer stem:[f'(x)]
+
+== Solution 1
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = 6x + 3]*
+
+stem:[f'(x) = 6]
+
+
+== Solution 2
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = x^3]*
+
+stem:[f'(x) = 3x^2]
+
+
+== Solution 3
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) = 2x^2 - 3x + 1]*
+
+stem:[f'(x) = 2\times 2x - 3]
+
+stem:[f'(x) = 4x - 3]
+
+
+== Solution 4
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  -5]*
+
+stem:[f'(x) = 0]
+
+== Solution 5
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  7 - x]*
+
+stem:[f'(x) = -1]
+
+
+== Solution 6
+
+stem:[(u\times v)' =  u'v + v'u]
+
+== Solution 7
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  3x^4]*
+
+stem:[f'(x) = 3\times 4 x^3]
+
+stem:[f'(x) = 12x^3]
+
+== Solution 8
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  2x^3 + 4x^2 +5x - 2]*
+
+stem:[f'(x) = 2\times 3 x^2 + 4 \times 2x + 5]
+
+stem:[f'(x) = 6x^2 + 8x + 5]
+
+== Solution 9
+
+stem:[(\frac{u}{v})' =  \frac{u'v-v'u}{v^2}]
+
+== Solution 10
+
+stem:[\forall x \in \mathbb{R},] *stem:[\quad f(x) =  \frac{3}{2}]*
+
+stem:[f'(x) = 0]
