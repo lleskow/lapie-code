@@ -147,13 +147,55 @@ On peut créer une liste vide:
 >>> ma_liste = []
 ----
 
+== Compléments sur les chaînes de caractéres:
+
+Les chaînes de caractères se comportent comme les listes, à l'exception
+qu'elles ne sont pas modifiables.
+
 == !
 
-On peut créer une liste contenant n: 0, de la sorte:
+On peut donc accéder au i-éme élément d'une chaîne de caractère _mot_ à l'aide de `mot[i]`
+mais on ne peut pas modifier `mot[i]`.
+
 [source,python]
 ----
->>> n = 5
->>> ma_liste = [0 for i in range(n)]
->>> ma_liste
-[0, 0, 0, 0, 0]
+>>> toto = "hello !"
+>>> toto[0]
+ 'h'
+----
+
+== !
+
+On peut aussi par exemple, obtenir le nombre de caractère dans la chaîne:
+
+[source,python]
+----
+>>> len(toto)
+ 7
+----
+
+== !
+
+Par contre `mot.append(_val_)` ou `del(mot[2])` ne vont pas marcher,
+ car la chaîne n'est pas modifiable.
+
+[source,python]
+----
+>>> toto.append("world")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'append'
+----
+
+== !
+
+On peut déterminer si un caractère appartient à une chaîne à l'aide de
+l'opérateur in.
+
+[source,python]
+----
+>>> "a" in "toto"
+False
+>>> "o" in "toto"
+True
 ----

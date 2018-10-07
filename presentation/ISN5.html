@@ -9,10 +9,8 @@
 .listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
 .listingblock .pygments .tok-x { color: #000000 } /* Other */
 .listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
-.listingblock .pygments .tok-ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
 .listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
 .listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
-.listingblock .pygments .tok-cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
 .listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
 .listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
 .listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
@@ -55,10 +53,8 @@
 .listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
 .listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
 .listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
-.listingblock .pygments .tok-sa { color: #4e9a06 } /* Literal.String.Affix */
 .listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
 .listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
-.listingblock .pygments .tok-dl { color: #4e9a06 } /* Literal.String.Delimiter */
 .listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
 .listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
 .listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
@@ -69,45 +65,43 @@
 .listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
 .listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
 .listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
-.listingblock .pygments .tok-fm { color: #000000 } /* Name.Function.Magic */
 .listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
 .listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
 .listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
-.listingblock .pygments .tok-vm { color: #000000 } /* Name.Variable.Magic */
 .listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>VIII. Listes</h1></section><section id="_dfinition_et_syntaxe"><h2>Définition et syntaxe</h2><div class="paragraph"><p>Une liste est une "collection" d&#8217;objets indicés.</p></div>
 <div class="paragraph"><p>La syntaxe est la suivante:</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;PQ&quot;</span> <span class="tok-p">]</span></code></pre></div></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;PQ&quot;</span> <span class="tok-p">]</span>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;PQ&quot;</span> <span class="tok-p">]</span></code></pre></div></div></section>
+<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;PQ&quot;</span> <span class="tok-p">]</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">course</span><span class="tok-p">)</span>
-<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">list</span><span class="tok-s1">&#39;&gt;</span></code></pre></div></div>
+<span class="tok-o">&lt;</span><span class="tok-k">class</span> <span class="tok-err">&#39;</span><span class="tok-nc">list</span><span class="tok-s">&#39;&gt;</span></code></pre></div></div>
 <div class="paragraph"><p>Le type <code>list</code> est un type composite, il rassemble des objets d&#8217;autres types.</p></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">ma_liste</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-mi">42</span><span class="tok-p">,</span> <span class="tok-s2">&quot;toto&quot;</span><span class="tok-p">,</span> <span class="tok-p">[</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">]]</span></code></pre></div></div>
+<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">ma_liste</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-mi">42</span><span class="tok-p">,</span> <span class="tok-s">&quot;toto&quot;</span><span class="tok-p">,</span> <span class="tok-p">[</span><span class="tok-mi">4</span><span class="tok-p">,</span><span class="tok-mi">5</span><span class="tok-p">]]</span></code></pre></div></div>
 <div class="paragraph"><p>Une liste peut contenir plusieurs types différents, dont des listes.</p></div></section>
 <section id="_accder"><h2>Accéder</h2><div class="paragraph"><p>On peut accéder à un élément particulier d&#8217;une liste à l&#8217;aide de son index dans la liste:</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;PQ&quot;</span> <span class="tok-p">]</span>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;PQ&quot;</span> <span class="tok-p">]</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">]</span>
-<span class="tok-s1">&#39;PQ&#39;</span></code></pre></div></div></section>
-<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;PQ&quot;</span> <span class="tok-p">]</span>
+<span class="tok-s">&#39;PQ&#39;</span></code></pre></div></div></section>
+<section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s">&quot;beurre&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;tomates&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;PQ&quot;</span> <span class="tok-p">]</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">]</span>
-<span class="tok-s1">&#39;beurre&#39;</span></code></pre></div></div>
+<span class="tok-s">&#39;beurre&#39;</span></code></pre></div></div>
 <div class="paragraph"><p>Attention on commence à compter à partir de 0.</p></div></section>
 <section id="_modifier"><h2>Modifier</h2><div class="paragraph"><p>On peut modifier un élément de la liste de la sorte:</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;carrotes&quot;</span>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s">&quot;carrotes&quot;</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span>
- <span class="tok-p">[</span><span class="tok-s1">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;PQ&#39;</span><span class="tok-p">]</span></code></pre></div></div></section>
+ <span class="tok-p">[</span><span class="tok-s">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;PQ&#39;</span><span class="tok-p">]</span></code></pre></div></div></section>
 <section id="_ajouter"><h2>Ajouter</h2><div class="paragraph"><p>On peut ajouter un élément à la fin de la liste de la sorte:</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-s2">&quot;lait&quot;</span><span class="tok-p">)</span>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-s">&quot;lait&quot;</span><span class="tok-p">)</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span>
- <span class="tok-p">[</span><span class="tok-s1">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;PQ&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;lait&#39;</span><span class="tok-p">]</span></code></pre></div></div></section>
+ <span class="tok-p">[</span><span class="tok-s">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;PQ&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;lait&#39;</span><span class="tok-p">]</span></code></pre></div></div></section>
 <section id="_supprimer"><h2>Supprimer</h2><div class="paragraph"><p>Et supprimer un élément selon son indice:</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-k">del</span><span class="tok-p">(</span><span class="tok-n">course</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">])</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span>
- <span class="tok-p">[</span><span class="tok-s1">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;lait&#39;</span><span class="tok-p">]</span></code></pre></div></div></section>
+ <span class="tok-p">[</span><span class="tok-s">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;lait&#39;</span><span class="tok-p">]</span></code></pre></div></div></section>
 <section id="_conatner"><h2>Conaténer</h2><div class="paragraph"><p>On peut concaténer des listes avec les opérations + et *</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">oubli</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;huile&quot;</span><span class="tok-p">,</span><span class="tok-s2">&quot;PQ&quot;</span><span class="tok-p">]</span>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">oubli</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s">&quot;huile&quot;</span><span class="tok-p">,</span><span class="tok-s">&quot;PQ&quot;</span><span class="tok-p">]</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span> <span class="tok-o">=</span> <span class="tok-n">course</span> <span class="tok-o">+</span> <span class="tok-n">oubli</span>
 <span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">course</span>
- <span class="tok-p">[</span><span class="tok-s1">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;lait&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;huile&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;PQ&#39;</span><span class="tok-p">]</span></code></pre></div></div></section>
+ <span class="tok-p">[</span><span class="tok-s">&#39;beurre&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;carrotes&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;lait&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;huile&#39;</span><span class="tok-p">,</span> <span class="tok-s">&#39;PQ&#39;</span><span class="tok-p">]</span></code></pre></div></div></section>
 <section id="_mesurer"><h2>Mesurer</h2><div class="paragraph"><p>On peut obtenir la longueur d&#8217;une liste avec la fonction <code>len</code></p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">course</span><span class="tok-p">)</span>
  <span class="tok-mi">5</span></code></pre></div></div></section>
@@ -130,11 +124,28 @@
 <span class="tok-n">PQ</span></code></pre></div></div></section>
 <section><div class="paragraph"><p>On peut créer une liste vide:</p></div>
 <div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">ma_liste</span> <span class="tok-o">=</span> <span class="tok-p">[]</span></code></pre></div></div></section>
-<section><div class="paragraph"><p>On peut créer une liste contenant n: 0, de la sorte:</p></div>
-<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">n</span> <span class="tok-o">=</span> <span class="tok-mi">5</span>
-<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">ma_liste</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-mi">0</span> <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">)]</span>
-<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">ma_liste</span>
-<span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">]</span></code></pre></div></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<section id="_complments_sur_les_chanes_de_caractres"><h2>Compléments sur les chaînes de caractéres:</h2><div class="paragraph"><p>Les chaînes de caractères se comportent comme les listes, à l&#8217;exception
+qu&#8217;elles ne sont pas modifiables.</p></div></section>
+<section><div class="paragraph"><p>On peut donc accéder au i-éme élément d&#8217;une chaîne de caractère <em>mot</em> à l&#8217;aide de <code>mot[i]</code>
+mais on ne peut pas modifier <code>mot[i]</code>.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">toto</span> <span class="tok-o">=</span> <span class="tok-s">&quot;hello !&quot;</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">toto</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">]</span>
+ <span class="tok-s">&#39;h&#39;</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>On peut aussi par exemple, obtenir le nombre de caractère dans la chaîne:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">toto</span><span class="tok-p">)</span>
+ <span class="tok-mi">7</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Par contre <code>mot.append(<em>val</em>)</code> ou <code>del(mot[2])</code> ne vont pas marcher,
+ car la chaîne n&#8217;est pas modifiable.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">toto</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-s">&quot;world&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">Traceback</span> <span class="tok-p">(</span><span class="tok-n">most</span> <span class="tok-n">recent</span> <span class="tok-n">call</span> <span class="tok-n">last</span><span class="tok-p">):</span>
+  <span class="tok-n">File</span> <span class="tok-s">&quot;&lt;stdin&gt;&quot;</span><span class="tok-p">,</span> <span class="tok-n">line</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-ow">in</span> <span class="tok-o">&lt;</span><span class="tok-n">module</span><span class="tok-o">&gt;</span>
+<span class="tok-ne">AttributeError</span><span class="tok-p">:</span> <span class="tok-s">&#39;str&#39;</span> <span class="tok-nb">object</span> <span class="tok-n">has</span> <span class="tok-n">no</span> <span class="tok-n">attribute</span> <span class="tok-s">&#39;append&#39;</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>On peut déterminer si un caractère appartient à une chaîne à l&#8217;aide de
+l&#8217;opérateur in.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-s">&quot;a&quot;</span> <span class="tok-ow">in</span> <span class="tok-s">&quot;toto&quot;</span>
+<span class="tok-bp">False</span>
+<span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-s">&quot;o&quot;</span> <span class="tok-ow">in</span> <span class="tok-s">&quot;toto&quot;</span>
+<span class="tok-bp">True</span></code></pre></div></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,
