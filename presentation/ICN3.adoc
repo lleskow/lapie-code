@@ -45,6 +45,7 @@ L’instruction 'else' est optionnelle si aucune instruction ne doit
 
 [source,python]
 ----
+n = int(input("Quel est ton nombre préféré ?"))
 if n == 7 :
     print("7, comme 60% des personnes")
     print("c'est un bon choix")
