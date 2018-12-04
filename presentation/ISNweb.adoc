@@ -12,10 +12,9 @@
 
 === En pratique:
 
-* L'éditeur de texte que nous utiliserons est
+L'éditeur de texte que nous utiliserons est
 link:https://www.geany.org/[Geany]
 image:https://www.geany.org/images/geany.png[geany]
-* L'éditeur de la démonstration est Atom
 
 === Pour créer une page web:
 
@@ -73,6 +72,8 @@ Les balises ou tag permettent d'identifier et de structurer le contenu.
 <!-- end of file -->
 ----
 
+_Attention incomplet_
+
 === Le squelette d'un fichier HTML
 
 [source,html]
@@ -89,6 +90,8 @@ Les balises ou tag permettent d'identifier et de structurer le contenu.
 </html>
 <!-- end of file -->
 ----
+
+_Attention incomplet_
 
 === Le squelette d'un fichier HTML
 
@@ -110,6 +113,8 @@ Les balises ou tag permettent d'identifier et de structurer le contenu.
 <!-- end of file -->
 ----
 
+_Attention incomplet_
+
 === Le squelette d'un fichier HTML
 
 [source,html]
@@ -128,6 +133,7 @@ Les balises ou tag permettent d'identifier et de structurer le contenu.
 </html>
 <!-- end of file -->
 ----
+
 
 === La syntaxe d'un élément HTML:
 
@@ -269,8 +275,7 @@ image:assets/briefcase.png[valise,100,100]
 image:assets/heart.png[coeur,100,100]
 image:assets/laptop.png[ordi,100,100]
 
-Vous pouvez en trouver plus ici:
-link:https://nucleoapp.com/[www.nucleoapp.com/]
+Source: https://nucleoapp.com/
 
 == CSS
 
