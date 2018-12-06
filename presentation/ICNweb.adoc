@@ -15,7 +15,6 @@
 * L'éditeur de texte que nous utiliserons est
 link:https://www.geany.org/[Geany]
 image:https://www.geany.org/images/geany.png[geany]
-* L'éditeur de la démonstration est Atom
 
 === Pour créer une page web:
 
@@ -58,22 +57,7 @@ Les balises ou tag permettent d'identifier et de structurer le contenu.
 
 === Le squelette d'un fichier HTML
 
-[source,html]
-----
-<!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-<!-- end of file -->
-----
-
-=== Le squelette d'un fichier HTML
+_Attention incomplet_
 
 [source,html]
 ----
