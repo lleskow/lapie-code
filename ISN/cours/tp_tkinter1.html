@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="generator" content="Asciidoctor 1.5.6.2">
 <title>T.P: Interface graphique avec tkinter</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -506,10 +506,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_exercice_1_première_fenêtre">Exercice 1: Première fenêtre</a></li>
 <li><a href="#_exercice_2_premiers_widgets">Exercice 2: Premiers widgets</a></li>
-<li><a href="#_exercic3_récupérer_modifier_une_option_d_un_widget">Exercic3: Récupérer/modifier une option d&#8217;un widget</a></li>
-<li><a href="#_exercice_4_mot_de_passe">Exercice 4: Mot de passe</a></li>
-<li><a href="#_exercice_5_racine_graphique">Exercice 5: Racine graphique</a></li>
-<li><a href="#_exercice_6_le_widget_canvas_canevas">Exercice 6: Le widget Canvas (canevas)</a></li>
+<li><a href="#_exercice_3_le_widget_canvas_canevas_introduction">Exercice 3: Le widget Canvas (canevas): introduction</a></li>
+<li><a href="#_exercice_4_le_widget_canvas_suite">Exercice 4: Le widget Canvas suite:</a></li>
+<li><a href="#_exercice_5_plus_de_tracés">Exercice 5: Plus de tracés.</a>
+<ul class="sectlevel2">
+<li><a href="#_dessiner_un_rectangle">Dessiner un rectangle:</a></li>
+<li><a href="#_dessiner_une_ellipse_un_cercle">Dessiner une ellipse/un cercle:</a></li>
+<li><a href="#_dessiner_du_texte">Dessiner du texte:</a></li>
+<li><a href="#_dessiner_un_polygone">Dessiner un polygone:</a></li>
+</ul>
+</li>
+<li><a href="#_exercice_6_insérer_une_image_gestion_de_la_souris">Exercice 6: Insérer une image/gestion de la souris</a></li>
+<li><a href="#_exercice_7_récupérer_modifier_une_option_d_un_widget">Exercice 7: Récupérer/modifier une option d&#8217;un widget</a></li>
 </ul>
 </div>
 </div>
@@ -662,7 +670,309 @@ d&#8217;adapter la taille.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercic3_récupérer_modifier_une_option_d_un_widget">Exercic3: Récupérer/modifier une option d&#8217;un widget</h2>
+<h2 id="_exercice_3_le_widget_canvas_canevas_introduction">Exercice 3: Le widget Canvas (canevas): introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Un canevas définit une zone dans laquelle nous pourrons «dessiner» et afficher
+des images.</p>
+</div>
+<div class="paragraph">
+<p>Qu&#8217;entend-on par «dessiner» ? En fait, des instructions vont nous permettre de
+représenter des figures tels que des segments, des rectangles, des ellipses.</p>
+</div>
+<div class="paragraph">
+<p>Par exemple, on peut tracer en rouge le segment reliant les points de
+coordonnées \((x_1; y_1)\) et \((x_2; y_2)\), sur le canevas <em>Can</em>,
+en utilisant la commande suivante:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_line</span><span class="tok-p">(</span><span class="tok-n">x1</span><span class="tok-p">,</span><span class="tok-n">y1</span><span class="tok-p">,</span><span class="tok-n">x2</span><span class="tok-p">,</span><span class="tok-n">y2</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-s2">&quot;red&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Tester le code suivant:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">tkinter</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+<span class="tok-n">HAUTEUR</span> <span class="tok-o">=</span> <span class="tok-mi">400</span>
+<span class="tok-n">LARGEUR</span> <span class="tok-o">=</span> <span class="tok-mi">400</span>
+<span class="tok-n">Fenetre</span> <span class="tok-o">=</span> <span class="tok-n">Tk</span><span class="tok-p">()</span>
+
+<span class="tok-n">Can</span> <span class="tok-o">=</span> <span class="tok-n">Canvas</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span><span class="tok-n">bg</span><span class="tok-o">=</span><span class="tok-s2">&quot;#000000FBD&quot;</span><span class="tok-p">,</span> <span class="tok-n">height</span><span class="tok-o">=</span><span class="tok-n">HAUTEUR</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-o">=</span><span class="tok-n">LARGEUR</span><span class="tok-p">)</span>
+<span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
+
+<span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_line</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-n">HAUTEUR</span><span class="tok-p">,</span><span class="tok-n">LARGEUR</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-s2">&quot;red&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_line</span><span class="tok-p">(</span><span class="tok-n">HAUTEUR</span><span class="tok-o">//</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-n">LARGEUR</span><span class="tok-o">//</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-n">LARGEUR</span><span class="tok-o">//</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-s2">&quot;green&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">Fenetre</span><span class="tok-o">.</span><span class="tok-n">mainloop</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On remarque que le point en haut à gauche à pour coordonnée \((0; 0)\) et
+celui en bas à droite \((400; 400)\). (dans un canevas de dimension 400x400)</p>
+</div>
+<div class="paragraph">
+<p><strong>Ecrire un programme qui affiche dans un canevas carré de dimension 400x400, les</strong>
+<strong>diagonales du carré formé par le canevas.</strong></p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="diagos.png" alt="echiquier" width="250" height="250">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_4_le_widget_canvas_suite">Exercice 4: Le widget Canvas suite:</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ecrire un programme qui affiche dans un canevas de dimension 400x400, un
+quadrillage 8x8, tel que ci-dessous:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="echiquier.png" alt="echiquier" width="250" height="250">
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Attention, dans un widget tkinter il a une légère marge, les cinq
+premiers pixels du haut et les 5 pixels les plus à gauche ne sont pas affichés.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_5_plus_de_tracés">Exercice 5: Plus de tracés.</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_dessiner_un_rectangle">Dessiner un rectangle:</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_rectangle</span><span class="tok-p">(</span><span class="tok-n">x1</span><span class="tok-p">,</span><span class="tok-n">y1</span><span class="tok-p">,</span><span class="tok-n">x2</span><span class="tok-p">,</span><span class="tok-n">y2</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-s2">&quot;black&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Paramètres:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>outline: couleur du bord.</p>
+</li>
+<li>
+<p>fill: couleur de l&#8217;intérieur.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Le point \((x_1; y_1)\) représente le coin haut gauche du rectangle et
+\((x_2; y_2)\) le coin en bas à droite.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dessiner_une_ellipse_un_cercle">Dessiner une ellipse/un cercle:</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_oval</span><span class="tok-p">(</span><span class="tok-n">x1</span><span class="tok-p">,</span><span class="tok-n">y1</span><span class="tok-p">,</span><span class="tok-n">x2</span><span class="tok-p">,</span><span class="tok-n">y2</span><span class="tok-p">,</span> <span class="tok-n">outline</span><span class="tok-o">=</span><span class="tok-s2">&quot;blue&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Paramètres:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>outline: couleur du bord.</p>
+</li>
+<li>
+<p>fill: couleur de l&#8217;intérieur.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les points \((x_1; y_1)\) et \((x_2; y_2)\) correspondent aux coordonnées
+du rectangle circonscrit (qui contient l&#8217;ellipse)</p>
+</div>
+<div class="paragraph">
+<p>Pour tracer un cercle de rayon \(r\) et de centre \((x; y)\),
+on peut donc utiliser:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_oval</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-o">-</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-o">-</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">x</span><span class="tok-o">+</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-o">+</span><span class="tok-n">r</span><span class="tok-p">,</span> <span class="tok-n">outline</span><span class="tok-o">=</span><span class="tok-s2">&quot;black&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dessiner_du_texte">Dessiner du texte:</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_text</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">text</span><span class="tok-o">=</span><span class="tok-s2">&quot;mon texte ici&quot;</span><span class="tok-p">,</span> <span class="tok-n">font</span><span class="tok-o">=</span><span class="tok-s2">&quot;Arial 12&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Paramètres:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>fill : couleur de l&#8217;écriture</p>
+</li>
+<li>
+<p>x,y : centre du texte à écrire</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dessiner_un_polygone">Dessiner un polygone:</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_polygon</span><span class="tok-p">(</span><span class="tok-n">x1</span><span class="tok-p">,</span><span class="tok-n">y1</span><span class="tok-p">,</span><span class="tok-n">x2</span><span class="tok-p">,</span><span class="tok-n">y2</span><span class="tok-p">,</span><span class="tok-n">x3</span><span class="tok-p">,</span><span class="tok-n">y3</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Paramètres:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>fill: couleur de l&#8217;intérieur.</p>
+</li>
+<li>
+<p>outline: couleur du bord.</p>
+</li>
+<li>
+<p>smooth=True pour arrondir les lignes (=False, pour ne pas arrondir..)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>On donne les coordonnées d&#8217;autant de points que voulu et ces points sont
+reliés dans l&#8217;ordre donné, et le dernier est relié avec le premier.</p>
+</div>
+<div class="paragraph">
+<p><strong>Ecrire un programme qui affiche dans un canevas de dimension 800x600:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Un cercle rouge de rayon 50 pixel et centré au milieu du canevas.</p>
+</li>
+<li>
+<p>Un rectangle de longueur 100 pixel, et de hauteur 50 pixel, et dont le
+coin haut gauche se trouve au pixel de coordonnées \((150; 500)\).</p>
+</li>
+<li>
+<p>Le message: "La géométrie, c&#8217;est super!". Ce message doit être situé à
+50 pixels du haut du canevas et centré sur la largeur.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_6_insérer_une_image_gestion_de_la_souris">Exercice 6: Insérer une image/gestion de la souris</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Un des principaux intérêt des canevas, c&#8217;est qu&#8217;ils permettent d&#8217;insérer
+une image.</p>
+</div>
+<div class="paragraph">
+<p>Attention cependant tout les formats ne sont pas acceptés et le principal
+format accepté est le <code>.gif</code></p>
+</div>
+<div class="paragraph">
+<p>La syntaxe:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">ma_photo</span> <span class="tok-o">=</span> <span class="tok-n">PhotoImage</span><span class="tok-p">(</span><span class="tok-nb">file</span><span class="tok-o">=</span><span class="tok-s2">&quot;nomfichier&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_image</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">=</span><span class="tok-n">ma_photo</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>\((x; y)\) correspond à la position du centre de l&#8217;image.</p>
+</div>
+<div class="paragraph">
+<p>Télécharger l&#8217;image <a href="cibles.gif">cibles.gif</a> dans le répertoire de votre
+programme Python.</p>
+</div>
+<div class="paragraph">
+<p>Et afficher cette image dans un canevas de dimension 800x800.</p>
+</div>
+<div class="paragraph">
+<p>On peut lier un clic sur la souris à l&#8217;appel d&#8217;une fonction à l&#8217;aide de la
+méthode <code>bind</code>.</p>
+</div>
+<div class="paragraph">
+<p>Exemple:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">tkinter</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+<span class="tok-kn">import</span> <span class="tok-nn">time</span>
+<span class="tok-n">Fenetre</span> <span class="tok-o">=</span> <span class="tok-n">Tk</span><span class="tok-p">()</span>
+<span class="tok-n">HAUTEUR</span> <span class="tok-o">=</span> <span class="tok-mi">800</span>
+<span class="tok-n">LARGEUR</span> <span class="tok-o">=</span> <span class="tok-mi">800</span>
+
+<span class="tok-n">Can</span> <span class="tok-o">=</span> <span class="tok-n">Canvas</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span><span class="tok-n">bg</span><span class="tok-o">=</span><span class="tok-s2">&quot;#FFF&quot;</span><span class="tok-p">,</span> <span class="tok-n">height</span><span class="tok-o">=</span><span class="tok-n">HAUTEUR</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-o">=</span><span class="tok-n">LARGEUR</span><span class="tok-p">)</span>
+<span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">tir</span><span class="tok-p">(</span><span class="tok-n">event</span><span class="tok-p">):</span>
+    <span class="tok-n">r</span> <span class="tok-o">=</span> <span class="tok-mi">5</span>
+    <span class="tok-n">X</span> <span class="tok-o">=</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">x</span>
+    <span class="tok-n">Y</span> <span class="tok-o">=</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">y</span>
+    <span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_oval</span><span class="tok-p">(</span><span class="tok-n">X</span><span class="tok-o">-</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">Y</span><span class="tok-o">-</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">X</span><span class="tok-o">+</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">Y</span><span class="tok-o">+</span><span class="tok-n">r</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-s2">&quot;black&quot;</span><span class="tok-p">)</span>
+
+<span class="tok-n">Fenetre</span><span class="tok-o">.</span><span class="tok-n">bind</span><span class="tok-p">(</span><span class="tok-s2">&quot;&lt;Button-1&gt;&quot;</span><span class="tok-p">,</span><span class="tok-n">tir</span><span class="tok-p">)</span>
+<span class="tok-n">Fenetre</span><span class="tok-o">.</span><span class="tok-n">mainloop</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Modifier l&#8217;exemple précédent pour qu&#8217;il permet de tirer sur la cible.</p>
+</li>
+<li>
+<p>Modifier le même exemple, pour qu&#8217;un clic droit affiche un cercle rouge, trois
+fois plus large que le tir clic gauche.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Les noms des différents boutons de la souris:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;Button-1&gt; : click sur le bouton gauche de la souris</p>
+</li>
+<li>
+<p>&lt;Button-2&gt; : click sur la molette de la souris</p>
+</li>
+<li>
+<p>&lt;Button-3&gt; : click sur le bouton droit de la souris</p>
+</li>
+<li>
+<p>&lt;Double-1&gt; : double-click gauche</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_7_récupérer_modifier_une_option_d_un_widget">Exercice 7: Récupérer/modifier une option d&#8217;un widget</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Récupérer la valeur d’une option <code>opt</code> d’un widget <code>w</code></p>
@@ -725,133 +1035,6 @@ lors d&#8217;un clic sur ce bouton.</p>
 le bouton affiche on, et noir sur fond blanc, lorsque le bouton affiche off.</p>
 </li>
 </ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_exercice_4_mot_de_passe">Exercice 4: Mot de passe</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Une variable de contrôle de tkinter est un objet spécial qui se comporte comme
-une variable ordinaire de Python en ce sens que c’est un conteneur pour une
-valeur comme un nombre ou une chaîne de caractères.</p>
-</div>
-<div class="paragraph">
-<p>Tout l’intérêt des variables de contrôle, c’est qu’elles peuvent-être partagées
-entre plusieurs widgets.</p>
-</div>
-<div class="paragraph">
-<p>La syntaxe:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">v</span> <span class="tok-o">=</span> <span class="tok-n">IntVar</span><span class="tok-p">()</span>      <span class="tok-c1"># Mémorise un entier; sa valeur par défaut est 0</span>
-<span class="tok-n">v</span> <span class="tok-o">=</span> <span class="tok-n">DoubleVar</span><span class="tok-p">()</span>   <span class="tok-c1"># Mémorise un flottant; sa valeur par défaut est 0.0</span>
-<span class="tok-n">v</span> <span class="tok-o">=</span> <span class="tok-n">StringVar</span><span class="tok-p">()</span>   <span class="tok-c1"># Mémorise une chaîne de caractères; sa valeur par défaut est &#39;&#39;</span>
-<span class="tok-n">v</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">()</span>           <span class="tok-c1"># lecture du contenu de la variable</span>
-<span class="tok-n">v</span><span class="tok-o">.</span><span class="tok-n">set</span><span class="tok-p">(</span><span class="tok-n">valeur</span><span class="tok-p">)</span>     <span class="tok-c1"># change la valeur mémorisée dans v</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Un exemple:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">tkinter</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-
-<span class="tok-k">def</span> <span class="tok-nf">repondre</span><span class="tok-p">():</span>                      <span class="tok-c1"># Cette fonction est appelée lorsqu&#39;on clique sur le bouton &quot;Valider&quot;</span>
- <span class="tok-n">affichage</span><span class="tok-p">[</span><span class="tok-s2">&quot;text&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">reponse</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">()</span>   <span class="tok-c1"># Le texte affiché par le Label affichage, devient celui contenu dans reponse</span>
-
-<span class="tok-n">Fenetre</span> <span class="tok-o">=</span> <span class="tok-n">Tk</span><span class="tok-p">()</span>
-<span class="tok-n">Fenetre</span><span class="tok-o">.</span><span class="tok-n">title</span><span class="tok-p">(</span><span class="tok-s2">&quot;Mon nom&quot;</span><span class="tok-p">)</span>
-
-<span class="tok-n">nom</span> <span class="tok-o">=</span> <span class="tok-n">Label</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span> <span class="tok-n">text</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;Votre nom :&quot;</span><span class="tok-p">)</span>
-<span class="tok-n">reponse</span> <span class="tok-o">=</span> <span class="tok-n">StringVar</span><span class="tok-p">()</span>
-<span class="tok-n">demande</span> <span class="tok-o">=</span> <span class="tok-n">Entry</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span> <span class="tok-n">textvariable</span><span class="tok-o">=</span><span class="tok-n">reponse</span><span class="tok-p">)</span> <span class="tok-c1"># Permet de stocker la valeur entrée dans la variable reponse</span>
-<span class="tok-n">valeur</span> <span class="tok-o">=</span> <span class="tok-n">Button</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span> <span class="tok-n">text</span> <span class="tok-o">=</span><span class="tok-s2">&quot;Valider&quot;</span><span class="tok-p">,</span> <span class="tok-n">command</span><span class="tok-o">=</span><span class="tok-n">repondre</span><span class="tok-p">)</span>
-<span class="tok-n">votre_nom</span> <span class="tok-o">=</span> <span class="tok-n">Label</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span> <span class="tok-n">text</span><span class="tok-o">=</span><span class="tok-s2">&quot;Votre nom est :&quot;</span><span class="tok-p">)</span>
-<span class="tok-n">affichage</span> <span class="tok-o">=</span> <span class="tok-n">Label</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-o">=</span><span class="tok-mi">30</span><span class="tok-p">)</span>
-
-<span class="tok-n">nom</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
-<span class="tok-n">demande</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
-<span class="tok-n">valeur</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
-<span class="tok-n">votre_nom</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
-<span class="tok-n">affichage</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
-
-<span class="tok-n">Fenetre</span><span class="tok-o">.</span><span class="tok-n">mainloop</span><span class="tok-p">()</span></code></pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Ecrire un programme avec une fenêtre graphique qui demande à l&#8217;utilisateur
-d&#8217;entrer son mot de passe, et précise si ce mot de passe est valide. (Le
-  mot de passe est: <em>python</em>)</p>
-</li>
-<li>
-<p>Le widget <code>Entry</code> posséde une option <code>show</code>, tester votre programme
-avec votre widget <code>Entry</code> avec <code>show="*"</code>.</p>
-</li>
-<li>
-<p>Modifier votre programme pour qu&#8217;il limite le nombre d&#8217;essais à 3. Et affiche
-le nombre d&#8217;essais restant.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_exercice_5_racine_graphique">Exercice 5: Racine graphique</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Ecrire un programme avec une fenêtre graphique qui demande à l&#8217;utilisateur un
-nombre et affiche sa racine carrée.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_exercice_6_le_widget_canvas_canevas">Exercice 6: Le widget Canvas (canevas)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Un canevas définit une zone dans laquelle nous pourrons «dessiner» et afficher
-des images.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">tkinter</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-<span class="tok-n">HAUTEUR</span> <span class="tok-o">=</span> <span class="tok-mi">400</span>
-<span class="tok-n">LARGEUR</span> <span class="tok-o">=</span> <span class="tok-mi">400</span>
-<span class="tok-n">Fenetre</span> <span class="tok-o">=</span> <span class="tok-n">Tk</span><span class="tok-p">()</span>
-
-<span class="tok-n">Can</span> <span class="tok-o">=</span> <span class="tok-n">Canvas</span><span class="tok-p">(</span><span class="tok-n">Fenetre</span><span class="tok-p">,</span><span class="tok-n">bg</span><span class="tok-o">=</span><span class="tok-s2">&quot;#000000FBD&quot;</span><span class="tok-p">,</span> <span class="tok-n">height</span><span class="tok-o">=</span><span class="tok-n">HAUTEUR</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-o">=</span><span class="tok-n">LARGEUR</span><span class="tok-p">)</span>
-<span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">pack</span><span class="tok-p">()</span>
-
-<span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_line</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-n">HAUTEUR</span><span class="tok-p">,</span><span class="tok-n">LARGEUR</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-s2">&quot;red&quot;</span><span class="tok-p">)</span>
-<span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_line</span><span class="tok-p">(</span><span class="tok-n">HAUTEUR</span><span class="tok-o">//</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-n">LARGEUR</span><span class="tok-o">//</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-n">LARGEUR</span><span class="tok-o">//</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-s2">&quot;green&quot;</span><span class="tok-p">)</span>
-<span class="tok-n">Fenetre</span><span class="tok-o">.</span><span class="tok-n">mainloop</span><span class="tok-p">()</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Pour tracer en rouge le segment reliant les points \((x_1; y_1)\) et
-\((x_2; y_2)\), sur le canevas <em>Can</em>, on utilise:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">Can</span><span class="tok-o">.</span><span class="tok-n">create_line</span><span class="tok-p">(</span><span class="tok-n">x1</span><span class="tok-p">,</span><span class="tok-n">y1</span><span class="tok-p">,</span><span class="tok-n">x2</span><span class="tok-p">,</span><span class="tok-n">y2</span><span class="tok-p">,</span><span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-s2">&quot;red&quot;</span><span class="tok-p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>On remarque que le point en haut à gauche à pour coordonnée \((0; 0)\) et
-celui en bas à droite \((400; 400)\). (dans un canevas de dimension 400x400)</p>
-</div>
-<div class="paragraph">
-<p>Ecrire un programme qui affiche dans un canevas de dimension 400x400, un
-quadrillage 8x8, tel que ci-dessous:</p>
-</div>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="echiquier.png" alt="echiquier" width="250" height="250">
-</div>
 </div>
 </div>
 </div>
