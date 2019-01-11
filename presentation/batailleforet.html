@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Presentation Bataille en Forêt</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+tex2jax: {
+  inlineMath: [["\\(", "\\)"]],
+  displayMath: [["\\[", "\\]"]],
+  ignoreClass: "nostem|nolatexmath"
+},
+asciimath2jax: {
+  delimiters: [["\\$", "\\$"]],
+  ignoreClass: "nostem|noasciimath"
+},
+TeX: { equationNumbers: { autoNumber: "none" } }
+});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments  { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.listingblock .pygments .tok-g { color: #000000 } /* Generic */
+.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-l { color: #000000 } /* Literal */
+.listingblock .pygments .tok-n { color: #000000 } /* Name */
+.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
+.listingblock .pygments .tok-x { color: #000000 } /* Other */
+.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
+.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
+.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
+.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Presentation Bataille en Forêt</h1></section><section id="_technologie_utilise"><h2>Technologie utilisée</h2><div class="ulist"><ul><li><p>C++</p></li><li><p>SDL</p></li></ul></div></section>
+<section><section id="_prsentation_du_jeu"><h2>Présentation du jeu</h2></section><section id="_dplacement_sur_une_carte"><h2>Déplacement sur une carte</h2><div class="imageblock" style=""><img src="assets/batailleforet_1.gif" alt="demo"></div></section><section><div class="paragraph"><p>Utilisation des fléches pour tourner, avancer, reculer.</p></div>
+<div class="paragraph"><p>Gestion des collisions.</p></div></section><section></section></section>
+<section id="_organisation_du_code"><h2>Organisation du code</h2></section>
+<section><section id="_le_fichier_principal"><h2>Le fichier principal</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="c++ language-c++"><span class="tok-n">game</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Game</span><span class="tok-p">();</span>
+<span class="tok-n">game</span><span class="tok-o">-&gt;</span><span class="tok-n">init</span><span class="tok-p">(</span><span class="tok-s">&quot;First test&quot;</span><span class="tok-p">,</span> <span class="tok-n">SDL_WINDOWPOS_CENTERED</span><span class="tok-p">,</span> <span class="tok-n">SDL_WINDOWPOS_CENTERED</span><span class="tok-p">,</span> <span class="tok-mi">800</span><span class="tok-p">,</span> <span class="tok-mi">640</span><span class="tok-p">,</span> <span class="tok-nb">false</span><span class="tok-p">);</span>
+
+<span class="tok-k">while</span> <span class="tok-p">(</span><span class="tok-n">game</span><span class="tok-o">-&gt;</span><span class="tok-n">running</span><span class="tok-p">())</span> <span class="tok-p">{</span>
+
+    <span class="tok-n">frameStart</span> <span class="tok-o">=</span> <span class="tok-n">SDL_GetTicks</span><span class="tok-p">();</span>
+
+    <span class="tok-n">game</span><span class="tok-o">-&gt;</span><span class="tok-n">handleEvents</span><span class="tok-p">();</span>
+    <span class="tok-n">game</span><span class="tok-o">-&gt;</span><span class="tok-n">update</span><span class="tok-p">();</span>
+    <span class="tok-n">game</span><span class="tok-o">-&gt;</span><span class="tok-n">render</span><span class="tok-p">();</span></code></pre></div></div></section><section id="_la_gestion_des_fps"><h2>La gestion des FPS</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="c++ language-c++"><span class="tok-n">frameTime</span> <span class="tok-o">=</span> <span class="tok-n">SDL_GetTicks</span><span class="tok-p">()</span> <span class="tok-o">-</span> <span class="tok-n">frameStart</span><span class="tok-p">;</span>
+<span class="tok-k">if</span> <span class="tok-p">(</span><span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">frameDelay</span> <span class="tok-o">&gt;</span> <span class="tok-n">frameTime</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-n">SDL_Delay</span><span class="tok-p">(</span><span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">frameDelay</span> <span class="tok-o">-</span> <span class="tok-n">frameTime</span><span class="tok-p">);</span></code></pre></div></div></section></section>
+<section><section id="_les_principaux_lments"><h2>Les principaux éléments</h2><div class="ulist"><ul><li class="fragment"><p>Une classe Game organisant le jeu</p></li><li class="fragment"><p>Une classe Map</p></li><li class="fragment"><p>Une classe Player</p></li><li class="fragment"><p>Une liste d&#8217;objets de la classe Obstacle</p></li></ul></div></section><section><div class="paragraph"><p>Tout les objets s&#8217;affichant dérive de la classe GameObject</p></div></section></section>
+<section><section id="_la_carte_classe_map"><h2>La carte/classe Map</h2></section><section><div class="paragraph"><p>Elle est configuré depuis un fichier .txt</p></div>
+<div class="imageblock" style=""><img src="assets/batailleforet_2.png" alt="fichier"></div></section><section><div class="paragraph"><p>Elle est organisée en deux couches:</p></div>
+<div class="ulist"><ul><li><p>les sols</p></li><li><p>les obstacles</p></li></ul></div></section><section id="_les_sols"><h2>Les sols</h2><div class="paragraph"><p>Les sols sont stockés dans un tableau dynamique:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="cpp language-cpp"><span class="tok-n">backGroundMap</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-kt">int</span><span class="tok-o">*</span><span class="tok-p">[</span><span class="tok-n">mapWidth</span><span class="tok-p">];</span>
+<span class="tok-k">for</span><span class="tok-p">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span> <span class="tok-n">i</span> <span class="tok-o">&lt;</span> <span class="tok-n">mapWidth</span><span class="tok-p">;</span> <span class="tok-o">++</span><span class="tok-n">i</span><span class="tok-p">)</span>
+    <span class="tok-n">backGroundMap</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-kt">int</span><span class="tok-p">[</span><span class="tok-n">mapHeight</span><span class="tok-p">];</span>
+
+<span class="tok-c1">// loading the background</span>
+<span class="tok-k">for</span> <span class="tok-p">(</span><span class="tok-kt">int</span> <span class="tok-n">row</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span> <span class="tok-n">row</span> <span class="tok-o">&lt;</span> <span class="tok-n">mapWidth</span><span class="tok-p">;</span> <span class="tok-n">row</span><span class="tok-o">++</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-k">for</span> <span class="tok-p">(</span><span class="tok-kt">int</span> <span class="tok-n">column</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span> <span class="tok-n">column</span> <span class="tok-o">&lt;</span> <span class="tok-n">mapHeight</span><span class="tok-p">;</span> <span class="tok-n">column</span><span class="tok-o">++</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-n">mapFile</span> <span class="tok-o">&gt;&gt;</span> <span class="tok-n">strInput</span><span class="tok-p">;</span>
+        <span class="tok-n">backGroundMap</span><span class="tok-p">[</span><span class="tok-n">row</span><span class="tok-p">][</span><span class="tok-n">column</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">std</span><span class="tok-o">::</span><span class="tok-n">stoi</span><span class="tok-p">(</span><span class="tok-n">strInput</span><span class="tok-p">);</span>
+    <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="cpp language-cpp"><span class="tok-n">Map</span><span class="tok-o">::~</span><span class="tok-n">Map</span><span class="tok-p">()</span> <span class="tok-p">{</span>
+    <span class="tok-k">for</span><span class="tok-p">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span> <span class="tok-n">i</span> <span class="tok-o">&lt;</span> <span class="tok-n">mapWidth</span><span class="tok-p">;</span> <span class="tok-o">++</span><span class="tok-n">i</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-k">delete</span> <span class="tok-p">[]</span> <span class="tok-n">backGroundMap</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">];</span>
+    <span class="tok-p">}</span>
+    <span class="tok-k">delete</span> <span class="tok-p">[]</span> <span class="tok-n">backGroundMap</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_les_sols_2"><h2>Les sols</h2><div class="paragraph"><p>Ce sont des GameObjects, ils ont:</p></div>
+<div class="ulist"><ul><li><p>Une position</p></li><li><p>Une texture</p></li><li><p>Une dimension</p></li></ul></div></section><section id="_les_obstacles"><h2>Les obstacles</h2><div class="paragraph"><p>Le fichier stockant la carte permet de les créer:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="cpp language-cpp"><span class="tok-kt">int</span> <span class="tok-n">otype</span><span class="tok-p">;</span>
+<span class="tok-k">for</span> <span class="tok-p">(</span><span class="tok-kt">int</span> <span class="tok-n">row</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span> <span class="tok-n">row</span> <span class="tok-o">&lt;</span> <span class="tok-n">mapWidth</span><span class="tok-p">;</span> <span class="tok-n">row</span><span class="tok-o">++</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-k">for</span> <span class="tok-p">(</span><span class="tok-kt">int</span> <span class="tok-n">column</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span> <span class="tok-n">column</span> <span class="tok-o">&lt;</span> <span class="tok-n">mapHeight</span><span class="tok-p">;</span> <span class="tok-n">column</span><span class="tok-o">++</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-n">mapFile</span> <span class="tok-o">&gt;&gt;</span> <span class="tok-n">strInput</span><span class="tok-p">;</span>
+        <span class="tok-n">otype</span> <span class="tok-o">=</span> <span class="tok-n">std</span><span class="tok-o">::</span><span class="tok-n">stoi</span><span class="tok-p">(</span><span class="tok-n">strInput</span><span class="tok-p">);</span>
+        <span class="tok-k">if</span> <span class="tok-p">(</span><span class="tok-n">otype</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+            <span class="tok-n">otype</span><span class="tok-o">--</span><span class="tok-p">;</span>
+            <span class="tok-n">Obstacle</span><span class="tok-o">::</span><span class="tok-n">obstacleBuilder</span><span class="tok-p">(</span><span class="tok-n">column</span> <span class="tok-o">*</span> <span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">TILESIZE</span><span class="tok-p">,</span> <span class="tok-n">row</span> <span class="tok-o">*</span> <span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">TILESIZE</span><span class="tok-p">,</span> <span class="tok-k">static_cast</span><span class="tok-o">&lt;</span><span class="tok-n">ObstacleType</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">otype</span><span class="tok-p">));</span></code></pre></div></div></section><section id="_liste_d_obstacles"><h2>Liste d&#8217;obstacles</h2><div class="paragraph"><p>Lors de la création ils sont ajoutés dans une liste.</p></div>
+<div class="paragraph"><p>(via la structure de donnée &lt;set&gt; de la bibliothèque standard)</p></div></section></section>
+<section><section id="_la_classe_gameobject"><h2>La classe GameObject</h2></section><section id="_leur_structure"><h2>Leur structure</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="cpp language-cpp"><span class="tok-kt">int</span> <span class="tok-n">xpos</span><span class="tok-p">;</span>  <span class="tok-c1">// Position</span>
+<span class="tok-kt">int</span> <span class="tok-n">ypos</span><span class="tok-p">;</span>
+
+<span class="tok-n">SDL_Texture</span><span class="tok-o">*</span> <span class="tok-n">objTexture</span><span class="tok-p">;</span>  <span class="tok-c1">// Texture</span>
+<span class="tok-n">SDL_Rect</span> <span class="tok-n">srcRect</span><span class="tok-p">,</span> <span class="tok-n">destRect</span><span class="tok-p">;</span> <span class="tok-c1">// &quot;Dimensions&quot;</span></code></pre></div></div></section><section id="_les_mthodes"><h2>Les méthodes</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="cpp language-cpp"><span class="tok-kt">void</span> <span class="tok-nf">update</span><span class="tok-p">();</span>
+<span class="tok-kt">void</span> <span class="tok-nf">render</span><span class="tok-p">();</span></code></pre></div></div></section><section><div class="paragraph"><p>Ce n&#8217;est pas une classe virtuelle, les sols sont des GameObjects</p></div></section><section><div class="imageblock" style=""><img src="assets/batailleforet_3.png" alt="heritage" height="500"></div></section><section><div class="paragraph"><p>On peut imaginer une classe movable héritant de collidable dont hériterait
+une classe bullet et la classe character</p></div></section><section id="_la_classe_collidables"><h2>La classe Collidables</h2><div class="ulist"><ul><li><p>Les objets pouvant entrer en collision</p></li><li><p>Tout sauf les « sols ».</p></li><li><p>Ils possédent un niveau de resistance et peuvent être détruit (non implémenté).</p></li></ul></div></section><section id="_la_classe_character"><h2>La classe Character</h2><div class="paragraph"><p>La classe de répresentation des joueurs</p></div></section><section id="_elle_permet_les_dplacements"><h2>Elle permet les déplacements</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="cpp language-cpp"><span class="tok-kt">void</span> <span class="tok-n">Character</span><span class="tok-o">::</span><span class="tok-n">rotate</span><span class="tok-p">()</span> <span class="tok-p">{</span>
+    <span class="tok-n">orientation</span> <span class="tok-o">+=</span> <span class="tok-n">rotation</span><span class="tok-p">;</span>
+    <span class="tok-k">if</span> <span class="tok-p">(</span><span class="tok-n">orientation</span> <span class="tok-o">&gt;</span> <span class="tok-mi">360</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-n">orientation</span> <span class="tok-o">/=</span> <span class="tok-mi">360</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+    <span class="tok-k">if</span> <span class="tok-p">(</span><span class="tok-n">orientation</span> <span class="tok-o">&lt;</span> <span class="tok-mi">0</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-n">orientation</span> <span class="tok-o">+=</span> <span class="tok-mi">360</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+<span class="tok-p">}</span>
+
+<span class="tok-kt">void</span> <span class="tok-n">Character</span><span class="tok-o">::</span><span class="tok-n">move</span><span class="tok-p">()</span> <span class="tok-p">{</span>
+    <span class="tok-n">xpos</span> <span class="tok-o">+=</span> <span class="tok-n">Vector2D</span><span class="tok-o">::</span><span class="tok-n">getOrientationVector</span><span class="tok-p">(</span><span class="tok-n">orientation</span><span class="tok-p">).</span><span class="tok-n">x</span> <span class="tok-o">*</span> <span class="tok-n">velocity</span> <span class="tok-o">*</span> <span class="tok-n">speed</span><span class="tok-p">;</span>
+    <span class="tok-n">ypos</span> <span class="tok-o">+=</span> <span class="tok-n">Vector2D</span><span class="tok-o">::</span><span class="tok-n">getOrientationVector</span><span class="tok-p">(</span><span class="tok-n">orientation</span><span class="tok-p">).</span><span class="tok-n">y</span> <span class="tok-o">*</span> <span class="tok-n">velocity</span> <span class="tok-o">*</span> <span class="tok-n">speed</span><span class="tok-p">;</span>
+    <span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">xpos</span><span class="tok-p">;</span>
+    <span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">ypos</span><span class="tok-p">;</span>
+<span class="tok-p">}</span>
+
+<span class="tok-kt">void</span> <span class="tok-n">Character</span><span class="tok-o">::</span><span class="tok-n">update</span><span class="tok-p">()</span> <span class="tok-p">{</span>
+    <span class="tok-n">rotate</span><span class="tok-p">();</span>
+    <span class="tok-n">move</span><span class="tok-p">();</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_la_classe_obstacle"><h2>La classe Obstacle</h2><div class="paragraph"><p>Cette classe hérite donc de la classe collidables et va se distinguer par la présence d’une hauteur.</p></div>
+<div class="paragraph"><p>La hauteur n&#8217;est pas visibble mais permet de déterminer la résistance des Obstacles.</p></div></section><section><div class="paragraph"><p>Pas de sous-classe arbre ou objet. Le sous-type est précisé à la création:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="cpp language-cpp"><span class="tok-k">enum</span> <span class="tok-k">class</span> <span class="tok-nc">ObstacleType</span> <span class="tok-p">{</span>
+    <span class="tok-n">TREE</span><span class="tok-p">,</span>
+    <span class="tok-n">SMALLTREE</span><span class="tok-p">,</span>
+    <span class="tok-n">BIGTREE</span><span class="tok-p">,</span>
+    <span class="tok-n">ROCK</span><span class="tok-p">,</span>
+    <span class="tok-n">SMALLROCK</span><span class="tok-p">,</span>
+    <span class="tok-n">OTHERROCK</span>
+<span class="tok-p">};</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="cpp language-cpp"><span class="tok-kt">void</span> <span class="tok-n">Obstacle</span><span class="tok-o">::</span><span class="tok-n">obstacleBuilder</span><span class="tok-p">(</span><span class="tok-kt">int</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-kt">int</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">ObstacleType</span> <span class="tok-n">obsType</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-n">Obstacle</span><span class="tok-o">*</span> <span class="tok-n">newobstacle</span> <span class="tok-o">=</span> <span class="tok-k">nullptr</span><span class="tok-p">;</span>
+    <span class="tok-kt">int</span> <span class="tok-n">h</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span>
+    <span class="tok-kt">int</span> <span class="tok-n">d</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span>
+    <span class="tok-k">switch</span> <span class="tok-p">(</span><span class="tok-n">obsType</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">TREE</span><span class="tok-p">:</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">OTHERROCK</span><span class="tok-p">:</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">ROCK</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-n">d</span> <span class="tok-o">=</span> <span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">OBSTACLESIZE</span> <span class="tok-o">/</span> <span class="tok-mf">1.5</span><span class="tok-p">;</span>
+            <span class="tok-n">h</span> <span class="tok-o">=</span> <span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">OBSTACLEHEIGHT</span><span class="tok-p">;</span>
+            <span class="tok-k">break</span><span class="tok-p">;</span>
+        <span class="tok-p">}</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">BIGTREE</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-n">d</span> <span class="tok-o">=</span> <span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">OBSTACLESIZE</span><span class="tok-p">;</span>
+            <span class="tok-n">h</span> <span class="tok-o">=</span> <span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">OBSTACLEHEIGHT</span> <span class="tok-o">*</span> <span class="tok-mi">2</span><span class="tok-p">;</span>
+            <span class="tok-k">break</span><span class="tok-p">;</span>
+        <span class="tok-p">}</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">SMALLTREE</span><span class="tok-p">:</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">SMALLROCK</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-n">d</span> <span class="tok-o">=</span> <span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">OBSTACLESIZE</span> <span class="tok-o">/</span> <span class="tok-mi">2</span><span class="tok-p">;</span>
+            <span class="tok-n">h</span> <span class="tok-o">=</span> <span class="tok-n">csts</span><span class="tok-o">::</span><span class="tok-n">OBSTACLEHEIGHT</span> <span class="tok-o">/</span> <span class="tok-mi">2</span><span class="tok-p">;</span>
+            <span class="tok-k">break</span><span class="tok-p">;</span>
+        <span class="tok-p">}</span>
+        <span class="tok-k">default</span><span class="tok-o">:</span>
+            <span class="tok-k">break</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+
+    <span class="tok-k">switch</span> <span class="tok-p">(</span><span class="tok-n">obsType</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">SMALLTREE</span><span class="tok-p">:</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">TREE</span><span class="tok-p">:</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">BIGTREE</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-n">newobstacle</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Obstacle</span><span class="tok-p">(</span><span class="tok-s">&quot;assets/tile_183.png&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">,</span> <span class="tok-n">d</span><span class="tok-p">);</span>
+            <span class="tok-k">break</span><span class="tok-p">;</span>
+        <span class="tok-p">}</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">ROCK</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-n">newobstacle</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Obstacle</span><span class="tok-p">(</span><span class="tok-s">&quot;assets/tile_237.png&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">,</span> <span class="tok-n">d</span><span class="tok-p">);</span>
+            <span class="tok-k">break</span><span class="tok-p">;</span>
+        <span class="tok-p">}</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">OTHERROCK</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-n">newobstacle</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Obstacle</span><span class="tok-p">(</span><span class="tok-s">&quot;assets/tile_239.png&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">,</span> <span class="tok-n">d</span><span class="tok-p">);</span>
+            <span class="tok-k">break</span><span class="tok-p">;</span>
+        <span class="tok-p">}</span>
+        <span class="tok-k">case</span> <span class="tok-n">ObstacleType</span><span class="tok-o">::</span><span class="tok-nl">SMALLROCK</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-n">newobstacle</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Obstacle</span><span class="tok-p">(</span><span class="tok-s">&quot;assets/tile_238.png&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">,</span> <span class="tok-n">d</span><span class="tok-p">);</span>
+            <span class="tok-k">break</span><span class="tok-p">;</span>
+        <span class="tok-p">}</span>
+
+        <span class="tok-k">default</span><span class="tok-o">:</span>
+            <span class="tok-n">std</span><span class="tok-o">::</span><span class="tok-n">cout</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-s">&quot;obstacle creation issue&quot;</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-n">std</span><span class="tok-o">::</span><span class="tok-n">endl</span><span class="tok-p">;</span>
+            <span class="tok-k">break</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+    <span class="tok-n">obstacleList</span><span class="tok-p">.</span><span class="tok-n">emplace</span><span class="tok-p">(</span><span class="tok-n">newobstacle</span><span class="tok-p">);</span>
+<span class="tok-p">}</span></code></pre></div></div></section></section>
+<section id="_la_classe_player"><h2>La classe Player</h2><div class="paragraph"><p>Distinction entre Player et Character, le joueur posséde une représentation.</p></div>
+<div class="paragraph"><p>La classe Player contient la gestion des événements.</p></div></section>
+<section><section id="_la_gestion_des_collisions"><h2>La gestion des collisions</h2><div class="paragraph"><p>Tout les objects du jeu sont des rectangles.</p></div></section><section id="_methode_simple_detectant_si_deux_rectangles_se_chevauchent"><h2>Méthode simple détectant si deux rectangles se chevauchent.</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="c++ language-c++"><span class="tok-kt">bool</span> <span class="tok-n">Collidable</span><span class="tok-o">::</span><span class="tok-n">colliding</span><span class="tok-p">(</span><span class="tok-k">const</span> <span class="tok-n">Collidable</span><span class="tok-o">&amp;</span> <span class="tok-n">A</span><span class="tok-p">,</span> <span class="tok-k">const</span> <span class="tok-n">Collidable</span><span class="tok-o">&amp;</span> <span class="tok-n">B</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-k">if</span> <span class="tok-p">(</span>
+        <span class="tok-n">A</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">+</span> <span class="tok-n">A</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">w</span> <span class="tok-o">&gt;=</span> <span class="tok-n">B</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">&amp;&amp;</span>
+        <span class="tok-n">B</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">+</span> <span class="tok-n">B</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">w</span> <span class="tok-o">&gt;=</span> <span class="tok-n">A</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">x</span> <span class="tok-o">&amp;&amp;</span>
+        <span class="tok-n">A</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">+</span> <span class="tok-n">A</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">h</span> <span class="tok-o">&gt;=</span> <span class="tok-n">B</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">&amp;&amp;</span>
+        <span class="tok-n">B</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">y</span> <span class="tok-o">+</span> <span class="tok-n">B</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">h</span> <span class="tok-o">&gt;=</span> <span class="tok-n">A</span><span class="tok-p">.</span><span class="tok-n">destRect</span><span class="tok-p">.</span><span class="tok-n">y</span>
+        <span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-k">return</span> <span class="tok-nb">true</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+    <span class="tok-k">return</span> <span class="tok-nb">false</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_collision_du_joueur_avec_les_obstacles"><h2>Collision du joueur avec les obstacles</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="c++ language-c++"><span class="tok-kt">void</span> <span class="tok-n">Game</span><span class="tok-o">::</span><span class="tok-n">update</span><span class="tok-p">()</span> <span class="tok-p">{</span>
+    <span class="tok-n">player</span><span class="tok-o">-&gt;</span><span class="tok-n">update</span><span class="tok-p">();</span>
+    <span class="tok-k">for</span> <span class="tok-p">(</span><span class="tok-k">auto</span> <span class="tok-k">const</span> <span class="tok-o">&amp;</span><span class="tok-nl">obstacle</span><span class="tok-p">:</span> <span class="tok-n">Obstacle</span><span class="tok-o">::</span><span class="tok-n">obstacleList</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-n">obstacle</span><span class="tok-o">-&gt;</span><span class="tok-n">update</span><span class="tok-p">();</span>
+    <span class="tok-p">}</span>
+    <span class="tok-k">for</span> <span class="tok-p">(</span><span class="tok-k">auto</span> <span class="tok-k">const</span> <span class="tok-o">&amp;</span><span class="tok-nl">obstacle</span><span class="tok-p">:</span> <span class="tok-n">Obstacle</span><span class="tok-o">::</span><span class="tok-n">obstacleList</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+        <span class="tok-k">if</span> <span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-o">-&gt;</span><span class="tok-n">getCharac</span><span class="tok-p">()</span><span class="tok-o">-&gt;</span><span class="tok-n">collidingWith</span><span class="tok-p">(</span><span class="tok-o">*</span><span class="tok-n">obstacle</span><span class="tok-p">))</span> <span class="tok-p">{</span>
+            <span class="tok-n">std</span><span class="tok-o">::</span><span class="tok-n">cout</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-s">&quot;colliding&quot;</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-n">std</span><span class="tok-o">::</span><span class="tok-n">endl</span><span class="tok-p">;</span>
+            <span class="tok-k">if</span> <span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-o">-&gt;</span><span class="tok-n">getCharac</span><span class="tok-p">()</span><span class="tok-o">-&gt;</span><span class="tok-n">getVelocity</span><span class="tok-p">()</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+                <span class="tok-n">player</span><span class="tok-o">-&gt;</span><span class="tok-n">getCharac</span><span class="tok-p">()</span><span class="tok-o">-&gt;</span><span class="tok-n">setVelocity</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">);</span>
+            <span class="tok-p">}</span> <span class="tok-k">else</span> <span class="tok-p">{</span>
+                <span class="tok-n">player</span><span class="tok-o">-&gt;</span><span class="tok-n">getCharac</span><span class="tok-p">()</span><span class="tok-o">-&gt;</span><span class="tok-n">setVelocity</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">);</span>
+            <span class="tok-p">}</span>
+            <span class="tok-n">player</span><span class="tok-o">-&gt;</span><span class="tok-n">getCharac</span><span class="tok-p">()</span><span class="tok-o">-&gt;</span><span class="tok-n">move</span><span class="tok-p">();</span>
+            <span class="tok-n">player</span><span class="tok-o">-&gt;</span><span class="tok-n">getCharac</span><span class="tok-p">()</span><span class="tok-o">-&gt;</span><span class="tok-n">setVelocity</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">);</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre></div></div></section></section>
+<section><section id="_quelques_utilitaires"><h2>Quelques utilitaires</h2><div class="ulist"><ul><li><p>Chargement des textures avec la classe TextureManager</p></li><li><p>Des maths et de la géométrie dans geometry.cpp avec la classe Vector2d</p></li><li><p>Toutes les constantes dans constants.h</p></li></ul></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="cpp language-cpp"><span class="tok-k">namespace</span> <span class="tok-n">csts</span>
+<span class="tok-p">{</span>
+    <span class="tok-k">constexpr</span> <span class="tok-kt">int</span> <span class="tok-n">FPS</span> <span class="tok-o">=</span> <span class="tok-mi">60</span><span class="tok-p">;</span>
+    <span class="tok-k">constexpr</span> <span class="tok-kt">int</span> <span class="tok-n">frameDelay</span> <span class="tok-o">=</span> <span class="tok-mi">1000</span> <span class="tok-o">/</span> <span class="tok-n">FPS</span><span class="tok-p">;</span>
+    <span class="tok-k">constexpr</span> <span class="tok-kt">int</span> <span class="tok-n">TEXTURESIZE</span> <span class="tok-o">=</span> <span class="tok-mi">64</span><span class="tok-p">;</span>
+    <span class="tok-k">constexpr</span> <span class="tok-kt">int</span> <span class="tok-n">TILESIZE</span> <span class="tok-o">=</span> <span class="tok-mi">32</span><span class="tok-p">;</span>
+    <span class="tok-k">constexpr</span> <span class="tok-kt">int</span> <span class="tok-n">PLAYERRES</span> <span class="tok-o">=</span> <span class="tok-mi">100</span><span class="tok-p">;</span>
+    <span class="tok-k">constexpr</span> <span class="tok-kt">int</span> <span class="tok-n">PLAYERSPEED</span> <span class="tok-o">=</span> <span class="tok-mi">2</span><span class="tok-p">;</span>
+    <span class="tok-k">constexpr</span> <span class="tok-kt">int</span> <span class="tok-n">OBSTACLESIZE</span> <span class="tok-o">=</span> <span class="tok-mi">64</span><span class="tok-p">;</span>
+    <span class="tok-k">constexpr</span> <span class="tok-kt">int</span> <span class="tok-n">OBSTACLEHEIGHT</span> <span class="tok-o">=</span> <span class="tok-mi">12</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre></div></div></section></section>
+<section id="_crdits"><h2>Crédits</h2><div class="paragraph"><p>Le source des images est :</p></div>
+<div class="paragraph"><p>Topdown (Shooter) Pack by Kenney Vleugels (www.kenney.nl)</p></div>
+<div class="paragraph"><p>Sous la licence :</p></div>
+<div class="paragraph"><p>License (Creative Commons Zero, CC0) http ://creativecommons.org/publicdomain/zero/1.0/ You may use these assets in personal and commercial projects.</p></div></section>
+<section id="_conclusion"><h2>Conclusion</h2><div class="ulist"><ul><li><p>Bien que non abouti le jeu présente un squelette de hiérarchisation des objets, et permet le chargement de carte.</p></li><li><p>Il n’y a cependant pas de système de caméra ni de menu. Le choix de la SDL ne s’est pas avéré être un bon choix à ce niveau.</p></li></ul></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'moon',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
