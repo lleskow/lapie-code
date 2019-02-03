@@ -12,9 +12,7 @@
 
 === En pratique:
 
-* L'éditeur de texte que nous utiliserons est
-link:https://www.geany.org/[Geany]
-image:https://www.geany.org/images/geany.png[geany]
+* L'éditeur de texte que nous utiliserons est Spyder, inclu dans Anaconda
 
 === Pour créer une page web:
 
