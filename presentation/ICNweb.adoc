@@ -229,7 +229,7 @@ Une très bonne référence pour le HTML et le CSS.
 ----
 <h1>Notre super app</h1>
 <p> Est un prétexte pour faire du HTML..</p>
-<a href="#"> Rejoignez-nous <a>
+<a href="#"> Rejoignez-nous </a>
 
 <h2>Rapide</h2>
 <p>Vraiment super <strong>rapide</strong>.</p>
