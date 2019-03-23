@@ -1,6 +1,8 @@
 :backend: revealjs
 :revealjs_theme: moon
 :stem: latexmath
+:revealjs_autoSlide: 10000
+:revealjs_loop: true
 
 = Numérique et sciences informatiques
 
