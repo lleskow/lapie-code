@@ -2,416 +2,456 @@
 <html lang="fr">
 
 <head>
-  <meta charset="utf-8">
-  <!-- Le charset est à garder en haut de page pour être tout de suite "parsé" -->
-  <title>Lapie Code - Accueil</title>
+    <meta charset="utf-8">
+    <!-- Le charset est à garder en haut de page pour être tout de suite "parsé" -->
+    <title>Lapie Code - Accueil</title>
 
-  <!-- gestion des favicons à l'aide du site suivant (finaliser/tester) -->
-  <!-- https://realfavicongenerator.net/ -->
-  <!-- Il faut en particulier vérifier les / devant favicon, probleme juste en local ?-->
-  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-  <link rel="manifest" href="../manifest.json">
-  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#b2dfdb">
-  <meta name="apple-mobile-web-app-title" content="Lapie Code">
-  <meta name="application-name" content="Lapie Code">
-  <meta name="theme-color" content="#ffffff">
+    <!-- gestion des favicons à l'aide du site suivant (finaliser/tester) -->
+    <!-- https://realfavicongenerator.net/ -->
+    <!-- Il faut en particulier vérifier les / devant favicon, probleme juste en local ?-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#b2dfdb">
+    <meta name="apple-mobile-web-app-title" content="Lapie Code">
+    <meta name="application-name" content="Lapie Code">
+    <meta name="theme-color" content="#ffffff">
 
-  <!-- Fear the robots -->
-  <meta name="robots" content="none" />
+    <!-- Fear the robots -->
+    <meta name="robots" content="none" />
 
-  <!-- Permet d'adapter le site aux portables et tablette -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <!-- Emplacement pour les polices de caractére  -->
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CMontserrat:400,700%7CRoboto:400,500,700" rel="stylesheet">
-  <!-- Permet d'utiliser les icones de google material -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Pour le moment une unique feuille de style semble suffisante -->
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-  <!-- Pour inverser les couleurs en ICN -->
-  <link rel="stylesheet" type="text/css" href="../css/icncolor.css">
+    <!-- Permet d'adapter le site aux portables et tablette -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Emplacement pour les polices de caractére  -->
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CMontserrat:400,700%7CRoboto:400,500,700" rel="stylesheet">
+    <!-- Permet d'utiliser les icones de google material -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Pour le moment une unique feuille de style semble suffisante -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Pour inverser les couleurs en ICN -->
+    <link rel="stylesheet" type="text/css" href="../css/icncolor.css">
 </head>
 
 <body>
-  <!-- Sert à pouvoir faire un flexbox sur la page et fixer le footer -->
-  <!-- A remplacer par un grid un jour surement -->
-  <div class="page-conteneur">
+    <!-- Sert à pouvoir faire un flexbox sur la page et fixer le footer -->
+    <!-- A remplacer par un grid un jour surement -->
+    <div class="page-conteneur">
 
-    <!-- L'entete commune, avec un logo à gauche et une bar de navigation à droite. -->
-    <!-- Le tout est fait à grand coup de flexbox (flexbox inception) -->
-    <!-- Le tout est à rendre "responsive". -->
-    <header class="entete-principal">
+        <!-- L'entete commune, avec un logo à gauche et une bar de navigation à droite. -->
+        <!-- Le tout est fait à grand coup de flexbox (flexbox inception) -->
+        <!-- Le tout est à rendre "responsive". -->
+        <header class="entete-principal">
 
-      <!-- Le logo  -->
-      <a href="index.html" class="logo-entete">
-        <p class="logo-texte-entete">lapie</p>
-        <img src="../images/logo-entete.png" alt="Le logo Lapie Code" class="logo-image-entete">
-        <p class="logo-texte-entete">code</p>
-      </a>
+            <!-- Le logo  -->
+            <a href="index.html" class="logo-entete">
+                <p class="logo-texte-entete">lapie</p>
+                <img src="../images/logo-entete.png" alt="Le logo Lapie Code" class="logo-image-entete">
+                <p class="logo-texte-entete">code</p>
+            </a>
 
-      <nav class="nav-principal">
-        <ul class="nav-principal">
-          <li class="nav-principal-list">
-            <a href="index.html" class="nav-principal-lien">Accueil</a>
-          </li>
-          <li class="nav-principal-list nav-principal-list--actuelle">
-            <a href="cours.html" class="nav-principal-lien">Cours</a>
-          </li>
-          <!-- <li class="nav-principal-list">
+            <nav class="nav-principal">
+                <ul class="nav-principal">
+                    <li class="nav-principal-list">
+                        <a href="index.html" class="nav-principal-lien">Accueil</a>
+                    </li>
+                    <li class="nav-principal-list nav-principal-list--actuelle">
+                        <a href="cours.html" class="nav-principal-lien">Cours</a>
+                    </li>
+                    <!-- <li class="nav-principal-list">
             <a href="cahier_texte.html" class="nav-principal-lien">Cahier de texte</a>
           </li> -->
-          <li class="nav-principal-list">
-            <a href="organisation.html" class="nav-principal-lien">Organisation de l'année</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <!-- Fin du header -->
+                    <li class="nav-principal-list">
+                        <a href="organisation.html" class="nav-principal-lien">Organisation de l'année</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Fin du header -->
 
-    <section class="contenu">
+        <section class="contenu">
+            <div class="panel">
+                <div class="panel-header">
+                    <h1 class="panel-header-title">
+                        Séance du 26 mars 2019:
+                        Boule Pour:
+                    </h1>
+                </div>
 
-      <div class="panel">
-        <div class="panel-header">
-          <h1 class="panel-header-title">
-            Séance du 18 mars 2019:
-            Les langages du Web.
-          </h1>
-        </div>
+                <div class="panel-element">
+                    L'énoncé du T.P est ci-dessous.
+                    <p class="panel-element-texte">
+                        <br> Ne pas oublier de respecter l'organisation des fichiers et le "shebang" #!/bin/python3 .
+                    </p>
+                </div>
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            L'énoncé du T.P se trouve ici
-            <a href="cours/tp_web.html" target="_blank" class="corps-texte-lien">
-              ici</a>.
-          </p>
-        </div>
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            <span class="panel-intitule">Objectifs:</span>
-            <ul class="panel-list">
-              <li>Analyser et créer des pages Web (statiques) simples.</li>
-              <li>Comprendre l'intérêt de la séparation du contenu et de la mise en forme grâce à des pages de style.</li>
-              <li>Évaluer la qualité des pages du point de vue de la correction syntaxique et de l’efficacité du message.</li>
-              <li>Découvrir le positionnement avec Grid.</li>
-            </ul>
-          </p>
-        </div>
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        <span class="panel-intitule">Objectifs:</span>
+                        <ul class="panel-list">
+                            <li>Utiliser la variable des boucles For.</li>
+                            <li>Sommer/compter des éléments.</li>
+                        </ul>
+                    </p>
+                </div>
 
-        <div class="panel-element">
-          <ul class="panel-list-file">
-            <li>
-              <a href="cours/tp_web.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
-            </li>
-            <li>
-              <a href="../presentation/ICNweb.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Présentation proposée en cours.</a>
-            </li>
-            <li>
-              <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3" target="_blank"><i class="material-icons md-1">insert_drive_file</i>
-                Le site Openclassrooms propose un cours de bonne qualité sur le sujet.</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/" target="_blank"><i class="material-icons md-1">insert_drive_file</i>
-                Le site developer.mozilla.org peut servir de référence pour les balises HTML, et les sélecteurs et attributs css.</a>
-            </li>
-          </ul>
-        </div>
+                <div class="panel-element">
+                    <ul class="panel-list-file">
+                        <li>
+                            <a href="cours/tp07for.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
+                        </li>
+                        <li>
+                            <a href="../presentation/ICN7.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Présentation proposée en cours.</a>
+                        </li>
+                        <li>
+                            <a href="../assets/mementopython3_20_09.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin du panel de la séance du: 26/03/19 -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h1 class="panel-header-title">
+                        Séance du 18 mars 2019:
+                        Les langages du Web.
+                    </h1>
+                </div>
 
-      </div>
-      <!-- Fin du panel de la séance du: 18/03/19 -->
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        L'énoncé du T.P se trouve ici
+                        <a href="cours/tp_web.html" target="_blank" class="corps-texte-lien">
+                            ici</a>.
+                    </p>
+                </div>
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        <span class="panel-intitule">Objectifs:</span>
+                        <ul class="panel-list">
+                            <li>Analyser et créer des pages Web (statiques) simples.</li>
+                            <li>Comprendre l'intérêt de la séparation du contenu et de la mise en forme grâce à des pages de style.</li>
+                            <li>Évaluer la qualité des pages du point de vue de la correction syntaxique et de l’efficacité du message.</li>
+                            <li>Découvrir le positionnement avec Grid.</li>
+                        </ul>
+                    </p>
+                </div>
 
-      <div class="panel">
-        <div class="panel-header">
-          <h1 class="panel-header-title">
-            Séance du 04 février 2019:
-            Les langages du Web.
-          </h1>
-        </div>
+                <div class="panel-element">
+                    <ul class="panel-list-file">
+                        <li>
+                            <a href="cours/tp_web.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
+                        </li>
+                        <li>
+                            <a href="../presentation/ICNweb.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Présentation proposée en cours.</a>
+                        </li>
+                        <li>
+                            <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3" target="_blank"><i class="material-icons md-1">insert_drive_file</i>
+                                Le site Openclassrooms propose un cours de bonne qualité sur le sujet.</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/" target="_blank"><i class="material-icons md-1">insert_drive_file</i>
+                                Le site developer.mozilla.org peut servir de référence pour les balises HTML, et les sélecteurs et attributs css.</a>
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            L'énoncé du T.P se trouve à l'intérieur de
-            <a href="../presentation/ICNweb.html" target="_blank" class="corps-texte-lien">
-              la présentation</a> de cours.
-          </p>
-        </div>
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            <span class="panel-intitule">Objectifs:</span>
-            <ul class="panel-list">
-              <li>Analyser et créer des pages Web (statiques) simples.</li>
-              <li>Comprendre l'intérêt de la séparation du contenu et de la mise en forme grâce à des pages de style.</li>
-              <li>Évaluer la qualité des pages du point de vue de la correction syntaxique et de l’efficacité du message.</li>
-            </ul>
-          </p>
-        </div>
+            </div>
+            <!-- Fin du panel de la séance du: 18/03/19 -->
 
-        <div class="panel-element">
-          <ul class="panel-list-file">
-            <li>
-              <a href="../presentation/ICNweb.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Présentation proposée en cours.</a>
-            </li>
-            <li>
-              <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3" target="_blank"><i class="material-icons md-1">insert_drive_file</i>
-                Le site Openclassrooms propose un cours de bonne qualité sur le sujet.</a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/fr/" target="_blank"><i class="material-icons md-1">insert_drive_file</i>
-                Le site developer.mozilla.org peut servir de référence pour les balises HTML, et les sélecteurs et attributs css.</a>
-            </li>
-          </ul>
-        </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <h1 class="panel-header-title">
+                        Séance du 04 février 2019:
+                        Les langages du Web.
+                    </h1>
+                </div>
 
-      </div>
-      <!-- Fin du panel de la séance du: 04/02/19 -->
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        L'énoncé du T.P se trouve à l'intérieur de
+                        <a href="../presentation/ICNweb.html" target="_blank" class="corps-texte-lien">
+                            la présentation</a> de cours.
+                    </p>
+                </div>
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        <span class="panel-intitule">Objectifs:</span>
+                        <ul class="panel-list">
+                            <li>Analyser et créer des pages Web (statiques) simples.</li>
+                            <li>Comprendre l'intérêt de la séparation du contenu et de la mise en forme grâce à des pages de style.</li>
+                            <li>Évaluer la qualité des pages du point de vue de la correction syntaxique et de l’efficacité du message.</li>
+                        </ul>
+                    </p>
+                </div>
 
-      <div class="panel">
-        <div class="panel-header">
-          <h1 class="panel-header-title">
-            Séance du 26 novembre, 03 et 10 décembre 2018:
-            Plus sur le Si-Alors-Sinon:
-          </h1>
-        </div>
+                <div class="panel-element">
+                    <ul class="panel-list-file">
+                        <li>
+                            <a href="../presentation/ICNweb.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Présentation proposée en cours.</a>
+                        </li>
+                        <li>
+                            <a href="https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3" target="_blank"><i class="material-icons md-1">insert_drive_file</i>
+                                Le site Openclassrooms propose un cours de bonne qualité sur le sujet.</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/fr/" target="_blank"><i class="material-icons md-1">insert_drive_file</i>
+                                Le site developer.mozilla.org peut servir de référence pour les balises HTML, et les sélecteurs et attributs css.</a>
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            Aller dans la partie cours et problème du site:
-            <a href="http://www.france-ioi.org/" target="_blank" class="corps-texte-lien">http://www.france-ioi.org/</a>.
-            <br>
-            Traiter la partie 4: Lecture de l'entrée du niveau 1 jusqu'à la question 5) Graduation de thermomètres.
-            <br>
-            Puis traiter la partie 5: Tests et conditions.
-          </p>
-        </div>
+            </div>
+            <!-- Fin du panel de la séance du: 04/02/19 -->
 
-        <div class="panel-element">
-          Deuxième partie du cours:
-          <br>
+            <div class="panel">
+                <div class="panel-header">
+                    <h1 class="panel-header-title">
+                        Séance du 26 novembre, 03 et 10 décembre 2018:
+                        Plus sur le Si-Alors-Sinon:
+                    </h1>
+                </div>
 
-          <p class="panel-element-texte">
-            Vous trouverez ci-dessous l'énoncé du mini-projet, avec le premier programme de test à réaliser. <br> Implémenter le programme de test dans un trinket nommé: histoire_test, puis votre histoire dans un trinket différent nommé: mon_histoire.
-            <br> Ajouter tout en haut du fichier main.py le code suivant: #!/bin/python3
-          </p>
-        </div>
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        Aller dans la partie cours et problème du site:
+                        <a href="http://www.france-ioi.org/" target="_blank" class="corps-texte-lien">http://www.france-ioi.org/</a>.
+                        <br>
+                        Traiter la partie 4: Lecture de l'entrée du niveau 1 jusqu'à la question 5) Graduation de thermomètres.
+                        <br>
+                        Puis traiter la partie 5: Tests et conditions.
+                    </p>
+                </div>
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            <span class="panel-intitule">Objectifs:</span>
-            <ul class="panel-list">
-              <li>Travailler les instructions conditionnelles, et l'affectation en Python.</li>
-              <li>Apprendre à travailler en groupe.</li>
-              <li>Organiser son code.</li>
-            </ul>
-          </p>
-        </div>
+                <div class="panel-element">
+                    Deuxième partie du cours:
+                    <br>
 
-        <div class="panel-element">
-          <ul class="panel-list-file">
-            <li>
-              <a href="cours/mini-projet-adv1.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
-            </li>
-            <li>
-              <a href="../assets/mementopython3_20_09.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- Fin du panel de la séance du: 15/10/18 -->
-      <div class="panel">
-        <div class="panel-header">
-          <h1 class="panel-header-title">
-            Séance du 15 octobre 2018:
-            Boucle tant que:
-          </h1>
-        </div>
+                    <p class="panel-element-texte">
+                        Vous trouverez ci-dessous l'énoncé du mini-projet, avec le premier programme de test à réaliser. <br> Implémenter le programme de test dans un trinket nommé: histoire_test, puis votre histoire dans un trinket différent nommé:
+                        mon_histoire.
+                        <br> Ajouter tout en haut du fichier main.py le code suivant: #!/bin/python3
+                    </p>
+                </div>
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            Aller dans la partie
-            <a href="organisation.html#ioi" target="_blank" class="corps-texte-lien">organisation</a> du site pour suivre les explications sur la création d'un compte sur
-            <a href="http://www.france-ioi.org/" target="_blank" class="corps-texte-lien">http://www.france-ioi.org/</a>.
-            <br> Puis dans la partie cours et problème du site. Traiter la partie 1 du niveau 1 en choisissant Python comme langage.
-          </p>
-        </div>
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        <span class="panel-intitule">Objectifs:</span>
+                        <ul class="panel-list">
+                            <li>Travailler les instructions conditionnelles, et l'affectation en Python.</li>
+                            <li>Apprendre à travailler en groupe.</li>
+                            <li>Organiser son code.</li>
+                        </ul>
+                    </p>
+                </div>
 
-        <div class="panel-element">
-          Deuxième partie du cours:
-          <br>
-          L'énoncé du T.P est ci-dessous.
-          <p class="panel-element-texte">
-            <br> Ne pas oublier de respecter l'organisation des fichiers et le "shebang".
-          </p>
-        </div>
+                <div class="panel-element">
+                    <ul class="panel-list-file">
+                        <li>
+                            <a href="cours/mini-projet-adv1.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
+                        </li>
+                        <li>
+                            <a href="../assets/mementopython3_20_09.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin du panel de la séance du: 15/10/18 -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h1 class="panel-header-title">
+                        Séance du 15 octobre 2018:
+                        Boucle tant que:
+                    </h1>
+                </div>
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            <span class="panel-intitule">Objectifs:</span>
-            <ul class="panel-list">
-              <li>Travailler les structures itératives en Python.</li>
-              <li>Travailler l'utilisation de module.</li>
-            </ul>
-          </p>
-        </div>
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        Aller dans la partie
+                        <a href="organisation.html#ioi" target="_blank" class="corps-texte-lien">organisation</a> du site pour suivre les explications sur la création d'un compte sur
+                        <a href="http://www.france-ioi.org/" target="_blank" class="corps-texte-lien">http://www.france-ioi.org/</a>.
+                        <br> Puis dans la partie cours et problème du site. Traiter la partie 1 du niveau 1 en choisissant Python comme langage.
+                    </p>
+                </div>
 
-        <div class="panel-element">
-          <ul class="panel-list-file">
-            <li>
-              <a href="cours/tp04.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
-            </li>
-            <li>
-              <a href="../presentation/ICN6.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Présentation proposée en cours.</a>
-            </li>
-            <li>
-              <a href="../assets/mementopython3_20_09.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- Fin du panel de la séance du: 15/10/18 -->
+                <div class="panel-element">
+                    Deuxième partie du cours:
+                    <br>
+                    L'énoncé du T.P est ci-dessous.
+                    <p class="panel-element-texte">
+                        <br> Ne pas oublier de respecter l'organisation des fichiers et le "shebang".
+                    </p>
+                </div>
 
-      <div class="panel">
-        <div class="panel-header">
-          <h1 class="panel-header-title">
-            Séance du 08 octobre 2018:
-            Si - alors - sinon
-          </h1>
-        </div>
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        <span class="panel-intitule">Objectifs:</span>
+                        <ul class="panel-list">
+                            <li>Travailler les structures itératives en Python.</li>
+                            <li>Travailler l'utilisation de module.</li>
+                        </ul>
+                    </p>
+                </div>
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            Pour le T.P sur machine vous devez vous connecter sur votre compte trinket, et créer un nouveau trinket nommé seance3.
-            <br> Ne pas oublier de
-            <a href="../orga/trinket.html" class="corps-texte-lien">respecter l'organisation des fichiers.</a>
-            <br> Ajouter tout en haut du fichier main.py le code suivant: #!/bin/python3
-            <br> L'énoncé du T.P se trouve ci-dessous.
-          </p>
-        </div>
+                <div class="panel-element">
+                    <ul class="panel-list-file">
+                        <li>
+                            <a href="cours/tp04.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
+                        </li>
+                        <li>
+                            <a href="../presentation/ICN6.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Présentation proposée en cours.</a>
+                        </li>
+                        <li>
+                            <a href="../assets/mementopython3_20_09.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin du panel de la séance du: 15/10/18 -->
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            <span class="panel-intitule">Objectifs:</span>
-            <ul class="panel-list">
-              <li>Travailler les structures en Python</li>
-              <li>Découvrir les instructions conditionnelles en Python.</li>
-              <li>Utilisation de la division euclidienne en informatique.</li>
-            </ul>
-          </p>
-        </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <h1 class="panel-header-title">
+                        Séance du 08 octobre 2018:
+                        Si - alors - sinon
+                    </h1>
+                </div>
 
-        <div class="panel-element">
-          <ul class="panel-list-file">
-            <li>
-              <a href="../presentation/ICN3.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Présentation proposée en cours.</a>
-            </li>
-            <li>
-              <a href="cours/tp03.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
-            </li>
-            <li>
-              <a href="../assets/mementopython3_20_09.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- Fin du panel de la séance du: 08/10/18 -->
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        Pour le T.P sur machine vous devez vous connecter sur votre compte trinket, et créer un nouveau trinket nommé seance3.
+                        <br> Ne pas oublier de
+                        <a href="../orga/trinket.html" class="corps-texte-lien">respecter l'organisation des fichiers.</a>
+                        <br> Ajouter tout en haut du fichier main.py le code suivant: #!/bin/python3
+                        <br> L'énoncé du T.P se trouve ci-dessous.
+                    </p>
+                </div>
 
-      <div class="panel">
-        <div class="panel-header">
-          <h1 class="panel-header-title">
-            Séance du 01 octobre 2018:
-            Variables et entrée/sortie.
-          </h1>
-        </div>
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        <span class="panel-intitule">Objectifs:</span>
+                        <ul class="panel-list">
+                            <li>Travailler les structures en Python</li>
+                            <li>Découvrir les instructions conditionnelles en Python.</li>
+                            <li>Utilisation de la division euclidienne en informatique.</li>
+                        </ul>
+                    </p>
+                </div>
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            Pour le T.P sur machine vous devez vous connecter sur votre compte trinket, et créer un nouveau trinket nommé seance2.
-            <br> Ne pas oublier de <a href="../orga/trinket.html" class="corps-texte-lien">respecter l'organisation des fichiers.</a>
-            <br> Ajouter tout en haut du fichier main.py le code suivant: #!/bin/python3
-            <br> L'énoncé du T.P se trouve ci-dessous.
-          </p>
-        </div>
+                <div class="panel-element">
+                    <ul class="panel-list-file">
+                        <li>
+                            <a href="../presentation/ICN3.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Présentation proposée en cours.</a>
+                        </li>
+                        <li>
+                            <a href="cours/tp03.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
+                        </li>
+                        <li>
+                            <a href="../assets/mementopython3_20_09.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin du panel de la séance du: 08/10/18 -->
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            <span class="panel-intitule">Objectifs:</span>
-            <ul class="panel-list">
-              <li>Comprendre l'affectation.</li>
-              <li>Se familiariser avec la notion de type, et la conversion de type.</li>
-              <li>Découvrir les chaînes de caractères, et les entrées/sorties de base.</li>
-            </ul>
-          </p>
-        </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <h1 class="panel-header-title">
+                        Séance du 01 octobre 2018:
+                        Variables et entrée/sortie.
+                    </h1>
+                </div>
 
-        <div class="panel-element">
-          <ul class="panel-list-file">
-            <li>
-              <a href="cours/tp02.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
-            </li>
-            <li>
-              <a href="../assets/mementopython3_20_09.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- Fin du panel de la séance du: 01/10/18 -->
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        Pour le T.P sur machine vous devez vous connecter sur votre compte trinket, et créer un nouveau trinket nommé seance2.
+                        <br> Ne pas oublier de <a href="../orga/trinket.html" class="corps-texte-lien">respecter l'organisation des fichiers.</a>
+                        <br> Ajouter tout en haut du fichier main.py le code suivant: #!/bin/python3
+                        <br> L'énoncé du T.P se trouve ci-dessous.
+                    </p>
+                </div>
 
-      <div class="panel">
-        <div class="panel-header">
-          <h1 class="panel-header-title">
-            Séance du 17 septembre 2018:
-            Introduction à Python à l'aide du module turtle.
-          </h1>
-        </div>
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        <span class="panel-intitule">Objectifs:</span>
+                        <ul class="panel-list">
+                            <li>Comprendre l'affectation.</li>
+                            <li>Se familiariser avec la notion de type, et la conversion de type.</li>
+                            <li>Découvrir les chaînes de caractères, et les entrées/sorties de base.</li>
+                        </ul>
+                    </p>
+                </div>
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            Si vous ne possédez pas une adresse mail présentable (i.e: pas weshweshdu92@yopmail.com), c'est le moment d'en créer une.
-            <br> Attention à bien conserver vos mots de passe liés à l'ICN, et évitez de les sauvegarder sur les ordinateurs du lycée.
-            <br>
-          </p>
-          <br>
-          <p class="panel-element-texte">
-            Dans un premier temps, nous allons utiliser l'application web
-            <a href="https://trinket.io/" target="_blank" class="corps-texte-lien">trinket.io</a> pour exécuter des programmes en Python, vous trouverez des explications sur la création d'un compte et l'organisation des fichiers
-            <a href="../orga/trinket.html" target="_blank" class="corps-texte-lien">ici.</a>
-            <br> Une fois votre compte trinket créé et organisé, passez au T.P dont l'énoncé est ci-dessous.
-          </p>
-          <br>
-          <p class="panel-element-texte">
-            Durant ce T.P nous allons découvrir Python à l'aide du module graphique turtle.
-          </p>
-        </div>
+                <div class="panel-element">
+                    <ul class="panel-list-file">
+                        <li>
+                            <a href="cours/tp02.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
+                        </li>
+                        <li>
+                            <a href="../assets/mementopython3_20_09.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin du panel de la séance du: 01/10/18 -->
 
-        <div class="panel-element">
-          <p class="panel-element-texte">
-            <span class="panel-intitule">Objectifs:</span>
-            <ul class="panel-list">
-              <li>Découvrir les bases de la syntaxe du langage Python.</li>
-              <li>S'amuser avec Python et vouloir en découvrir plus.</li>
-            </ul>
-          </p>
-        </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <h1 class="panel-header-title">
+                        Séance du 17 septembre 2018:
+                        Introduction à Python à l'aide du module turtle.
+                    </h1>
+                </div>
 
-        <div class="panel-element">
-          <ul class="panel-list-file">
-            <li>
-              <a href="cours/tp01.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- Fin du panel de la séance du: 17/09/17 -->
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        Si vous ne possédez pas une adresse mail présentable (i.e: pas weshweshdu92@yopmail.com), c'est le moment d'en créer une.
+                        <br> Attention à bien conserver vos mots de passe liés à l'ICN, et évitez de les sauvegarder sur les ordinateurs du lycée.
+                        <br>
+                    </p>
+                    <br>
+                    <p class="panel-element-texte">
+                        Dans un premier temps, nous allons utiliser l'application web
+                        <a href="https://trinket.io/" target="_blank" class="corps-texte-lien">trinket.io</a> pour exécuter des programmes en Python, vous trouverez des explications sur la création d'un compte et l'organisation des fichiers
+                        <a href="../orga/trinket.html" target="_blank" class="corps-texte-lien">ici.</a>
+                        <br> Une fois votre compte trinket créé et organisé, passez au T.P dont l'énoncé est ci-dessous.
+                    </p>
+                    <br>
+                    <p class="panel-element-texte">
+                        Durant ce T.P nous allons découvrir Python à l'aide du module graphique turtle.
+                    </p>
+                </div>
 
-    </section>
-    <!-- Fin de la section  -->
+                <div class="panel-element">
+                    <p class="panel-element-texte">
+                        <span class="panel-intitule">Objectifs:</span>
+                        <ul class="panel-list">
+                            <li>Découvrir les bases de la syntaxe du langage Python.</li>
+                            <li>S'amuser avec Python et vouloir en découvrir plus.</li>
+                        </ul>
+                    </p>
+                </div>
 
-    <footer class="footer-principal">
-      <a href="../mentions_legales.html" class="footer-principal-lien">L. Leskow - 2017 - Mentions légales</a>
-    </footer>
-    <!-- Fin du footer  -->
+                <div class="panel-element">
+                    <ul class="panel-list-file">
+                        <li>
+                            <a href="cours/tp01.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin du panel de la séance du: 17/09/17 -->
 
-  </div>
-  <!-- Fin du conteneur de la page -->
+        </section>
+        <!-- Fin de la section  -->
+
+        <footer class="footer-principal">
+            <a href="../mentions_legales.html" class="footer-principal-lien">L. Leskow - 2017 - Mentions légales</a>
+        </footer>
+        <!-- Fin du footer  -->
+
+    </div>
+    <!-- Fin du conteneur de la page -->
 </body>
 
 </html>
