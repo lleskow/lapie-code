@@ -114,7 +114,7 @@ if phrase[len(phrase)-1] == ",":
   print("Attention à votre ponctuation")
 ----
 
-Que fait le programme suivant ?
+Que fait ce programme ?
 
 === !
 
@@ -129,44 +129,44 @@ for i in range(len(phrase)):
 print(presente)
 ----
 
-Que fait le programme suivant ?
-
-== Modifier une chaîne de caractère ?
-
-=== !
-
-On ne peut pas modifier une chaîne de caractère.
-
-=== !
-
-On peut cependant en recréer une à l'aide de la concaténation.
-
-=== Concaténation
-
-Concaténer veut dire mettre bout à bout.
-
-La concaténation de "ba" et de "bar" est "babar"
-
-=== En python
-
-En python la concaténation se fait avec le `+`
-
-[source,python]
-----
->>> "bon"+"jour"
- "bonjour"
-----
-
-=== !
-
-[source,python]
-----
-chaine = "un exemple"
-nouvelle_chaine = "" #crée une chaine vide
-for i in range(len(chaine)):
-  nouvelle_chaine = nouvelle_chaine + chaine[i] + "@"
-
-print(nouvelle_chaine)
-----
-
 Que fait ce programme ?
+
+// == Modifier une chaîne de caractère ?
+//
+// === !
+//
+// On ne peut pas modifier une chaîne de caractère.
+//
+// === !
+//
+// On peut cependant en recréer une à l'aide de la concaténation.
+//
+// === Concaténation
+//
+// Concaténer veut dire mettre bout à bout.
+//
+// La concaténation de "ba" et de "bar" est "babar"
+//
+// === En python
+//
+// En python la concaténation se fait avec le `+`
+//
+// [source,python]
+// ----
+// >>> "bon"+"jour"
+//  "bonjour"
+// ----
+//
+// === !
+//
+// [source,python]
+// ----
+// chaine = "un exemple"
+// nouvelle_chaine = "" #crée une chaine vide
+// for i in range(len(chaine)):
+//   nouvelle_chaine = nouvelle_chaine + chaine[i] + "@"
+//
+// print(nouvelle_chaine)
+// ----
+//
+// Que fait ce programme ?
