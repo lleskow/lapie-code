@@ -1,0 +1,62 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_loop: true
+
+= Informatique et Sciences Numériques
+
+== Qu'est ce que cette matière ?
+
+[.step]
+* L'informatique vue comme une science expérimentale.
+* L'informatique côtée concepteur plutôt qu'utilisateur.
+* Très proche de l'algorithmique vu en mathématiques.
+
+== Quels contenus ?
+
+* Programmation en langage Python
+* Algorithmique
+* Représentation des données: +
+Comment à partir de 0 et de 1, représenter des nombres, des images, etc.
+* Les langages du web (HTML et CSS)
+
+== Pour qui ?
+
+Pour tout le monde, aucun prérequis, mais il faut être:
+
+* motivé/intéressé
+* prêt à travailler en groupe
+* prêt à s'investir hors du temps de classe
+
+== Pour quelles poursuites d'études ?
+
+* Licence d'informatique, math-informatique, etc.
+* Classes préparatoires scientifiques
+* Ecoles d'ingénieurs post-bac
+* I.U.T: informatique, génie électrique, génie mécanique, etc.
+* Etudes scientifiques en général
+
+== Quelle forme ?
+
+2h par semaine comme les autres spécialités:
+
+* Cours classiques jusqu'en février.
+* Cours consacrés aux projets pour le baccalauréat.
+
+== Le baccalauréat ?
+
+* Projet en groupe
+* Oral individuel de 20 minutes portant sur le projet
+* C'est l'oral qui est évalué pas le projet
+* Coefficient 2
+
+== Les projets ?
+
+Choix libre mais avec un fort contenu en programmation.
+
+Exemples:
+
+* Souvent des jeux: puissance 4, mastermind, échecs, piano tiles, Snake...
+* Un chat
+* Traitement d'image: drapeau dans le fond d'une image, image vu comme un Daltonien
+* Projets en lien avec les mathématiques ou d'autres disciplines..
