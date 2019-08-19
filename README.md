@@ -1,3 +1,20 @@
-#lapie-code
+# lapie-code
 
-Site d'un cours de la spécialité informatique et sciences du numérique en terminale S et d'informatique et création numérique en seconde.
+## Contenu
+Site support du cours de Numérique et Sciences Informatiques de L. Leskow au lycée Paul Lapie à Courbevoie.
+N.S.I est une spécialité proposé aux élèves de première générale depuis la rentrée 2019-2020.
+
+Cet enseignement propose une introduction à la science informatique:
+algorithmique, représentations des données, langages, système d'exploitation, web, réseaux, architectures, etc.
+
+Ce site est avant tout destiné aux élèves,
+qui y trouveront les supports de cours, des informations sur les outils/logiciels utilisés
+et l'organisation de l'année.
+
+Le site contient aussi quelques documents de mathématiques et une ancienne formation
+à Python destiné aux enseignants de mathématiques.
+
+## Réalisation
+
+Le site est réalisée HTML et CSS "à la main", pour se former à ces langages
+et démontrer ce qu'il est possible de faire avec.
