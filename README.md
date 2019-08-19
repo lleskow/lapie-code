@@ -16,5 +16,5 @@ Le site contient aussi quelques documents de mathématiques et une ancienne form
 
 ## Réalisation
 
-Le site est réalisée HTML et CSS "à la main", pour se former à ces langages
-et démontrer ce qu'il est possible de faire avec.
+Le site est réalisé en HTML et CSS "à la main", pour se former à ces langages
+et pour servir d'exemple relativement simple aux élèves.
