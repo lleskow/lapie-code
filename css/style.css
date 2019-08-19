@@ -11,7 +11,7 @@
 * CH_6: $BANNIERE..........La banniere sur la page d'accueil
 * CH_7: $PANEL.............Listes d'élément. Présentés dans un cadre.
 * CH_8: $SEANCE............Style d'une élément dans le cahier de texte.
-* CH_9: $SPLIT.............Page de séparation entre l'isn et l'icn
+* CH_9: $SPLIT.............Page de séparation entre l'nsi de première et l'nsi de terminale
 */
 /* ------------------------------------ *\
     CH_0: $BASIC
@@ -162,11 +162,11 @@ h1 {
 */
 
 :root {
-    --main-color-isn: #00897B;
-    --darker-main-isn: #00675B;
-    --dark-main-isn: #AEBFBE;
-    --lighter-main-isn: #E0F2F1;
-    --accentuation-color-isn: #FF5722;
+    --main-color-nsi1: #00897B;
+    --darker-main-nsi1: #00675B;
+    --dark-main-nsi1: #AEBFBE;
+    --lighter-main-nsi1: #E0F2F1;
+    --accentuation-color-nsi1: #FF5722;
 }
 
 p,
@@ -182,7 +182,7 @@ h2 {
 }
 
 .corps-texte-list a:hover {
-    color: var(--accentuation-color-isn);
+    color: var(--accentuation-color-nsi1);
     text-shadow: 0 1px 0 rgba(255, 87, 34, 0.2);
 }
 
@@ -208,7 +208,7 @@ h2 {
 * Header
 */
 .entete-principal {
-    background: var(--main-color-isn);
+    background: var(--main-color-nsi1);
 }
 
 .logo-texte-entete {
@@ -216,7 +216,7 @@ h2 {
 }
 
 .nav-principal-list:hover {
-    background: var(--darker-main-isn);
+    background: var(--darker-main-nsi1);
     transition: all 1s ease;
 }
 
@@ -225,7 +225,7 @@ h2 {
 }
 
 .nav-principal-list--actuelle {
-    border-bottom: 4px solid var(--accentuation-color-isn);
+    border-bottom: 4px solid var(--accentuation-color-nsi1);
 }
 
 .nav-principal-lien {
@@ -251,7 +251,7 @@ h2 {
 * Les messages
 */
 .msg {
-    background-color: var(--main-color-isn);
+    background-color: var(--main-color-nsi1);
 }
 
 .msg-titre {
@@ -262,7 +262,7 @@ h2 {
 * La banniere
 */
 .banner-accueil {
-    background-color: var(--lighter-main-isn);
+    background-color: var(--lighter-main-nsi1);
 }
 
 .banner-accueil-titre {
@@ -286,11 +286,11 @@ h2 {
 
 .panel-header,
 .panel-element {
-    border-color: var(--dark-main-isn);
+    border-color: var(--dark-main-nsi1);
 }
 
 .panel-header {
-    background: var(--lighter-main-isn);
+    background: var(--lighter-main-nsi1);
 }
 
 .panel-list-file a {
@@ -298,7 +298,7 @@ h2 {
 }
 
 .panel-list-file a:hover {
-    color: var(--accentuation-color-isn);
+    color: var(--accentuation-color-nsi1);
     text-shadow: 0 1px 0 rgba(255, 87, 34, 0.2);
 }
 
@@ -306,27 +306,27 @@ h2 {
 * Seance
 */
 .seance-afaire {
-    background-color: var(--lighter-main-isn);
-    border-color: var(--main-color-isn);
+    background-color: var(--lighter-main-nsi1);
+    border-color: var(--main-color-nsi1);
 }
 
 .seance-du {
     background-color: #fbe9e7;
-    border-color: var(--accentuation-color-isn);
+    border-color: var(--accentuation-color-nsi1);
 }
 
 .seance-header {
-    border-color: var(--dark-main-isn);
+    border-color: var(--dark-main-nsi1);
 }
 
 /**
 * Le split
 */
-.col-isn {
-    background-color: var(--main-color-isn);
+.col-nsi1 {
+    background-color: var(--main-color-nsi1);
 }
 
-.col-icn {
+.col-nsit {
     background-color: #FF5722;
 }
 
@@ -625,30 +625,30 @@ h2 {
     text-align: center;
 }
 
-.col-icn:hover {
+.col-nsit:hover {
     box-shadow: -1px 0 15px 27px rgba(0, 0, 0, 0.26);
 }
 
-.col-isn:hover {
+.col-nsi1:hover {
     box-shadow: 6px 0 15px 20px rgba(0, 0, 0, 0.26);
 }
 
-.col-isn {
+.col-nsi1 {
     float: left;
 }
 
-.col-icn {
+.col-nsit {
     float: right;
 }
 
 /* Hack dès le début, pour l'ombre à gauche */
-.col-isn:hover {
+.col-nsi1:hover {
     position: relative;
 }
 
 /* Hack dès le début, pour l'ombre à gauche */
 /* C'est mal, bouuuh ! */
-.col-isn:after:hover {
+.col-nsi1:after:hover {
     content: '';
     position: absolute;
     top: 0;
