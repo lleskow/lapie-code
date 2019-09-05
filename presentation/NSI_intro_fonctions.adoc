@@ -1,0 +1,468 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+= Chapitre I: Langages et programmation
+
+== I. Introduction
+
+=== Qu'est ce qu'un programme ?
+
+[%step]
+* Un programme est un texte qui décrit un ensemble d'instructions que l'on souhaite
+faire exécuter par une machine.
+
+* A la différence d'un algorithme, il est écrit
+dans un langage de programmation.
+
+=== Qu'est ce qu'un langage de programmation ?
+
+[%step]
+* Le langage machine est une suite de 0 et de 1 incompréhensible pour un humain.
+* Un langage de programmation est langage "facilement" compréhensible par un
+être humain et qui peut être "traduit" dans le
+langage machine.
+
+=== Différentes façons de traduire:
+
+* Un programme peut être traduit une fois pour toute,
+et à chaque exécution, c'est la même traduction qui
+est utilisé. +
+On parle dans ce cas de *compilation*.
+* Ou il peut être traduit au fur et à mesure à
+chaque exécution.
+On parle dans ce cas *d'interprétation*.
+
+=== Et dans le cas de Python ?
+
+C'est en général, l'interprétation qui est privilégié. On dit
+souvent par simplification que python
+est un langage interprété.
+
+=== Grace Hopper
+
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg/384px-Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg[grace_hopper]
+
+
+=== Des exemples de langage de programmation:
+
+* Les langage C, C++
+* Javascript
+* Scratch
+* TI-basic
+* Python
+* PHP, Java, Ruby
+* et des milliers d'autres..
+
+=== L'interpréteur intéractif:
+
+* Avec Python, il est possible d’utiliser un interpréteur interactif.
+Qui permet d’entrer des instructions ou des expressions qui seront directement interprétées.
+* On peut accéder à un interpréteur interactif python sur: +
+https://repl.it/
+
+[%step]
+* Si on entre une expression dans l’interpréteur interactif, celle-ci est évaluée puis affichée.
+Ce n’est pas le cas d’un script python écrit dans un fichier, il faudra ajouter une instruction d’affichage.
+* L’interpréteur interactif permet d’écrire et d’exécuter du code Python à la volée, de faire des tests rapides,
+d’obtenir facilement des informations.
+Mais dans la grande majorité des cas, nous écrirons notre code dans un fichier.
+
+=== !
+
+Par la suite les lignes de code entrées dans l'interpréteur interactif seront
+signalées de 3 chevrons `>>>` et suivies par leurs retours à la ligne suivante.
+
+[source,python]
+----
+>>> 3 + 5
+8
+----
+
+== II. Eléments de base d'un programme
+
+=== 1. Notion d'expression
+
+=== !
+
+[%step]
+* Une *expression* est une formule qui peut être évaluée.
+* Une expression possède une valeur que l'on peut obtenir par un calcul
+
+=== !
+
+[source,python]
+----
+>>> 7
+7
+----
+
+7 est une expression simple
+
+=== !
+
+[source,python]
+----
+>>> 3 + 4
+7
+----
+
+3 + 4 est une expression composée
+
+=== !
+
+[source,python]
+----
+>>> max(3, 4)
+4
+----
+
+Un appel de fonction est une expression composée
+
+=== !
+
+[source,python]
+----
+>>> 2 + max(3 + 4, 4)
+ 9
+----
+
+=== 2. Commentaire
+
+Les commentaires sont des portions du code source ignorées par la machine.
+
+=== En Python:
+
+Tout ce qui suit un `#` est un commentaire.
+
+=== !
+
+[source,python]
+----
+>>> 2 + 2 # + 3
+ 4
+----
+
+=== 3. Notion de type
+
+[%step]
+
+* Fondamental.
+* Chaque objet python en posséde un.
+* Caractérise la façon dont l'objet est stocké en mémoire.
+* Caractérise les opérations que l'on peut lui appliquer.
+
+=== Fonction `type`
+
+Elle permet de connaitre le type.
+
+=== !
+
+[source,python]
+----
+>>> type(2)
+<class 'int'>
+>>> type("Bonjour")
+<class 'str'>
+----
+
+[%step]
+* le type int (integer) représente les entiers.
+* le type str (string) pour les chaînes de caractères.
+
+=== !
+
+Les types sont importants pour définir les opérations que l'on peut faire
+sur des objets:
+
+[source,python]
+----
+>>> 7 + "Bonjour"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+----
+
+=== !
+
+Python possède également un type float, pour les nombres décimaux.
+
+[source,python]
+----
+>>> type(4.25)
+<class 'float'>
+>>> type(2.0)
+<class 'float'>
+>>> 4.5 + 3
+7.5
+----
+
+[%step]
+* On remarque que la "virgule" se note avec un point. (comme sur la calculatrice)
+* On peut additionner un _int_ avec un _float_
+
+=== !
+
+[source,python]
+----
+>>> type("42")
+<class 'str'>
+----
+
+Attention, une fois entre guillemet un nombre n'est plus du type int ou float
+mais devient une chaîne de caractère.
+
+=== Conversion de type
+
+On peut parfois convertir un type en un autre à l'aide d'une fonction:
+
+[source,python]
+----
+>>> type(int("42"))
+<class 'int'>
+----
+
+=== 4. Opérateurs arithmétiques
+
+[%step]
+* `+` pour l'addition
+* `-` pour la soustraction
+* `*` pour la multiplication
+
+=== Puissance
+
+[source,python]
+----
+>>> 2 ** 10 # l'opérateur puissance se note ** en Python.
+ 1024
+----
+
+=== DivisionS
+
+Deux types de division entre nombres:
+
+[%step]
+* la division entière ou euclidienne qui est notée // en Python.
+* la division à virgule ou flottante qui est notée / en Python.
+
+=== !
+
+[source,python]
+----
+>>> 5 // 2
+ 2
+>>> 5 / 2
+ 2.5
+----
+
+=== Reste de la division euclidienne
+
+[source,python]
+----
+>>> 5 % 2
+ 1
+----
+
+== III. Fonctions
+
+=== !
+
+Fondamentale en informatique
+
+=== Les fonctions permettent:
+
+[%step]
+* d'organiser les programmes
+* d'éviter de se répéter
+* de paramétrer
+* d'apporter de l'abstraction
+
+=== 1. Définir une fonction
+
+=== Problème:
+
+Calculer le périmètre d'un rectangle
+
+=== !
+
+[source,python]
+----
+>>> 2 * (4 + 3) # pour un rectangle de longueur 4 et largeur 3
+ 14
+>>> 2 * (7 + 5 ) # pour un rectangle de longueur 7 et largeur 5
+??
+----
+
+=== !
+
+[source,python]
+----
+>>> 2 * (4 + 3) # pour un rectangle de longueur 4 et largeur 3
+ 14
+>>> 2 * (7 + 5 ) # pour un rectangle de longueur 7 et largeur 5
+24 # A écrire
+----
+
+=== !
+
+Définir la fonction `perimetre` se fait de la sorte:
+
+=== !
+
+[source,python]
+----
+def perimetre(longueur, largeur):
+    """ int, int -> int
+    precondition : (longueur > 0) and (largeur > 0)
+    retourne le perimetre d'un rectangle defini par sa largeur et
+    sa longueur.
+    """
+    return 2 * (longueur + largeur)
+----
+
+=== !
+
+[source,python]
+----
+>>> perimetre(4, 3)
+??
+----
+
+=== !
+
+[source,python]
+----
+>>> perimetre(4, 3)
+14 # A écrire
+----
+
+=== 2. Tests
+
+=== !
+
+Pour détecter les erreurs, on test les fonctions avec
+l'instruction `assert`
+
+=== !
+
+[source,python]
+----
+assert perimetre(4, 3) == 14
+assert perimetre(7, 5) == 24
+assert perimetre(2, 2) == 8
+----
+
+=== !
+
+[source,python]
+----
+>>> assert perimetre(4, 3) == 42 # la valeur de test est incorrecte
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AssertionError
+----
+
+=== !
+
+Tester ses programmes est primordial, et nous tâcherons de systèmatiquement accompagner
+nos fonctions d'un jeu de tests.
+
+=== 3. Implémentation
+
+=== !
+
+Une fois les spécifications de la fonction bien déterminées et après avoir
+créé un jeu de tests, nous pouvons passer à l'implémentation de la fonction.
+
+=== !
+
+L'implémentation de la fonction consiste à programmer en Python un algorithme
+de calcul permettant de résoudre le problème posé.
+
+=== !
+
+La fonction retourne une valeur si le corps de la fonction contient le terme `return`
+
+=== !
+
+Si la fonction ne contient pas de `return`, alors l'appel de la fonction a la valeur `None`.
+
+=== !
+
+[source,python]
+----
+def f():
+    """ ... """
+    return 1
+    print("!!!")
+    return 0
+----
+
+[source,python]
+----
+>>> f()
+??
+----
+
+=== !
+
+[source,python]
+----
+>>> f()
+1
+----
+
+=== 5. Bibliothèque de fonctions
+
+=== !
+
+Les fonctions les plus utiles sont souvent déjà écrites en Python.
+
+=== !
+
+Nous pouvons en utiliser certaines directement, comme: `max`, `help`, `type` ou `print`.
+
+=== !
+
+D'autres sont aussi disponibles dans des bibliothèques, on peut citer par exemple:
+
+[%step]
+* math
+* random
+
+=== !
+
+[source,python]
+----
+>>> import random # import de la bibliotheque
+>>> random.randint(0,10) # appel de la fonction randint
+??
+>>> import math
+>>> math.cos(0)
+??
+----
+
+=== !
+
+[source,python]
+----
+>>> import math
+>>> math.cos(0)
+1
+----
+
+=== !
+
+
+* La fonction `dir` permet de lister les fonctions d'une bibliothèque.
+* Dans le cas de la bibliothèque turtle, nous avons utilisé
+
+[source,python]
+----
+from turtle import *
+----
+
+C'est cependant une mauvaise pratique que
+nous éviterons à l'avenir.
