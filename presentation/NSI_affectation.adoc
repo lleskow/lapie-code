@@ -1,0 +1,164 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+= Chapitre I: Langages et programmation
+
+== IV Variables et affectation
+
+=== Ordinateur = Calculs + Mémoire
+
+=== Mémoire
+
+Une partie de la mémoire nous est prêté temporairement lorsqu'on exécute un programme.
+
+=== !
+
+La mémoire se compose de "cases" possédant chacune une adresse.
+Se référer à nos données à l'aide de leur adresse en mémoire serait fastidieux.
+D'où la notion de variable.
+
+=== !
+
+image::assets/etiquette1.png[etiquette]
+
+Une variable est comme une étiquette que l'on attacherait à un objet pour
+pouvoir le retrouver.
+
+=== !
+
+Le fait de coller une étiquette sur un objet s'appelle en informatique, l'affectation.
+En Python, l'affectation se note `=`.
+
+=== !
+
+[source,python]
+----
+>>> a = 1
+>>> a
+??
+----
+
+=== !
+
+[source,python]
+----
+>>> a = 1
+>>> a
+??
+>>> a = 2
+>>> a
+??
+----
+
+image::assets/etiquette2.png[etiquette]
+image::assets/sansetiquette.png[sansetiquette]
+
+=== !
+
+image::assets/plsetiquettes.png[plusieurs_etiquettes]
+
+[source,python]
+----
+>>> b = a # on attache l'étiquette b à l'objet ayant l'étiquette a
+>>> b
+
+----
+
+== Expression et affectation
+
+[source,python]
+----
+>>> a = 7 * 2 # il est possible d'affecter la valeur retournée par une expression
+>>> a
+??
+----
+
+=== !
+
+[source,python]
+----
+>>> a = 10
+>>> a + 1 # et d'utiliser une variable dans une expression
+??
+----
+
+=== !
+
+[source,python]
+----
+>>> a = 2
+>>> a = a + 1
+>>> a
+??
+----
+
+== Nom des variables et des fonctions
+
+[%step]
+* Suite de lettres (minuscules ou majuscules) et de chiffres;
+* commencençant par une lettre
+* pas de caractères spéciaux sauf l’underscore: _
+* pas de mots clefs (exemple: `def` ou `for`)
+
+=== !
+
+[%step]
+* noms explicites pour faciliter la lecture du code.
+* Eviter les majuscules et les accents.
+* _ pour séparer les mots.
+
+=== Exercice:
+
+[%step]
+* hello
+* correct
+* "world"
+* invalide
+* en-tete
+* invalide
+* état
+* déconseillé
+
+=== Exercice:
+
+[%step]
+* 6_nombre
+* invalide
+* six nbr
+* invalide
+* nbr
+* valide
+* Dromadaire
+* déconseillé
+
+=== Exercice:
+
+[%step]
+* monChameau
+* déconseillé
+* mon_python
+* déconseillé
+* attention!
+* invalide
+
+=== Exercice:
+
+[%step]
+* 42
+* invalide
+* def
+* invalide
+* _largeur_
+* correct
+
+== Affectation multiple
+
+[source,python]
+----
+>>> a, b, c = 1, 2, "NSI"
+>>> b
+??
+----

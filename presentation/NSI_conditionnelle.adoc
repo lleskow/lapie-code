@@ -1,0 +1,138 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+= Chapitre I: Langages et programmation
+
+== V. Instruction conditionnelle
+
+== !
+
+L'instruction conditionnelle `if` permet de soumettre l'exécution
+d'un bloc d'instruction à une condition.
+
+== !
+
+[source,python]
+----
+x = -4
+if x > 0:
+    print("positif")
+----
+
+Affiche ?
+
+== !
+
+[source,python]
+----
+x = 3
+if x > 0:
+    print("positif")
+----
+
+Affiche ?
+
+== !
+
+Il est possible de préciser un bloc d'instructions alternatif avec `else`
+
+== !
+
+[source,python]
+----
+x = -4
+if x > 0:
+    print("positif")
+else:
+    print("négatif ou nul")
+----
+
+Affiche ?
+
+== !
+
+[source,python]
+----
+x = 3
+if x > 0:
+    print("positif")
+else:
+    print("négatif ou nul")
+----
+
+Affiche ?
+
+== !
+
+Il est possible de préciser d'autres alternatives, avec le mot-clef `elif`
+
+(contraction de else et de if)
+
+== !
+
+[source,python]
+----
+note = 15.2
+if note >= 10:
+    print("Vous avez votre baccalauréat")
+elif note >= 12:
+    print("Vous avez la mention assez bien")
+elif note >= 14:
+    print("Vous avez la mention bien")
+elif note >= 16:
+    print("Vous avez la mention très bien")
+else:
+    print("Vous n'avez pas encore votre baccalauréat")
+----
+
+Affiche ?
+
+== !
+
+[source,python]
+----
+note = 15.2
+if note >= 16:
+    print("Vous avez la mention très bien")
+elif note >= 14:
+    print("Vous avez la mention bien")
+elif note >= 12:
+    print("Vous avez la mention assez bien")
+elif note >= 10:
+    print("Vous avez votre baccalauréat")
+else:
+    print("Vous n'avez pas encore votre baccalauréat")
+----
+
+Affiche ?
+
+== Comparaisons
+
+[source,python]
+----
+==
+>
+<
+>=
+<=
+!=
+----
+
+== !
+
+Attention !
+
+* Affectation `=`
+* Test égalité `==`
+
+== Combinable avec
+
+[source,python]
+----
+and
+or
+not
+----
