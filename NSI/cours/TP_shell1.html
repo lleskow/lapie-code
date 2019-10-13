@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>Introduction à l&#8217;interface système, le Shell</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Introduction à l&#8217;interface système, le Shell</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#_mise_en_place">1. Mise en place</a></li>
+<li><a href="#_introduction_au_shell">2. Introduction au Shell</a>
+<ul class="sectlevel2">
+<li><a href="#_le_contexte">2.1. Le contexte</a></li>
+<li><a href="#_premiers_pas">2.2. Premiers pas</a></li>
+<li><a href="#_le_problème_de_nelle">2.3. Le problème de Nelle</a></li>
+</ul>
+</li>
+<li><a href="#_naviguer_dans_les_répertoires_et_fichiers">3. Naviguer dans les répertoires et fichiers</a>
+<ul class="sectlevel2">
+<li><a href="#_variations_sur_le_répertoire_personnel">3.1. Variations sur le répertoire personnel</a></li>
+<li><a href="#_slashes">3.2. Slashes</a></li>
+<li><a href="#_syntaxe_générale_dune_commande_shell">3.3. Syntaxe générale d&#8217;une commande shell</a></li>
+<li><a href="#_laide">3.4. L&#8217;aide</a></li>
+<li><a href="#_autre_fichier_caché">3.5. Autre fichier caché</a></li>
+<li><a href="#_autre_usage">3.6. Autre usage</a></li>
+<li><a href="#_bilan_sur_la_navigation">3.7. Bilan sur la navigation</a></li>
+<li><a href="#_chemin_relatif_et_chemin_absolu">3.8. Chemin relatif et chemin absolu</a></li>
+<li><a href="#_quelques_raccourcis">3.9. Quelques raccourcis</a></li>
+<li><a href="#_lorganisation_de_nelle">3.10. L&#8217;organisation de Nelle</a></li>
+<li><a href="#_bilan">3.11. Bilan:</a></li>
+</ul>
+</li>
+<li><a href="#_créercopierdéplacer_des_fichiers">4. Créer/copier/déplacer des fichiers</a>
+<ul class="sectlevel2">
+<li><a href="#_créer_un_nouveau_dossier">4.1. Créer un nouveau dossier</a></li>
+<li><a href="#_créé_un_fichier_texte">4.2. Créé un fichier texte</a></li>
+<li><a href="#_une_autre_façon_de_créer_un_fichier">4.3. Une autre façon de créer un fichier</a></li>
+<li><a href="#_que_dit_le_nom">4.4. Que dit le nom ?</a></li>
+<li><a href="#_déplacer_fichier_et_répertoires">4.5. Déplacer fichier et répertoires</a></li>
+<li><a href="#_copier_des_fichiers_et_des_dossiers">4.6. Copier des fichiers et des dossiers</a></li>
+<li><a href="#_supprimer_des_fichiers_et_des_dossiers">4.7. Supprimer des fichiers et des dossiers</a></li>
+<li><a href="#_supprimer_avec_prudence">4.8. Supprimer avec prudence</a></li>
+<li><a href="#_opérer_sur_plusieurs_fichiers_et_dossiers">4.9. Opérer sur plusieurs fichiers et dossiers</a></li>
+<li><a href="#_bilan_2">4.10. Bilan:</a></li>
+</ul>
+</li>
+<li><a href="#_fin_du_t_p">5. Fin du T.P</a></li>
+<li><a href="#_licence_et_source">6. Licence et source</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_mise_en_place">1. Mise en place</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Télécharger le <a href="../assets/data-shell.zip">fichier suivant</a>,
+et le déplacer sur le Bureau.</p>
+</li>
+<li>
+<p>Extraire/dézipper ce fichier. Vous devriez obtenir un nouveau répertoire
+appelé <strong>data-shell</strong> dans le Bureau.</p>
+</li>
+<li>
+<p>Ouvrer un terminal, par exemple en cliquant sur <span class="image"><img src="../assets/utilities-terminal.png" alt="terminal"></span>
+(qui se trouve en bas à gauche)</p>
+</li>
+<li>
+<p>A l&#8217;intérieur du terminal taper <code>cd</code> puis appuyer sur la touche Entrer.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction_au_shell">2. Introduction au Shell</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_le_contexte">2.1. Le contexte</h3>
+<div class="paragraph">
+<p>Humains et ordinateurs interagissent de différentes façons, que ce soit
+par l&#8217;intermédiaire d&#8217;une souris et d&#8217;un clavier, d&#8217;un écran tactile ou
+par reconnaissance vocale.
+Pour un ordinateur personnel, la majorité des utilisateurs passent par une
+interface graphique (en anglais GUI pour graphical user interface).
+Avec une interface graphique, nous donnons directement des instructions en cliquant
+sur la souris et en naviguant dans des menus.</p>
+</div>
+<div class="paragraph">
+<p>Bien que l&#8217;aide apportée par l&#8217;aspect visuel des GUI rend l&#8217;utilisation des ordinateurs
+plus intuitive, ce mode de fonctionnement peut vite se montrer limité.
+Pour gagner du temps, réaliser des tâches répétitives ou complexes, nous utiliserons
+une interface en ligne de commande (en anglais, CLI pour command-line interface).</p>
+</div>
+<div class="paragraph">
+<p>Le terme anglais «shell» vient à l&#8217;origine de la terminologie employée avec les
+premiers systèmes d&#8217;exploitation de type Unix où il avait le sens plus spécifique de shell Unix.
+Cette appellation est une métaphore (on peut la traduire par coque en français)
+pour désigner la couche la plus haute des interfaces des systèmes Unix,
+par opposition à la couche de bas-niveau, appelée noyau.</p>
+</div>
+<div class="paragraph">
+<p>On appelle souvent terminal l&#8217;application qui permet d&#8217;utiliser l&#8217;interface système.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le shell Unix le plus populaire est Bash (pour Bourne Again Shell, son auteur est Stephen Bourne)
+, on le retrouve sur la majorité des versions de Linux et sur MacOS.
+L&#8217;application nommée Terminal permet d&#8217;y accéder sur MacOS.</p>
+</li>
+<li>
+<p>Les versions récentes de Windows propose un shell nommé Windows PowerShell.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Un autre des avantages d&#8217;une interface de commande est de pouvoir donner des instructions
+à une machine à distance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_premiers_pas">2.2. Premiers pas</h3>
+<div class="paragraph">
+<p>Revenir vers l&#8217;application terminal que vous avez du lancer. Lorsque
+vous avez ouvert votre terminal, vous avez du voir une invite de commande,
+indiquant que le terminal est prêt à recevoir vos instructions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>En général, l&#8217;invite de commande d&#8217;un terminal est noté <code>$ </code> mais il est
+possible d&#8217;utiliser d&#8217;autres symboles.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Lorsque vous recopiez une commande vous n&#8217;avez pas saisir l&#8217;invite <code>$ </code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Essayer votre première commande, qui devrait lister le contenu du repertoire
+dans lequel vous vous trouvez.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>Bureau      Téléchargements  Movies        Images
+Documents   Library          Musique       Public</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Si le shell ne peut trouver le programme correspond à la commande que
+vous avez tapé, vous devriez avoir un message d&#8217;erreur du type:
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ks</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>ks: command not found</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_problème_de_nelle">2.3. Le problème de Nelle</h3>
+<div class="paragraph">
+<p>Nelle Nemo est une biologiste marine, elle revient d&#8217;une campagne d&#8217;étude de 6 mois dans
+Gyre subtropical du Pacifique nord où elle a récupéré des échantillons de la faune
+et de la flore marine.
+Elle a récupéré des données venant de ces échantillons, qui se trouvent dans
+1520 fichiers différents, elle souhaite de plus écrire un article dans une revue
+scientifique.</p>
+</div>
+<div class="paragraph">
+<p>Nous allons voir comment une interface de commande permettrait à Nelle de traiter
+rapidement tout ces différents fichiers.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_naviguer_dans_les_répertoires_et_fichiers">3. Naviguer dans les répertoires et fichiers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le système d&#8217;exploitation gère nos données en les organisant sous forme
+de fichiers et de répertoires (on parle aussi de dossiers) à l&#8217;aide de son
+gestionnaire de fichier.</p>
+</div>
+<div class="paragraph">
+<p>Différentes commandes permettent de créer, inspecter, renommer ou encore supprimer
+des fichiers et des dossiers.</p>
+</div>
+<div class="paragraph">
+<p>Commençons par déterminer là où nous nous trouvons en utilisant la commande
+nommé <code>pwd</code> (pour print working directory). On peut voir les dossiers comme
+des lieux dans lesquels nous pouvons nous trouver. A chaque instant dans
+notre terminal, nous nous trouvons dans un lieu, nommé <strong>répertoire de travail courant</strong>.
+Une grande partie des commandes que nous allons voir interagit avec des fichiers et
+est sensible à <em>l&#8217;endroit</em> où l&#8217;on se trouve.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">pwd</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>/home/nelle</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ici la réponse de l&#8217;ordinateur est <code>/home/nelle</code>, qui correspond au répertoire
+personnel de Nelle, pour vous, cela correspond surement à paullapie.</p>
+</div>
+<div class="sect2">
+<h3 id="_variations_sur_le_répertoire_personnel">3.1. Variations sur le répertoire personnel</h3>
+<div class="paragraph">
+<p>Selon le système d&#8217;exploitation le chemin correspondant au répertoire maison
+varie.
+Pour Windows l&#8217;équivalent serait <code>C:\Documents and Settings\nelle</code> ou
+<code>C:\Users\nelle</code>.
+Sur MacOS, <code>/Users/nelle</code>.</p>
+</div>
+<div class="paragraph">
+<p>Pour mieux comprendre à quoi correspond le répertoire personnel, observons
+comment sont organisés les fichiers dans notre ordinateur.</p>
+</div>
+<div class="paragraph">
+<p>Sur l&#8217;ordinateur de Nelle, l&#8217;organisation des fichiers ressemble à:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../assets/filesystem.svg" alt="filesystem">
+</div>
+</div>
+<div class="paragraph">
+<p>Au sommet se trouve le <strong>répertoire racine</strong> qui contient tout le reste.
+On y fait référence en utilisant le symbole slash <code>/</code> tout seul.
+Ce qui correspond aussi au premier slash de <code>/home/nelle</code>.</p>
+</div>
+<div class="paragraph">
+<p>A l&#8217;intérieur de ce répertoire se trouve différents dossiers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bin </code> pour les programmes de base du système</p>
+</li>
+<li>
+<p><code>dev</code> pour les fichiers représentants les dispositifs matériels (devices).</p>
+</li>
+<li>
+<p><code>etc</code> pour les fichiers de configuration du système</p>
+</li>
+<li>
+<p><code>home</code> pour les répertoires personnels des différents utilisateurs</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_slashes">3.2. Slashes</h3>
+<div class="paragraph">
+<p>Remarquons qu&#8217;il y a deux sens pour le symbole <code>/</code>, quand il est au début
+d&#8217;un nom de fichier ou de dossier, c&#8217;est le répertoire racine, quand il apparait
+à l&#8217;intérieur d&#8217;un nom, c&#8217;est un simple séparateur.</p>
+</div>
+<div class="paragraph">
+<p>Dans le répertoire <code>/home</code>, nous trouvons différents dossiers, un pour
+chacun des utilisateurs possédant un compte sur la machine de Nelle.
+C&#8217;est à dire ses collègues imhotep et larry.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../assets/homesystem.svg" alt="homesystem">
+</div>
+</div>
+<div class="paragraph">
+<p>Nelle étant notre utilisateur dans notre histoire, c&#8217;est pour cela que
+le répertoire personnel que nous observons est <code>/home/nelle</code></p>
+</div>
+<div class="paragraph">
+<p>En général, lorsqu&#8217;on lance un terminal, on se trouve dans notre répertoire personnel.</p>
+</div>
+<div class="paragraph">
+<p>Découvrons maintenant la commande qui va nous permettre de découvrir notre
+système de fichier. Il est possible de voir ce qui se trouve dans le dossier
+courant en entrant la commande <code>ls</code> (pour listing).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>Bureau      Téléchargements  Movies        Images
+Documents   Library          Musique       Public</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(Encore une fois, le résultat dépendra légérement de la configuration de votre système)</p>
+</div>
+<div class="paragraph">
+<p><code>ls</code> affiche les noms des fichiers et des dossiers dans le dossier courant.</p>
+</div>
+<div class="paragraph">
+<p>Il est possible de changer légèrement le résultat de la commande <code>ls</code>
+en utilisant l&#8217;option <code>-F</code> (on parle aussi de drapeau/flag pour les options).</p>
+</div>
+<div class="paragraph">
+<p>Cette option classifie par type le résultat de <code>ls</code>, par exemple un <code>/</code>
+à la fin d&#8217;un nom indique qu&#8217;il s&#8217;agit d&#8217;un dossier, un <code>*</code> indique un
+exécutable, etc.</p>
+</div>
+<div class="paragraph">
+<p>Selon sa configuration le terminal peut utiliser des couleurs pour signifier
+les différents types de fichiers.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls -F</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>Bureau/      Téléchargements/  Movies/        Images/
+Documents/   Library/          Musique/       Public/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On voit qu&#8217;ici notre dossier personnel ne contient que des sous-dossiers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_syntaxe_générale_dune_commande_shell">3.3. Syntaxe générale d&#8217;une commande shell</h3>
+<div class="paragraph">
+<p>Regardons l&#8217;exemple suivant:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls -F /</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>ls</code> est la commande, <code>-F</code> est une option et <code>/</code> est un argument.
+Les options commencent par un tiret <code>-</code> ou deux <code>--</code>, et elles changent
+le comportement de la commande.</p>
+</div>
+<div class="paragraph">
+<p>Les arguments précisent sur quels objets la commande s&#8217;applique. Ici, la
+commande s&#8217;applique sur le répertoire racine <code>/</code>.</p>
+</div>
+<div class="paragraph">
+<p>Une commande peut recevoir plus options et plusieurs arguments. Il faut juste
+bien séparer chaque partie par des espaces. Utiliser <code>ls-F</code> ne fonctionnera pas.
+De plus les majuscules comptent, <code>ls -r</code> est différent de <code>ls -R</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_laide">3.4. L&#8217;aide</h3>
+<div class="paragraph">
+<p>Il est possible d&#8217;obtenir de l&#8217;aide sur une commande et ses options avec
+la commande <code>man</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ man ls</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cela transforme votre terminal en une page de description, il est possible
+de monter ou descendre avec les flèches du clavier dans cette page.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Pour quitter une page man, appuyez sur la touche q ou Q.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Que font les options <code>-l</code> et <code>-h</code> de <code>ls</code> ?</strong></p>
+</div>
+<div class="sect3">
+<h4 id="_solution">3.4.1. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="paragraph">
+<p>L&#8217;option <code>-l</code> (l pour long) permet d&#8217;avoir plus de détails sur les fichiers.
+Elle va permettre d&#8217;afficher les droits/permissions sur les fichiers (dont nous
+parlerons plus tard) ainsi que la taille du fichier, et sa date de dernière modification.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;option <code>-h</code> (h pour humain) permet d&#8217;avoir un affichage plus simple à lire de la
+taille des fichiers. Affichant <code>5.3k</code> à la place de <code>5369</code>.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>Il est possible d&#8217;observer le contenu de sous-dossier avec <code>ls</code>, par exemple
+essayer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>ls -F Bureau</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vous devriez y voir listé le dossier <code>data-shell</code>. Vous pouvez vérifier
+que le résultat est correct en observant directement votre bureau.</p>
+</div>
+<div class="paragraph">
+<p>Maintenant que nous avons vu que le dossier <code>data-shell</code> se trouve dans notre
+<code>Bureau</code>, on peut observer son contenu avec:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>ls -F Bureau/data-shell</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>creatures/          molecules/          notes.txt           solar.pdf
+data/               north-pacific-gyre/ pizza.cfg           writing/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Et nous pouvons nous y rendre, en changeant de répertoire courant.
+La commande pour changer de répertoire est <code>cd</code> (pour change directory) suivie du nom du répertoire
+que nous voulons rejoindre.</p>
+</div>
+<div class="paragraph">
+<p>Pour nous rendre dans le dossier <code>data</code>, il est possible d&#8217;utiliser
+la liste de commandes suivantes (et dans cet ordre):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span> Desktop
+$ <span class="tok-nb">cd</span> data-shell
+$ <span class="tok-nb">cd</span> data</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nous nous déplacerons alors de notre répertoire personnel, à notre dossier Bureau, puis
+dans le dossier <code>data-shell</code> pour finir dans <code>data</code>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Remarquons que la commande <code>cd</code> n&#8217;affiche rien. Il est cependant
+possible d&#8217;utiliser la commande <code>pwd</code> pour vérifier que vous êtes dans le bon dossier.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le résultat de la commande <code>ls</code> devrait maintenant être:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>amino-acids.txt   elements/     pdb/	        salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nous savons maintenant comment descendre dans l&#8217;arbre des répertoires, mais
+comment monter ? Nous pouvons essayer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span> data-shell</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>-bash: cd: data-shell: No such file or directory</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mais nous n&#8217;obtiendrons qu&#8217;une erreur.</p>
+</div>
+<div class="paragraph">
+<p>En effet, la commande <code>cd</code> ne peut voir que les répertoires se trouvant
+dans le répertoire courant. Elle ne peut pas voir les répertoires se situant au
+dessus de notre position.</p>
+</div>
+<div class="paragraph">
+<p>Il y a cependant différentes façon de voir les dossiers se trouvant au dessus
+de notre position. Nous allons voir la plus simple:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span> ..</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>..</code> fait référence au répertoire contenant notre répertoire courant.
+Il suffit d&#8217;entrer <code>pwd</code> pour vérifier que nous sommes bien remonté d&#8217;un dossier.</p>
+</div>
+<div class="paragraph">
+<p>Le répertoire <code>..</code> n&#8217;apparait pas lorsqu&#8217;on utilise la commande <code>ls</code>.
+Pour le voir il faut préciser à la commande <code>ls</code> qu&#8217;elle doit utiliser
+l&#8217;option <code>-a</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls -Fa</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>./   .bash_profile  data/       north-pacific-gyre/  pizza.cfg  thesis/
+../  creatures/     molecules/  notes.txt            solar.pdf  writing/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>En effet, <code>-a</code> correspond à show all, cela force <code>ls</code> à afficher les
+fichiers et dossiers dont le nom commence par <code>.</code>, comme <code>..</code>.</p>
+</div>
+<div class="paragraph">
+<p>On remarque que cela affiche aussi le répertoire <code>.</code>, qui lui fait référence
+au répertoire courant.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+En général, les options peuvent être combiné avec un seul <code>-</code>.
+<code>ls -F -a</code> est donc équivalent à <code>ls -Fa</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_autre_fichier_caché">3.5. Autre fichier caché</h3>
+<div class="paragraph">
+<p>On appelle en général les fichiers commençant par un <code>.</code>, des fichiers cachés.
+Vous avez par exemple pu voir <code>.bash_profile</code>, un fichier qui contient
+des réglages pour bash.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_autre_usage">3.6. Autre usage</h3>
+<div class="paragraph">
+<p>Les dossiers <code>.</code> et <code>..</code> ne servent pas uniquement à la commande <code>cd</code>.
+Il est par exemple possible de faire <code>ls ..</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bilan_sur_la_navigation">3.7. Bilan sur la navigation</h3>
+<div class="paragraph">
+<p>Nous avons vu que les commandes <code>pwd</code>, <code>ls</code> et <code>cd</code> permettent de naviguer
+dans le système de fichier. Explorons maintenant quelques variations sur ces commandes:</p>
+</div>
+<div class="paragraph">
+<p>Par exemple que ce passe-t-il lorsque l&#8217;on entre uniquement <code>cd</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Comment faire pour voir où nous nous trouvons désormais ?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">pwd</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>En fait <code>cd</code> sans argument nous fait revenir à notre répertoire personnel.
+Ce qui peut être pratique lorsqu&#8217;on est perdu dans les dossiers.</p>
+</div>
+<div class="paragraph">
+<p>Retournons maintenant dans le dossier <code>data</code>.
+Il est possible de le faire en une seule ligne de commande:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span> Bureau/data-shell/data</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_chemin_relatif_et_chemin_absolu">3.8. Chemin relatif et chemin absolu</h3>
+<div class="paragraph">
+<p>Jusqu&#8217;à présent lorsque nous avons donné des noms de répertoire ou de chemin
+(comme <code>Bureau/data-shell/data</code>) nous avons utilisé des chemins <strong>relatifs</strong>.
+Lorsque l&#8217;on utilise un chemin relatif avec une commande comme <code>ls</code> ou <code>cd</code>,
+la commande cherche l&#8217;endroit correspondant depuis le répertoire courant,
+plutôt que depuis la racine du système de fichier.</p>
+</div>
+<div class="paragraph">
+<p>Il est cependant possible de donner l&#8217;adresse absolue d&#8217;un répertoire, en
+donnant le chemin en entier depuis le répertoire racine. Ce qui est indiqué
+par un <code>/</code> au début du chemin.</p>
+</div>
+<div class="paragraph">
+<p>Cela nous permet de nous rendre dans notre dossier <code>`data-shell</code> depuis
+n&#8217;importe quel endroit.</p>
+</div>
+<div class="paragraph">
+<p>Pour obtenir le chemin absolu ver le dossier <code>data-shell`, nous allons utiliser
+</code>pwd``. Pour Nelle cela donne:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">pwd</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>/home/nelle/Bureau/data-shell/data</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Copier-coller la partie appropriée et utilisez <code>cd</code> pour vous rendre dans le dossier <code>data-shell</code>.
+Pour Nelle cela donne:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span> /home/nelle/Bureau/data-shell/</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quelques_raccourcis">3.9. Quelques raccourcis</h3>
+<div class="paragraph">
+<p>L&#8217;interprète de commande comprend le symbole <code>~</code> (tilde) au début d&#8217;un chemin
+comme l&#8217;adresse du répertoire personnel de l&#8217;utilisateur.</p>
+</div>
+<div class="paragraph">
+<p><code>cd /home/nelle/Bureau/data-shell/</code> est donc équivalent à <code>cd ~/Bureau/data-shell/</code>.</p>
+</div>
+<div class="paragraph">
+<p>Cela ne fonctionne que si <code>~</code> est le premier caractère du chemin.
+<code>here/there/~/elsewhere</code> ne veut pas dire <code>here/there/home/nelle/elsewhere</code>.</p>
+</div>
+<div class="paragraph">
+<p>Un autre raccourci est <code>-</code> qui veut dire le répertoire précédent.</p>
+</div>
+<div class="sect3">
+<h4 id="_exercice_distingué_chemin_absolu_et_relatif">3.9.1. Exercice: Distingué chemin absolu et relatif</h4>
+<div class="paragraph">
+<p>En partant de <code>/home/amanda/data</code>, quelles commandes Amanda pourrait utiliser
+pour rejoindre son répertoire personnel ?</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>cd .</code></p>
+</li>
+<li>
+<p><code>cd /</code></p>
+</li>
+<li>
+<p><code>cd /Users/amanda</code></p>
+</li>
+<li>
+<p><code>cd ../..</code></p>
+</li>
+<li>
+<p><code>cd ~</code></p>
+</li>
+<li>
+<p><code>cd home</code></p>
+</li>
+<li>
+<p><code>cd ~/data/..</code></p>
+</li>
+<li>
+<p><code>cd</code></p>
+</li>
+<li>
+<p><code>cd ..</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_2">3.9.2. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Non, <code>.</code> veut dire le répertoire courrant.</p>
+</li>
+<li>
+<p>Non, <code>/</code> veut dire le répertoire racine.</p>
+</li>
+<li>
+<p>Non, le dossier personnel d&#8217;Amanda est <code>/home/amanda</code>.</p>
+</li>
+<li>
+<p>Non, cela remonte de deux niveaux, on termine dans <code>/home</code>.</p>
+</li>
+<li>
+<p>Oui, <code>~</code> correspond au répertoire personnel de l&#8217;utilisateur.</p>
+</li>
+<li>
+<p>Non, cela nous ferait aller dans le sous-répertoire <code>home</code> du dossier courant s&#8217;il existe.</p>
+</li>
+<li>
+<p>Oui, c&#8217;est compliqué mais correct.</p>
+</li>
+<li>
+<p>Oui, c&#8217;est un raccourci déjà vu.</p>
+</li>
+<li>
+<p>Oui, il suffit de remonter d&#8217;un niveau.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+<div class="sect3">
+<h4 id="_exercice_résolution_de_chemin_relatif">3.9.3. Exercice: résolution de chemin relatif</h4>
+<div class="paragraph">
+<p>En se basant sur le diagramme ci-dessous, si <code>pwd</code> affiche
+<code>/home/thing</code>, qu&#8217;affiche <code>ls -F ../backup</code> ?</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>../backup: No such file or directory</code></p>
+</li>
+<li>
+<p><code>2018-12-01 2019-01-08 2019-01-27</code></p>
+</li>
+<li>
+<p><code>2018-12-01/ 2019-01-08/ 2019-01-27/</code></p>
+</li>
+<li>
+<p><code>original/ pnas_final/ pnas_sub/</code></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../assets/challengesystem.svg" alt="challengesystem">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_3">3.9.4. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Non: il y a un dossier <code>backup</code> dans <code>/home</code>.</p>
+</li>
+<li>
+<p>Non: c&#8217;est le contenu de <code>home/thing/backup</code>, mais avec  <code>..</code>
+nous avons demandé un niveau au dessus.</p>
+</li>
+<li>
+<p>Non: comme pour la question précédente.</p>
+</li>
+<li>
+<p>Oui: <code>../backup/</code> correspond à <code>/home/backup/</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+<div class="sect3">
+<h4 id="_exercice_comprendre_ls">3.9.5. Exercice: comprendre <code>ls</code></h4>
+<div class="paragraph">
+<p>En se basant sur le diagramme ci-dessous, si <code>pwd</code> affiche
+<code>/home/backup</code>, et <code>-r</code> dit à <code>ls</code> d&#8217;afficher les résultats
+en ordre inversé, quelle commande affichera le résultat suivant:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ pnas_sub/ pnas_final/ original/</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../assets/challengesystem.svg" alt="challengesystem">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>ls pwd</code></p>
+</li>
+<li>
+<p><code>ls -r -F</code></p>
+</li>
+<li>
+<p><code>ls -r -F /Users/backup</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_4">3.9.6. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Non: <code>pwd</code> n&#8217;est pas le nom du dossier.</p>
+</li>
+<li>
+<p>Oui: <code>ls</code> sans argument donne la liste des fichiers et dossiers du répertoire courant.</p>
+</li>
+<li>
+<p>Oui: utilise le chemin absolu correct.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lorganisation_de_nelle">3.10. L&#8217;organisation de Nelle</h3>
+<div class="paragraph">
+<p>Nella a crée un dossier <code>north-pacific-gyre</code> et à l&#8217;intérieur un dossier nommé
+<code>2012-07-03</code> qui correspond à la date où elle a numérisé l&#8217;échantillon.</p>
+</div>
+<div class="paragraph">
+<p>Chaque échantillon à un nom du type 'NENE01729A'.</p>
+</div>
+<div class="paragraph">
+<p>Nelle peut maintenant voir chacun des fichiers correspondant à un échantillon en tapant:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls north-pacific-gyre/2012-07-03/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cela peut sembler énorme à taper, mais la complétion va nous permettre d&#8217;éviter
+de trop taper.</p>
+</div>
+<div class="paragraph">
+<p>Pour cela Nelle tape:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls nor</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Puis appuie sur la touche <kbd>Tab ⇆</kbd> et le terminal compléte <code>north-pacific-gyre/</code> pour elle.</p>
+</div>
+<div class="paragraph">
+<p>Si elle appuie à nouveau sur <kbd>Tab ⇆</kbd>, le terminal va ajouter <code>2012-07-03/</code> pour elle.</p>
+</div>
+<div class="paragraph">
+<p>Appuyer à nouveau sur <kbd>Tab ⇆</kbd> encore ne fait plus rien car il y a 19 possibilités.
+Il faut donc appuyer deux fois sur <kbd>Tab ⇆</kbd> pour lister toutes les possibilités.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bilan">3.11. Bilan:</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Le gestionnaire de fichier est responsabme de la gestion des fichiers sur le disque.</p>
+</li>
+<li>
+<p>L&#8217;information est stocké dans des fichiers stockés dans des dossiers/répertoires.</p>
+</li>
+<li>
+<p>Les répertoires peuvent stocker d&#8217;autres répertoires. Ce qui crée un arbre de fichier.</p>
+</li>
+<li>
+<p><code>cd chemin</code> change le répertoire courant.</p>
+</li>
+<li>
+<p><code>ls chemin</code> affiche la liste des fichiers et dossiers. <code>ls</code> seul fait référence au dossier courant.</p>
+</li>
+<li>
+<p><code>pwd</code> affiche le répertoire courant.</p>
+</li>
+<li>
+<p><code>/</code> seul est le répertoire racine du système de fichier.</p>
+</li>
+<li>
+<p>Un chemin relatif spécifie un dossier/fichier depuis le répertoire courant.</p>
+</li>
+<li>
+<p>Un chemin absolue spécifie un dossier/fichier depuis le répertoire racine.</p>
+</li>
+<li>
+<p>Sous Unix, les noms dans un chemin sont séparés par des <code>/</code>, sous Windows par <code>\</code>.</p>
+</li>
+<li>
+<p><code>..</code> signifie le répertoire au dessus du répertoire courant.</p>
+</li>
+<li>
+<p><code>.</code> seul signifie le répertoire courant.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_créercopierdéplacer_des_fichiers">4. Créer/copier/déplacer des fichiers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nous savons maintenant nous déplacer dans les dossiers. Mais comment les créer ?</p>
+</div>
+<div class="paragraph">
+<p>Revenir dans le dossier <code>data-shell</code> se trouvant dans le bureau.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Doit afficher:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_un_nouveau_dossier">4.1. Créer un nouveau dossier</h3>
+<div class="paragraph">
+<p>Créeons un dossier <code>article</code> en utilisant la commande <code>mkdir article</code> (qui n&#8217;affiche rien si tout s&#8217;est bien passé):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir article</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour vérifier que le dossier est bien créé:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls -F</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span>article/ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vous pouvez aussi vérifier avec le navigateur de fichier (en GUI), que le dossier a bien été créé.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Quelques conseils pour bien nommer ses dossiers et fichiers
+. Ne pas utiliser d&#8217;espace, utiliser des tirets <code>-</code> ou underscores <code><em></code> à la place.
+. Pas de nom commençant par <code>-</code> (syntaxe des options).
+. Se limiter aux lettres chiffres, <code>.</code>, <code>-</code>, <code></em></code>, les caractères spéciaux
+peuvent avoir une signification pour les commandes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créé_un_fichier_texte">4.2. Créé un fichier texte</h3>
+<div class="paragraph">
+<p>Passer dans le répertoire <code>article</code>, en utilisant <code>cd</code>. Puis
+créons un fichier <code>draft.txt</code> en utilisant l&#8217;éditeur de texte Nano</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span> article
+$ nano draft.txt</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_editeur_de_texte">4.2.1. Editeur de texte ?</h4>
+<div class="paragraph">
+<p>Nano est un éditeur de texte qui se contente d&#8217;éditer du texte, il ne fait
+rien de complexe et ne formate pas l&#8217;apparence commence LibreOffice ou Microsoft Words.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez essayer un autre éditeur de texte comme Geany.</p>
+</div>
+<div class="paragraph">
+<p>Taper quelques mots, puis appuyer sur <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>O</kbd></span> pour sauver le contenu.
+Appuyez sur entrer pour valider le nom.</p>
+</div>
+<div class="paragraph">
+<p>Pour quitter: <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>X</kbd></span>.</p>
+</div>
+<div class="paragraph">
+<p>Vérifier que le fichier est bien créé:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vous pouvez utiliser la commande <code>cat</code> pour afficher le contenu du dossier:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ cat draft.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(<code>cat</code> pour concatenate car <code>cat</code> permet de mettre bout à bout le contenu de plusieurs fichiers)</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_une_autre_façon_de_créer_un_fichier">4.3. Une autre façon de créer un fichier</h3>
+<div class="paragraph">
+<p>Essayer la commande</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ touch my_file.txt</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exercice_la_commande_touch">4.3.1. Exercice: la commande touch</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Qu&#8217;a fait exactement la commande <code>touch</code>. Voyez vous le fichier dans
+l&#8217;explorateur de fichier en GUI.</p>
+</li>
+<li>
+<p>Utiliser <code>ls -l</code> pour inspecter le fichier, quel est la taille de <code>my_file.txt</code> ?</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_5">4.3.2. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>La commande touch a généré un fichier nommé  <code>my_file.txt</code> dans le répertoire
+courant. On peut le voir dans l&#8217;explorateur de fichier.</p>
+</li>
+<li>
+<p>Le fichier ne contient rien, il est à 0 octet.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_que_dit_le_nom">4.4. Que dit le nom ?</h3>
+<div class="paragraph">
+<p>Vous avez remarqué que certains fichiers finissent en <code>.machin</code>, nous
+avons nous même utilisé <code>.txt</code>, c&#8217;est uniquement une convension nommé
+le fichier <code>draft</code> ou <code>draft.txt</code> ne change rien.</p>
+</div>
+<div class="paragraph">
+<p>Cependant préciser une telle extension, permet de mieux identifier le
+contenu du fichier que ce soit aussi bien pour l&#8217;humaine que pour le système.</p>
+</div>
+<div class="paragraph">
+<p>Les fichiers ne contiennent qu&#8217;une suite de bits, préciser une extension ni
+change rien mais permet de savoir comment interpréter cette suite bits: comme
+du texte, comme un PDF ou comme une image, etc.</p>
+</div>
+<div class="paragraph">
+<p>Changer le nom d&#8217;un fichier de <code>.pdf</code> à <code>.mp3</code> ne le transforme pas
+de façon magique en une chanson. Cela fera juste croire au système
+qu&#8217;il faut l&#8217;ouvrir avec un lecteur de musique.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_déplacer_fichier_et_répertoires">4.5. Déplacer fichier et répertoires</h3>
+<div class="paragraph">
+<p>Retournez dans le dossier <code>data-shell</code>.</p>
+</div>
+<div class="paragraph">
+<p>Dans le dossier <code>article</code>, nous avons un fichier <code>draft.txt</code> dont nous
+voudrions changer le nom.</p>
+</div>
+<div class="paragraph">
+<p>Pour cela, nous utiliserons la commande <code>mv</code> (pour move):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mv article/draft.txt article/citations.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le première argument dit à <code>mv</code> ce que nous déplaçons.
+Le deuxième précise où nous le déplaçons.</p>
+</div>
+<div class="paragraph">
+<p>Nous déplaçons donc <code>article/draft.txt</code> vers <code>article/citations.txt</code> ce qui
+a le même effet que renommer le fichier.</p>
+</div>
+<div class="paragraph">
+<p>Vérifier avec <code>ls article</code> que le contenu correspond.</p>
+</div>
+<div class="paragraph">
+<p>Il faut faire attention en précisant le nouveau nom du fichier, car <code>mv</code> écrase
+sans prévenir les fichiers déjà existant portant le même nom.</p>
+</div>
+<div class="paragraph">
+<p>On peut pour éviter cela préciser l&#8217;option interactive: <code>mv -i</code> pour demander
+confirmation si le fichier existe déjà.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>mv</code> permet aussi de déplacer des dossiers.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Déplaçons <code>citations.txt</code> dans le dossier courant, cette fois-ci nous
+ne préciserons que le nom du dossier recepteur dans le deuxième argument, pour
+dire à <code>mv</code> que nous ne souhaitons pas changer le nom du fichier.</p>
+</div>
+<div class="paragraph">
+<p>Comme nous voulons déplacer le fichier dans le répertoire courant, nous allons
+utiliser <code>.</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mv article/citations.txt .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vérifier avec <code>ls</code> que <code>article</code> est vide, puis que fichier a été déplacé au
+bon endroit.</p>
+</div>
+<div class="sect3">
+<h4 id="_exercice_déplacé_vers_le_répertoire_courant">4.5.1. Exercice: déplacé vers le répertoire courant</h4>
+<div class="paragraph">
+<p>Après avoir tapé les commandes ci-dessous Jamie se rend compte qu&#8217;elle
+a placé les fichiers <code>sucrose.dat</code> and <code>maltose.dat</code> dans le mauvais répertoire.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls -F
+ analyzed/ raw/
+$ ls -F analyzed
+ fructose.dat glucose.dat maltose.dat sucrose.dat
+ $ <span class="tok-nb">cd</span> raw/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Compléter les blancs pour que ces fichiers soient déplacé dans le répertoire courant.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mv ___/sucrose.dat  ___/maltose.dat ___</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_6">4.5.2. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Souvenez vous que <code>..</code> fait référence au dossier parent et <code>.</code> au dossier courant.</p>
+</div>
+<div class="paragraph">
+<p>Il est possible déplacer plusieurs fichiers avec un seul <code>mv</code>.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_copier_des_fichiers_et_des_dossiers">4.6. Copier des fichiers et des dossiers</h3>
+<div class="paragraph">
+<p>La commande <code>cp</code> (pour copy) fonctionne comme la commande <code>mv</code> à l&#8217;exception
+qu&#8217;elle copie les fichiers au lieu de les déplacer.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ cp citations.txt article/
+$ ls
+$ ls article/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il est possible de copier un dossier et tout son contenu en utilisant
+l&#8217;option <code>-r</code> (pour recursive, qui signifie pour faire simple répéter un même schéma)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ cp -r article article_backup</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls article article_backup</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exercice_renommé_des_fichiers">4.6.1. Exercice: renommé des fichiers</h4>
+<div class="paragraph">
+<p>Supposons que l&#8217;on aillons créé un fichier nommé <code>statstiques.txt</code>.
+Quelles sont les ou la bonnes commandes pour renommer le fichier en <code>statistiques.txt</code> ?</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>cp statstiques.txt statistiques.txt</code></p>
+</li>
+<li>
+<p><code>mv statstiques.txt statistiques.txt</code></p>
+</li>
+<li>
+<p><code>mv statstiques.txt .</code></p>
+</li>
+<li>
+<p><code>cp statstiques.txt .</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_7">4.6.2. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Non, cela va créer un nouveau fichier avec le bon nom, mais ne supprime pas l&#8217;ancien.</p>
+</li>
+<li>
+<p>Oui</p>
+</li>
+<li>
+<p>Non, cela n&#8217;indique pas le nouveau nom</p>
+</li>
+<li>
+<p>Non</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+<div class="sect3">
+<h4 id="_exercice_copier_et_déplacer">4.6.3. Exercice: Copier et déplacer</h4>
+<div class="paragraph">
+<p>Qu&#8217;affiche le dernier <code>ls</code> dans cette suite de liste de commande:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">pwd</span>
+ /home/jamie/data
+$ ls
+ proteins.dat
+$ mkdir recombine
+$ mv proteins.dat recombine/
+$ cp recombine/proteins.dat ../proteins-saved.dat
+$ ls</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>proteins-saved.dat recombine</code></p>
+</li>
+<li>
+<p><code>recombine</code></p>
+</li>
+<li>
+<p><code>proteins.dat recombine</code></p>
+</li>
+<li>
+<p><code>proteins-saved.dat</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_8">4.6.4. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="paragraph">
+<p>Nous commençons dans <code>/Users/jamie/data</code> puis nous créons <code>recombine</code>.
+Nous déplaçons <code>proteins.dat</code> dans le dossier <code>recombine</code>. Puis
+nous copions le fichier <code>proteins.dat</code> dans le dossier du répertoire au
+dessus du dossier courant, c&#8217;est à dire <code>/home/jamie/</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Non</p>
+</li>
+<li>
+<p>Oui</p>
+</li>
+<li>
+<p>Non</p>
+</li>
+<li>
+<p>Non</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supprimer_des_fichiers_et_des_dossiers">4.7. Supprimer des fichiers et des dossiers</h3>
+<div class="paragraph">
+<p>Retourner dans le dossier: <code>data-shell</code>.</p>
+</div>
+<div class="paragraph">
+<p>On souhaite supprimer le fichier <code>citations.txt</code> que nous avons créé.
+La commande pour cela est <code>rm</code> (pour remove).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ rm quotes.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Confirmer avec <code>ls</code>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title"><code>rm</code> supprime pour toujours</div>
+<div class="paragraph">
+<p>Le shell Unix ne propose pas de poubelle (même si elle existe pour l&#8217;interface graphique).
+Il vaut mieux se dire que <code>rm</code> supprime pour toujours (même si des outils complexes existent)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supprimer_avec_prudence">4.8. Supprimer avec prudence</h3>
+<div class="paragraph">
+<p>Que se passe-t-il si on utilise l&#8217;option <code>-i</code> pour supprimer le fichier
+<code>article_backup/citations.txt</code> ?</p>
+</div>
+<div class="paragraph">
+<p>Si nous essayons maintenant de supprimer le dossier article en utilisant <code>rm</code></p>
+</div>
+<div class="paragraph">
+<p>Nous obtenons le message d&#8217;erreur.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span> rm: cannot remove `thesis&#39;: Is a directory</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Comme on peut le comprendre à la lecture du message d&#8217;erreur par défaut, <code>rm</code>
+ne permet pas de supprimer les dossiers uniquement les fichiers.</p>
+</div>
+<div class="paragraph">
+<p>Pour supprimer un dossier et son contenu, il faut préciser l&#8217;option <code>-r</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ rm -r article</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_opérer_sur_plusieurs_fichiers_et_dossiers">4.9. Opérer sur plusieurs fichiers et dossiers</h3>
+<div class="paragraph">
+<p>On a souvent besoin de déplacer ou copier plusieurs fichiers d&#8217;un coup.
+Cela est possible en précisant plusieurs noms, ou en utilisant une wildcard.</p>
+</div>
+<div class="paragraph">
+<p>Pour cet exercice placer vous dans le dossier <code>data-shell/data</code>:</p>
+</div>
+<div class="paragraph">
+<p>Que font les commandes suivantes ?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir backup
+$ cp amino-acids.txt animals.txt backup/</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_wildcard">4.9.1. Wildcard</h4>
+<div class="paragraph">
+<p><code>*</code> est une wildcard, elle correspond à 0 ou plusieurs caractères quelconques.</p>
+</div>
+<div class="paragraph">
+<p>Considérons le dossier <code>data-shell/molecules</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>*.pdb</code> va correspondre aux fichiers <code>ethane.pdb</code>, <code>propane.pdb</code> et tout
+les fichiers se terminant en <code>.pdb</code>.</p>
+</li>
+<li>
+<p><code>p*.pdb</code> ne va correspondre qu&#8217;aux fichiers <code>pentane.pdb</code> et <code>propane.pdb</code>
+car il y a un <em>p</em> au début.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>?</code> est aussi une wildcard, mais qui ne correspond qu&#8217;à un seul caractère.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>?ethane.pdb</code> va correspondre à <code>methane.pdb</code> alors que <code>*ethane.pdb</code>
+va correspondre à <code>methane.pdb</code> et <code>ethane.pdb</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Il est possible d&#8217;utiliser plusieurs Wildcards.</p>
+</div>
+<div class="paragraph">
+<p><code>???ane.pdb</code> correspond à 3 caractères suivies de <code>ane.pdb</code>.
+Ce qui donne <code>cubane.pdb</code>  <code>ethane.pdb</code>  <code>octane.pdb</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exercices_lister_les_fichiers_correspondants_à_un_motif">4.9.2. Exercices: lister les fichiers correspondants à un motif</h4>
+<div class="paragraph">
+<p>Dans le dossier <code>molecules</code>, quelle(s) commande(s) <code>ls</code> donneront le résultat:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="output"><span></span> `ethane.pdb   methane.pdb`</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>ls *t*ane.pdb</code></p>
+</li>
+<li>
+<p><code>ls <strong>t?ne.</strong></code></p>
+</li>
+<li>
+<p><code>ls *t??ne.pdb</code></p>
+</li>
+<li>
+<p><code>ls ethane.*</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_9">4.9.3. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="paragraph">
+<p>La solution est 3.</p>
+</div>
+</div>
+</details>
+</div>
+<div class="sect3">
+<h4 id="_exercices_organisation">4.9.4. Exercices: organisation</h4>
+<div class="paragraph">
+<p>Jamie a mal organisé ses fichiers:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls -F
+ analyzed/  fructose.dat    raw/   sucrose.dat</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Que faire pour obtenir les résultats suivants ?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ls -F
+ analyzed/   raw/
+$ ls analyzed
+ fructose.dat    sucrose.dat</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_10">4.9.5. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>mv *.dat analyzed</code></pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+<div class="sect3">
+<h4 id="_exercice_reproduire_une_structure">4.9.6. Exercice: Reproduire une structure</h4>
+<div class="paragraph">
+<p>Vous commencez une nouvelle expérience, et vous voudriez reproduire la structure de dossier
+d&#8217;une expérience précédente:</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;expérience précédente se trouve dans le dossier '2016-05-18' qui contient
+un dossier <code>data</code>, qui contient un dossier <code>raw</code> et un dossier <code>processed</code> qui contiennent
+des fichiers.</p>
+</div>
+<div class="paragraph">
+<p>On souhaite recopier la structure du dossier dans <code>2016-05-20</code> pour que cela donne:</p>
+</div>
+<div class="paragraph">
+<p>2016-05-20/
+└── data
+    ├── processed
+    └── raw</p>
+</div>
+<div class="paragraph">
+<p>Quelle serait la bonne suite de commande ?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir <span class="tok-m">2016</span>-05-20
+$ mkdir <span class="tok-m">2016</span>-05-20/data
+$ mkdir <span class="tok-m">2016</span>-05-20/data/processed
+$ mkdir <span class="tok-m">2016</span>-05-20/data/raw</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir <span class="tok-m">2016</span>-05-20
+$ <span class="tok-nb">cd</span> <span class="tok-m">2016</span>-05-20
+$ mkdir data
+$ <span class="tok-nb">cd</span> data
+$ mkdir raw processed</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir <span class="tok-m">2016</span>-05-20/data/raw
+$ mkdir <span class="tok-m">2016</span>-05-20/data/processed</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir <span class="tok-m">2016</span>-05-20
+$ <span class="tok-nb">cd</span> <span class="tok-m">2016</span>-05-20
+$ mkdir data
+$ mkdir raw processed</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solution_11">4.9.7. Solution</h4>
+<details>
+<summary class="title">Cliquer pour voir la solution</summary>
+<div class="content">
+<div class="paragraph">
+<p>Les deux premiers jeux de commandes sont corrects.
+Le troisième non, car <code>mkdir</code> ne permet pas de créer une suite de sous-répertoire.
+Le quatrième non plus.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bilan_2">4.10. Bilan:</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cp old new</code> copie un fichier.</p>
+</li>
+<li>
+<p><code>mkdir chemin</code> crée un nouveau dossier.</p>
+</li>
+<li>
+<p><code>mv old new</code> déplace (et peut renommer) un fichier ou un répertoire.</p>
+</li>
+<li>
+<p><code>rm chemin</code> supprime un fichier.</p>
+</li>
+<li>
+<p><code><strong></code> correspond à 0 ou plusieurs caractères quelconques, <code></strong>.txt</code> correspond à tout les .txt.</p>
+</li>
+<li>
+<p><code>?</code> correspond à un caractère quelconque, <code>?.txt</code> correspond à <code>a.txt</code> mais pas à <code>any.txt</code>.</p>
+</li>
+<li>
+<p>Le shell ne propose pas de poubelle.</p>
+</li>
+<li>
+<p>La majorité des fichiers ont une extension, mais elle n&#8217;est pas indispensable et ne garantie
+rien sur la nature du fichier, c&#8217;est une indication.</p>
+</li>
+<li>
+<p>Il existe différent éditeur de texte comme Nano ou Geany.</p>
+</li>
+<li>
+<p>La commande <code>cat</code> permet de voir le contenu d&#8217;un fichier.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fin_du_t_p">5. Fin du T.P</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez vous rendre sur: <a href="http://luffah.xyz/bidules/Terminus/" class="bare">http://luffah.xyz/bidules/Terminus/</a> pour vous entrainer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_licence_et_source">6. Licence et source</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ce T.P est inspiré de <a href="http://software-carpentry.org/" class="bare">http://software-carpentry.org/</a> qui est proposé sous la licence:
+<a href="https://creativecommons.org/licenses/by/4.0/legalcode" class="bare">https://creativecommons.org/licenses/by/4.0/legalcode</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<style>
+pre.pygments .hll { background-color: #49483e }
+pre.pygments  { background: #272822; color: #f8f8f2 }
+pre.pygments .tok-c { color: #75715e } /* Comment */
+pre.pygments .tok-err { color: #960050; background-color: #1e0010 } /* Error */
+pre.pygments .tok-k { color: #66d9ef } /* Keyword */
+pre.pygments .tok-l { color: #ae81ff } /* Literal */
+pre.pygments .tok-n { color: #f8f8f2 } /* Name */
+pre.pygments .tok-o { color: #f92672 } /* Operator */
+pre.pygments .tok-p { color: #f8f8f2 } /* Punctuation */
+pre.pygments .tok-ch { color: #75715e } /* Comment.Hashbang */
+pre.pygments .tok-cm { color: #75715e } /* Comment.Multiline */
+pre.pygments .tok-cp { color: #75715e } /* Comment.Preproc */
+pre.pygments .tok-cpf { color: #75715e } /* Comment.PreprocFile */
+pre.pygments .tok-c1 { color: #75715e } /* Comment.Single */
+pre.pygments .tok-cs { color: #75715e } /* Comment.Special */
+pre.pygments .tok-gd { color: #f92672 } /* Generic.Deleted */
+pre.pygments .tok-ge { font-style: italic } /* Generic.Emph */
+pre.pygments .tok-gi { color: #a6e22e } /* Generic.Inserted */
+pre.pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+pre.pygments .tok-gu { color: #75715e } /* Generic.Subheading */
+pre.pygments .tok-kc { color: #66d9ef } /* Keyword.Constant */
+pre.pygments .tok-kd { color: #66d9ef } /* Keyword.Declaration */
+pre.pygments .tok-kn { color: #f92672 } /* Keyword.Namespace */
+pre.pygments .tok-kp { color: #66d9ef } /* Keyword.Pseudo */
+pre.pygments .tok-kr { color: #66d9ef } /* Keyword.Reserved */
+pre.pygments .tok-kt { color: #66d9ef } /* Keyword.Type */
+pre.pygments .tok-ld { color: #e6db74 } /* Literal.Date */
+pre.pygments .tok-m { color: #ae81ff } /* Literal.Number */
+pre.pygments .tok-s { color: #e6db74 } /* Literal.String */
+pre.pygments .tok-na { color: #a6e22e } /* Name.Attribute */
+pre.pygments .tok-nb { color: #f8f8f2 } /* Name.Builtin */
+pre.pygments .tok-nc { color: #a6e22e } /* Name.Class */
+pre.pygments .tok-no { color: #66d9ef } /* Name.Constant */
+pre.pygments .tok-nd { color: #a6e22e } /* Name.Decorator */
+pre.pygments .tok-ni { color: #f8f8f2 } /* Name.Entity */
+pre.pygments .tok-ne { color: #a6e22e } /* Name.Exception */
+pre.pygments .tok-nf { color: #a6e22e } /* Name.Function */
+pre.pygments .tok-nl { color: #f8f8f2 } /* Name.Label */
+pre.pygments .tok-nn { color: #f8f8f2 } /* Name.Namespace */
+pre.pygments .tok-nx { color: #a6e22e } /* Name.Other */
+pre.pygments .tok-py { color: #f8f8f2 } /* Name.Property */
+pre.pygments .tok-nt { color: #f92672 } /* Name.Tag */
+pre.pygments .tok-nv { color: #f8f8f2 } /* Name.Variable */
+pre.pygments .tok-ow { color: #f92672 } /* Operator.Word */
+pre.pygments .tok-w { color: #f8f8f2 } /* Text.Whitespace */
+pre.pygments .tok-mb { color: #ae81ff } /* Literal.Number.Bin */
+pre.pygments .tok-mf { color: #ae81ff } /* Literal.Number.Float */
+pre.pygments .tok-mh { color: #ae81ff } /* Literal.Number.Hex */
+pre.pygments .tok-mi { color: #ae81ff } /* Literal.Number.Integer */
+pre.pygments .tok-mo { color: #ae81ff } /* Literal.Number.Oct */
+pre.pygments .tok-sa { color: #e6db74 } /* Literal.String.Affix */
+pre.pygments .tok-sb { color: #e6db74 } /* Literal.String.Backtick */
+pre.pygments .tok-sc { color: #e6db74 } /* Literal.String.Char */
+pre.pygments .tok-dl { color: #e6db74 } /* Literal.String.Delimiter */
+pre.pygments .tok-sd { color: #e6db74 } /* Literal.String.Doc */
+pre.pygments .tok-s2 { color: #e6db74 } /* Literal.String.Double */
+pre.pygments .tok-se { color: #ae81ff } /* Literal.String.Escape */
+pre.pygments .tok-sh { color: #e6db74 } /* Literal.String.Heredoc */
+pre.pygments .tok-si { color: #e6db74 } /* Literal.String.Interpol */
+pre.pygments .tok-sx { color: #e6db74 } /* Literal.String.Other */
+pre.pygments .tok-sr { color: #e6db74 } /* Literal.String.Regex */
+pre.pygments .tok-s1 { color: #e6db74 } /* Literal.String.Single */
+pre.pygments .tok-ss { color: #e6db74 } /* Literal.String.Symbol */
+pre.pygments .tok-bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+pre.pygments .tok-fm { color: #a6e22e } /* Name.Function.Magic */
+pre.pygments .tok-vc { color: #f8f8f2 } /* Name.Variable.Class */
+pre.pygments .tok-vg { color: #f8f8f2 } /* Name.Variable.Global */
+pre.pygments .tok-vi { color: #f8f8f2 } /* Name.Variable.Instance */
+pre.pygments .tok-vm { color: #f8f8f2 } /* Name.Variable.Magic */
+pre.pygments .tok-il { color: #ae81ff } /* Literal.Number.Integer.Long */
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>
