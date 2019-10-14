@@ -2035,42 +2035,44 @@ des fichiers.</p>
 <div class="paragraph">
 <p>On souhaite recopier la structure du dossier dans <code>2016-05-20</code> pour que cela donne:</p>
 </div>
-<div class="paragraph">
-<p>2016-05-20/
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code><span></span>2016-05-20/
 └── data
     ├── processed
-    └── raw</p>
+    └── raw</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Quelle serait la bonne suite de commande ?</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir <span class="tok-m">2016</span>-05-20
-$ mkdir <span class="tok-m">2016</span>-05-20/data
-$ mkdir <span class="tok-m">2016</span>-05-20/data/processed
-$ mkdir <span class="tok-m">2016</span>-05-20/data/raw</code></pre>
+<pre class="pygments highlight"><code><span></span>$ mkdir 2016-05-20
+$ mkdir 2016-05-20/data
+$ mkdir 2016-05-20/data/processed
+$ mkdir 2016-05-20/data/raw</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir <span class="tok-m">2016</span>-05-20
-$ <span class="tok-nb">cd</span> <span class="tok-m">2016</span>-05-20
+<pre class="pygments highlight"><code><span></span>$ mkdir 2016-05-20
+$ cd 2016-05-20
 $ mkdir data
-$ <span class="tok-nb">cd</span> data
+$ cd data
 $ mkdir raw processed</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir <span class="tok-m">2016</span>-05-20/data/raw
-$ mkdir <span class="tok-m">2016</span>-05-20/data/processed</code></pre>
+<pre class="pygments highlight"><code><span></span>$ mkdir 2016-05-20/data/raw
+$ mkdir 2016-05-20/data/processed</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mkdir <span class="tok-m">2016</span>-05-20
-$ <span class="tok-nb">cd</span> <span class="tok-m">2016</span>-05-20
+<pre class="pygments highlight"><code><span></span>$ mkdir 2016-05-20
+$ cd 2016-05-20
 $ mkdir data
 $ mkdir raw processed</code></pre>
 </div>
