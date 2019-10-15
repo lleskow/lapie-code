@@ -446,32 +446,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_mise_en_place">1. Mise en place</a></li>
 <li><a href="#_introduction_au_shell">2. Introduction au Shell</a>
 <ul class="sectlevel2">
-<li><a href="#_le_contexte">2.1. Le contexte</a></li>
+<li><a href="#_présentation_du_shell">2.1. Présentation du Shell</a></li>
 <li><a href="#_premiers_pas">2.2. Premiers pas</a></li>
 <li><a href="#_le_problème_de_nelle">2.3. Le problème de Nelle</a></li>
 </ul>
 </li>
 <li><a href="#_naviguer_dans_les_répertoires_et_fichiers">3. Naviguer dans les répertoires et fichiers</a>
 <ul class="sectlevel2">
-<li><a href="#_variations_sur_le_répertoire_personnel">3.1. Variations sur le répertoire personnel</a></li>
-<li><a href="#_slashes">3.2. Slashes</a></li>
+<li><a href="#_le_répertoire_personnel">3.1. Le répertoire personnel</a></li>
+<li><a href="#_répertoire_racine_et_ses_sous_répertoires">3.2. Répertoire racine et ses sous-répertoires</a></li>
 <li><a href="#_syntaxe_générale_dune_commande_shell">3.3. Syntaxe générale d&#8217;une commande shell</a></li>
 <li><a href="#_laide">3.4. L&#8217;aide</a></li>
-<li><a href="#_autre_fichier_caché">3.5. Autre fichier caché</a></li>
-<li><a href="#_autre_usage">3.6. Autre usage</a></li>
-<li><a href="#_bilan_sur_la_navigation">3.7. Bilan sur la navigation</a></li>
-<li><a href="#_chemin_relatif_et_chemin_absolu">3.8. Chemin relatif et chemin absolu</a></li>
-<li><a href="#_quelques_raccourcis">3.9. Quelques raccourcis</a></li>
-<li><a href="#_lorganisation_de_nelle">3.10. L&#8217;organisation de Nelle</a></li>
-<li><a href="#_bilan">3.11. Bilan:</a></li>
+<li><a href="#_fichiers_cachés">3.5. Fichiers cachés</a></li>
+<li><a href="#_bilan_sur_la_navigation">3.6. Bilan sur la navigation</a></li>
+<li><a href="#_chemin_relatif_et_chemin_absolu">3.7. Chemin relatif et chemin absolu</a></li>
+<li><a href="#_quelques_raccourcis">3.8. Quelques raccourcis</a></li>
+<li><a href="#_lorganisation_de_nelle">3.9. L&#8217;organisation de Nelle</a></li>
+<li><a href="#_bilan">3.10. Bilan:</a></li>
 </ul>
 </li>
 <li><a href="#_créercopierdéplacer_des_fichiers">4. Créer/copier/déplacer des fichiers</a>
 <ul class="sectlevel2">
 <li><a href="#_créer_un_nouveau_dossier">4.1. Créer un nouveau dossier</a></li>
 <li><a href="#_créer_un_fichier_texte">4.2. Créer un fichier texte</a></li>
-<li><a href="#_une_autre_façon_de_créer_un_fichier">4.3. Une autre façon de créer un fichier</a></li>
-<li><a href="#_que_dit_le_nom">4.4. Que dit le nom ?</a></li>
+<li><a href="#_la_commande_touch">4.3. La commande touch</a></li>
+<li><a href="#_extensions">4.4. Extensions</a></li>
 <li><a href="#_déplacer_fichier_et_répertoires">4.5. Déplacer fichier et répertoires</a></li>
 <li><a href="#_copier_des_fichiers_et_des_dossiers">4.6. Copier des fichiers et des dossiers</a></li>
 <li><a href="#_supprimer_des_fichiers_et_des_dossiers">4.7. Supprimer des fichiers et des dossiers</a></li>
@@ -517,7 +516,7 @@ appelé <strong>data-shell</strong> dans le Bureau.</p>
 <h2 id="_introduction_au_shell">2. Introduction au Shell</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_le_contexte">2.1. Le contexte</h3>
+<h3 id="_présentation_du_shell">2.1. Présentation du Shell</h3>
 <div class="paragraph">
 <p>Humains et ordinateurs interagissent de différentes façons, que ce soit
 par l&#8217;intermédiaire d&#8217;une souris et d&#8217;un clavier, d&#8217;un écran tactile ou
@@ -583,7 +582,7 @@ possible d&#8217;utiliser d&#8217;autres symboles.</p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Lorsque vous recopiez une commande vous n&#8217;avez pas saisir l&#8217;invite <code>$ </code>
+Lorsque vous recopiez une commande vous n&#8217;avez pas à saisir l&#8217;invite <code>$ </code>
 </td>
 </tr>
 </table>
@@ -679,7 +678,7 @@ est sensible à <em>l&#8217;endroit</em> où l&#8217;on se trouve.</p>
 personnel de Nelle, pour vous, cela correspond surement à paullapie.</p>
 </div>
 <div class="sect2">
-<h3 id="_variations_sur_le_répertoire_personnel">3.1. Variations sur le répertoire personnel</h3>
+<h3 id="_le_répertoire_personnel">3.1. Le répertoire personnel</h3>
 <div class="paragraph">
 <p>Selon le système d&#8217;exploitation le chemin correspondant au répertoire maison
 varie.
@@ -699,6 +698,9 @@ comment sont organisés les fichiers dans notre ordinateur.</p>
 <img src="../assets/filesystem.svg" alt="filesystem">
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_répertoire_racine_et_ses_sous_répertoires">3.2. Répertoire racine et ses sous-répertoires</h3>
 <div class="paragraph">
 <p>Au sommet se trouve le <strong>répertoire racine</strong> qui contient tout le reste.
 On y fait référence en utilisant le symbole slash <code>/</code> tout seul.
@@ -726,9 +728,6 @@ Ce qui correspond aussi au premier slash de <code>/home/nelle</code>.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_slashes">3.2. Slashes</h3>
 <div class="paragraph">
 <p>Remarquons qu&#8217;il y a deux sens pour le symbole <code>/</code>, quand il est au début
 d&#8217;un nom de fichier ou de dossier, c&#8217;est le répertoire racine, quand il apparait
@@ -853,11 +852,18 @@ Pour quitter une page man, appuyez sur la touche q ou Q.
 </tr>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_exercice">Exercice:</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p><strong>Que font les options <code>-l</code> et <code>-h</code> de <code>ls</code> ?</strong></p>
 </div>
+</div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution">3.4.1. Solution</h4>
+<h4 id="_solution">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -978,9 +984,16 @@ de notre position. Nous allons voir la plus simple:</p>
 <pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span> ..</code></pre>
 </div>
 </div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Important</dt>
+<dd>
+<p><code>..</code> fait référence au répertoire contenant notre répertoire courant.</p>
+</dd>
+</dl>
+</div>
 <div class="paragraph">
-<p><code>..</code> fait référence au répertoire contenant notre répertoire courant.
-Il suffit d&#8217;entrer <code>pwd</code> pour vérifier que nous sommes bien remonté d&#8217;un dossier.</p>
+<p>Il suffit d&#8217;entrer <code>pwd</code> pour vérifier que nous sommes bien remonté d&#8217;un dossier.</p>
 </div>
 <div class="paragraph">
 <p>Le répertoire <code>..</code> n&#8217;apparait pas lorsqu&#8217;on utilise la commande <code>ls</code>.
@@ -1019,10 +1032,14 @@ En général, les options peuvent être combiné avec un seul <code>-</code>.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Les dossiers <code>.</code> et <code>..</code> ne servent pas uniquement à la commande <code>cd</code>.
+Il est par exemple possible de faire <code>ls ..</code>.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_autre_fichier_caché">3.5. Autre fichier caché</h3>
+<h3 id="_fichiers_cachés">3.5. Fichiers cachés</h3>
 <div class="paragraph">
 <p>On appelle en général les fichiers commençant par un <code>.</code>, des fichiers cachés.
 Vous avez par exemple pu voir <code>.bash_profile</code>, un fichier qui contient
@@ -1030,14 +1047,7 @@ des réglages pour bash.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_autre_usage">3.6. Autre usage</h3>
-<div class="paragraph">
-<p>Les dossiers <code>.</code> et <code>..</code> ne servent pas uniquement à la commande <code>cd</code>.
-Il est par exemple possible de faire <code>ls ..</code>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_bilan_sur_la_navigation">3.7. Bilan sur la navigation</h3>
+<h3 id="_bilan_sur_la_navigation">3.6. Bilan sur la navigation</h3>
 <div class="paragraph">
 <p>Nous avons vu que les commandes <code>pwd</code>, <code>ls</code> et <code>cd</code> permettent de naviguer
 dans le système de fichier. Explorons maintenant quelques variations sur ces commandes:</p>
@@ -1073,7 +1083,7 @@ Il est possible de le faire en une seule ligne de commande:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_chemin_relatif_et_chemin_absolu">3.8. Chemin relatif et chemin absolu</h3>
+<h3 id="_chemin_relatif_et_chemin_absolu">3.7. Chemin relatif et chemin absolu</h3>
 <div class="paragraph">
 <p>Jusqu&#8217;à présent lorsque nous avons donné des noms de répertoire ou de chemin
 (comme <code>Bureau/data-shell/data</code>) nous avons utilisé des chemins <strong>relatifs</strong>.
@@ -1115,7 +1125,7 @@ Pour Nelle cela donne:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_quelques_raccourcis">3.9. Quelques raccourcis</h3>
+<h3 id="_quelques_raccourcis">3.8. Quelques raccourcis</h3>
 <div class="paragraph">
 <p>L&#8217;interprète de commande comprend le symbole <code>~</code> (tilde) au début d&#8217;un chemin
 comme l&#8217;adresse du répertoire personnel de l&#8217;utilisateur.</p>
@@ -1131,7 +1141,9 @@ comme l&#8217;adresse du répertoire personnel de l&#8217;utilisateur.</p>
 <p>Un autre raccourci est <code>-</code> qui veut dire le répertoire précédent.</p>
 </div>
 <div class="sect3">
-<h4 id="_exercice_distingué_chemin_absolu_et_relatif">3.9.1. Exercice: Distingué chemin absolu et relatif</h4>
+<h4 id="_exercice_distingué_chemin_absolu_et_relatif">Exercice: Distingué chemin absolu et relatif</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>En partant de <code>/home/amanda/data</code>, quelles commandes Amanda pourrait utiliser
 pour rejoindre son répertoire personnel ?</p>
@@ -1168,8 +1180,10 @@ pour rejoindre son répertoire personnel ?</p>
 </ol>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_2">3.9.2. Solution</h4>
+<h4 id="_solution_2">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -1208,7 +1222,9 @@ pour rejoindre son répertoire personnel ?</p>
 </details>
 </div>
 <div class="sect3">
-<h4 id="_exercice_résolution_de_chemin_relatif">3.9.3. Exercice: résolution de chemin relatif</h4>
+<h4 id="_exercice_résolution_de_chemin_relatif">Exercice: résolution de chemin relatif</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>En se basant sur le diagramme ci-dessous, si <code>pwd</code> affiche
 <code>/home/thing</code>, qu&#8217;affiche <code>ls -F ../backup</code> ?</p>
@@ -1235,8 +1251,10 @@ pour rejoindre son répertoire personnel ?</p>
 </div>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_3">3.9.4. Solution</h4>
+<h4 id="_solution_3">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -1261,7 +1279,9 @@ nous avons demandé un niveau au dessus.</p>
 </details>
 </div>
 <div class="sect3">
-<h4 id="_exercice_comprendre_ls">3.9.5. Exercice: comprendre <code>ls</code></h4>
+<h4 id="_exercice_comprendre_ls">Exercice: comprendre <code>ls</code></h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>En se basant sur le diagramme ci-dessous, si <code>pwd</code> affiche
 <code>/home/backup</code>, et <code>-r</code> dit à <code>ls</code> d&#8217;afficher les résultats
@@ -1291,8 +1311,10 @@ en ordre inversé, quelle commande affichera le résultat suivant:</p>
 </ol>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_4">3.9.6. Solution</h4>
+<h4 id="_solution_4">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -1314,7 +1336,7 @@ en ordre inversé, quelle commande affichera le résultat suivant:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_lorganisation_de_nelle">3.10. L&#8217;organisation de Nelle</h3>
+<h3 id="_lorganisation_de_nelle">3.9. L&#8217;organisation de Nelle</h3>
 <div class="paragraph">
 <p>Nelle a crée un dossier <code>north-pacific-gyre</code> et à l&#8217;intérieur un dossier nommé
 <code>2012-07-03</code> qui correspond à la date où elle a numérisé l&#8217;échantillon.</p>
@@ -1354,7 +1376,7 @@ Il faut donc appuyer deux fois sur <kbd>Tab ⇆</kbd> pour lister toutes les pos
 </div>
 </div>
 <div class="sect2">
-<h3 id="_bilan">3.11. Bilan:</h3>
+<h3 id="_bilan">3.10. Bilan:</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1515,7 +1537,7 @@ Appuyez sur entrer pour valider le nom.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_une_autre_façon_de_créer_un_fichier">4.3. Une autre façon de créer un fichier</h3>
+<h3 id="_la_commande_touch">4.3. La commande touch</h3>
 <div class="paragraph">
 <p>Essayer la commande</p>
 </div>
@@ -1525,7 +1547,9 @@ Appuyez sur entrer pour valider le nom.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_exercice_la_commande_touch">4.3.1. Exercice: la commande touch</h4>
+<h4 id="_exercice_la_commande_touch">Exercice: la commande touch</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1538,8 +1562,10 @@ l&#8217;explorateur de fichier en GUI.</p>
 </ol>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_5">4.3.2. Solution</h4>
+<h4 id="_solution_5">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -1559,7 +1585,7 @@ courant. On peut le voir dans l&#8217;explorateur de fichier.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_que_dit_le_nom">4.4. Que dit le nom ?</h3>
+<h3 id="_extensions">4.4. Extensions</h3>
 <div class="paragraph">
 <p>Vous avez remarqué que certains fichiers finissent en <code>.machin</code>, nous
 avons nous même utilisé <code>.txt</code>, c&#8217;est uniquement une convension nommé
@@ -1647,7 +1673,9 @@ utiliser <code>.</code>.</p>
 bon endroit.</p>
 </div>
 <div class="sect3">
-<h4 id="_exercice_déplacé_vers_le_répertoire_courant">4.5.1. Exercice: déplacé vers le répertoire courant</h4>
+<h4 id="_exercice_déplacé_vers_le_répertoire_courant">Exercice: déplacé vers le répertoire courant</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>Après avoir tapé les commandes ci-dessous Jamie se rend compte qu&#8217;elle
 a placé les fichiers <code>sucrose.dat</code> and <code>maltose.dat</code> dans le mauvais répertoire.</p>
@@ -1670,8 +1698,10 @@ $ ls -F analyzed
 </div>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_6">4.5.2. Solution</h4>
+<h4 id="_solution_6">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -1718,7 +1748,9 @@ l&#8217;option <code>-r</code> (pour recursive, qui signifie pour faire simple r
 </div>
 </div>
 <div class="sect3">
-<h4 id="_exercice_renommé_des_fichiers">4.6.1. Exercice: renommé des fichiers</h4>
+<h4 id="_exercice_renommé_des_fichiers">Exercice: renommé des fichiers</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>Supposons que l&#8217;on aillons créé un fichier nommé <code>statstiques.txt</code>.
 Quelles sont les ou la bonnes commandes pour renommer le fichier en <code>statistiques.txt</code> ?</p>
@@ -1740,8 +1772,10 @@ Quelles sont les ou la bonnes commandes pour renommer le fichier en <code>statis
 </ol>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_7">4.6.2. Solution</h4>
+<h4 id="_solution_7">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -1765,7 +1799,9 @@ Quelles sont les ou la bonnes commandes pour renommer le fichier en <code>statis
 </details>
 </div>
 <div class="sect3">
-<h4 id="_exercice_copier_et_déplacer">4.6.3. Exercice: Copier et déplacer</h4>
+<h4 id="_exercice_copier_et_déplacer">Exercice: Copier et déplacer</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>Qu&#8217;affiche le dernier <code>ls</code> dans cette suite de liste de commande:</p>
 </div>
@@ -1798,8 +1834,10 @@ $ ls</code></pre>
 </ol>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_8">4.6.4. Solution</h4>
+<h4 id="_solution_8">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -1951,7 +1989,9 @@ Ce qui donne <code>cubane.pdb</code>  <code>ethane.pdb</code>  <code>octane.pdb<
 </div>
 </div>
 <div class="sect3">
-<h4 id="_exercices_lister_les_fichiers_correspondants_à_un_motif">4.9.2. Exercices: lister les fichiers correspondants à un motif</h4>
+<h4 id="_exercices_lister_les_fichiers_correspondants_à_un_motif">Exercices: lister les fichiers correspondants à un motif</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>Dans le dossier <code>molecules</code>, quelle(s) commande(s) <code>ls</code> donneront le résultat:</p>
 </div>
@@ -1977,8 +2017,10 @@ Ce qui donne <code>cubane.pdb</code>  <code>ethane.pdb</code>  <code>octane.pdb<
 </ol>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_9">4.9.3. Solution</h4>
+<h4 id="_solution_9">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -1989,7 +2031,9 @@ Ce qui donne <code>cubane.pdb</code>  <code>ethane.pdb</code>  <code>octane.pdb<
 </details>
 </div>
 <div class="sect3">
-<h4 id="_exercices_organisation">4.9.4. Exercices: organisation</h4>
+<h4 id="_exercices_organisation">Exercices: organisation</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>Jamie a mal organisé ses fichiers:</p>
 </div>
@@ -2011,8 +2055,10 @@ $ ls analyzed
 </div>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_10">4.9.5. Solution</h4>
+<h4 id="_solution_10">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -2025,7 +2071,9 @@ $ ls analyzed
 </details>
 </div>
 <div class="sect3">
-<h4 id="_exercice_reproduire_une_structure">4.9.6. Exercice: Reproduire une structure</h4>
+<h4 id="_exercice_reproduire_une_structure">Exercice: Reproduire une structure</h4>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>Vous commencez une nouvelle expérience, et vous voudriez reproduire la structure de dossier
 d&#8217;une expérience précédente:</p>
@@ -2081,8 +2129,10 @@ $ mkdir raw processed</code></pre>
 </div>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_solution_11">4.9.7. Solution</h4>
+<h4 id="_solution_11">Solution</h4>
 <details>
 <summary class="title">Cliquer pour voir la solution</summary>
 <div class="content">
@@ -2112,10 +2162,10 @@ Le quatrième non plus.</p>
 <p><code>rm chemin</code> supprime un fichier.</p>
 </li>
 <li>
-<p><code><strong></code> correspond à 0 ou plusieurs caractères quelconques, <code></strong>.txt</code> correspond à tout les .txt.</p>
+<p><code>* </code> correspond à 0 ou plusieurs caractères quelconques, <code>*.txt</code> correspond à tout les .txt.</p>
 </li>
 <li>
-<p><code>?</code> correspond à un caractère quelconque, <code>?.txt</code> correspond à <code>a.txt</code> mais pas à <code>any.txt</code>.</p>
+<p><code>? </code> correspond à un caractère quelconque, <code>?.txt</code> correspond à <code>a.txt</code> mais pas à <code>any.txt</code>.</p>
 </li>
 <li>
 <p>Le shell ne propose pas de poubelle.</p>
