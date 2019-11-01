@@ -29,11 +29,15 @@ image:assets/js-logo.png[javascript,300,300,float="right",align="center"]
 
 image:assets/html5-logo.png[html,350,350,align="center"]
 
+Hypertext Markup Language
+
 C'est le fond et des étiquettes.
 
 === L'apparence
 
 image:assets/css3-logo.png[css3,350,350,align="center"]
+
+Cascading Style Sheets
 
 C'est la forme.
 
