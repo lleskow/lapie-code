@@ -1,7 +1,7 @@
 :backend: revealjs
 :revealjs_theme: solarized
 
-= Chapitre IV: Web, HTML et CSS.
+= Chapitre IV: Interface Homme Machine: HTML et CSS.
 :source-highlighter: pygments
 :pygments-style: tango
 
