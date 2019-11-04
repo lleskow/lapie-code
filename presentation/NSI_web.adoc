@@ -215,7 +215,7 @@ Une très bonne référence pour le HTML et le CSS.
 
 Réponse à la page ci-dessous.
 
-=== !
+=== Pour vous aider si nécessaire:
 
 [source,bash]
 ----
@@ -256,7 +256,7 @@ Puis copier/coller dans le fichier ``index.html``, le code de la page ci-dessous
     <p> Est un prétexte pour faire du HTML..</p>
     <a href="#"> Rejoignez-nous </a>
 
-    <h2>Rapide
+    <h2>Rapide</h2>
     <p>Vraiment super <strong>rapide</strong>.</p>
     <img src="your-image.png" alt="picture description" width="100">
 
