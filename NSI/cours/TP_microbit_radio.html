@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Interface Homme Machine: TP robotique</title>
+<title>Interface homme machine: TP robotique et communications</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,44 +439,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Interface Homme Machine: TP robotique</h1>
+<h1>Interface homme machine: TP robotique et communications</h1>
 <div id="toc" class="toc2">
-<div id="toctitle">Table des matières</div>
+<div id="toctitle">table des matières</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a>
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_utilisation_de_la_radio">2. Utilisation de la radio</a>
 <ul class="sectlevel2">
-<li><a href="#_actionneurs">Actionneurs</a></li>
-<li><a href="#_capteurs">Capteurs</a></li>
-<li><a href="#_microbit">Micro:bit</a></li>
+<li><a href="#_activation">Activation</a></li>
+<li><a href="#_canaux">Canaux</a></li>
+<li><a href="#_recevoir_un_message">Recevoir un message</a></li>
+<li><a href="#_adressage">Adressage</a></li>
+<li><a href="#_envoyer_un_message">Envoyer un message</a></li>
 </ul>
 </li>
-<li><a href="#_prise_en_main">2. Prise en main</a>
+<li><a href="#_le_jeu_pierre_papier_ciseaux">Le jeu pierre-papier-ciseaux</a>
 <ul class="sectlevel2">
-<li><a href="#_flasher_un_programme">Flasher un programme</a></li>
-<li><a href="#_détecter_une_erreur">Détecter une erreur</a></li>
+<li><a href="#_communiquer_avec_son_binôme">Communiquer avec son binôme</a></li>
+<li><a href="#_images">Images</a></li>
+<li><a href="#_sélection">Sélection</a></li>
+<li><a href="#_déterminer_le_gagnant">Déterminer le gagnant</a></li>
+<li><a href="#_réaliser_le_jeu">Réaliser le jeu</a></li>
 </ul>
 </li>
-<li><a href="#_actionneur_affichage_avec_les_led">3. Actionneur: Affichage avec les LED.</a>
-<ul class="sectlevel2">
-<li><a href="#_exercice">3.1. Exercice</a></li>
-<li><a href="#_exercice_2">3.2. Exercice:</a></li>
-</ul>
-</li>
-<li><a href="#_premiers_capteurs">4. Premiers capteurs</a>
-<ul class="sectlevel2">
-<li><a href="#_thermomètre">Thermomètre</a></li>
-<li><a href="#_programmation_événementielle_et_boutons">4.1. Programmation événementielle et boutons</a></li>
-<li><a href="#_accélérométre">Accélérométre</a></li>
-</ul>
-</li>
-<li><a href="#_exercices">5. Exercices:</a>
-<ul class="sectlevel2">
-<li><a href="#_exercice_déplacer_un_pixel">5.1. Exercice: Déplacer un pixel</a></li>
-<li><a href="#_exercice_allumage">5.2. Exercice: Allumage</a></li>
-<li><a href="#_exercice_déplacement_avec_laccélérométre">5.3. Exercice: Déplacement avec l&#8217;accélérométre</a></li>
-</ul>
-</li>
-<li><a href="#_documentation">6. Documentation</a></li>
+<li><a href="#_documentation">documentation</a></li>
 </ul>
 </div>
 </div>
@@ -485,706 +471,259 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Un robot peut se voir comme un ordinateur munit de périphériques de sortie
-lui permettant d&#8217;agir sur son environnement les <strong>actionneurs</strong> et de périphériques
-d&#8217;entrée lui permettant d&#8217;obtenir des informations sur son environnement les <strong>capteurs</strong>.</p>
+<p>Les cartes BBC Micro:bit disposent d&#8217;une antenne permettant d&#8217;émettre et
+recevoir des messages.
+On parle ici de radio.</p>
 </div>
 <div class="paragraph">
-<p>Un robot peut être piloté à distance ou voir son comportement dirigé par un programme informatique.</p>
-</div>
-<div class="sect2">
-<h3 id="_actionneurs">Actionneurs</h3>
-<div class="paragraph">
-<p>Dans une machine, un actionneur est un objet qui transforme l’énergie qui lui est
-fournie en un phénomène physique qui fournit un travail, modifie le comportement ou l’état d&#8217;un système.</p>
-</div>
-<div class="sect3">
-<h4 id="_lénergie_utilisée_peut_être">L&#8217;énergie utilisée peut être:</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>mécanique</p>
-</li>
-<li>
-<p>électrique</p>
-</li>
-<li>
-<p>hydraulique</p>
-</li>
-<li>
-<p>thermique</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_le_phénomène_physique">Le phénomène physique:</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>un déplacement</p>
-</li>
-<li>
-<p>de la lumière</p>
-</li>
-<li>
-<p>du son</p>
-</li>
-<li>
-<p>un freinage</p>
-</li>
-<li>
-<p>etc</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_exemples_dactionneur">Exemples d&#8217;actionneur:</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>un vérin</p>
-</li>
-<li>
-<p>un moteur</p>
-</li>
-<li>
-<p>un ventilateur</p>
-</li>
-<li>
-<p>un voyant lumineux</p>
-</li>
-<li>
-<p>une enceinte</p>
-</li>
-<li>
-<p>etc</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_capteurs">Capteurs</h3>
-<div class="paragraph">
-<p>Un capteur est un dispositif transformant l&#8217;état d&#8217;une grandeur physique observée
-en une grandeur utilisable, telle qu&#8217;une tension électrique, une hauteur de mercure,
-une intensité ou la déviation d&#8217;une aiguille.</p>
-</div>
-<div class="sect3">
-<h4 id="_exemple_de_capteur">Exemple de capteur:</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>accéléromètre</p>
-</li>
-<li>
-<p>gyroscope</p>
-</li>
-<li>
-<p>photodiode</p>
-</li>
-<li>
-<p>souris</p>
-</li>
-<li>
-<p>microphone</p>
-</li>
-<li>
-<p>thermomètre</p>
-</li>
-<li>
-<p>etc</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_microbit">Micro:bit</h3>
-<div class="paragraph">
-<p>Le BBC micro:bit est un ordinateur à carte unique possédant différents actionneurs et
-capteurs.</p>
-</div>
+<p>Nous allons utiliser ce dispositif pour réaliser le jeu du Pierre-Papier-Ciseaux
+jouable à distance entre deux cartes.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_prise_en_main">2. Prise en main</h2>
+<h2 id="_utilisation_de_la_radio">2. Utilisation de la radio</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Nous allons voir comment programmer la carte micro:bit à l&#8217;aide de Python:</p>
-</div>
 <div class="sect2">
-<h3 id="_flasher_un_programme">Flasher un programme</h3>
-<div class="openblock flash">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Se rendre sur le site <a href="https://python.microbit.org/v/2.0">python.microbit.org</a>.
-Ce site propose un éditeur de texte qui va nous permettre d&#8217;écrire du code Python
-et de le transformer en code compris par la carte.</p>
-</li>
-<li>
-<p>Remplacer le code proposé, par:</p>
-</li>
-</ul>
+<h3 id="_activation">Activation</h3>
+<div class="paragraph">
+<p>La radio est par défaut éteinte.
+Il va falloir importer le module <code>radio</code> puis l&#8217;activer.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+<span class="tok-kn">import</span> <span class="tok-nn">radio</span>
+
+<span class="tok-n">radio</span><span class="tok-o">.</span><span class="tok-n">on</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_canaux">Canaux</h3>
+<div class="paragraph">
+<p>Tout comme les Talkie-Walkie d’enfants : il est possible de ce mettre un même canal
+et tout le monde entend ce que quiconque émet sur ce canal.</p>
+</div>
+<div class="paragraph">
+<p>Il est possible de régler le canal.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-c1"># pour mettre la carte sur le canal 19</span>
+<span class="tok-n">radio</span><span class="tok-o">.</span><span class="tok-n">config</span><span class="tok-p">(</span><span class="tok-n">channel</span><span class="tok-o">=</span><span class="tok-mi">19</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les canaux vont de 0 à 83.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_recevoir_un_message">Recevoir un message</h3>
+<div class="paragraph">
+<p>Il est possible de recevoir un message à l&#8217;aide de la fonction <code>receive</code>.
+La fonction <code>receive</code> retourne une chaîne de caractère s&#8217;il y a un message et
+<code>None</code> s&#8217;il n&#8217;y en a pas.</p>
+</div>
+<div class="paragraph">
+<p>Votre enseignant diffuse un message toute les 5 secondes sur le canal 19.
+Essayer de recevoir ce message en testant et comprenant le message suivant:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+<span class="tok-kn">import</span> <span class="tok-nn">radio</span>
+
+<span class="tok-n">radio</span><span class="tok-o">.</span><span class="tok-n">on</span><span class="tok-p">()</span>
+<span class="tok-n">radio</span><span class="tok-o">.</span><span class="tok-n">config</span><span class="tok-p">(</span><span class="tok-n">channel</span><span class="tok-o">=</span><span class="tok-mi">19</span><span class="tok-p">)</span>
 
 <span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-s2">&quot; &quot;</span><span class="tok-p">)</span>
-    <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">)</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HEART</span><span class="tok-p">)</span>
-    <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">)</span></code></pre>
+    <span class="tok-n">recu</span> <span class="tok-o">=</span> <span class="tok-n">radio</span><span class="tok-o">.</span><span class="tok-n">receive</span><span class="tok-p">()</span>
+    <span class="tok-k">if</span> <span class="tok-n">recu</span><span class="tok-p">:</span>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">scroll</span><span class="tok-p">(</span><span class="tok-n">recu</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Appuyez sur <code>Download</code> pour récupérer un fichier nommé <code>microbit_program.hex</code>.</p>
-</li>
-<li>
-<p>Branchez la carte micro:bit à l&#8217;aide d&#8217;un câble USB à votre ordinateur.</p>
-</li>
-<li>
-<p>Ouvrir un terminal et à l&#8217;aide de la commande <code>mv</code> transférer ce fichier sur la carte.
-La carte micro:bit va correspondre dans le système de fichier à un dossier se
-trouvant à l&#8217;adresse suivante: <code>/media/paullapie/</code>.</p>
-</li>
-</ul>
-</div>
-<details>
-<summary class="title">Cliquer ici pour obtenir une aide.</summary>
-<div class="content">
 <div class="paragraph">
-<p>Vous pouvez vous inspirer de cette ligne de commande, qui peut ne pas parfaitement correspondre.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ mv ~/Downloads/microbit_program.hex /media/paullapie/MICROBIT</code></pre>
-</div>
-</div>
-</div>
-</details>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-On dit que l&#8217;on vient de <strong>flasher</strong> le programme sur la carte.
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Vous devriez observer les diodes électroluminescentes dites LED (actionneurs), s&#8217;allumer et
-s&#8217;éteindre, en représentant un dessin de cœur.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>La carte stocke les messages qu&#8217;elle reçoit dans une file d&#8217;attente.
+Elle va traiter en premier, le premier message reçu.
+Par défaut la taille de la file d&#8217;attente est de 3 messages.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_détecter_une_erreur">Détecter une erreur</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Revenir <a href="https://python.microbit.org/v/2.0">python.microbit.org</a> et supprimer
-la parenthèse fermante après <code>Image.HEART</code>:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-
-<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-s2">&quot; &quot;</span><span class="tok-p">)</span>
-    <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">)</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HEART</span>
-    <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">)</span></code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Flasher le code sur la carte.</p>
-</li>
-<li>
-<p>Observer ce qui est affiché à l&#8217;aide des LED.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_actionneur_affichage_avec_les_led">3. Actionneur: Affichage avec les LED.</h2>
-<div class="sectionbody">
+<h3 id="_adressage">Adressage</h3>
 <div class="paragraph">
-<p>Il est possible d&#8217;afficher du texte, des images ou des animations:</p>
+<p>Il est possible de filtrer par adresse les messages.
+L&#8217;adresse est un nom arbitraire exprimé sur 32 bits.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>display.show(value)</code> permet d&#8217;afficher un texte ou une image, comme nous l&#8217;avons déjà vu.</p>
-</li>
-<li>
-<p><code>display.scroll(value)</code> permet de faire défiler du texte.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_exercice">3.1. Exercice</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Faire défiler le message: <code>Bonjour</code> sur la carte micro:bit.</p>
-</li>
-<li>
-<p>A l&#8217;aide d&#8217;une boucle <code>for</code> faire afficher les nombres de 0 à 9 sur la carte micro:bit.</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-La fonction <code>sleep(temps)</code> où <code>temps</code> est donné en milliseconde permet de
-laisser un temps d&#8217;attente entre la réalisation de deux instructions.
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>display.set_pixel(x, y, intensite)</code> permet de régler l&#8217;intensité lumineuse
-de la LED à la ligne <code>y</code>, colonne <code>x</code>. L&#8217;intensité lumineuse est un nombre entier
-compris entre 0 et 9, 0 correspondant à éteindre la LED.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_exercice_2">3.2. Exercice:</h3>
-<div class="openblock">
-<div class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Tester le code suivant:</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>Il est possible de configurer l&#8217;adresse de la sorte:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-
-<span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">5</span><span class="tok-p">):</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">set_pixel</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">)</span>
-    <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">)</span></code></pre>
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">radio</span><span class="tok-o">.</span><span class="tok-n">config</span><span class="tok-p">(</span><span class="tok-n">address</span><span class="tok-o">=</span><span class="tok-mh">0x75626974</span><span class="tok-p">)</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>En plus de l&#8217;adresse, il est possible de préciser un groupe.
+Le groupe est un entier qui tient sur un octet.</p>
+</div>
+<div class="paragraph">
+<p>Il est possible de configurer l&#8217;adresse de la sorte:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">radio</span><span class="tok-o">.</span><span class="tok-n">config</span><span class="tok-p">(</span><span class="tok-n">group</span><span class="tok-o">=</span><span class="tok-mi">4</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut faire l&#8217;analogie suivante: l’adresse est comme une adresse postale
+tandis qu’un groupe est comme un destinataire spécifique à cette adresse.
+La chose importante est que la radio va filtrer les messages qu’elle reçoit qui
+ne correspondent pas à ton adresse et à ton groupe.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>En vous inspirant du programme précédent, allumer une à une les LED de la
-dernière colonne.</p>
+<p>Donner le nombre d&#8217;adresses possibles.</p>
 </li>
 <li>
-<p>Modifier le programme précédent pour que chaque LED s&#8217;éteigne avec que la
-suivante s&#8217;allume, de la sorte:</p>
+<p>En quelle base l&#8217;adresse ci-dessus a-t-elle été exprimé ?</p>
+</li>
+<li>
+<p>Pour une adresse combien de groupes sont possibles ?</p>
 </li>
 </ol>
 </div>
-<div class="imageblock">
+</div>
+<div class="sect2">
+<h3 id="_envoyer_un_message">Envoyer un message</h3>
+<div class="paragraph">
+<p>Envoyer un message se fait à l&#8217;aide de la fonction:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<img src="../assets/allume_eteint.gif" alt="allume_eteint">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">radio</span><span class="tok-o">.</span><span class="tok-n">send</span><span class="tok-p">(</span><span class="tok-n">msg</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Le paramètre <code>msg</code> est une chaîne de caractère.
+Par défaut un message peut contenir 32 octets d&#8217;information.</p>
+</div>
+<div class="sect3">
+<h4 id="_exercice">Exercice:</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Envoyer votre prénom à votre professeur à l&#8217;adresse 0xAAAAAAAA groupe 4 sur le canal 7.</p>
+</li>
+<li>
+<p>Pour quoi, n&#8217;est-il pas possible d&#8217;envoyer "yéééééééééééééééééééé !" (avec 20 é) en un seul message ?</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_premiers_capteurs">4. Premiers capteurs</h2>
+<h2 id="_le_jeu_pierre_papier_ciseaux">Le jeu pierre-papier-ciseaux</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_thermomètre">Thermomètre</h3>
-<div class="paragraph">
-<p>Le micro:bit n’a pas un capteur de température dédié.
-Au lieu de cela, la température fournie est en fait la température de la puce de
-silicium du processeur principal.
-Comme le processeur chauffe peu en fonctionnement(c&#8217;est un processeur ARM à grande efficacité),
-sa température est une bonne approximation de la température ambiante.</p>
-</div>
-<div class="paragraph">
-<p>La fonction <code>temperature()</code> retourne la température mesuré par ce capteur.</p>
-</div>
-<div class="sect3">
-<h4 id="_exercice_3">4..1. Exercice:</h4>
+<h3 id="_communiquer_avec_son_binôme">Communiquer avec son binôme</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Afficher la température à l&#8217;aide des LED.</p>
+<p>Trouver un binôme avec qui jouer, décider ensemble d&#8217;un canal, adresse et groupe.</p>
 </li>
 <li>
-<p>Modifier le programme suivant pour qu&#8217;il affiche en plus de la température,
-"chaud" s&#8217;il fait plus de 20 degré, et "froid" sinon.</p>
+<p>Essayer de vous envoyer des messages et d&#8217;en recevoir.</p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_images">Images</h3>
+<div class="paragraph">
+<p>Il est possible de définir des images de la sorte.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">pierre</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-p">(</span><span class="tok-s2">&quot;00900:&quot;</span>
+               <span class="tok-s2">&quot;09990:&quot;</span>
+               <span class="tok-s2">&quot;99599:&quot;</span>
+               <span class="tok-s2">&quot;09990:&quot;</span>
+               <span class="tok-s2">&quot;00900&quot;</span><span class="tok-p">)</span>
+
+<span class="tok-n">feuille</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-p">(</span><span class="tok-s2">&quot;99900:&quot;</span>
+                <span class="tok-s2">&quot;90090:&quot;</span>
+                <span class="tok-s2">&quot;90009:&quot;</span>
+                <span class="tok-s2">&quot;90009:&quot;</span>
+                <span class="tok-s2">&quot;99999&quot;</span><span class="tok-p">)</span>
+
+<span class="tok-n">ciseaux</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-p">(</span><span class="tok-s2">&quot;96009:&quot;</span>
+                <span class="tok-s2">&quot;69090:&quot;</span>
+                <span class="tok-s2">&quot;00900:&quot;</span>
+                <span class="tok-s2">&quot;69090:&quot;</span>
+                <span class="tok-s2">&quot;96009&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tester et afficher ces images.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sélection">Sélection</h3>
+<div class="paragraph">
+<p>Ecrire une fonction <code>selection_coup</code> dont les spécifications sont:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">selection_coup</span><span class="tok-p">():</span>
+    <span class="tok-sd">&quot;&quot;&quot; None -&gt; str</span>
+<span class="tok-sd">    Permet de selectionner un coup. Affiche un coup sur les LED.</span>
+<span class="tok-sd">    Appuyer sur A permet de changer de coup affiche.</span>
+<span class="tok-sd">    Appuyer sur B valide le coup affiche.</span>
+<span class="tok-sd">    Les retours possibles sont &quot;pierre&quot;, &quot;papier&quot; et &quot;ciseaux&quot;.</span>
+<span class="tok-sd">    &quot;&quot;&quot;</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_programmation_événementielle_et_boutons">4.1. Programmation événementielle et boutons</h3>
+<h3 id="_déterminer_le_gagnant">Déterminer le gagnant</h3>
 <div class="paragraph">
-<p>Nous avons l&#8217;habitude de programmer de façon séquentielle, c&#8217;est-à-dire que l&#8217;enchainement
-des instructions est toujours le même.</p>
-</div>
-<div class="paragraph">
-<p>Nous allons maintenant voir un première exemple de programmation événementielle.
-Ici, la séquence d&#8217;instructions exécutée est déterminée ou modifiée en permanence
-par les différents événements extérieurs, dans le cas présent, le fait qu&#8217;un bouton
-soit pressé ou non.</p>
-</div>
-<div class="sect3">
-<h4 id="_premiers_exemples">Premiers exemples:</h4>
-<div class="paragraph">
-<p>Nous allons mettre en place une boucle infinie qui vérifie si un bouton est pressé.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Tester et comprendre le code suivant:</p>
-</li>
-</ul>
+<p>Ecrire une fonction <code>victorieux</code> dont les spécifications sont:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-
-<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
-    <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">is_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HAPPY</span><span class="tok-p">)</span>
-    <span class="tok-k">else</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">SAD</span><span class="tok-p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>La fonction <code>is_pressed</code> est un prédicat, c&#8217;est-à-dire une fonction dont la
-valeur de retour est un booléen, c&#8217;est-à-dire qu&#8217;elle retourne <code>True</code> ou <code>False</code>.
-Elle renvoie <code>True</code> si le bouton est <strong>en train</strong> d&#8217;être pressé.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Tester et comprendre le code suivant:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-
-<span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-bp">True</span>
-<span class="tok-k">while</span> <span class="tok-n">actif</span><span class="tok-p">:</span>
-    <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">is_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HAPPY</span><span class="tok-p">)</span>
-    <span class="tok-k">elif</span> <span class="tok-n">button_b</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>
-    <span class="tok-k">else</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">SAD</span><span class="tok-p">)</span>
-
-<span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">clear</span><span class="tok-p">()</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>La fonction <code>was_pressed</code> est un autre prédicat. Cette fonction renvoie <code>True</code>
-si le bouton a été appuyé depuis le dernière appel à cette fonction.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Tester et comprendre le code suivant:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-
-<span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-bp">True</span>
-<span class="tok-k">while</span> <span class="tok-n">actif</span><span class="tok-p">:</span>
-    <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HAPPY</span><span class="tok-p">)</span>
-    <span class="tok-k">elif</span> <span class="tok-n">button_b</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>
-    <span class="tok-k">else</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">SAD</span><span class="tok-p">)</span>
-
-<span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">clear</span><span class="tok-p">()</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Que se passe-t-il ? A l&#8217;aide de la fonction <code>sleep</code> mettre en évidence que notre
-programme détecte bien quand le bouton <code>A</code> a été pressé.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_exercice_4">Exercice</h4>
-<div class="openblock">
-<div class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Modifier le programme suivant pour qu&#8217;il affiche le nombre de fois où la touche <code>A</code>
-a été pressé.</p>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-
-<span class="tok-n">compteur</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
-<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
-    <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
-        <span class="tok-o">...</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">scroll</span><span class="tok-p">(</span><span class="tok-n">compteur</span><span class="tok-p">)</span></code></pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Modifier le programme précédent pour que le compteur diminue de 1 si
-la touche <code>B</code> a été pressé.</p>
-</li>
-<li>
-<p>Modifier le programme précédent pour que la carte affiche la lettre P si les
-touches <code>A</code> et <code>B</code> sont pressés simultanément, on utilisera la fonction
-<code>is_pressed</code> dans ce cas.</p>
-</li>
-</ol>
-</div>
-</div>
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">def</span> <span class="tok-nf">victorieux</span><span class="tok-p">(</span><span class="tok-n">recu</span><span class="tok-p">,</span> <span class="tok-n">envoye</span><span class="tok-p">):</span>
+    <span class="tok-sd">&quot;&quot;&quot; str, str -&gt; bool</span>
+<span class="tok-sd">    precondition: les valeurs possible pour recu et envoye sont &quot;pierre&quot; &quot;papier&quot; &quot;ciseaux&quot;</span>
+<span class="tok-sd">    retourne True si vous avez gagne, False sinon.</span>
+<span class="tok-sd">    &quot;&quot;&quot;</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_accélérométre">Accélérométre</h3>
-<div class="paragraph">
-<p>La carte micro:bit est munit d’un accéléromètre. Il mesure le mouvement selon trois axes :</p>
-</div>
-<div class="ulist">
-<ul>
+<h3 id="_réaliser_le_jeu">Réaliser le jeu</h3>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>X - l’inclinaison de gauche à droite.</p>
+<p>Réaliser une première version jouable du jeu à l&#8217;aide des fonctions précédentes.</p>
 </li>
 <li>
-<p>Y - l’inclinaison d’avant en arrière.</p>
+<p>Améliorer le jeu pour permettre d&#8217;enchainer les parties.</p>
 </li>
-<li>
-<p>Z - le mouvement haut et bas.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>L’effet collatéral le plus intéressant d’un accélèromètre est la détection des gestes.</p>
-</div>
-<div class="paragraph">
-<p>Il est possible de détecter les gestes suivants:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>haut&#8594; <code>up</code></p>
-</li>
-<li>
-<p>bas &#8594; <code>down</code></p>
-</li>
-<li>
-<p>gauche &#8594; <code>left</code></p>
-</li>
-<li>
-<p>droite &#8594; <code>right</code></p>
-</li>
-<li>
-<p>face en haut &#8594; <code>face up</code></p>
-</li>
-<li>
-<p>face en bas &#8594; <code>face down</code></p>
-</li>
-<li>
-<p>secousse &#8594; <code>shake</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Les gestes sont toujours représentés par des chaînes de caractères.</p>
-</div>
-<div class="paragraph">
-<p>Pour obtenir le geste effectué, on utilise la méthode accelerometer.current_gesture.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Tester et comprendre le code suivant:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
-    <span class="tok-n">geste</span> <span class="tok-o">=</span> <span class="tok-n">accelerometer</span><span class="tok-o">.</span><span class="tok-n">current_gesture</span><span class="tok-p">()</span>
-    <span class="tok-k">if</span> <span class="tok-n">geste</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;face up&quot;</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HAPPY</span><span class="tok-p">)</span>
-    <span class="tok-k">elif</span> <span class="tok-n">geste</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;shake&quot;</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">CONFUSED</span><span class="tok-p">)</span>
-    <span class="tok-k">elif</span> <span class="tok-n">geste</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;left&quot;</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-s2">&quot;G&quot;</span><span class="tok-p">)</span>
-    <span class="tok-k">else</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">ANGRY</span><span class="tok-p">)</span></code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_exercice_5">Exercice</h4>
-<div class="paragraph">
-<p>Ecrire un programme qui à chaque fois que la carte est secouée, tire un nombre au
-hasard entre 0 et 6 et affiche ce nombre.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Utiliser la fonction <code>randint</code> du module <code>random</code>
-</td>
-</tr>
-</table>
-</div>
+</ol>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercices">5. Exercices:</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_exercice_déplacer_un_pixel">5.1. Exercice: Déplacer un pixel</h3>
-<div class="openblock">
-<div class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Tester et comprendre le programme suivant:</p>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-
-<span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
-<span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
-<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">set_pixel</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
-    <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">x</span> <span class="tok-o">-</span> <span class="tok-mi">1</span>
-    <span class="tok-k">if</span> <span class="tok-n">button_b</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">x</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
-    <span class="tok-k">if</span> <span class="tok-n">x</span> <span class="tok-o">&lt;</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
-        <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
-    <span class="tok-k">if</span> <span class="tok-n">x</span> <span class="tok-o">&gt;</span> <span class="tok-mi">4</span><span class="tok-p">:</span>
-        <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">4</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">set_pixel</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">)</span>
-    <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">25</span><span class="tok-p">)</span></code></pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Modifier le programme, de la sorte:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>lorsque le pixel allumé est au bord à droite et que l&#8217;on appuie sur <code>B</code>, le pixel allumé descend d&#8217;une ligne et se retrouve tout à gauche;</p>
-</li>
-<li>
-<p>lorsque le pixel allumé est au bord à gauche et que l&#8217;on appuie sur <code>A</code>, le pixel allumé monte d&#8217;une ligne et se retrouve tout à droite;</p>
-</li>
-<li>
-<p>lorsque le pixel allumé est dans le coin haut gauche et que l&#8217;on appuie sur <code>A</code>, le pixel allumé passe au coin
-bas droite;</p>
-</li>
-<li>
-<p>lorsque le pixel allumé est dans le coin bas droite et que l&#8217;on appuie sur <code>B</code>, le pixel allumé passe au coin
-haut gauche.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>L&#8217;image suivante résume les régles de déplacements:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../assets/deplacements.gif" alt="deplacement">
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_exercice_allumage">5.2. Exercice: Allumage</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Ecrire un programme qui allume tout les pixels des diagonales du carré de LED un par un.</p>
-</li>
-<li>
-<p>Ecrire un programme qui allume peu à peu tout les pixels en commencant par le coin en haut à gauche.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_exercice_déplacement_avec_laccélérométre">5.3. Exercice: Déplacement avec l&#8217;accélérométre</h3>
-<div class="paragraph">
-<p>Ecrire un programme qui permet à un pixel allumé de se "déplacer". Ses déplacements sont guidés par
-les mouvements de la carte micro:bit, par exemple, si la carte est tournée vers la droite, le pixel va vers
-la droite.  "Sortir de l&#8217;écran" raméne le pixel de "l&#8217;autre côté".</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_documentation">6. Documentation</h2>
+<h2 id="_documentation">documentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Vous pouvez utiliser <a href="https://microbit-micropython.readthedocs.io/fr/latest/tutorials/introduction.html">la documentation suivante</a>.</p>
+<p>vous pouvez utiliser
+<a href="https://microbit-micropython.readthedocs.io/fr/latest/tutorials/introduction.html">la documentation suivante</a>.</p>
 </div>
 </div>
 </div>
