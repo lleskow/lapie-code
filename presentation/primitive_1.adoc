@@ -1,0 +1,87 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "20000"
+
+== Préparez vous !
+
+Dans chacune des questions suivantes, déterminer une primitive stem:[F] de la
+fonction stem:[f]
+
+== !
+
+stem:[\LARGE{f(x)=x^2}]
+
+== !
+
+stem:[\LARGE{f(x)=x-3}]
+
+== !
+
+stem:[\LARGE{f(x)=-\frac{1}{x^2}}]
+
+== !
+
+stem:[\LARGE{f(x)=6x^2-4x+1}]
+
+// == !
+//
+// stem:[\LARGE{f(x)=\frac{1}{x}}]
+
+== !
+
+stem:[\LARGE{f(x)=2+\text{e}^x}]
+
+== !
+
+stem:[\LARGE{f(x)=x^7}]
+
+== Solution
+
+== !
+
+stem:[\LARGE{f(x)=x^2}]
+
+[.step]
+* stem:[\LARGE{F(x)=\frac{x^3}{3}}]
+
+== !
+
+stem:[\LARGE{f(x)=x-3}]
+
+[.step]
+* stem:[\LARGE{F(x)=\frac{x^2}{2}-3x}]
+
+== !
+
+stem:[\LARGE{f(x)=-\frac{1}{x^2}}]
+
+[.step]
+* stem:[\LARGE{F(x)=\frac{1}{x} + 127}]
+
+== !
+
+stem:[\LARGE{f(x)=6x^2-4x+1}]
+
+[.step]
+* stem:[\LARGE{F(x)=2x^3-2x^2+x}]
+
+// == !
+//
+// stem:[\LARGE{f(x)=\frac{1}{x}}]
+//
+// stem:[\LARGE{F(x)=\ln (x)}]
+
+== !
+
+stem:[\LARGE{f(x)=2+\text{e}^x}]
+
+[.step]
+* stem:[\LARGE{F(x)=2x + \text{e}^x}]
+
+== !
+
+stem:[\LARGE{f(x)=x^7}]
+
+[.step]
+* stem:[\LARGE{F(x)=\frac{x^8}{8}}]
