@@ -2,437 +2,463 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <!-- Le charset est à garder en haut de page pour être tout de suite "parsé" -->
-    <title>Lapie Code - Accueil</title>
+  <meta charset="utf-8">
+  <!-- Le charset est à garder en haut de page pour être tout de suite "parsé" -->
+  <title>Lapie Code - Accueil</title>
 
-    <!-- gestion des favicons à l'aide du site suivant (finaliser/tester) -->
-    <!-- https://realfavicongenerator.net/ -->
-    <!-- Il faut en particulier vérifier les / devant favicon, probleme juste en local ?-->
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../manifest.json">
-    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#b2dfdb">
-    <meta name="apple-mobile-web-app-title" content="Lapie Code">
-    <meta name="application-name" content="Lapie Code">
-    <meta name="theme-color" content="#ffffff">
+  <!-- gestion des favicons à l'aide du site suivant (finaliser/tester) -->
+  <!-- https://realfavicongenerator.net/ -->
+  <!-- Il faut en particulier vérifier les / devant favicon, probleme juste en local ?-->
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#b2dfdb">
+  <meta name="apple-mobile-web-app-title" content="Lapie Code">
+  <meta name="application-name" content="Lapie Code">
+  <meta name="theme-color" content="#ffffff">
 
-    <!-- Fear the robots -->
-    <meta name="robots" content="none" />
+  <!-- Fear the robots -->
+  <meta name="robots" content="none" />
 
-    <!-- Permet d'adapter le site aux portables et tablette -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <!-- Emplacement pour les polices de caractére  -->
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CMontserrat:400,700%7CRoboto:400,500,700" rel="stylesheet">
-    <!-- Permet d'utiliser les icones de google material -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Pour le moment une unique feuille de style semble suffisante -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  <!-- Permet d'adapter le site aux portables et tablette -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <!-- Emplacement pour les polices de caractére  -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CMontserrat:400,700%7CRoboto:400,500,700" rel="stylesheet">
+  <!-- Permet d'utiliser les icones de google material -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Pour le moment une unique feuille de style semble suffisante -->
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
 
 <body>
-    <!-- Sert à pouvoir faire un flexbox sur la page et fixer le footer -->
-    <!-- A remplacer par un grid un jour surement -->
-    <div class="page-conteneur">
+  <!-- Sert à pouvoir faire un flexbox sur la page et fixer le footer -->
+  <!-- A remplacer par un grid un jour surement -->
+  <div class="page-conteneur">
 
-        <!-- L'entete commune, avec un logo à gauche et une bar de navigation à droite. -->
-        <!-- Le tout est fait à grand coup de flexbox (flexbox inception) -->
-        <!-- Le tout est à rendre "responsive". -->
-        <header class="entete-principal">
+    <!-- L'entete commune, avec un logo à gauche et une bar de navigation à droite. -->
+    <!-- Le tout est fait à grand coup de flexbox (flexbox inception) -->
+    <!-- Le tout est à rendre "responsive". -->
+    <header class="entete-principal">
 
-            <!-- Le logo  -->
-            <a href="index.html" class="logo-entete">
-                <p class="logo-texte-entete">lapie</p>
-                <img src="../assets/images/logo-entete.png" alt="Le logo Lapie Code" class="logo-image-entete">
-                <p class="logo-texte-entete">code</p>
-            </a>
+      <!-- Le logo  -->
+      <a href="index.html" class="logo-entete">
+        <p class="logo-texte-entete">lapie</p>
+        <img src="../assets/images/logo-entete.png" alt="Le logo Lapie Code" class="logo-image-entete">
+        <p class="logo-texte-entete">code</p>
+      </a>
 
-            <nav class="nav-principal">
-                <ul class="nav-principal">
-                    <li class="nav-principal-list">
-                        <a href="../index.html" class="nav-principal-lien">Accueil</a>
-                    </li>
-                    <li class="nav-principal-list nav-principal-list--actuelle">
-                        <a href="TP.html" class="nav-principal-lien">T.P</a>
-                    </li>
-                    <!-- <li class="nav-principal-list">
+      <nav class="nav-principal">
+        <ul class="nav-principal">
+          <li class="nav-principal-list">
+            <a href="../index.html" class="nav-principal-lien">Accueil</a>
+          </li>
+          <li class="nav-principal-list nav-principal-list--actuelle">
+            <a href="TP.html" class="nav-principal-lien">T.P</a>
+          </li>
+          <!-- <li class="nav-principal-list">
                         <a href="cahier_texte.html" class="nav-principal-lien">Cahier de texte</a>
                     </li> -->
-                    <li class="nav-principal-list">
-                        <a href="organisation.html" class="nav-principal-lien">Organisation de l'année</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <!-- Fin du header -->
+          <li class="nav-principal-list">
+            <a href="organisation.html" class="nav-principal-lien">Organisation de l'année</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Fin du header -->
 
-        <section class="contenu">
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séance du 20 - 21 janvier 2020:
-                        Autour de l'algorithme du minimum
-                    </h1>
-                </div>
+    <section class="contenu">
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
-                        puis utiliser <a href="https://repl.it/classroom/invite/kb4MqtS" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
-                        accéder au T.P.
-                    </p>
-                </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 24 janvier 2020:
+            Autour des algorithmes de tri
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <ul class="panel-list-file">
-                        <li>
-                            <a href="../assets/mementos/mementopython3_lycee.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séance du 09 - 10 décembre 2019:
-                        Chaînes de caractères et chiffrement
-                    </h1>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
+            puis utiliser <a href="https://repl.it/classroom/invite/kqfUTAk" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
+            accéder au T.P.
+          </p>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        Commencer par lire <a href="cours/bilan_chaine.html" target="_blank" class="corps-texte-lien">ce résumé</a> sur les chaînes de caractères.
-                        <br>
-                        Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
-                        puis utiliser <a href="https://repl.it/classroom/invite/jE2P4HQ" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
-                        accéder au T.P.
-                    </p>
-                </div>
+        <div class="panel-element">
+          <ul class="panel-list-file">
+            <li>
+              <a href="../assets/mementos/mementopython3_lycee.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-                <div class="panel-element">
-                    <ul class="panel-list-file">
-                        <li>
-                            <a href="../assets/mementos/mementopython3_lycee.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
-                        </li>
-                    </ul>
-                </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 20 - 21 janvier 2020:
+            Autour de l'algorithme du minimum
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Manipuler dictionnaires et listes.</li>
-                            <li>Manipuler l'encodage des caractères.</li>
-                            <li>Découvrir la cryptographie.</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séance du 02 - 03 décembre 2019:
-                        Dictionnaires
-                    </h1>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
+            puis utiliser <a href="https://repl.it/classroom/invite/kb4MqtS" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
+            accéder au T.P.
+          </p>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
-                        puis utiliser <a href="https://repl.it/classroom/invite/ig9Yo8t" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
-                        accéder au T.P.
-                    </p>
-                </div>
+        <div class="panel-element">
+          <ul class="panel-list-file">
+            <li>
+              <a href="../assets/mementos/mementopython3_lycee.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-                <div class="panel-element">
-                    <ul class="panel-list-file">
-                        <li>
-                            <a href="../assets/mementos/mementopython3_lycee.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
-                        </li>
-                    </ul>
-                </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 09 - 10 décembre 2019:
+            Chaînes de caractères et chiffrement
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Manipuler dictionnaires et listes.</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Commencer par lire <a href="cours/bilan_chaine.html" target="_blank" class="corps-texte-lien">ce résumé</a> sur les chaînes de caractères.
+            <br>
+            Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
+            puis utiliser <a href="https://repl.it/classroom/invite/jE2P4HQ" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
+            accéder au T.P.
+          </p>
+        </div>
 
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séance du 22 novembre 2019:
-                        Listes et séquences
-                    </h1>
-                </div>
+        <div class="panel-element">
+          <ul class="panel-list-file">
+            <li>
+              <a href="../assets/mementos/mementopython3_lycee.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+            </li>
+          </ul>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
-                        puis utiliser <a href="https://repl.it/classroom/invite/iOZYvuR" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
-                        accéder au T.P.
-                    </p>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Manipuler dictionnaires et listes.</li>
+              <li>Manipuler l'encodage des caractères.</li>
+              <li>Découvrir la cryptographie.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 02 - 03 décembre 2019:
+            Dictionnaires
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <ul class="panel-list-file">
-                        <li>
-                            <a href="../assets/mementos/mementopython3_lycee.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
+            puis utiliser <a href="https://repl.it/classroom/invite/ig9Yo8t" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
+            accéder au T.P.
+          </p>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Manipuler listes et séquences.</li>
-                            <li>Premiers algorithmes sur les listes/séquences.</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
+        <div class="panel-element">
+          <ul class="panel-list-file">
+            <li>
+              <a href="../assets/mementos/mementopython3_lycee.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+            </li>
+          </ul>
+        </div>
 
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séances des 12 et 15 novembre 2019:
-                        Interface Homme Machine avec la BBC Micro:Bit
-                    </h1>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Manipuler dictionnaires et listes.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        Le cours et l'énonce du T.P est <a href="cours/TP_microbit.html" target="_blank" class="corps-texte-lien">ici</a>.
-                    </p>
-                    <p class="panel-element-texte">
-                        Une fois l'exercice 5.1 terminé passer au T.P: <a href="cours/TP_microbit_radio.html" target="_blank" class="corps-texte-lien">suivant</a>,
-                        il s'agit d'un T.P à réaliser en binôme ou éventuellement en trinôme.
-                    </p>
-                    <p class="panel-element-texte">
-                        Si pour des raisons matérielles il n'est pas possible d'effectuer le T.P précédent
-                        un <a href="cours/TP_microbit_jeuxseul.html" target="_blank" class="corps-texte-lien">T.P alternatif existe</a>.
-                    </p>
-                </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 22 novembre 2019:
+            Listes et séquences
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Découvrir les notions d'actionneurs et de capteurs en robotique</li>
-                            <li>Initiation à la programmation événementielle.</li>
-                            <li>Retravailler les notions de Python déjà vues.</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
+            puis utiliser <a href="https://repl.it/classroom/invite/iOZYvuR" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
+            accéder au T.P.
+          </p>
+        </div>
 
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séances des 04, 05 et 08 novembre 2019:
-                        Page Web statique
-                    </h1>
-                </div>
+        <div class="panel-element">
+          <ul class="panel-list-file">
+            <li>
+              <a href="../assets/mementos/mementopython3_lycee.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Memento Python.</a>
+            </li>
+          </ul>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        Le cours et l'énonce du T.P est <a href="../presentation/NSI_web.html" target="_blank" class="corps-texte-lien">ici</a>.
-                    </p>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Manipuler listes et séquences.</li>
+              <li>Premiers algorithmes sur les listes/séquences.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Découvrir un langage de balise, voir les différences avec un langage de programmation.</li>
-                            <li>Base des balises HTML.</li>
-                            <li>Base de la syntaxe CSS.</li>
-                            <li>Comprendre comment la séparation HTML/CSS sépare le fond de la forme.</li>
-                            <li>Utiliser et comprendre les URL absolues et relatives.</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séances des 12 et 15 novembre 2019:
+            Interface Homme Machine avec la BBC Micro:Bit
+          </h1>
+        </div>
 
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séance du 18 octobre 2019:
-                        Interface système suite
-                    </h1>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Le cours et l'énonce du T.P est <a href="cours/TP_microbit.html" target="_blank" class="corps-texte-lien">ici</a>.
+          </p>
+          <p class="panel-element-texte">
+            Une fois l'exercice 5.1 terminé passer au T.P: <a href="cours/TP_microbit_radio.html" target="_blank" class="corps-texte-lien">suivant</a>,
+            il s'agit d'un T.P à réaliser en binôme ou éventuellement en trinôme.
+          </p>
+          <p class="panel-element-texte">
+            Si pour des raisons matérielles il n'est pas possible d'effectuer le T.P précédent
+            un <a href="cours/TP_microbit_jeuxseul.html" target="_blank" class="corps-texte-lien">T.P alternatif existe</a>.
+          </p>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        L'énonce du T.P est <a href="cours/TP_shell2.html" target="_blank" class="corps-texte-lien">ici</a>.
-                    </p>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Découvrir les notions d'actionneurs et de capteurs en robotique</li>
+              <li>Initiation à la programmation événementielle.</li>
+              <li>Retravailler les notions de Python déjà vues.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Utilisation plus avancé du shell</li>
-                            <li>Redirections et filtres: construire à partir de bloc simple, un principe fondamental en informatique.</li>
-                        </ul>
-                    </p>
-                </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séances des 04, 05 et 08 novembre 2019:
+            Page Web statique
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <ul class="panel-list-file">
-                        <li>
-                            <a href="../assets/pdf/resume_shell.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Résumé sur le Shell.</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Le cours et l'énonce du T.P est <a href="../presentation/NSI_web.html" target="_blank" class="corps-texte-lien">ici</a>.
+          </p>
+        </div>
 
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séance du 13-14 octobre 2019:
-                        Interface système
-                    </h1>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Découvrir un langage de balise, voir les différences avec un langage de programmation.</li>
+              <li>Base des balises HTML.</li>
+              <li>Base de la syntaxe CSS.</li>
+              <li>Comprendre comment la séparation HTML/CSS sépare le fond de la forme.</li>
+              <li>Utiliser et comprendre les URL absolues et relatives.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        L'énonce du T.P est <a href="cours/TP_shell1.html" target="_blank" class="corps-texte-lien">ici</a>.
-                    </p>
-                </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 18 octobre 2019:
+            Interface système suite
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Comprendre l'organisation des fichiers/dossiers sur un ordinateur.</li>
-                            <li>Apprendre les bases de l'interface en ligne de commande.</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            L'énonce du T.P est <a href="cours/TP_shell2.html" target="_blank" class="corps-texte-lien">ici</a>.
+          </p>
+        </div>
+
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Utilisation plus avancé du shell</li>
+              <li>Redirections et filtres: construire à partir de bloc simple, un principe fondamental en informatique.</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="panel-element">
+          <ul class="panel-list-file">
+            <li>
+              <a href="../assets/pdf/resume_shell.pdf" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Résumé sur le Shell.</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 13-14 octobre 2019:
+            Interface système
+          </h1>
+        </div>
+
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            L'énonce du T.P est <a href="cours/TP_shell1.html" target="_blank" class="corps-texte-lien">ici</a>.
+          </p>
+        </div>
+
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Comprendre l'organisation des fichiers/dossiers sur un ordinateur.</li>
+              <li>Apprendre les bases de l'interface en ligne de commande.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
 
 
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séance du 30 septembre 2019:
-                        Variable de boucle
-                    </h1>
-                </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 30 septembre 2019:
+            Variable de boucle
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
-                        puis utiliser <a href="https://repl.it/classroom/invite/faaAgjT" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
-                        accéder au T.P.
-                    </p>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
+            puis utiliser <a href="https://repl.it/classroom/invite/faaAgjT" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
+            accéder au T.P.
+          </p>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Travailler boucle et variable avec Python.</li>
-                            <li>Travailler le si/alors.</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Travailler boucle et variable avec Python.</li>
+              <li>Travailler le si/alors.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
 
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séance du 09 - 10 septembre 2019:
-                        Expressions, arithmétique, types et fonctions.
-                    </h1>
-                </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 09 - 10 septembre 2019:
+            Expressions, arithmétique, types et fonctions.
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
-                        puis utiliser <a href="https://repl.it/classroom/invite/eHpM7D6" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
-                        accéder au T.P.
-                    </p>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Vous connecter à <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
+            puis utiliser <a href="https://repl.it/classroom/invite/eHpM7D6" target="_blank" class="corps-texte-lien">le lien suivant</a> pour
+            accéder au T.P.
+          </p>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Expressions arithmétiques avec Python.</li>
-                            <li>Découvrir la notion de type, et les types: int, float et str.</li>
-                            <li>Travailler les spécifications de fonctions.</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Expressions arithmétiques avec Python.</li>
+              <li>Découvrir la notion de type, et les types: int, float et str.</li>
+              <li>Travailler les spécifications de fonctions.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
 
-            <div class="panel">
-                <div class="panel-header">
-                    <h1 class="panel-header-title">
-                        Séance du 05 septembre 2019:
-                        Introduction à Python à l'aide du module turtle.
-                    </h1>
-                </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="panel-header-title">
+            Séance du 05 septembre 2019:
+            Introduction à Python à l'aide du module turtle.
+          </h1>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        Dans un premier temps, nous allons utiliser l'application web
-                        <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
-                        pour exécuter des programmes en Python, vous trouverez des explications sur
-                        la création d'un compte et l'utilisation de ce site
-                        <a href="../orga/presentation_repl.html" target="_blank" class="corps-texte-lien">ici.</a>
-                        <br>
-                    </p>
-                    <br>
-                    <p class="panel-element-texte">
-                        Si vous ne possédez pas une adresse mail présentable (i.e: pas kekedu92@yopmail.com), c'est le moment d'en créer une.
-                        <br> Attention à bien conserver vos mots de passe liés à NSI dans votre cahier de texte, et évitez de les sauvegarder sur les ordinateurs du lycée.
-                        <br>
-                    </p>
-                    <br>
-                    <p class="panel-element-texte">
-                        Durant ce T.P nous allons découvrir Python à l'aide du module graphique turtle.
-                    </p>
-                </div>
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            Dans un premier temps, nous allons utiliser l'application web
+            <a href="https://repl.it/" target="_blank" class="corps-texte-lien">repl.it</a>
+            pour exécuter des programmes en Python, vous trouverez des explications sur
+            la création d'un compte et l'utilisation de ce site
+            <a href="../orga/presentation_repl.html" target="_blank" class="corps-texte-lien">ici.</a>
+            <br>
+          </p>
+          <br>
+          <p class="panel-element-texte">
+            Si vous ne possédez pas une adresse mail présentable (i.e: pas kekedu92@yopmail.com), c'est le moment d'en créer une.
+            <br> Attention à bien conserver vos mots de passe liés à NSI dans votre cahier de texte, et évitez de les sauvegarder sur les ordinateurs du lycée.
+            <br>
+          </p>
+          <br>
+          <p class="panel-element-texte">
+            Durant ce T.P nous allons découvrir Python à l'aide du module graphique turtle.
+          </p>
+        </div>
 
-                <div class="panel-element">
-                    <p class="panel-element-texte">
-                        <span class="panel-intitule">Objectifs:</span>
-                        <ul class="panel-list">
-                            <li>Découvrir les bases de la syntaxe du langage Python.</li>
-                            <li>S'amuser avec Python et vouloir en découvrir plus.</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-            <!-- <div class="panel-element">
+        <div class="panel-element">
+          <p class="panel-element-texte">
+            <span class="panel-intitule">Objectifs:</span>
+            <ul class="panel-list">
+              <li>Découvrir les bases de la syntaxe du langage Python.</li>
+              <li>S'amuser avec Python et vouloir en découvrir plus.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <!-- <div class="panel-element">
                     <ul class="panel-list-file">
                         <li>
                             <a href="cours/TP_01.html" target="_blank"><i class="material-icons md-1">insert_drive_file</i> Enoncé du T.P</a>
                         </li>
                     </ul>
                 </div> -->
-            <!-- Fin du panel de la séance du: ??/09/18 -->
+      <!-- Fin du panel de la séance du: ??/09/18 -->
 
-        </section>
-        <!-- Fin de la section  -->
+    </section>
+    <!-- Fin de la section  -->
 
-        <footer class="footer-principal">
-            <a href="../mentions_legales.html" class="footer-principal-lien">L. Leskow - 2017 - Mentions légales</a>
-        </footer>
-        <!-- Fin du footer  -->
+    <footer class="footer-principal">
+      <a href="../mentions_legales.html" class="footer-principal-lien">L. Leskow - 2017 - Mentions légales</a>
+    </footer>
+    <!-- Fin du footer  -->
 
-    </div>
-    <!-- Fin du conteneur de la page -->
+  </div>
+  <!-- Fin du conteneur de la page -->
 </body>
 
 </html>
