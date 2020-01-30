@@ -1,0 +1,83 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "20000"
+
+== Préparez vous !
+
+== !
+
+Simplifier:
+
+stem:[\LARGE{\ln (2^{100})}]
+
+== !
+
+Simplifier:
+
+stem:[\LARGE{\ln (38) - \ln (19)}]
+
+== !
+
+Simplifier:
+
+stem:[\LARGE{\ln (e^6) \times e^{\ln 7}}]
+
+== !
+
+Résoudre:
+
+stem:[\LARGE{4 e^x = 8}]
+
+== !
+
+Résoudre:
+
+stem:[\LARGE{\ln (x + 2) = 5}]
+
+== Solution
+
+== !
+
+Simplifier:
+
+stem:[\LARGE{\ln (2^{100})}]
+
+[.step]
+* stem:[\LARGE{100 \ln 2}]
+
+== !
+
+Simplifier:
+
+stem:[\LARGE{\ln (38) - \ln (19)}]
+
+[.step]
+* stem:[\LARGE{\ln 2}]
+
+== !
+
+Simplifier:
+
+stem:[\LARGE{\ln (e^6) \times e^{\ln 7}}]
+
+[.step]
+* stem:[\LARGE{42}]
+
+== !
+
+Résoudre:
+
+stem:[\LARGE{4 e^x = 8}]
+
+[.step]
+* stem:[\LARGE{\ln 2}]
+
+== !
+
+Résoudre:
+
+stem:[\LARGE{\ln (x + 2) = 5}]
+
+[.step]
+* stem:[\LARGE{e^5 - 2}]
