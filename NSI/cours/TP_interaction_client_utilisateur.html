@@ -463,13 +463,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Se placer dans un dossier à votre nom dans le dossier Documents.</p>
 </li>
 <li>
-<p>Y télécharger le fichier suivant:</p>
+<p>Y télécharger le fichier suivant <span class="icon"><a class="image" href="http://lapiecode.info/NSI/assets/TP_interaction_CU.zip"><i class="fa fa-download"></i></a></span></p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>wget https://github.com/lleskow/lapie-code/blob/master/NSI/assets/TP_interaction_CU.zip</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>// Il est possible de faire:
+wget http://lapiecode.info/NSI/assets/TP_interaction_CU.zip</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -481,7 +482,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>unzip TP_interaction_CU.zip -d TP_interaction</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>unzip TP_interaction_CU.zip</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -497,8 +498,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_exercice_1_flip_carte">2. Exercice 1: Flip carte</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A chaque fois que l&#8217;on clique sur la carte, la carte se retourne.
-Les deux faces de la carte correspondent aux images dans le dossier <strong>img</strong>.</p>
+<p>Visualiser le fichier <code><code>index.html</code></code> avec un navigateur Web, puis avec un
+éditeur de texte (gedit ou Geany par exemple).
+Le but de l&#8217;exercice est de permettre à l&#8217;utilisateur de retourner la carte
+à chaque fois qu&#8217;il clique dessus.
+Les deux faces de la carte correspondent aux images dans le dossier <code><code>img</code></code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>En modifiant uniquement le fichier <code><code>script.js</code></code>, permettre à l&#8217;utilisateur
+de retourner la carte à chaque click. (On pourra utiliser un si.. alors)</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -506,8 +518,19 @@ Les deux faces de la carte correspondent aux images dans le dossier <strong>img<
 <h2 id="_exercice_2_réinitialiser_les_cartes">3. Exercice 2: Réinitialiser les cartes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ecrire une fonction <strong>reinitialise</strong> qui à l&#8217;aide d&#8217;une boucle <strong>for</strong> remet
-toutes les cartes en position face caché.</p>
+<p>Se déplacer dans le dossier de l&#8217;exercice 2, fermer les pages de l&#8217;exercice 1
+pour ne pas les confondre.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ecrire dans le fichier <code><code>script.js</code></code>, une fonction <code><code>reset</code></code>, qui à l&#8217;aide d&#8217;une
+boucle <code><code>for</code></code> place toutes les cartes sur la face cachée.</p>
+</li>
+<li>
+<p>Lier la fonction <code><code>reset</code></code> au bouton Réinitialiser.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -534,7 +557,7 @@ sur -, il diminue de 1.</p>
 <p>Le but de cet exercice est de créer une horloge digitale.</p>
 </div>
 <div class="paragraph">
-<p>Pour cela nous allons utiliser, la fonction <strong>setInterval</strong>.
+<p>Pour cela nous allons utiliser, la fonction <code><code>setInterval</code></code>.
 Cette fonction appelle une autre fonction de manière répétée,
 avec un certain délai fixé entre chaque appel.</p>
 </div>
@@ -544,7 +567,7 @@ avec un certain délai fixé entre chaque appel.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Il nous faudra aussi utiliser l&#8217;objet <strong>Date</strong> proposé par Javascript:</p>
+<p>Il nous faudra aussi utiliser l&#8217;objet <code><code>Date</code></code> proposé par Javascript:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -594,11 +617,11 @@ au moment de l&#8217;événements.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ecrire une fonction <strong>echange</strong> en Javascript qui échange deux éléments d&#8217;un
+<p>Ecrire une fonction <code><code>echange</code></code> en Javascript qui échange deux éléments d&#8217;un
 tableau en fonction de leur indice.</p>
 </li>
 <li>
-<p>Ecrire une fonction <strong>melange</strong> en Javascript qui mélange un tableau, en s&#8217;inspirant
+<p>Ecrire une fonction <code><code>melange</code></code> en Javascript qui mélange un tableau, en s&#8217;inspirant
 de l&#8217;algorithme de mélange de Fisher-Yates suivant:</p>
 </li>
 </ol>
@@ -617,7 +640,7 @@ au hasard en JavaScript.</p>
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
-<p>Utiliser la fonction <strong>melange</strong> pour permettre de mélanger les cartes affichés
+<p>Utiliser la fonction <code><code>melange</code></code> pour permettre de mélanger les cartes affichés
 dans la page Web.</p>
 </li>
 <li>
