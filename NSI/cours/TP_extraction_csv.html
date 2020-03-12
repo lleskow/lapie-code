@@ -448,7 +448,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_exercice_2_les_méthodes_strip_et_split">3. Exercice 2: Les méthodes strip et split</a></li>
 <li><a href="#_exercice_3_importer_une_table_depuis_un_fichier_csv">4. Exercice 3: Importer une table depuis un fichier csv</a></li>
 <li><a href="#_exercice_4_interrogation_des_données">5. Exercice 4: Interrogation des données</a></li>
-<li><a href="#_exercice_5_pokemon">6. Exercice 5: Pokemon</a></li>
+<li><a href="#_exercice_5_tri">6. Exercice 5: Tri</a></li>
+<li><a href="#_exercice_6_plus_dinterrogation">7. Exercice 6: Plus d&#8217;interrogation</a></li>
 </ul>
 </div>
 </div>
@@ -685,7 +686,7 @@ Les mots doivent avoir été débarassé des .,?! qui peuvent leur être accolé
 <span class="tok-sd">    contenue dans le fichier csv&quot;&quot;&quot;</span>
     <span class="tok-n">attributs</span> <span class="tok-o">=</span> <span class="tok-n">premiere_ligne</span><span class="tok-o">.</span><span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-s2">&quot;;&quot;</span><span class="tok-p">)</span>
     <span class="tok-k">return</span> <span class="tok-n">table</span>
-    <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">nbr_attributs</span><span class="tok-p">):</span>
+        <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">nbr_attributs</span><span class="tok-p">):</span>
     <span class="tok-n">premiere_ligne</span> <span class="tok-o">=</span> <span class="tok-n">source</span><span class="tok-o">.</span><span class="tok-n">readline</span><span class="tok-p">()</span><span class="tok-o">.</span><span class="tok-n">strip</span><span class="tok-p">()</span>
     <span class="tok-n">table</span> <span class="tok-o">=</span> <span class="tok-p">[]</span>
     <span class="tok-k">for</span> <span class="tok-n">ligne</span> <span class="tok-ow">in</span> <span class="tok-n">source</span><span class="tok-p">:</span>
@@ -697,26 +698,15 @@ Les mots doivent avoir été débarassé des .,?! qui peuvent leur être accolé
     <span class="tok-n">source</span> <span class="tok-o">=</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-n">chemin</span><span class="tok-p">,</span> <span class="tok-s2">&quot;r&quot;</span><span class="tok-p">)</span>
         <span class="tok-n">table</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-n">element</span><span class="tok-p">)</span>
 
-
-<span class="tok-n">pays</span> <span class="tok-o">=</span> <span class="tok-n">extrait_donnees</span><span class="tok-p">(</span><span class="tok-s2">&quot;countries.csv&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">pays</span> <span class="tok-o">=</span> <span class="tok-n">extrait_csv</span><span class="tok-p">(</span><span class="tok-s2">&quot;countries.csv&quot;</span><span class="tok-p">)</span>
 <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">pays</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">])</span></code></pre>
 </div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Télécharger et placer dans le répertoire de ce TP,
-fichier suivant <span class="icon"><a class="image" href="http://lapiecode.info/NSI/assets/countries.csv"><i class="fa fa-download"></i></a></span></p>
+<p>Télécharger dans le même dossier, le fichier countries.csv</p>
 </li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>wget http://lapiecode.info/NSI/assets/countries.csv</code></pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="3">
 <li>
 <p>Les lignes de code la fonction <code><code>extrait_csv</code></code> précédente ont malheureusement
 été inversé. Les remettre dans le bon ordre.</p>
@@ -787,6 +777,37 @@ puis réordonner les lignes pour que la fonction devienne correcte.
 <li>
 <p>A l&#8217;aide d&#8217;une liste en compréhension donner la liste des densités de tout les pays.</p>
 </li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_5_tri">6. Exercice 5: Tri</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Afficher la liste des pays, triés par nom.</p>
+</li>
+<li>
+<p>Afficher la liste des pays, triés par nombre d&#8217;habitant.</p>
+</li>
+<li>
+<p>Afficher la liste des pays, triés par continent (ordre alphabétique des continents),
+et au sein de chaque continent triés par nom.</p>
+</li>
+<li>
+<p>Afficher la liste des pays triés par densités.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_6_plus_dinterrogation">7. Exercice 6: Plus d&#8217;interrogation</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Calculer et afficher la moyenne des densités de l&#8217;ensemble des pays.</p>
 </li>
@@ -802,44 +823,6 @@ puis réordonner les lignes pour que la fonction devienne correcte.
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-p">[(</span><span class="tok-n">p</span><span class="tok-p">[</span><span class="tok-s2">&quot;name&quot;</span><span class="tok-p">],</span> <span class="tok-n">p</span><span class="tok-p">[</span><span class="tok-s2">&quot;currencyName&quot;</span><span class="tok-p">])</span> <span class="tok-k">for</span> <span class="tok-n">p</span> <span class="tok-ow">in</span> <span class="tok-n">pays</span> <span class="tok-k">if</span> <span class="tok-n">p</span><span class="tok-p">[</span><span class="tok-s2">&quot;continent&quot;</span><span class="tok-p">]</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;AF&quot;</span><span class="tok-p">]</span></code></pre>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_exercice_5_pokemon">6. Exercice 5: Pokemon</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Télécharger et placer dans le répertoire de ce TP,
-fichier suivant <span class="icon"><a class="image" href="http://lapiecode.info/NSI/assets/pokemon.csv"><i class="fa fa-download"></i></a></span></p>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>wget http://lapiecode.info/NSI/assets/pokemon.csv</code></pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="2">
-<li>
-<p>Que faut-il changer à la fonction <code><code>extraction_donnée</code></code> pour qu&#8217;elle
-permette d&#8217;importer le fichier <code><code>pokemon.csv</code></code> ? Utiliser cette
-version modifier de la fonction dans le fichier <code><code>pokemons.py</code></code>.</p>
-</li>
-<li>
-<p>Donner une instruction en Python, permettant d&#8217;obtenir la liste des id
-des Pokemons dont le Type1 est le même que Mewtwo.</p>
-</li>
-<li>
-<p>Donner une instruction en Python, permettant d&#8217;obtenir la liste des
-Pokemons volant (type Flying) et légendaire à partir de la génération 3.</p>
-</li>
-<li>
-<p>Comment vérifier si Groudon a les meilleurs stats parmi les Pokemons ?</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
