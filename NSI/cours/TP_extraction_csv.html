@@ -450,6 +450,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_exercice_4_interrogation_des_données">5. Exercice 4: Interrogation des données</a></li>
 <li><a href="#_exercice_5_tri">6. Exercice 5: Tri</a></li>
 <li><a href="#_exercice_6_plus_dinterrogation">7. Exercice 6: Plus d&#8217;interrogation</a></li>
+<li><a href="#_exercice_7_pokemon">8. Exercice 7: Pokemon</a></li>
 </ul>
 </div>
 </div>
@@ -705,8 +706,18 @@ Les mots doivent avoir été débarassé des .,?! qui peuvent leur être accolé
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Télécharger dans le même dossier, le fichier countries.csv</p>
+<p>Télécharger et placer dans le répertoire de ce TP,
+fichier suivant <span class="icon"><a class="image" href="http://lapiecode.info/NSI/assets/countries.csv"><i class="fa fa-download"></i></a></span></p>
 </li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>wget http://lapiecode.info/NSI/assets/countries.csv</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
 <li>
 <p>Les lignes de code la fonction <code><code>extrait_csv</code></code> précédente ont malheureusement
 été inversé. Les remettre dans le bon ordre.</p>
@@ -823,6 +834,44 @@ et au sein de chaque continent triés par nom.</p>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-p">[(</span><span class="tok-n">p</span><span class="tok-p">[</span><span class="tok-s2">&quot;name&quot;</span><span class="tok-p">],</span> <span class="tok-n">p</span><span class="tok-p">[</span><span class="tok-s2">&quot;currencyName&quot;</span><span class="tok-p">])</span> <span class="tok-k">for</span> <span class="tok-n">p</span> <span class="tok-ow">in</span> <span class="tok-n">pays</span> <span class="tok-k">if</span> <span class="tok-n">p</span><span class="tok-p">[</span><span class="tok-s2">&quot;continent&quot;</span><span class="tok-p">]</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;AF&quot;</span><span class="tok-p">]</span></code></pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_7_pokemon">8. Exercice 7: Pokemon</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Télécharger et placer dans le répertoire de ce TP,
+fichier suivant <span class="icon"><a class="image" href="http://lapiecode.info/NSI/assets/pokemon.csv"><i class="fa fa-download"></i></a></span></p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>wget http://lapiecode.info/NSI/assets/pokemon.csv</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Que faut-il changer à la fonction <code><code>extraction_donnée</code></code> pour qu&#8217;elle
+permette d&#8217;importer le fichier <code><code>pokemon.csv</code></code> ? Utiliser cette
+version modifier de la fonction dans le fichier <code><code>pokemons.py</code></code>.</p>
+</li>
+<li>
+<p>Donner une instruction en Python, permettant d&#8217;obtenir la liste des id
+des Pokemons dont le Type1 est le même que Mewtwo.</p>
+</li>
+<li>
+<p>Donner une instruction en Python, permettant d&#8217;obtenir la liste des
+Pokemons volant (type Flying) et légendaire à partir de la génération 3.</p>
+</li>
+<li>
+<p>Comment vérifier si Groudon a les meilleurs stats parmi les Pokemons ?</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
