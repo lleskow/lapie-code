@@ -1,0 +1,42 @@
+= Rejoindre la classe sur repl
+:last-update-label!:
+:source-highlighter: pygments
+:pygments-style: monokai
+:linkattrs:
+:toc: left
+:icons: font
+:stem: latexmath
+
+Si vous ne possédez pas une adresse mail présentable (i.e: pas kekedu92@yopmail.com),
+c'est le moment d'en créer une. Vous pouvez par exemple, utiliser link:https://protonmail.com/fr/[protonmail].
+Attention à bien conserver vos mots de passe liés au cours de mathématiques
+ dans votre cahier de texte, et évitez de les sauvegarder sur les ordinateurs du lycée.
+
+
+
+Commencer par se rendre sur le site link:https://repl.it/[repl.it] pour créer un
+compte.
+
+[WARNING]
+====
+* Votre nom d'utilisateur sera visible par votre enseignant, choisir
+un nom sérieux.
+* Evitez d'attacher votre compte à votre compte google.
+* Utilisez un mot de passe que vous n'avez jamais utilisé avant.
+* Dans votre cahier de texte notez votre nom d'utilisateur, l'adresse email utilisée, le mot de passe
+et que cela concerne le site repl.it. Vous ne devez pas perdre du temps en cours car vous avez perdu ces
+informations.
+====
+
+En général, en anglais créer un compte se dit _sign up_ et se connecter à ce compte
+_log in_.
+
+Une fois fois connecté à votre compte, link:https://repl.it/classroom/invite/wuNv08f[cliquez sur ce lien].
+
+Entrer votre prénom et au moins l'initial de votre nom de famille. Puis rejoindre le lycée Paul Lapie:
+
+image::repl_profil.gif[profil]
+
+Une fois cela fait vous pouvez rejoindre le premier TP et y suivre les instructions.
+
+image::repl_rejoindre_classe.gif[classroom]
