@@ -1,0 +1,98 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "20000"
+:revealjsdir: ../reveal.js
+
+== Préparez-vous !
+
+(prendre un papier et un stylo)
+
+
+== !
+
+Calculer 25% de 300
+
+== !
+
+Mettre sous forme décimal 7,5%
+
+
+== !
+
+Ecrire sous forme de pourcentage 0,015
+
+== !
+
+Une augmentation de 20% revient à multiplier par ?
+
+== !
+
+Calculer 40% de 600
+
+== !
+
+Une augmentation de 50% puis une diminution de 50%
+revient à ?
+
+== !
+
+Le prix d'un objet à 50 euros diminue de 60%, quel le
+nouveau prix ?
+
+== !
+
+Calculer stem:[\frac{2}{5}] de 60
+
+
+== Solutions
+
+== !
+
+Calculer 25% de 300
+[.step]
+* 75
+
+== !
+
+Mettre sous forme décimal 7,5%
+[.step]
+* 0,075
+
+== !
+
+Ecrire sous forme de pourcentage 0,015
+[.step]
+* 1,5%
+
+== !
+
+Une augmentation de 20% revient à multiplier par ?
+[.step]
+* 1,2
+
+== !
+
+Calculer 40% de 600
+[.step]
+* 320
+
+== !
+
+Une augmentation de 50% puis une diminution de 50%
+revient à ?
+[.step]
+* stem:[1,5 \times 0,5 = 0,75] diminution de 25%
+
+== !
+
+Le prix d'un objet à 50 euros diminue de 60%, quel le
+nouveau prix ?
+[.step]
+* 20 euros
+
+== !
+
+Calculer stem:[\frac{2}{5}] de 60
+[.step]
+* 24
