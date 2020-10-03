@@ -1,0 +1,124 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "12000"
+:revealjsdir: ../reveal.js
+
+== Préparez-vous !
+
+(prendre un papier et un stylo)
+
+
+== Calculer
+
+stem:[\LARGE{6 \times 7 = }]
+
+== Calculer
+
+stem:[\LARGE{7^2 = }]
+
+
+== Calculer
+
+stem:[\LARGE{6 \times 8 = }]
+
+== Calculer
+
+stem:[\LARGE{2^3 = }]
+
+== Vrai ou faux ?
+
+stem:[\LARGE{7 \times 2^{16} =  14^{16}}]
+
+== Calculer
+
+stem:[\LARGE{2 \times 4 \times 7  = }]
+
+== Calculer
+
+stem:[\LARGE{-6^2 = }]
+
+== Calculer
+
+stem:[\LARGE{11^2 = }]
+
+== Calculer
+
+stem:[\LARGE{12 \times 20 = }]
+
+== Calculer
+
+stem:[\LARGE{(1 + 2)^2 = }]
+
+== Vrai ou faux
+
+stem:[\LARGE{3^{10}\times 3^{11} = 3^{21}}]
+
+== Solutions
+
+== !
+
+
+== Calculer
+
+stem:[\LARGE{6 \times 7 = }]
+[.step]
+* stem:[\LARGE{42}]
+
+== Calculer
+
+stem:[\LARGE{7^2 = }]
+[.step]
+* stem:[\LARGE{49}]
+
+== Calculer
+
+stem:[\LARGE{6 \times 8 = }]
+[.step]
+* stem:[\LARGE{48}]
+
+== Calculer
+
+stem:[\LARGE{2^3 = }]
+[.step]
+* stem:[\LARGE{8}]
+
+== Vrai ou faux ?
+
+stem:[\LARGE{7 \times 2^{16} =  14^{16}}]
+[.step]
+* Faux
+
+== Calculer
+
+stem:[\LARGE{2 \times 4 \times 7  = }]
+[.step]
+* stem:[\LARGE{56}]
+
+== Calculer
+
+stem:[\LARGE{-6^2 = }]
+[.step]
+* stem:[\LARGE{-36}]
+
+== Calculer
+
+stem:[\LARGE{11^2 = }]
+[.step]
+* stem:[\LARGE{10 \times 11 + 11 = 110 + 11 = 121}]
+
+== Calculer
+
+stem:[\LARGE{12 \times 20 = 12 \times 2 \times 10 = 24 \times 10 = 240}]
+
+== Calculer
+
+stem:[\LARGE{(1 + 2)^2 = }]
+[.step]
+* stem:[\LARGE{3^2 = 9}]
+
+== Vrai ou faux
+
+stem:[\LARGE{3^{10}\times 3^{11} = 3^{21}}]
+[.step]
+* Vrai

@@ -1,0 +1,126 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "15000"
+:revealjsdir: ../reveal.js
+
+== Préparez-vous !
+
+(prendre un papier et un stylo)
+
+
+== Produit de fractions:
+
+stem:[\Large{\frac{2}{3} \times \frac{5}{7} = ?}]
+[.step]
+* stem:[\Large{\frac{2}{3} \times \frac{5}{7} = \frac{2 \times 5}{3\times 7}}]
+* stem:[\Large{\frac{2}{3} \times \frac{5}{7} = \frac{2 \times 5}{3\times 7}=\frac{10}{21}}]
+
+== Produit de fractions:
+
+stem:[\Large{\frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b\times d}}]
+
+== Produit de fractions:
+
+stem:[\Large{\frac{numérateur}{dénominateur}}]
+
+On multiplie les numérateurs entre eux, on multiplie les dénominateurs entre eux
+
+
+== Calculer
+
+stem:[\LARGE{\frac{2}{3} \times \frac{2}{5}= }]
+
+== Calculer
+
+stem:[\LARGE{\frac{5}{3} \times \frac{7}{12}= }]
+
+== Calculer
+
+stem:[\LARGE{\frac{1}{8} \times 3 = }]
+
+
+== Calculer
+
+stem:[\LARGE{(\frac{3}{4})^2= }]
+
+== Calculer
+
+stem:[\LARGE{\frac{1}{2} \times \frac{3}{4} \times \frac{5}{8}= }]
+
+== Exemple de décomposition en facteur premier:
+
+stem:[\LARGE{60 = 12 \times 5= 4 \times 3 \times 5 = 2^2\times 3\times 5}]
+
+== Décomposer en facteur premier:
+
+stem:[\LARGE{6}]
+
+== Décomposer en facteur premier:
+
+stem:[\LARGE{16}]
+
+== Décomposer en facteur premier:
+
+stem:[\LARGE{75}]
+
+== Décomposer en facteur premier:
+
+stem:[\LARGE{23}]
+
+== Solutions
+
+== Calculer
+
+stem:[\LARGE{\frac{2}{3} \times \frac{2}{5}= }]
+[.step]
+* stem:[\LARGE{\frac{4}{15}}]
+
+== Calculer
+
+stem:[\LARGE{\frac{5}{3} \times \frac{7}{12}= }]
+[.step]
+* stem:[\LARGE{\frac{35}{36}}]
+
+== Calculer
+
+stem:[\LARGE{\frac{1}{8} \times 3 = }]
+[.step]
+* stem:[\LARGE{\frac{3}{8}}]
+
+== Calculer
+
+stem:[\LARGE{(\frac{3}{4})^2= }]
+[.step]
+* stem:[\LARGE{\frac{3^2}{4^2}=\frac{9}{16}}]
+
+== Calculer
+
+stem:[\LARGE{\frac{1}{2} \times \frac{3}{4} \times \frac{5}{8}= }]
+[.step]
+* stem:[\LARGE{\frac{15}{64}}]
+
+
+== Décomposer en facteur premier:
+
+stem:[\LARGE{6}]
+[.step]
+* stem:[\LARGE{2 \times 3}]
+
+== Décomposer en facteur premier:
+
+stem:[\LARGE{16}]
+[.step]
+* stem:[\LARGE{2^4}]
+
+== Décomposer en facteur premier:
+
+stem:[\LARGE{75}]
+[.step]
+* stem:[\LARGE{3\times 25 = 3 \times 5^2}]
+
+== Décomposer en facteur premier:
+
+stem:[\LARGE{23}]
+[.step]
+* stem:[\LARGE{23}]
