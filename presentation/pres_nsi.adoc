@@ -57,6 +57,7 @@ https://www.lemonde.fr/blog/data/2017/05/25/enqueter-sur-les-algorithmes-un-nouv
 
 https://www.lemonde.fr/blog/data/2016/04/08/panama-papers-un-defi-technique-pour-le-journalisme-de-donnees/
 
+https://www.lemonde.fr/blog/data/2016/01/18/comment-buzzfeed-et-la-bbc-ont-analyse-26-000-matchs-de-tennis/
 
 == Quels &laquo;prérequis&raquo; ?
 
