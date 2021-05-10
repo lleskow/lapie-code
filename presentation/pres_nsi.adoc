@@ -22,10 +22,9 @@ ____
 
 Pour les élèves:
 
-* avec un profil "scientifique"
+* aimant résoudre des problèmes
 * prêt à travailler en groupe
-* prêt à s'investir hors du temps de classe
-* avec "un bon niveau" de mathématiques
+* avec un «esprit logique»
 
 == Quels contenus ?
 
@@ -40,16 +39,32 @@ Le programme de N.S.I s'organise autour de quatre concepts fondamentaux:
 
 * Licence d'informatique, math-informatique, etc.
 * Classes préparatoires scientifiques: une grande partie du programme de NSI
-se retrouve dans les programmes de mathématiques et d'informatique des actuels: MPSI, PCSI, PTSI
+se retrouve dans les programmes de mathématiques et d'informatique de ces classes.
+Il existe une nouvelle classe plus orienté informatique: MP2I
 * Ecoles d'ingénieurs post-bac
 * I.U.T: informatique, génie électrique, génie mécanique, etc.
 * Etudes scientifiques en général
+
+== C'est tout ?
+
+«L'informatique est partout», platitude pour parler de bureautique ?
+
+== Exemple media: Datajournalisme
+
+https://www.lemonde.fr/blog/data/
+
+https://www.lemonde.fr/blog/data/2017/05/25/enqueter-sur-les-algorithmes-un-nouveau-defi-journalistique/
+
+https://www.lemonde.fr/blog/data/2016/04/08/panama-papers-un-defi-technique-pour-le-journalisme-de-donnees/
+
 
 == Quels &laquo;prérequis&raquo; ?
 
 Les mathématiques ont un rôle fondamental en informatique.
 
 Pour cela, il est *fortement recommandée de suivre la spécialité mathématiques* conjointement.
+
+== La place des femmes dans l'informatique ?
 
 == Un exemple de problème étudié: le problème du sac à dos
 
