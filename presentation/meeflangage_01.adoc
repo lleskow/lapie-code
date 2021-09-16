@@ -1,0 +1,375 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+
+= Chapitre I: Le langage Python
+
+== Objectif du cours
+
+* Python pour enseigner à des néo-débutants.
+* Préparation au concours.
+* Python comme «pseudocode» en algorithmique.
+* Ce n'est pas un cours pour futur développeur (mais doit permettre les projets).
+
+=== Quelle version de Python ?
+
+* Python 3. Python 2 n'est plus supporté depuis 2020.
+* Rare de rencontrer du code Python 2, mais on le reconnait souvent au ```print "hello"``` plutôt que ```print("hello")```
+* Python 3.6 ou plus. (a priori, on n'utilisera pas de chose récente comme le pattern matching ou ```:=```)
+
+== I: Présentation générale du langage
+
+=== Python est un langage
+
+* «interprété»
+* de haut-niveau, muni d'un ramasse-miette (garbage collector)
+* multi-paradigme
+
+=== «Interprété»
+
+* «» car cela a peu de sens
+* plusieurs «interpéteurs» mais un seul classique: CPython
+* nous utiliserons CPython
+* MicroPython est relativement classique pour l'embarqué
+
+=== CPython
+
+* CPython est l'implémentation standard de Python et sert plus ou moins de définition
+* CPython compile Python en Bytecode puis ce Bytecode est interprété
+* la compilation ne fait pratiquement aucune optimisation
+* il est possible de voir le Bytecode avec le module ```dis```
+
+=== Haut-niveau
+
+* pas de gestion de mémoire: ramasse-miette (par comptage de référence)
+* il est livré avec les «batteries»
+
+=== Multi-paradigme
+
+* langage impératif
+* supporte la programmation orientée-objet
+* tout est objet
+* ce n'est pas Java
+* supporte des éléments de fonctionnels, mais ne l'est pas vraiment
+
+=== Avantages
+
+* syntaxe ramassée, langage peu verbeux
+* très utilisé, de nombreuses bibliothèques
+* très bien documenté
+* une façon d'écrire les choses
+
+=== Désavantages
+
+* langage peu verbeux: problème pour les gros projets
+* relativement lent (mais beaucoup de bibliothèques rapides en C)
+
+
+== Un peu de Python
+
+```python
+def fizzbuzz(n):
+    for i in range(n):
+        if (i % 3 == 0) and (i % 5 == 0):
+            print("fizzbuzz")
+        elif i % 3 == 0:
+            print("fizz")
+        elif i % 5 == 0:
+            print("buzz")
+        else:
+            print(i)
+    return "the end"
+```
+
+=== Indentation
+
+* l'indentation est significative et délimite les blocks
+* on n'aime ou pas
+* pratique pour faire apprendre l'indentation
+* 4 espaces (configurer tab)
+
+=== La Pep-0008
+
+La pep0008: une bonne façon d'écrire du python
+https://www.python.org/dev/peps/pep-0008/
+
+Lecture recommandée
+
+== II: Typage
+
+* typage dynamique
+* typage fort
+* variable non typée
+* duck-typing
+
+=== !
+
+```python
+foo = 3
+foo = "hello"
+```
+
+=== !
+
+```python
+>>> 3 + "hello"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+```
+
+=== déclaration
+
+* la déclaration est implicite
+* les variables ne sont pas typées, il n'y a donc pas à déclarer de type
+
+=== Quelques types de base
+
+* int (un seul type, aucune limite de taille)
+* float (IEEE754, ```float("inf")```)
+* str
+* bool (```True``` et ```False```)
+* None
+
+=== transtypage: implicite
+
+```python
+if 5:
+    print(5)
+else:
+    print(0)
+```
+
+Affiche 5
+
+=== transtypage: implicite
+
+```
+>>> 3 + 4.1
+7.1
+```
+
+=== transtypage: explicite
+
+* il n'y a à proprement parlé pas de transtypage, il y a construction d'un nouvel objet
+* le constructeur correspond au nom du type
+* tout n'est pas possible.
+
+=== !
+
+```python
+>>> int("42")
+42
+```
+
+``` python
+if 5: ... # <=> à if bool(5): ...
+```
+
+=== !
+
+Parler de fonction ```int``` a du sens devant les élèves.
+
+=== Annotation de type
+
+* il est possible d'annoter des types à titre indicatif
+* en général, utilisé pour signer les fonctions
+
+```python
+def somme(a: float, b: float) -> float:
+    return a + b
+```
+
+=== Indicatif
+
+```python
+>>> somme("hello ", "world !")
+'hello world !'
+```
+
+Utiliser des outils d'analyse statique pour détecter les erreurs
+
+== III: Instructions composées
+
+=== Note sur les commentaires
+
+```python
+# pour les commentaires
+# même sur plusieurs lignes
+```
+
+=== Format général
+
+```python
+instruction précisions:
+    # block
+    # block
+# fin block
+```
+
+=== si
+
+```python
+if truc:
+    machin()
+```
+
+```python
+if truc:
+    machin()
+else:
+    bidule()
+```
+
+=== !
+
+```python
+if truc:
+    machin()
+elif:
+    chose()
+else:
+    bidule()
+```
+
+=== Tant que
+
+```python
+while True:
+    if truc():
+        break
+    else:
+        machin()
+```
+
+=== do while
+
+Pas de do while.
+Ne pas avoir peur d'utiliser
+
+```python
+while True:
+break
+continue
+```
+
+=== while else
+
+```python
+while machin:
+    truc()
+else:
+    chose()
+```
+
+On branche vers le ```else``` que si la condition des jamais satisfaite.
+
+=== Pour
+
+```python
+for i in range(10):
+    print(i)
+```
+
+=== Pour
+
+Le for de Python est plus un ```foreach``` qu'un ```while``` déguisé.
+
+=== range
+
+* c'est un type
+* ```range(a)``` génére les entiers de 0 à a - 1
+* ```range(debut, fin)```
+* ```range(debut, fin, pas)``` (pas peut être négatif)
+
+=== logique du range
+
+Comme une relation de Chasles:
+
+```
+range(a, b) + range(b, c) == range(a, c)
+```
+
+=== for else
+
+Comme pour le while
+
+```python
+for i in truc:
+    print(i)
+else:
+    print("rien")
+```
+
+=== !
+
+```python
+for i in range(10):
+    print(i)
+    i = 5 # n'aura pas d'impact
+```
+
+=== Définition de fonction
+
+```python
+def f(x, y=3): # y est un argument par mot-clef
+    """ la documentation de la fonction, nommée docstring
+    help(f) pour voir cette documentation
+    """
+    return x + 5 * y
+```
+
+=== Fonction - procédure
+
+Il n'y a pas de procédure en Python. Une fonction sans ```return```
+renvoie ```None``` par défaut.
+
+
+== Utilisation d’un module
+
+=== !
+
+`import` permet d'accéder à des fonctions, variables... déjà codé. +
+L’importation d’un module peut se faire de deux manières.
+
+=== Méthode 1:
+
+On désigne le module à importer par son nom, il faut préfixer par son nom à chaque fois:
+
+[source,python]
+----
+import math
+x = math.sqrt(4) #sqrt permet de calculer la racine carrée
+y = math.cos(0)
+print(x,y)
+----
+
+=== Méthode 2:
+
+`from import` permet d'importer des fonctionnalités précises
+Dans le cas d’un import de plusieurs fonctionnalités,les noms sont séparés par des virgules.
+
+[source,python]
+----
+from random import randint, randrange
+
+nbr = randrange(1, 11)
+while nbr != 10:
+    nbr = randint(1, 10)
+----
+
+=== !
+
+Enfin, il est possible d’importer, avec cette seconde approche,
+tous les éléments d’un module en utilisant la notation *
+
+[source,python]
+----
+from turtle import *
+----
+
+Attention, avec cette dernière forme car il peut il y avoir conflits entre les
+noms.

@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Chapitre I: Le langage Python</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+tex2jax: {
+  inlineMath: [["\\(", "\\)"]],
+  displayMath: [["\\[", "\\]"]],
+  ignoreClass: "nostem|nolatexmath"
+},
+asciimath2jax: {
+  delimiters: [["\\$", "\\$"]],
+  ignoreClass: "nostem|noasciimath"
+},
+TeX: { equationNumbers: { autoNumber: "none" } }
+});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.listingblock .pygments .tok-g { color: #000000 } /* Generic */
+.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-l { color: #000000 } /* Literal */
+.listingblock .pygments .tok-n { color: #000000 } /* Name */
+.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
+.listingblock .pygments .tok-x { color: #000000 } /* Other */
+.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
+.listingblock .pygments .tok-ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
+.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
+.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #4e9a06 } /* Literal.String.Affix */
+.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #4e9a06 } /* Literal.String.Delimiter */
+.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #000000 } /* Name.Function.Magic */
+.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #000000 } /* Name.Variable.Magic */
+.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title"><h1>Chapitre I</h1><h2>Le langage Python</h2></section><section><section id="_objectif_du_cours"><h2>Objectif du cours</h2><div class="ulist"><ul><li><p>Python pour enseigner à des néo-débutants.</p></li><li><p>Préparation au concours.</p></li><li><p>Python comme «pseudocode» en algorithmique.</p></li><li><p>Ce n&#8217;est pas un cours pour futur développeur (mais doit permettre les projets).</p></li></ul></div></section><section id="_quelle_version_de_python"><h2>Quelle version de Python ?</h2><div class="ulist"><ul><li><p>Python 3. Python 2 n&#8217;est plus supporté depuis 2020.</p></li><li><p>Rare de rencontrer du code Python 2, mais on le reconnait souvent au <code><code>print "hello"</code></code> plutôt que <code><code>print("hello")</code></code></p></li><li><p>Python 3.6 ou plus. (a priori, on n&#8217;utilisera pas de chose récente comme le pattern matching ou <code><code>:=</code></code>)</p></li></ul></div></section></section>
+<section><section id="_i_prsentation_gnrale_du_langage"><h2>I: Présentation générale du langage</h2></section><section id="_python_est_un_langage"><h2>Python est un langage</h2><div class="ulist"><ul><li><p>«interprété»</p></li><li><p>de haut-niveau, muni d&#8217;un ramasse-miette (garbage collector)</p></li><li><p>multi-paradigme</p></li></ul></div></section><section id="_interprt"><h2>«Interprété»</h2><div class="ulist"><ul><li><p>«» car cela a peu de sens</p></li><li><p>plusieurs «interpéteurs» mais un seul classique: CPython</p></li><li><p>nous utiliserons CPython</p></li><li><p>MicroPython est relativement classique pour l&#8217;embarqué</p></li></ul></div></section><section id="_cpython"><h2>CPython</h2><div class="ulist"><ul><li><p>CPython est l&#8217;implémentation standard de Python et sert plus ou moins de définition</p></li><li><p>CPython compile Python en Bytecode puis ce Bytecode est interprété</p></li><li><p>la compilation ne fait pratiquement aucune optimisation</p></li><li><p>il est possible de voir le Bytecode avec le module <code><code>dis</code></code></p></li></ul></div></section><section id="_haut_niveau"><h2>Haut-niveau</h2><div class="ulist"><ul><li><p>pas de gestion de mémoire: ramasse-miette (par comptage de référence)</p></li><li><p>il est livré avec les «batteries»</p></li></ul></div></section><section id="_multi_paradigme"><h2>Multi-paradigme</h2><div class="ulist"><ul><li><p>langage impératif</p></li><li><p>supporte la programmation orientée-objet</p></li><li><p>tout est objet</p></li><li><p>ce n&#8217;est pas Java</p></li><li><p>supporte des éléments de fonctionnels, mais ne l&#8217;est pas vraiment</p></li></ul></div></section><section id="_avantages"><h2>Avantages</h2><div class="ulist"><ul><li><p>syntaxe ramassée, langage peu verbeux</p></li><li><p>très utilisé, de nombreuses bibliothèques</p></li><li><p>très bien documenté</p></li><li><p>une façon d&#8217;écrire les choses</p></li></ul></div></section><section id="_dsavantages"><h2>Désavantages</h2><div class="ulist"><ul><li><p>langage peu verbeux: problème pour les gros projets</p></li><li><p>relativement lent (mais beaucoup de bibliothèques rapides en C)</p></li></ul></div></section></section>
+<section><section id="_un_peu_de_python"><h2>Un peu de Python</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">def</span> <span class="tok-nf">fizzbuzz</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">):</span>
+    <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">):</span>
+        <span class="tok-k">if</span> <span class="tok-p">(</span><span class="tok-n">i</span> <span class="tok-o">%</span> <span class="tok-mi">3</span> <span class="tok-o">==</span> <span class="tok-mi">0</span><span class="tok-p">)</span> <span class="tok-ow">and</span> <span class="tok-p">(</span><span class="tok-n">i</span> <span class="tok-o">%</span> <span class="tok-mi">5</span> <span class="tok-o">==</span> <span class="tok-mi">0</span><span class="tok-p">):</span>
+            <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;fizzbuzz&quot;</span><span class="tok-p">)</span>
+        <span class="tok-k">elif</span> <span class="tok-n">i</span> <span class="tok-o">%</span> <span class="tok-mi">3</span> <span class="tok-o">==</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+            <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;fizz&quot;</span><span class="tok-p">)</span>
+        <span class="tok-k">elif</span> <span class="tok-n">i</span> <span class="tok-o">%</span> <span class="tok-mi">5</span> <span class="tok-o">==</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+            <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;buzz&quot;</span><span class="tok-p">)</span>
+        <span class="tok-k">else</span><span class="tok-p">:</span>
+            <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)</span>
+    <span class="tok-k">return</span> <span class="tok-s2">&quot;the end&quot;</span></code></pre></div></div></section><section id="_indentation"><h2>Indentation</h2><div class="ulist"><ul><li><p>l&#8217;indentation est significative et délimite les blocks</p></li><li><p>on n&#8217;aime ou pas</p></li><li><p>pratique pour faire apprendre l&#8217;indentation</p></li><li><p>4 espaces (configurer tab)</p></li></ul></div></section><section id="_la_pep_0008"><h2>La Pep-0008</h2><div class="paragraph"><p>La pep0008: une bonne façon d&#8217;écrire du python
+<a href="https://www.python.org/dev/peps/pep-0008/" class="bare">https://www.python.org/dev/peps/pep-0008/</a></p></div>
+<div class="paragraph"><p>Lecture recommandée</p></div></section></section>
+<section><section id="_ii_typage"><h2>II: Typage</h2><div class="ulist"><ul><li><p>typage dynamique</p></li><li><p>typage fort</p></li><li><p>variable non typée</p></li><li><p>duck-typing</p></li></ul></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-n">foo</span> <span class="tok-o">=</span> <span class="tok-mi">3</span>
+<span class="tok-n">foo</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;hello&quot;</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-mi">3</span> <span class="tok-o">+</span> <span class="tok-s2">&quot;hello&quot;</span>
+<span class="tok-n">Traceback</span> <span class="tok-p">(</span><span class="tok-n">most</span> <span class="tok-n">recent</span> <span class="tok-n">call</span> <span class="tok-n">last</span><span class="tok-p">):</span>
+  <span class="tok-n">File</span> <span class="tok-s2">&quot;&lt;stdin&gt;&quot;</span><span class="tok-p">,</span> <span class="tok-n">line</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-ow">in</span> <span class="tok-o">&lt;</span><span class="tok-n">module</span><span class="tok-o">&gt;</span>
+<span class="tok-ne">TypeError</span><span class="tok-p">:</span> <span class="tok-n">unsupported</span> <span class="tok-n">operand</span> <span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-n">s</span><span class="tok-p">)</span> <span class="tok-k">for</span> <span class="tok-o">+</span><span class="tok-p">:</span> <span class="tok-s1">&#39;int&#39;</span> <span class="tok-ow">and</span> <span class="tok-s1">&#39;str&#39;</span></code></pre></div></div></section><section id="_dclaration"><h2>déclaration</h2><div class="ulist"><ul><li><p>la déclaration est implicite</p></li><li><p>les variables ne sont pas typées, il n&#8217;y a donc pas à déclarer de type</p></li></ul></div></section><section id="_quelques_types_de_base"><h2>Quelques types de base</h2><div class="ulist"><ul><li><p>int (un seul type, aucune limite de taille)</p></li><li><p>float (IEEE754, <code><code>float("inf")</code></code>)</p></li><li><p>str</p></li><li><p>bool (<code><code>True</code></code> et <code><code>False</code></code>)</p></li><li><p>None</p></li></ul></div></section><section id="_transtypage_implicite"><h2>transtypage: implicite</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">if</span> <span class="tok-mi">5</span><span class="tok-p">:</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-mi">5</span><span class="tok-p">)</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>Affiche 5</p></div></section><section id="_transtypage_implicite_2"><h2>transtypage: implicite</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code>&gt;&gt;&gt; 3 + 4.1
+7.1</code></pre></div></div></section><section id="_transtypage_explicite"><h2>transtypage: explicite</h2><div class="ulist"><ul><li><p>il n&#8217;y a à proprement parlé pas de transtypage, il y a construction d&#8217;un nouvel objet</p></li><li><p>le constructeur correspond au nom du type</p></li><li><p>tout n&#8217;est pas possible.</p></li></ul></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-s2">&quot;42&quot;</span><span class="tok-p">)</span>
+<span class="tok-mi">42</span></code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">if</span> <span class="tok-mi">5</span><span class="tok-p">:</span> <span class="tok-o">...</span> <span class="tok-c1"># &lt;=&gt; à if bool(5): ...</span></code></pre></div></div></section><section><div class="paragraph"><p>Parler de fonction <code><code>int</code></code> a du sens devant les élèves.</p></div></section><section id="_annotation_de_type"><h2>Annotation de type</h2><div class="ulist"><ul><li><p>il est possible d&#8217;annoter des types à titre indicatif</p></li><li><p>en général, utilisé pour signer les fonctions</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">def</span> <span class="tok-nf">somme</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">:</span> <span class="tok-nb">float</span><span class="tok-p">,</span> <span class="tok-n">b</span><span class="tok-p">:</span> <span class="tok-nb">float</span><span class="tok-p">)</span> <span class="tok-o">-&gt;</span> <span class="tok-nb">float</span><span class="tok-p">:</span>
+    <span class="tok-k">return</span> <span class="tok-n">a</span> <span class="tok-o">+</span> <span class="tok-n">b</span></code></pre></div></div></section><section id="_indicatif"><h2>Indicatif</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-n">somme</span><span class="tok-p">(</span><span class="tok-s2">&quot;hello &quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;world !&quot;</span><span class="tok-p">)</span>
+<span class="tok-s1">&#39;hello world !&#39;</span></code></pre></div></div>
+<div class="paragraph"><p>Utiliser des outils d&#8217;analyse statique pour détecter les erreurs</p></div></section></section>
+<section><section id="_iii_instructions_composes"><h2>III: Instructions composées</h2></section><section id="_note_sur_les_commentaires"><h2>Note sur les commentaires</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-c1"># pour les commentaires</span>
+<span class="tok-c1"># même sur plusieurs lignes</span></code></pre></div></div></section><section id="_format_gnral"><h2>Format général</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-n">instruction</span> <span class="tok-n">pr</span><span class="tok-err">é</span><span class="tok-n">cisions</span><span class="tok-p">:</span>
+    <span class="tok-c1"># block</span>
+    <span class="tok-c1"># block</span>
+<span class="tok-c1"># fin block</span></code></pre></div></div></section><section id="_si"><h2>si</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">if</span> <span class="tok-n">truc</span><span class="tok-p">:</span>
+    <span class="tok-n">machin</span><span class="tok-p">()</span></code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">if</span> <span class="tok-n">truc</span><span class="tok-p">:</span>
+    <span class="tok-n">machin</span><span class="tok-p">()</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">bidule</span><span class="tok-p">()</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">if</span> <span class="tok-n">truc</span><span class="tok-p">:</span>
+    <span class="tok-n">machin</span><span class="tok-p">()</span>
+<span class="tok-k">elif</span><span class="tok-p">:</span>
+    <span class="tok-n">chose</span><span class="tok-p">()</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">bidule</span><span class="tok-p">()</span></code></pre></div></div></section><section id="_tant_que"><h2>Tant que</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
+    <span class="tok-k">if</span> <span class="tok-n">truc</span><span class="tok-p">():</span>
+        <span class="tok-k">break</span>
+    <span class="tok-k">else</span><span class="tok-p">:</span>
+        <span class="tok-n">machin</span><span class="tok-p">()</span></code></pre></div></div></section><section id="_do_while"><h2>do while</h2><div class="paragraph"><p>Pas de do while.
+Ne pas avoir peur d&#8217;utiliser</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
+<span class="tok-k">break</span>
+<span class="tok-k">continue</span></code></pre></div></div></section><section id="_while_else"><h2>while else</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">while</span> <span class="tok-n">machin</span><span class="tok-p">:</span>
+    <span class="tok-n">truc</span><span class="tok-p">()</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-n">chose</span><span class="tok-p">()</span></code></pre></div></div>
+<div class="paragraph"><p>On branche vers le <code><code>else</code></code> que si la condition des jamais satisfaite.</p></div></section><section id="_pour"><h2>Pour</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">10</span><span class="tok-p">):</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)</span></code></pre></div></div></section><section id="_pour_2"><h2>Pour</h2><div class="paragraph"><p>Le for de Python est plus un <code><code>foreach</code></code> qu&#8217;un <code><code>while</code></code> déguisé.</p></div></section><section id="_range"><h2>range</h2><div class="ulist"><ul><li><p>c&#8217;est un type</p></li><li><p><code><code>range(a)</code></code> génére les entiers de 0 à a - 1</p></li><li><p><code><code>range(debut, fin)</code></code></p></li><li><p><code><code>range(debut, fin, pas)</code></code> (pas peut être négatif)</p></li></ul></div></section><section id="_logique_du_range"><h2>logique du range</h2><div class="paragraph"><p>Comme une relation de Chasles:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code>range(a, b) + range(b, c) == range(a, c)</code></pre></div></div></section><section id="_for_else"><h2>for else</h2><div class="paragraph"><p>Comme pour le while</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-n">truc</span><span class="tok-p">:</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)</span>
+<span class="tok-k">else</span><span class="tok-p">:</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;rien&quot;</span><span class="tok-p">)</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">10</span><span class="tok-p">):</span>
+    <span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">i</span><span class="tok-p">)</span>
+    <span class="tok-n">i</span> <span class="tok-o">=</span> <span class="tok-mi">5</span> <span class="tok-c1"># n&#39;aura pas d&#39;impact</span></code></pre></div></div></section><section id="_dfinition_de_fonction"><h2>Définition de fonction</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-k">def</span> <span class="tok-nf">f</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-o">=</span><span class="tok-mi">3</span><span class="tok-p">):</span> <span class="tok-c1"># y est un argument par mot-clef</span>
+    <span class="tok-sd">&quot;&quot;&quot; la documentation de la fonction, nommée docstring</span>
+<span class="tok-sd">    help(f) pour voir cette documentation</span>
+<span class="tok-sd">    &quot;&quot;&quot;</span>
+    <span class="tok-k">return</span> <span class="tok-n">x</span> <span class="tok-o">+</span> <span class="tok-mi">5</span> <span class="tok-o">*</span> <span class="tok-n">y</span></code></pre></div></div></section><section id="_fonction_procdure"><h2>Fonction - procédure</h2><div class="paragraph"><p>Il n&#8217;y a pas de procédure en Python. Une fonction sans <code><code>return</code></code>
+renvoie <code><code>None</code></code> par défaut.</p></div></section></section>
+<section><section id="_utilisation_d_un_module"><h2>Utilisation d’un module</h2></section><section><div class="paragraph"><p><code>import</code> permet d&#8217;accéder à des fonctions, variables&#8230;&#8203; déjà codé.<br>
+L’importation d’un module peut se faire de deux manières.</p></div></section><section id="_mthode_1"><h2>Méthode 1:</h2><div class="paragraph"><p>On désigne le module à importer par son nom, il faut préfixer par son nom à chaque fois:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">math</span>
+<span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">math</span><span class="tok-o">.</span><span class="tok-n">sqrt</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">)</span> <span class="tok-c1">#sqrt permet de calculer la racine carrée</span>
+<span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">math</span><span class="tok-o">.</span><span class="tok-n">cos</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-p">)</span></code></pre></div></div></section><section id="_mthode_2"><h2>Méthode 2:</h2><div class="paragraph"><p><code>from import</code> permet d&#8217;importer des fonctionnalités précises
+Dans le cas d’un import de plusieurs fonctionnalités,les noms sont séparés par des virgules.</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">random</span> <span class="tok-kn">import</span> <span class="tok-n">randint</span><span class="tok-p">,</span> <span class="tok-n">randrange</span>
+
+<span class="tok-n">nbr</span> <span class="tok-o">=</span> <span class="tok-n">randrange</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">11</span><span class="tok-p">)</span>
+<span class="tok-k">while</span> <span class="tok-n">nbr</span> <span class="tok-o">!=</span> <span class="tok-mi">10</span><span class="tok-p">:</span>
+    <span class="tok-n">nbr</span> <span class="tok-o">=</span> <span class="tok-n">randint</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">10</span><span class="tok-p">)</span></code></pre></div></div></section><section><div class="paragraph"><p>Enfin, il est possible d’importer, avec cette seconde approche,
+tous les éléments d’un module en utilisant la notation *</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">turtle</span> <span class="tok-kn">import</span> <span class="tok-o">*</span></code></pre></div></div>
+<div class="paragraph"><p>Attention, avec cette dernière forme car il peut il y avoir conflits entre les
+noms.</p></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'moon',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
