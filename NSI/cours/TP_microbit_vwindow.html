@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>interface homme machine: tp robotique</title>
+<title>Interface homme machine: tp robotique</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,67 +439,67 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>interface homme machine: tp robotique</h1>
+<h1>Interface homme machine: tp robotique</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">table des matières</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. introduction</a>
+<li><a href="#_introduction">1. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#_actionneurs">actionneurs</a></li>
-<li><a href="#_capteurs">capteurs</a></li>
-<li><a href="#_microbit">micro:bit</a></li>
+<li><a href="#_actionneurs">Actionneurs</a></li>
+<li><a href="#_capteurs">Capteurs</a></li>
+<li><a href="#_microbit">Micro:bit</a></li>
 </ul>
 </li>
-<li><a href="#_prise_en_main">2. prise en main</a>
+<li><a href="#_prise_en_main">2. Prise en main</a>
 <ul class="sectlevel2">
-<li><a href="#_flasher_un_programme">flasher un programme</a></li>
-<li><a href="#_détecter_une_erreur">détecter une erreur</a></li>
+<li><a href="#_flasher_un_programme">Flasher un programme</a></li>
+<li><a href="#_détecter_une_erreur">Détecter une erreur</a></li>
 </ul>
 </li>
-<li><a href="#_actionneur_affichage_avec_les_led">3. actionneur: affichage avec les led.</a>
+<li><a href="#_actionneur_affichage_avec_les_led">3. Actionneur: affichage avec les led.</a>
 <ul class="sectlevel2">
 <li><a href="#_exercice">3.1. exercice</a></li>
 <li><a href="#_exercice_2">3.2. exercice:</a></li>
 </ul>
 </li>
-<li><a href="#_premiers_capteurs">4. premiers capteurs</a>
+<li><a href="#_premiers_capteurs">4. Premiers capteurs</a>
 <ul class="sectlevel2">
-<li><a href="#_thermomètre">thermomètre</a></li>
-<li><a href="#_programmation_événementielle_et_boutons">4.1. programmation événementielle et boutons</a></li>
-<li><a href="#_accélérométre">accélérométre</a></li>
+<li><a href="#_thermomètre">Thermomètre</a></li>
+<li><a href="#_programmation_événementielle_et_boutons">4.1. Programmation événementielle et boutons</a></li>
+<li><a href="#_accélérométre">Accélérométre</a></li>
 </ul>
 </li>
-<li><a href="#_exercices">exercices:</a>
+<li><a href="#_exercices">Exercices:</a>
 <ul class="sectlevel2">
-<li><a href="#_exercice_déplacer_un_pixel">exercice: déplacer un pixel</a></li>
-<li><a href="#_exercice_allumage">exercice: allumage</a></li>
-<li><a href="#_exercice_déplacement_avec_laccélérométre">exercice: déplacement avec l&#8217;accélérométre</a></li>
+<li><a href="#_exercice_déplacer_un_pixel">Exercice: déplacer un pixel</a></li>
+<li><a href="#_exercice_allumage">Exercice: allumage</a></li>
+<li><a href="#_exercice_déplacement_avec_laccélérométre">Exercice: déplacement avec l&#8217;accélérométre</a></li>
 </ul>
 </li>
-<li><a href="#_documentation">documentation</a></li>
+<li><a href="#_documentation">Documentation</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction">1. introduction</h2>
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>un robot peut se voir comme un ordinateur munit de périphériques de sortie
+<p>Un robot peut se voir comme un ordinateur munit de périphériques de sortie
 lui permettant d&#8217;agir sur son environnement les <strong>actionneurs</strong> et de périphériques
 d&#8217;entrée lui permettant d&#8217;obtenir des informations sur son environnement les <strong>capteurs</strong>.</p>
 </div>
 <div class="paragraph">
-<p>un robot peut être piloté à distance ou voir son comportement dirigé par un programme informatique.</p>
+<p>Un robot peut être piloté à distance ou voir son comportement dirigé par un programme informatique.</p>
 </div>
 <div class="sect2">
-<h3 id="_actionneurs">actionneurs</h3>
+<h3 id="_actionneurs">Actionneurs</h3>
 <div class="paragraph">
-<p>dans une machine, un actionneur est un objet qui transforme l’énergie qui lui est
+<p>Dans une machine, un actionneur est un objet qui transforme l’énergie qui lui est
 fournie en un phénomène physique qui fournit un travail, modifie le comportement ou l’état d&#8217;un système.</p>
 </div>
 <div class="sect3">
-<h4 id="_lénergie_utilisée_peut_être">l&#8217;énergie utilisée peut être:</h4>
+<h4 id="_lénergie_utilisée_peut_être">L&#8217;énergie utilisée peut être:</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -521,7 +521,7 @@ fournie en un phénomène physique qui fournit un travail, modifie le comporteme
 </div>
 </div>
 <div class="sect3">
-<h4 id="_le_phénomène_physique">le phénomène physique:</h4>
+<h4 id="_le_phénomène_physique">Le phénomène physique:</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -543,7 +543,7 @@ fournie en un phénomène physique qui fournit un travail, modifie le comporteme
 </div>
 </div>
 <div class="sect3">
-<h4 id="_exemples_dactionneur">exemples d&#8217;actionneur:</h4>
+<h4 id="_exemples_dactionneur">Exemples d&#8217;actionneur:</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -569,14 +569,14 @@ fournie en un phénomène physique qui fournit un travail, modifie le comporteme
 </div>
 </div>
 <div class="sect2">
-<h3 id="_capteurs">capteurs</h3>
+<h3 id="_capteurs">Capteurs</h3>
 <div class="paragraph">
-<p>un capteur est un dispositif transformant l&#8217;état d&#8217;une grandeur physique observée
+<p>Un capteur est un dispositif transformant l&#8217;état d&#8217;une grandeur physique observée
 en une grandeur utilisable, telle qu&#8217;une tension électrique, une hauteur de mercure,
 une intensité ou la déviation d&#8217;une aiguille.</p>
 </div>
 <div class="sect3">
-<h4 id="_exemple_de_capteur">exemple de capteur:</h4>
+<h4 id="_exemple_de_capteur">Exemple de capteur:</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -605,7 +605,7 @@ une intensité ou la déviation d&#8217;une aiguille.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_microbit">micro:bit</h3>
+<h3 id="_microbit">Micro:bit</h3>
 <div class="paragraph">
 <p>le bbc micro:bit est un ordinateur à carte unique possédant différents actionneurs et
 capteurs.</p>
@@ -614,19 +614,19 @@ capteurs.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_prise_en_main">2. prise en main</h2>
+<h2 id="_prise_en_main">2. Prise en main</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>nous allons voir comment programmer la carte micro:bit à l&#8217;aide de python:</p>
+<p>Nous allons voir comment programmer la carte micro:bit à l&#8217;aide de python:</p>
 </div>
 <div class="sect2">
-<h3 id="_flasher_un_programme">flasher un programme</h3>
+<h3 id="_flasher_un_programme">Flasher un programme</h3>
 <div class="openblock flash">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>se rendre sur le site <a href="https://python.microbit.org/v/2.0">python.microbit.org</a>.
+<p>Se rendre sur le site <a href="https://python.microbit.org/v/2.0">python.microbit.org</a>.
 ce site propose un éditeur de texte qui va nous permettre d&#8217;écrire du code python
 et de le transformer en code compris par la carte.</p>
 </li>
@@ -639,10 +639,10 @@ et de le transformer en code compris par la carte.</p>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
 
-<span class="tok-k">while</span> <span class="tok-n">true</span><span class="tok-p">:</span>
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
     <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-s2">&quot; &quot;</span><span class="tok-p">)</span>
     <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">)</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">heart</span><span class="tok-p">)</span>
+    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HEART</span><span class="tok-p">)</span>
     <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
@@ -674,13 +674,22 @@ Le plus probable est que l&#8217;adresse soit la suivante: <code>D:\</code>.</p>
 </div>
 </div>
 </details>
-<div class="paragraph">
-<p>tip: on dit que l&#8217;on vient de <strong>flasher</strong> le programme sur la carte.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+on dit que l&#8217;on vient de <strong>flasher</strong> le programme sur la carte.
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>vous devriez observer les diodes électroluminescentes dites led (actionneurs), s&#8217;allumer et
+<p>Vous devriez observer les diodes électroluminescentes dites led (actionneurs), s&#8217;allumer et
 s&#8217;éteindre, en représentant un dessin de cœur.</p>
 </li>
 <li>
@@ -697,11 +706,11 @@ vous risquer de confondre les fichiers.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_détecter_une_erreur">détecter une erreur</h3>
+<h3 id="_détecter_une_erreur">Détecter une erreur</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>revenir <a href="https://python.microbit.org/v/2.0">python.microbit.org</a> et supprimer
+<p>Revenir <a href="https://python.microbit.org/v/2.0">python.microbit.org</a> et supprimer
 la parenthèse fermante après <code>image.heart</code>:</p>
 </li>
 </ul>
@@ -710,20 +719,20 @@ la parenthèse fermante après <code>image.heart</code>:</p>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
 
-<span class="tok-k">while</span> <span class="tok-n">true</span><span class="tok-p">:</span>
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
     <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-s2">&quot; &quot;</span><span class="tok-p">)</span>
     <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">)</span>
-    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">heart</span>
+    <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HEART</span>
     <span class="tok-n">sleep</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>flasher le code sur la carte.</p>
+<p>Flasher le code sur la carte.</p>
 </li>
 <li>
-<p>observer ce qui est affiché à l&#8217;aide des led.</p>
+<p>Observer ce qui est affiché à l&#8217;aide des led.</p>
 </li>
 </ul>
 </div>
@@ -731,10 +740,10 @@ la parenthèse fermante après <code>image.heart</code>:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_actionneur_affichage_avec_les_led">3. actionneur: affichage avec les led.</h2>
+<h2 id="_actionneur_affichage_avec_les_led">3. Actionneur: affichage avec les led.</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>il est possible d&#8217;afficher du texte, des images ou des animations:</p>
+<p>Il est possible d&#8217;afficher du texte, des images ou des animations:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -751,22 +760,31 @@ la parenthèse fermante après <code>image.heart</code>:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>faire défiler le message: <code>bonjour</code> sur la carte micro:bit.</p>
+<p>Faire défiler le message: <code>bonjour</code> sur la carte micro:bit.</p>
 </li>
 <li>
-<p>a l&#8217;aide d&#8217;une boucle <code>for</code> faire afficher les nombres de 0 à 9 sur la carte micro:bit.</p>
+<p>A l&#8217;aide d&#8217;une boucle <code>for</code> faire afficher les nombres de 0 à 9 sur la carte micro:bit.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>tip: la fonction <code>sleep(temps)</code> où <code>temps</code> est donné en milliseconde permet de
-laisser un temps d&#8217;attente entre la réalisation de deux instructions.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+la fonction <code>sleep(temps)</code> où <code>temps</code> est donné en milliseconde permet de
+laisser un temps d&#8217;attente entre la réalisation de deux instructions.
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><code>display.set_pixel(x, y, intensite)</code> permet de régler l&#8217;intensité lumineuse
-de la led à la ligne <code>y</code>, colonne <code>x</code>. l&#8217;intensité lumineuse est un nombre entier
+de la led à la ligne <code>y</code>, colonne <code>x</code>. L&#8217;intensité lumineuse est un nombre entier
 compris entre 0 et 9, 0 correspondant à éteindre la led.</p>
 </li>
 </ul>
@@ -779,7 +797,7 @@ compris entre 0 et 9, 0 correspondant à éteindre la led.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>tester le code suivant:</p>
+<p>Tester le code suivant:</p>
 </li>
 </ol>
 </div>
@@ -795,11 +813,11 @@ compris entre 0 et 9, 0 correspondant à éteindre la led.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>en vous inspirant du programme précédent, allumer une à une les led de la
+<p>En vous inspirant du programme précédent, allumer une à une les led de la
 dernière colonne.</p>
 </li>
 <li>
-<p>modifier le programme précédent pour que chaque led s&#8217;éteigne avec que la
+<p>Modifier le programme précédent pour que chaque led s&#8217;éteigne avec que la
 suivante s&#8217;allume, de la sorte:</p>
 </li>
 </ol>
@@ -815,26 +833,26 @@ suivante s&#8217;allume, de la sorte:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_premiers_capteurs">4. premiers capteurs</h2>
+<h2 id="_premiers_capteurs">4. Premiers capteurs</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_thermomètre">thermomètre</h3>
+<h3 id="_thermomètre">Thermomètre</h3>
 <div class="paragraph">
-<p>le micro:bit n’a pas un capteur de température dédié.
+<p>Le micro:bit n’a pas un capteur de température dédié.
 au lieu de cela, la température fournie est en fait la température de la puce de
 silicium du processeur principal.
-comme le processeur chauffe peu en fonctionnement(c&#8217;est un processeur arm à grande efficacité),
+Comme le processeur chauffe peu en fonctionnement(c&#8217;est un processeur arm à grande efficacité),
 sa température est une bonne approximation de la température ambiante.</p>
 </div>
 <div class="paragraph">
-<p>la fonction <code>temperature()</code> retourne la température mesuré par ce capteur.</p>
+<p>La fonction <code>temperature()</code> retourne la température mesuré par ce capteur.</p>
 </div>
 <div class="sect3">
-<h4 id="_exercice_3">4..1. exercice:</h4>
+<h4 id="_exercice_3">4..1. Exercice:</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>afficher la température à l&#8217;aide des led.</p>
+<p>Afficher la température à l&#8217;aide des led.</p>
 </li>
 <li>
 <p>modifier le programme suivant pour qu&#8217;il affiche en plus de la température,
@@ -845,26 +863,26 @@ sa température est une bonne approximation de la température ambiante.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_programmation_événementielle_et_boutons">4.1. programmation événementielle et boutons</h3>
+<h3 id="_programmation_événementielle_et_boutons">4.1. Programmation événementielle et boutons</h3>
 <div class="paragraph">
-<p>nous avons l&#8217;habitude de programmer de façon séquentielle, c&#8217;est-à-dire que l&#8217;enchainement
+<p>Nous avons l&#8217;habitude de programmer de façon séquentielle, c&#8217;est-à-dire que l&#8217;enchainement
 des instructions est toujours le même.</p>
 </div>
 <div class="paragraph">
-<p>nous allons maintenant voir un première exemple de programmation événementielle.
-ici, la séquence d&#8217;instructions exécutée est déterminée ou modifiée en permanence
+<p>Nous allons maintenant voir un première exemple de programmation événementielle.
+Ici, la séquence d&#8217;instructions exécutée est déterminée ou modifiée en permanence
 par les différents événements extérieurs, dans le cas présent, le fait qu&#8217;un bouton
 soit pressé ou non.</p>
 </div>
 <div class="sect3">
-<h4 id="_premiers_exemples">premiers exemples:</h4>
+<h4 id="_premiers_exemples">Premiers exemples:</h4>
 <div class="paragraph">
-<p>nous allons mettre en place une boucle infinie qui vérifie si un bouton est pressé.</p>
+<p>Nous allons mettre en place une boucle infinie qui vérifie si un bouton est pressé.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>tester et comprendre le code suivant:</p>
+<p>Tester et comprendre le code suivant:</p>
 </li>
 </ul>
 </div>
@@ -872,22 +890,22 @@ soit pressé ou non.</p>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
 
-<span class="tok-k">while</span> <span class="tok-n">true</span><span class="tok-p">:</span>
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
     <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">is_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">happy</span><span class="tok-p">)</span>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HAPPY</span><span class="tok-p">)</span>
     <span class="tok-k">else</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">sad</span><span class="tok-p">)</span></code></pre>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">SAD</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>la fonction <code>is_pressed</code> est un prédicat, c&#8217;est-à-dire une fonction dont la
-valeur de retour est un booléen, c&#8217;est-à-dire qu&#8217;elle retourne <code>true</code> ou <code>false</code>.
-elle renvoie <code>true</code> si le bouton est <strong>en train</strong> d&#8217;être pressé.</p>
+<p>La fonction <code>is_pressed</code> est un prédicat, c&#8217;est-à-dire une fonction dont la
+valeur de retour est un booléen, c&#8217;est-à-dire qu&#8217;elle retourne <code>True</code> ou <code>False</code>.
+elle renvoie <code>True</code> si le bouton est <strong>en train</strong> d&#8217;être pressé.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>tester et comprendre le code suivant:</p>
+<p>Tester et comprendre le code suivant:</p>
 </li>
 </ul>
 </div>
@@ -895,26 +913,26 @@ elle renvoie <code>true</code> si le bouton est <strong>en train</strong> d&#821
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
 
-<span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-n">true</span>
+<span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-bp">True</span>
 <span class="tok-k">while</span> <span class="tok-n">actif</span><span class="tok-p">:</span>
     <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">is_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">happy</span><span class="tok-p">)</span>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HAPPY</span><span class="tok-p">)</span>
     <span class="tok-k">elif</span> <span class="tok-n">button_b</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-n">false</span>
+        <span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>
     <span class="tok-k">else</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">sad</span><span class="tok-p">)</span>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">SAD</span><span class="tok-p">)</span>
 
 <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">clear</span><span class="tok-p">()</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>la fonction <code>was_pressed</code> est un autre prédicat. cette fonction renvoie <code>true</code>
+<p>La fonction <code>was_pressed</code> est un autre prédicat. cette fonction renvoie <code>True</code>
 si le bouton a été appuyé depuis le dernière appel à cette fonction.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>tester et comprendre le code suivant:</p>
+<p>Tester et comprendre le code suivant:</p>
 </li>
 </ul>
 </div>
@@ -922,31 +940,31 @@ si le bouton a été appuyé depuis le dernière appel à cette fonction.</p>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
 
-<span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-n">true</span>
+<span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-bp">True</span>
 <span class="tok-k">while</span> <span class="tok-n">actif</span><span class="tok-p">:</span>
     <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">happy</span><span class="tok-p">)</span>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HAPPY</span><span class="tok-p">)</span>
     <span class="tok-k">elif</span> <span class="tok-n">button_b</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
-        <span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-n">false</span>
+        <span class="tok-n">actif</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>
     <span class="tok-k">else</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">sad</span><span class="tok-p">)</span>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">SAD</span><span class="tok-p">)</span>
 
 <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">clear</span><span class="tok-p">()</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>que se passe-t-il ? a l&#8217;aide de la fonction <code>sleep</code> mettre en évidence que notre
+<p>Que se passe-t-il ? a l&#8217;aide de la fonction <code>sleep</code> mettre en évidence que notre
 programme détecte bien quand le bouton <code>a</code> a été pressé.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_exercice_4">exercice</h4>
+<h4 id="_exercice_4">Exercice</h4>
 <div class="openblock">
 <div class="content">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>modifier le programme suivant pour qu&#8217;il affiche le nombre de fois où la touche <code>a</code>
+<p>Modifier le programme suivant pour qu&#8217;il affiche le nombre de fois où la touche <code>a</code>
 a été pressé.</p>
 </li>
 </ol>
@@ -956,7 +974,7 @@ a été pressé.</p>
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">microbit</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
 
 <span class="tok-n">compteur</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
-<span class="tok-k">while</span> <span class="tok-n">true</span><span class="tok-p">:</span>
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
     <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
         <span class="tok-o">...</span>
     <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">scroll</span><span class="tok-p">(</span><span class="tok-n">compteur</span><span class="tok-p">)</span></code></pre>
@@ -965,11 +983,11 @@ a été pressé.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>modifier le programme précédent pour que le compteur diminue de 1 si
+<p>Modifier le programme précédent pour que le compteur diminue de 1 si
 la touche <code>b</code> a été pressé.</p>
 </li>
 <li>
-<p>modifier le programme précédent pour que la carte affiche la lettre p si les
+<p>Modifier le programme précédent pour que la carte affiche la lettre p si les
 touches <code>a</code> et <code>b</code> sont pressés simultanément, on utilisera la fonction
 <code>is_pressed</code> dans ce cas.</p>
 </li>
@@ -980,9 +998,9 @@ touches <code>a</code> et <code>b</code> sont pressés simultanément, on utilis
 </div>
 </div>
 <div class="sect2">
-<h3 id="_accélérométre">accélérométre</h3>
+<h3 id="_accélérométre">Accélérométre</h3>
 <div class="paragraph">
-<p>la carte micro:bit est munit d’un accéléromètre. il mesure le mouvement selon trois axes :</p>
+<p>La carte micro:bit est munit d’un accéléromètre. Il mesure le mouvement selon trois axes :</p>
 </div>
 <div class="ulist">
 <ul>
@@ -998,10 +1016,10 @@ touches <code>a</code> et <code>b</code> sont pressés simultanément, on utilis
 </ul>
 </div>
 <div class="paragraph">
-<p>l’effet collatéral le plus intéressant d’un accélèromètre est la détection des gestes.</p>
+<p>L’effet collatéral le plus intéressant d’un accélèromètre est la détection des gestes.</p>
 </div>
 <div class="paragraph">
-<p>il est possible de détecter les gestes suivants:</p>
+<p>Il est possible de détecter les gestes suivants:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1029,56 +1047,65 @@ touches <code>a</code> et <code>b</code> sont pressés simultanément, on utilis
 </ul>
 </div>
 <div class="paragraph">
-<p>les gestes sont toujours représentés par des chaînes de caractères.</p>
+<p>Les gestes sont toujours représentés par des chaînes de caractères.</p>
 </div>
 <div class="paragraph">
-<p>pour obtenir le geste effectué, on utilise la méthode accelerometer.current_gesture.</p>
+<p>Pour obtenir le geste effectué, on utilise la méthode accelerometer.current_gesture.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>tester et comprendre le code suivant:</p>
+<p>Tester et comprendre le code suivant:</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">while</span> <span class="tok-n">true</span><span class="tok-p">:</span>
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
     <span class="tok-n">geste</span> <span class="tok-o">=</span> <span class="tok-n">accelerometer</span><span class="tok-o">.</span><span class="tok-n">current_gesture</span><span class="tok-p">()</span>
     <span class="tok-k">if</span> <span class="tok-n">geste</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;face up&quot;</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">happy</span><span class="tok-p">)</span>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">HAPPY</span><span class="tok-p">)</span>
     <span class="tok-k">elif</span> <span class="tok-n">geste</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;shake&quot;</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">confused</span><span class="tok-p">)</span>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">CONFUSED</span><span class="tok-p">)</span>
     <span class="tok-k">elif</span> <span class="tok-n">geste</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;left&quot;</span><span class="tok-p">:</span>
         <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-s2">&quot;g&quot;</span><span class="tok-p">)</span>
     <span class="tok-k">else</span><span class="tok-p">:</span>
-        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">angry</span><span class="tok-p">)</span></code></pre>
+        <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">(</span><span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">ANGRY</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_exercice_5">exercice</h4>
+<h4 id="_exercice_5">Exercice</h4>
 <div class="paragraph">
-<p>ecrire un programme qui à chaque fois que la carte est secouée, tire un nombre au
+<p>Ecrire un programme qui à chaque fois que la carte est secouée, tire un nombre au
 hasard entre 0 et 6 et affiche ce nombre.</p>
 </div>
-<div class="paragraph">
-<p>tip: utiliser la fonction <code>randint</code> du module <code>random</code></p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+utiliser la fonction <code>randint</code> du module <code>random</code>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercices">exercices:</h2>
+<h2 id="_exercices">Exercices:</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_exercice_déplacer_un_pixel">exercice: déplacer un pixel</h3>
+<h3 id="_exercice_déplacer_un_pixel">Exercice: déplacer un pixel</h3>
 <div class="openblock">
 <div class="content">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>tester et comprendre le programme suivant:</p>
+<p>Tester et comprendre le programme suivant:</p>
 </li>
 </ol>
 </div>
@@ -1088,7 +1115,7 @@ hasard entre 0 et 6 et affiche ce nombre.</p>
 
 <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
 <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
-<span class="tok-k">while</span> <span class="tok-n">true</span><span class="tok-p">:</span>
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
     <span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">set_pixel</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
     <span class="tok-k">if</span> <span class="tok-n">button_a</span><span class="tok-o">.</span><span class="tok-n">was_pressed</span><span class="tok-p">():</span>
         <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">x</span> <span class="tok-o">-</span> <span class="tok-mi">1</span>
@@ -1105,21 +1132,21 @@ hasard entre 0 et 6 et affiche ce nombre.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>modifier le programme, de la sorte:</p>
+<p>Modifier le programme, de la sorte:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>lorsque le pixel allumé est au bord à droite et que l&#8217;on appuie sur <code>b</code>, le pixel allumé descend d&#8217;une ligne et se retrouve tout à gauche;</p>
+<p>Lorsque le pixel allumé est au bord à droite et que l&#8217;on appuie sur <code>b</code>, le pixel allumé descend d&#8217;une ligne et se retrouve tout à gauche;</p>
 </li>
 <li>
-<p>lorsque le pixel allumé est au bord à gauche et que l&#8217;on appuie sur <code>a</code>, le pixel allumé monte d&#8217;une ligne et se retrouve tout à droite;</p>
+<p>Lorsque le pixel allumé est au bord à gauche et que l&#8217;on appuie sur <code>a</code>, le pixel allumé monte d&#8217;une ligne et se retrouve tout à droite;</p>
 </li>
 <li>
-<p>lorsque le pixel allumé est dans le coin haut gauche et que l&#8217;on appuie sur <code>a</code>, le pixel allumé passe au coin
+<p>Lorsque le pixel allumé est dans le coin haut gauche et que l&#8217;on appuie sur <code>a</code>, le pixel allumé passe au coin
 bas droite;</p>
 </li>
 <li>
-<p>lorsque le pixel allumé est dans le coin bas droite et que l&#8217;on appuie sur <code>b</code>, le pixel allumé passe au coin
+<p>Lorsque le pixel allumé est dans le coin bas droite et que l&#8217;on appuie sur <code>b</code>, le pixel allumé passe au coin
 haut gauche.</p>
 </li>
 </ul>
@@ -1128,7 +1155,7 @@ haut gauche.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>l&#8217;image suivante résume les régles de déplacements:</p>
+<p>L&#8217;image suivante résume les régles de déplacements:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1139,22 +1166,22 @@ haut gauche.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercice_allumage">exercice: allumage</h3>
+<h3 id="_exercice_allumage">Exercice: allumage</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>ecrire un programme qui allume tout les pixels des diagonales du carré de led un par un.</p>
+<p>Ecrire un programme qui allume tout les pixels des diagonales du carré de led un par un.</p>
 </li>
 <li>
-<p>ecrire un programme qui allume peu à peu tout les pixels en commencant par le coin en haut à gauche.</p>
+<p>Ecrire un programme qui allume peu à peu tout les pixels en commencant par le coin en haut à gauche.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercice_déplacement_avec_laccélérométre">exercice: déplacement avec l&#8217;accélérométre</h3>
+<h3 id="_exercice_déplacement_avec_laccélérométre">Exercice: déplacement avec l&#8217;accélérométre</h3>
 <div class="paragraph">
-<p>ecrire un programme qui permet à un pixel allumé de se "déplacer". ses déplacements sont guidés par
+<p>Ecrire un programme qui permet à un pixel allumé de se "déplacer". Ses déplacements sont guidés par
 les mouvements de la carte micro:bit, par exemple, si la carte est tournée vers la droite, le pixel va vers
 la droite.  "sortir de l&#8217;écran" raméne le pixel de "l&#8217;autre côté".</p>
 </div>
@@ -1162,10 +1189,10 @@ la droite.  "sortir de l&#8217;écran" raméne le pixel de "l&#8217;autre côté
 </div>
 </div>
 <div class="sect1">
-<h2 id="_documentation">documentation</h2>
+<h2 id="_documentation">Documentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>vous pouvez utiliser <a href="https://microbit-micropython.readthedocs.io/fr/latest/tutorials/introduction.html">la documentation suivante</a>.</p>
+<p>Vous pouvez utiliser <a href="https://microbit-micropython.readthedocs.io/fr/latest/tutorials/introduction.html">la documentation suivante</a>.</p>
 </div>
 </div>
 </div>
