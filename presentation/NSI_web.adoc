@@ -101,11 +101,11 @@ image:assets/syntaxebalise.png[element html]
 [source,html]
 ----
 <a href="http://lapiecode.info/" target="_blank">
-  Le site de l'ISN
+  Le site pour NSI
 </a>
 ----
 
-Résultat: link:http://lapiecode.info/[Le site de l'ISN]
+Résultat: link:http://lapiecode.info/[Le site pour NSI]
 
 Test:
 
@@ -201,44 +201,21 @@ Une très bonne référence pour le HTML et le CSS.
 
 == A votre tour (1)
 
+
 === Mise en place:
 
-* Ouvrir un terminal
-* A l'aide de la commande ``cd`` vous rendre dans le dossier ``Documents`` de votre répertoire personnel
-* A l'aide de la commande ``mkdir``, y créer un dossier à votre nom, se déplacer dans ce dossier avec ``cd``.
+* Dans votre dossier NSI créer un dossier ``web``.
+* Dans le dossier web, créer un dossier ``ma_page``
+* Télécharger et installer: link:https://portableapps.com/apps/development/geany_portable[Geany]
+* Lancer geany, et créer/sauvegarder un fichier nommé: ``index.html`` dans le dossier ``ma_page`
 
 === Mise en place suite:
 
-* Créer un dossier ``ma_page`` et s'y rendre
-* A l'aide de la commande ``touch``, y créer un fichier nommé ``index.html``
-* Toujours dans ce dossier créer un fichier ``style.css``
+WARNING: Vérifiez bien que vos fichiers sont au bon endroit. C'est une des principales
+sources d'erreurs lorsqu'on commence en Web.
 
-Réponse à la page ci-dessous.
 
-=== Pour vous aider si nécessaire:
-
-[source,bash]
-----
-$ cd ~
-$ cd Documents
-$ mkdir alice_lapie # changer si vos prenom/nom se sont pas alice et lapie
-$ cd alice_lapie # idem
-$ mkdir ma_page
-$ cd ma_page
-$ touch index.html style.css
-----
-
-=== !
-
-Ouvrir avec geany le fichier ``index.html`` avec la commande:
-
-[source,bash]
-----
-# depuis le dossier ma_page/
-$ geany index.html &
-----
-
-Puis copier/coller dans le fichier ``index.html``, le code de la page ci-dessous.
+Copier/coller dans le fichier ``index.html``, le code de la page ci-dessous.
 
 === !
 
@@ -273,12 +250,6 @@ Puis copier/coller dans le fichier ``index.html``, le code de la page ci-dessous
 
 === Visualiser le résultat dans firefox
 
-Saisir la commande:
-
-[source,bash]
-----
-$ firefox index.html &
-----
 
 === Exercice:
 
@@ -299,8 +270,6 @@ image:assets/diamond.png[diamant,100,100]
 image:assets/briefcase.png[valise,100,100]
 image:assets/heart.png[coeur,100,100]
 image:assets/laptop.png[ordi,100,100]
-
-Source: https://nucleoapp.com/
 
 === !
 
@@ -331,16 +300,13 @@ Vérifier dans firefox que l'image s'affiche.
 Les URL relatives sont directement inspirées de la syntaxe des systèmes de fichiers Unix.
 
 * Créer un dossier ``images`` dans le dossier ``ma_page``, s'y rendre.
-* A l'aide des commandes suivantes, télécharger les images.
+* Y télécharger les images suivantes:
 
-[source, bash]
 ----
-$ wget https://lapiecode.info/presentation/assets/briefcase.png
-$ wget https://lapiecode.info/presentation/assets/heart.png
-$ wget https://lapiecode.info/presentation/assets/laptop.png
+https://lapiecode.info/presentation/assets/briefcase.png
+https://lapiecode.info/presentation/assets/heart.png
+https://lapiecode.info/presentation/assets/laptop.png
 ----
-
-* Vérifier le résultat avec ``ls``.
 
 === Adresse URL relative
 
@@ -357,6 +323,10 @@ Réponse à la page ci-dessous.
 ----
 <img src="images/heart.png" alt="Une image d'un coeur" width="100">
 ----
+
+=== Adresse absolue
+
+WARNING: N'utilisez pas une adresse absolue qui soit l'adresse d'un fichier sur votre ordinateur.
 
 == CSS
 
@@ -467,13 +437,7 @@ Ajouter dans le head de ``index.html``
 
 === !
 
-Ouvrir le fichier ``style.css`` à l'aide de geany:
-
-[source,bash]
-----
-# depuis ~/Documents/alice_bidule/ma_page/
-$ geany style.css &
-----
+Créer sauvegarder un fichier ``style.css`` dans le dossier ``ma_page`` à l'aide de geany:
 
 === !
 
