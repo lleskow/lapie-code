@@ -443,92 +443,50 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_exercice_tri_sélection_décroissant">Exercice: Tri sélection décroissant</a>
-<ul class="sectlevel2">
-<li><a href="#_introduction">Introduction</a></li>
-</ul>
-</li>
-<li><a href="#_exercice_shift">Exercice: Shift</a>
-<ul class="sectlevel2">
-<li><a href="#_introduction_2">Introduction</a></li>
-</ul>
-</li>
 <li><a href="#_exercice_est_triée">Exercice: Est Triée</a>
 <ul class="sectlevel2">
 <li><a href="#_instruction">Instruction</a></li>
 </ul>
 </li>
-<li><a href="#_exercice_insertion">Exercice: Insertion</a>
+<li><a href="#_exercice_deux_consécutifs">Exercice: Deux consécutifs</a>
 <ul class="sectlevel2">
 <li><a href="#_instructions">Instructions</a></li>
+</ul>
+</li>
+<li><a href="#_exercice_sommets">Exercice: Sommets</a>
+<ul class="sectlevel2">
+<li><a href="#_instructions_2">Instructions</a></li>
+</ul>
+</li>
+<li><a href="#_exercice_shift">Exercice: Shift</a>
+<ul class="sectlevel2">
+<li><a href="#_introduction">Introduction</a></li>
+</ul>
+</li>
+<li><a href="#_exercice_insertion">Exercice: Insertion</a>
+<ul class="sectlevel2">
+<li><a href="#_instructions_3">Instructions</a></li>
+</ul>
+</li>
+<li><a href="#_exercice_inverse">Exercice: Inverse</a>
+<ul class="sectlevel2">
+<li><a href="#_instructions_4">Instructions</a></li>
+</ul>
+</li>
+<li><a href="#_exercice_palindrome">Exercice: Palindrome</a>
+<ul class="sectlevel2">
+<li><a href="#_instructions_5">Instructions</a></li>
+</ul>
+</li>
+<li><a href="#_exercice_record">Exercice: Record</a>
+<ul class="sectlevel2">
+<li><a href="#_instructions_6">Instructions</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_exercice_tri_sélection_décroissant">Exercice: Tri sélection décroissant</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_introduction">Introduction</h3>
-<div class="paragraph">
-<p>Ecrire une fonction tri_selection_decroissant qui trie dans l&#8217;ordre décroissant
-un tableau donné en se basant sur le tri sélection.</p>
-</div>
-<div class="paragraph">
-<p><strong>Code donné par l&#8217;énoncé</strong>:<br></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span>
-
-<span class="tok-k">def</span> <span class="tok-nf">tri_selection_decroissant</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">):</span>
-    <span class="tok-sd">&quot;&quot;&quot; list[int] -&gt; list[int]</span>
-<span class="tok-sd">    trie par ordre decroissant t &quot;&quot;&quot;</span>
-
-
-
-<span class="tok-k">assert</span> <span class="tok-n">tri_selection_decroissant</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">]</span>
-<span class="tok-k">assert</span> <span class="tok-n">tri_selection_decroissant</span><span class="tok-p">([</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">]</span>
-<span class="tok-k">assert</span> <span class="tok-n">tri_selection_decroissant</span><span class="tok-p">([</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-mi">8</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">8</span><span class="tok-p">,</span> <span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">]</span>
-<span class="tok-k">assert</span> <span class="tok-n">tri_selection_decroissant</span><span class="tok-p">([</span><span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">]</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_exercice_shift">Exercice: Shift</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_introduction_2">Introduction</h3>
-<div class="paragraph">
-<p>Ecrire une fonction shift qui décale vers la gauche tout les éléments d&#8217;un tableau.
-Le première élément de la liste initiale doit se retrouver tout à droite à la fin.</p>
-</div>
-<div class="paragraph">
-<p><strong>Code donné par l&#8217;énoncé</strong>:<br></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span>
-
-<span class="tok-k">def</span> <span class="tok-nf">shift</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">):</span>
-    <span class="tok-sd">&quot;&quot;&quot; list[int] -&gt; list[t]</span>
-<span class="tok-sd">    permutation d&#39;un cran a gauche de t&quot;&quot;&quot;</span>
-
-
-
-<span class="tok-k">assert</span> <span class="tok-n">shift</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">]</span>
-<span class="tok-k">assert</span> <span class="tok-n">shift</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">]</span>
-<span class="tok-k">assert</span> <span class="tok-n">shift</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
-<span class="tok-k">assert</span> <span class="tok-n">shift</span><span class="tok-p">([</span><span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">6</span><span class="tok-p">]</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_exercice_est_triée">Exercice: Est Triée</h2>
 <div class="sectionbody">
@@ -560,10 +518,117 @@ Le première élément de la liste initiale doit se retrouver tout à droite à 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercice_insertion">Exercice: Insertion</h2>
+<h2 id="_exercice_deux_consécutifs">Exercice: Deux consécutifs</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_instructions">Instructions</h3>
+<div class="paragraph">
+<p>Ecrire un prédicat <code>deux_consecutifs</code> qui détermine si une liste d&#8217;entiers contient
+deux fois le même nombre à la suite.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code donné par l&#8217;énoncé</strong>:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span>
+
+<span class="tok-k">def</span> <span class="tok-nf">deux_consecutifs</span><span class="tok-p">(</span><span class="tok-n">ma_liste</span><span class="tok-p">):</span>
+    <span class="tok-sd">&quot;&quot;&quot; list[int] -&gt; bool</span>
+<span class="tok-sd">    retourne vrai si ma_liste contient deux fois le même nombre a la suite</span>
+<span class="tok-sd">    traite le cas de la liste vide ou contenant un seul element &quot;&quot;&quot;</span>
+
+
+<span class="tok-k">assert</span> <span class="tok-n">deux_consecutifs</span><span class="tok-p">([</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-bp">True</span>
+<span class="tok-k">assert</span> <span class="tok-n">deux_consecutifs</span><span class="tok-p">([</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-bp">False</span>
+<span class="tok-k">assert</span> <span class="tok-n">deux_consecutifs</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-bp">False</span>
+<span class="tok-k">assert</span> <span class="tok-n">deux_consecutifs</span><span class="tok-p">([</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-bp">True</span>
+<span class="tok-k">assert</span> <span class="tok-n">deux_consecutifs</span><span class="tok-p">([</span><span class="tok-o">-</span><span class="tok-mi">7</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-bp">False</span>
+<span class="tok-k">assert</span> <span class="tok-n">deux_consecutifs</span><span class="tok-p">([])</span> <span class="tok-o">==</span> <span class="tok-bp">False</span>
+<span class="tok-k">assert</span> <span class="tok-n">deux_consecutifs</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-bp">True</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_sommets">Exercice: Sommets</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_instructions_2">Instructions</h3>
+<div class="paragraph">
+<p>Un sommet est un élément d&#8217;un tableau qui est plus grand que ses voisins
+direct. C&#8217;est-à-dire qu&#8217;il supérieur ou égal à l&#8217;élément qui vient juste avant
+lui ou juste après lui.</p>
+</div>
+<div class="paragraph">
+<p>Dans le cas du première élément du tableau, il doit juste être supérieur ou
+égal à son voisin de droite, dans le cas du dernier, à son voisin de gauche.</p>
+</div>
+<div class="paragraph">
+<p>Ecrire une fonction <code><code>nbr_sommets</code></code> qui renvoie le nombre de sommets contenus
+dans un tableau.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code donné par l&#8217;énoncé</strong>:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span>
+
+<span class="tok-k">def</span> <span class="tok-nf">nbr_sommets</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">):</span>
+    <span class="tok-sd">&quot;&quot;&quot; list[int] -&gt; int</span>
+<span class="tok-sd">    précondition: len(t) &gt;= 2</span>
+<span class="tok-sd">    renvoie le nombre de sommets d&#39;un tableau</span>
+<span class="tok-sd">    &quot;&quot;&quot;</span>
+
+
+<span class="tok-k">assert</span> <span class="tok-n">nbr_sommets</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-mi">1</span>
+<span class="tok-k">assert</span> <span class="tok-n">nbr_sommets</span><span class="tok-p">([</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-mi">3</span>
+<span class="tok-k">assert</span> <span class="tok-n">nbr_sommets</span><span class="tok-p">([</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-mi">2</span>
+<span class="tok-k">assert</span> <span class="tok-n">nbr_sommets</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-mi">1</span>
+<span class="tok-k">assert</span> <span class="tok-n">nbr_sommets</span><span class="tok-p">([</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-mi">3</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_shift">Exercice: Shift</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_introduction">Introduction</h3>
+<div class="paragraph">
+<p>Ecrire une fonction shift qui décale vers la gauche tout les éléments d&#8217;un tableau.
+Le première élément de la liste initiale doit se retrouver tout à droite à la fin.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code donné par l&#8217;énoncé</strong>:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span>
+
+<span class="tok-k">def</span> <span class="tok-nf">shift</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">):</span>
+    <span class="tok-sd">&quot;&quot;&quot; list[int] -&gt; list[t]</span>
+<span class="tok-sd">    permutation d&#39;un cran a gauche de t&quot;&quot;&quot;</span>
+
+
+
+<span class="tok-k">assert</span> <span class="tok-n">shift</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">]</span>
+<span class="tok-k">assert</span> <span class="tok-n">shift</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">]</span>
+<span class="tok-k">assert</span> <span class="tok-n">shift</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>
+<span class="tok-k">assert</span> <span class="tok-n">shift</span><span class="tok-p">([</span><span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">6</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_insertion">Exercice: Insertion</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_instructions_3">Instructions</h3>
 <div class="paragraph">
 <p>Ecrire une fonction qui insére un nouvel élément dans un tableau trié par ordre
 croissant.</p>
@@ -589,6 +654,109 @@ croissant.</p>
 <span class="tok-k">assert</span> <span class="tok-n">insere</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">],</span> <span class="tok-mi">3</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">]</span>
 <span class="tok-k">assert</span> <span class="tok-n">insere</span><span class="tok-p">([</span><span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">13</span><span class="tok-p">,</span> <span class="tok-mi">17</span><span class="tok-p">,</span> <span class="tok-mi">23</span><span class="tok-p">,</span> <span class="tok-mi">77</span><span class="tok-p">],</span> <span class="tok-mi">10</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-mi">13</span><span class="tok-p">,</span> <span class="tok-mi">17</span><span class="tok-p">,</span> <span class="tok-mi">23</span><span class="tok-p">]</span>
 <span class="tok-k">assert</span> <span class="tok-n">insere</span><span class="tok-p">([</span><span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">13</span><span class="tok-p">,</span> <span class="tok-mi">17</span><span class="tok-p">,</span> <span class="tok-mi">23</span><span class="tok-p">,</span> <span class="tok-mi">77</span><span class="tok-p">],</span> <span class="tok-mi">2</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">13</span><span class="tok-p">,</span> <span class="tok-mi">17</span><span class="tok-p">,</span> <span class="tok-mi">23</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_inverse">Exercice: Inverse</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_instructions_4">Instructions</h3>
+<div class="paragraph">
+<p>Ecrire une fonction <code><code>inverse</code></code> qui prend en paramètre une liste
+et renvoie une liste contenant les mêmes éléments dans l&#8217;ordre inverse
+(le première élément devient le dernier, le deuxiéme l&#8217;avant dernier, etc).</p>
+</div>
+<div class="paragraph">
+<p>Pour cela utiliser une liste en compréhension. La liste en paramètre ne
+doit pas être modifiée.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code donné par l&#8217;énoncé</strong>:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span>
+<span class="tok-k">def</span> <span class="tok-nf">inverse</span><span class="tok-p">(</span><span class="tok-n">lst</span><span class="tok-p">):</span>
+    <span class="tok-sd">&quot;&quot;&quot; list[int] -&gt; list[int]</span>
+<span class="tok-sd">    renvoie une liste contenant les éléments de lst dans l&#39;ordre inverse</span>
+<span class="tok-sd">    &quot;&quot;&quot;</span>
+
+<span class="tok-k">assert</span> <span class="tok-n">inverse</span><span class="tok-p">([</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">]</span>
+<span class="tok-k">assert</span> <span class="tok-n">inverse</span><span class="tok-p">([])</span> <span class="tok-o">==</span> <span class="tok-p">[]</span>
+<span class="tok-k">assert</span> <span class="tok-n">inverse</span><span class="tok-p">([</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">12</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">2</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-p">[</span><span class="tok-o">-</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">,</span> <span class="tok-mi">12</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">5</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_palindrome">Exercice: Palindrome</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_instructions_5">Instructions</h3>
+<div class="paragraph">
+<p>Un palindrome est un mot ou une phrase que l&#8217;on
+peut lire indifféremment de gauche à droite et de droite à gauche.</p>
+</div>
+<div class="paragraph">
+<p>Ecrire un prédicat déterminant si un mot est un palindrome.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code donné par l&#8217;énoncé</strong>:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span>
+
+<span class="tok-k">def</span> <span class="tok-nf">est_palindrome</span><span class="tok-p">(</span><span class="tok-n">chaine</span><span class="tok-p">):</span>
+    <span class="tok-sd">&quot;&quot;&quot; str -&gt; bool</span>
+<span class="tok-sd">    renvoie True si la chaine est un palindrome, False sinon.</span>
+<span class="tok-sd">    Ne traite pas le cas des minuscules/majuscules</span>
+<span class="tok-sd">    &quot;&quot;&quot;</span>
+
+
+<span class="tok-k">assert</span> <span class="tok-n">est_palindrome</span><span class="tok-p">(</span><span class="tok-s2">&quot;ABBA&quot;</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-bp">True</span>
+<span class="tok-k">assert</span> <span class="tok-n">est_palindrome</span><span class="tok-p">(</span><span class="tok-s2">&quot;palindrome&quot;</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-bp">False</span>
+<span class="tok-k">assert</span> <span class="tok-n">est_palindrome</span><span class="tok-p">(</span><span class="tok-s2">&quot;kayak&quot;</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-bp">True</span>
+<span class="tok-k">assert</span> <span class="tok-n">est_palindrome</span><span class="tok-p">(</span><span class="tok-s2">&quot;Radar&quot;</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-bp">False</span> <span class="tok-c1"># R majuscule</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercice_record">Exercice: Record</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_instructions_6">Instructions</h3>
+<div class="paragraph">
+<p>Un record est un élément d&#8217;un tableau de nombre qui est strictement plus petit que tous les éléments
+qui le précède. (on considère que le première élément est toujours un record)</p>
+</div>
+<div class="paragraph">
+<p>Ecrire une fonction <code><code>nbr_records</code></code> qui renvoie le nombre de records contenus
+dans un tableau.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code donné par l&#8217;énoncé</strong>:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span>
+
+<span class="tok-k">def</span> <span class="tok-nf">nbr_records</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">):</span>
+    <span class="tok-sd">&quot;&quot;&quot; list[float] -&gt; int</span>
+<span class="tok-sd">    précondition: t non vide</span>
+<span class="tok-sd">    renvoie le nombre de records d&#39;un tableau</span>
+<span class="tok-sd">    &quot;&quot;&quot;</span>
+
+
+<span class="tok-k">assert</span> <span class="tok-n">nbr_records</span><span class="tok-p">([</span><span class="tok-mf">10.2</span><span class="tok-p">,</span> <span class="tok-mf">10.4</span><span class="tok-p">,</span> <span class="tok-mf">10.3</span><span class="tok-p">,</span> <span class="tok-mf">10.1</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-mi">2</span>
+<span class="tok-k">assert</span> <span class="tok-n">nbr_records</span><span class="tok-p">([</span><span class="tok-mf">10.2</span><span class="tok-p">,</span> <span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-mf">9.98</span><span class="tok-p">,</span> <span class="tok-mf">9.7</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-mi">4</span>
+<span class="tok-k">assert</span> <span class="tok-n">nbr_records</span><span class="tok-p">([</span><span class="tok-mf">9.84</span><span class="tok-p">,</span> <span class="tok-mf">9.87</span><span class="tok-p">,</span> <span class="tok-mf">9.98</span><span class="tok-p">,</span> <span class="tok-mf">9.86</span><span class="tok-p">])</span> <span class="tok-o">==</span> <span class="tok-mi">1</span></code></pre>
 </div>
 </div>
 </div>
