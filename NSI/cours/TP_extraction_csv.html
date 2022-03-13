@@ -445,13 +445,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_mise_en_place">1. Mise en place</a></li>
 <li><a href="#_exercice_1_lecture_et_écriture_dans_un_fichier">2. Exercice 1: Lecture et écriture dans un fichier</a></li>
-<li><a href="#_exercice_2_les_méthodes_strip_et_split">3. Exercice 2: Les méthodes strip et split</a></li>
-<li><a href="#_exercice_3_importer_une_table_depuis_un_fichier_csv">4. Exercice 3: Importer une table depuis un fichier csv</a></li>
-<li><a href="#_exercice_4_interrogation_des_données">5. Exercice 4: Interrogation des données</a></li>
-<li><a href="#_exercice_5_tri">6. Exercice 5: Tri</a></li>
-<li><a href="#_exercice_6_plus_dinterrogation">7. Exercice 6: Plus d&#8217;interrogation</a></li>
-<li><a href="#_exercice_7_pokemon">8. Exercice 7: Pokemon</a></li>
-<li><a href="#_exercice_8_prénoms">9. Exercice 8: Prénoms</a></li>
+<li><a href="#_exercice_2_importer_une_table_depuis_un_fichier_csv">3. Exercice 2: Importer une table depuis un fichier csv</a></li>
+<li><a href="#_exercice_3_interrogation_des_données">4. Exercice 3: Interrogation des données</a></li>
+<li><a href="#_exercice_4_tri">5. Exercice 4: Tri</a></li>
+<li><a href="#_exercice_5_plus_dinterrogation">6. Exercice 5: Plus d&#8217;interrogation</a></li>
+<li><a href="#_exercice_6_pokemon">7. Exercice 6: Pokemon</a></li>
+<li><a href="#_exercice_7_prénoms">8. Exercice 7: Prénoms</a></li>
 </ul>
 </div>
 </div>
@@ -467,59 +466,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p>Y créer un dossier <code><code>tp_table</code></code></p>
 </li>
-<li>
-<p>Créer et modifier un fichier <code><code>test.py</code></code> à l&#8217;aide d&#8217;un éditeur de texte:</p>
-</li>
 </ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>geany test.py <span class="tok-p">&amp;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>ou</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>gedit test.py <span class="tok-p">&amp;</span></code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Ajouter à ce fichier:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Hello World!&quot;</span><span class="tok-p">)</span></code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Dans un terminal se placer dans le bon répertoire contenant <code><code>test.py</code></code>,
-lancer la commande:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>python3 test.py</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Le programme doit afficher <code><code>Hello World!</code></code></p>
-</div>
-<div class="paragraph">
-<p>Supprimer le fichier <code><code>test.py</code></code></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>rm test.py</code></pre>
-</div>
 </div>
 </div>
 </div>
@@ -556,121 +503,7 @@ contenu.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercice_2_les_méthodes_strip_et_split">3. Exercice 2: Les méthodes strip et split</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>La méthode <code><code>strip</code></code> permet d&#8217;enlever certains caractères au début et à la
-fin d&#8217;une chaine de caractère.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Dans le terminal, entrer la commande:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>python3</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Puis tester les instructions suivantes:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-s2">&quot;abba&quot;</span><span class="tok-o">.</span><span class="tok-n">strip</span><span class="tok-p">(</span><span class="tok-s2">&quot;a&quot;</span><span class="tok-p">)</span>
-<span class="tok-s2">&quot;abba&quot;</span><span class="tok-o">.</span><span class="tok-n">strip</span><span class="tok-p">(</span><span class="tok-s2">&quot;b&quot;</span><span class="tok-p">)</span>
-<span class="tok-s2">&quot;babar&quot;</span><span class="tok-o">.</span><span class="tok-n">strip</span><span class="tok-p">(</span><span class="tok-s2">&quot;r&quot;</span><span class="tok-p">)</span>
-<span class="tok-s2">&quot;babar&quot;</span><span class="tok-o">.</span><span class="tok-n">strip</span><span class="tok-p">(</span><span class="tok-s2">&quot;ra&quot;</span><span class="tok-p">)</span>
-<span class="tok-n">quit</span><span class="tok-p">()</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Pour fermer la console Python, y saisir <code><code>quit()</code></code> puis appuyer sur entrée.</p>
-</div>
-<div class="paragraph">
-<p>La méthode <code><code>strip</code></code> est souvent utilisé pour supprimer les caractères blancs,
-c&#8217;est-à-dire les espaces, tabulation ou saut de ligne. C&#8217;est ce qu&#8217;elle
-fait si on ne lui précise pas de paramètre.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Entrer dans une console Python, puis y tester:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">txt</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;Hello  </span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span>
-<span class="tok-n">txt</span>
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">txt</span><span class="tok-p">)</span>
-<span class="tok-n">txt</span> <span class="tok-o">=</span> <span class="tok-n">txt</span><span class="tok-o">.</span><span class="tok-n">strip</span><span class="tok-p">()</span>
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">txt</span><span class="tok-p">)</span>
-<span class="tok-n">txt</span>
-<span class="tok-n">quit</span><span class="tok-p">()</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>La méthode <code><code>split</code></code>, permet de séparer une chaîne de caractère, en une liste
-de chaînes de caractère, la séparation se fait selon un séparateur précisé en
-paramètre.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Tester dans une console Python:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">txt</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;a,b,c,d,e&quot;</span>
-<span class="tok-n">txt</span><span class="tok-o">.</span><span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-s2">&quot;,&quot;</span><span class="tok-p">)</span>
-<span class="tok-s2">&quot;NSI, c&#39;est super !&quot;</span><span class="tok-o">.</span><span class="tok-n">split</span><span class="tok-p">()</span></code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Créer un fichier <code><code>split_strip.py</code></code> et y copier/coller:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">txt</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;Margaret Heafield Hamilton, née Margaret Heafield le 17 août 19361,</span><span class="tok-se">\</span>
-<span class="tok-s2">       est une informaticienne, ingénieure système.</span><span class="tok-se">\</span>
-<span class="tok-s2">       Elle était directrice du département génie logiciel</span><span class="tok-se">\</span>
-<span class="tok-s2">       (software engineering, terme de son invention)</span><span class="tok-se">\</span>
-<span class="tok-s2">       au sein du MIT qui conçut le système embarqué du programme spatial Apollo.&quot;</span>
-
-
-<span class="tok-c1"># Ecrire ici</span>
-
-
-
-<span class="tok-k">print</span><span class="tok-p">(</span><span class="tok-n">liste_mots</span><span class="tok-p">)</span></code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Modifier ce programme à l&#8217;aide des méthodes <code><code>split</code></code>, et <code><code>strip</code></code>, pour
-qu&#8217;il affiche la liste de tout les mots contenus dans la chaîne texte.
-Les mots doivent avoir été débarassé des .,?! qui peuvent leur être accolé.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_exercice_3_importer_une_table_depuis_un_fichier_csv">4. Exercice 3: Importer une table depuis un fichier csv</h2>
+<h2 id="_exercice_2_importer_une_table_depuis_un_fichier_csv">3. Exercice 2: Importer une table depuis un fichier csv</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -707,15 +540,10 @@ Les mots doivent avoir été débarassé des .,?! qui peuvent leur être accolé
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Télécharger et placer dans le répertoire de ce TP,
+<p>Télécharger et <strong>placer</strong> dans le répertoire de ce TP,
 fichier suivant <span class="icon"><a class="image" href="http://lapiecode.info/NSI/assets/countries.csv"><i class="fa fa-download"></i></a></span></p>
 </li>
 </ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>wget http://lapiecode.info/NSI/assets/countries.csv</code></pre>
-</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
@@ -738,7 +566,7 @@ fichier suivant <span class="icon"><a class="image" href="http://lapiecode.info/
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercice_4_interrogation_des_données">5. Exercice 4: Interrogation des données</h2>
+<h2 id="_exercice_3_interrogation_des_données">4. Exercice 3: Interrogation des données</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A faire dans le fichier <code><code>pays.py</code></code>:</p>
@@ -794,7 +622,7 @@ puis réordonner les lignes pour que la fonction devienne correcte.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercice_5_tri">6. Exercice 5: Tri</h2>
+<h2 id="_exercice_4_tri">5. Exercice 4: Tri</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -816,7 +644,7 @@ et au sein de chaque continent triés par nom.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercice_6_plus_dinterrogation">7. Exercice 6: Plus d&#8217;interrogation</h2>
+<h2 id="_exercice_5_plus_dinterrogation">6. Exercice 5: Plus d&#8217;interrogation</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -839,26 +667,17 @@ et au sein de chaque continent triés par nom.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercice_7_pokemon">8. Exercice 7: Pokemon</h2>
+<h2 id="_exercice_6_pokemon">7. Exercice 6: Pokemon</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Télécharger et placer dans le répertoire de ce TP,
-fichier suivant <span class="icon"><a class="image" href="http://lapiecode.info/NSI/assets/pokemon.csv"><i class="fa fa-download"></i></a></span></p>
+fichier suivant <span class="icon"><a class="image" href="http://lapiecode.info/NSI/assets/pokemons.csv"><i class="fa fa-download"></i></a></span></p>
 </li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>wget http://lapiecode.info/NSI/assets/pokemon.csv</code></pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="2">
 <li>
 <p>Que faut-il changer à la fonction <code><code>extraction_donnée</code></code> pour qu&#8217;elle
-permette d&#8217;importer le fichier <code><code>pokemon.csv</code></code> ? Utiliser cette
+permette d&#8217;importer le fichier <code><code>pokemons.csv</code></code> ? Utiliser cette
 version modifier de la fonction dans le fichier <code><code>pokemons.py</code></code>.</p>
 </li>
 <li>
@@ -877,7 +696,7 @@ Pokemons volant (type Flying) et légendaire à partir de la génération 3.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercice_8_prénoms">9. Exercice 8: Prénoms</h2>
+<h2 id="_exercice_7_prénoms">8. Exercice 7: Prénoms</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>On s&#8217;intéresse aux statistiques sur les prénoms en France. Ces données
@@ -902,6 +721,9 @@ peuvent se trouver à partir du lien suivant.</p>
 </li>
 <li>
 <p>Donner la liste des 30 prénoms de filles les plus donnés entre 2010 et 2019.</p>
+</li>
+<li>
+<p>Imaginer d&#8217;autres questions et y répondre.</p>
 </li>
 </ol>
 </div>
