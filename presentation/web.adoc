@@ -295,6 +295,8 @@ Pour illustrer les films, créer un dossier assets et placez y des images d'illu
 
 WARNING: Les élèves utilisent souvent une adresse absolue qui est l'adresse d'un fichier sur leur ordinateur.
 
+
+
 == CSS
 
 Cascading Style Sheets
@@ -393,6 +395,12 @@ image:assets/text-spaces.png[]
 
 image:assets/text-colors.png[]
 
+
+=== Validation W3C
+
+Vous pouvez de même valider votre css ici: link:https://jigsaw.w3.org/css-validator/#validate_by_upload[https://jigsaw.w3.org/css-validator/]
+
+
 == A votre tour(2)
 
 Ajouter dans le head de ``index.html``
@@ -404,7 +412,7 @@ Ajouter dans le head de ``index.html``
 
 === !
 
-Créer sauvegarder un fichier ``style.css`` dans le dossier ``ma_page``:
+Créer un fichier ``style.css`` dans le même dossier que ``index.html``:
 
 === !
 
@@ -500,11 +508,6 @@ div {
   border: 1px solid black;
 }
 ----
-
-=== Validation W3C
-
-Vous pouvez de même valider votre css ici: link:https://jigsaw.w3.org/css-validator/#validate_by_upload[https://jigsaw.w3.org/css-validator/]
-
 
 == A votre tour(3)
 
@@ -627,65 +630,6 @@ Stylisez:
 
 
 == Un peu de mise en page..
-
-=== Block - Inline
-
-En général, les éléments HTML sont de type: block ou inline.
-
-=== Block
-
-* Des éléments de type Block: h1, p, ul, ...
-* Ils prennent toutes la largeur, sauf si leur largeur est précisée.
-* Saut de ligne avant et après.
-
-=== Block
-
-image:assets/block.png[]
-
-=== Inline
-
-* Des éléments de type inline: strong, em, a, img, ...
-* Ils prennent la largeur de leur contenu.
-* Pas de saut de ligne.
-
-image:assets/inline.png[]
-
-=== float
-
-image:assets/float1.png[]
-
-=== float
-
-image:assets/float2.png[]
-
-
-== Pour aller plus loin..
-
-=== Un site comprenant plusieurs pages:
-
-Il suffit tout simplement de faire plusieurs pages, avec plusieurs fichiers
-`.html` et de mettre des liens entre ces pages.
-
-L'attribut `href` de la balise `<a>`, peut prendre comme valeur le chemin
-d'un fichier.
-
-Par exemple, si deux pages se trouvent dans le même dossier:
-
-[source,html]
-----
-<a href="page2.html"> Un lien vers la page 2. <a>
-----
-
-Ces pages peuvent utiliser le même fichier `css`.
-
-=== !
-
-Ce cours n'est qu'une très brève introduction au `html` et au `css`.
-
-Pour en apprendre plus sur le sujet vous pouvez consulter
-link:https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3[le site Openclassrooms].
-
-=== Un peu de mise en page..
 
 === Block - Inline
 
