@@ -1,0 +1,40 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+
+= NSI: Organisation de l'année
+
+== Présentation
+
+* Je suis M. Leskow enseignant d'informatique.
+* Ecrire votre prénom en grand sur une feuille, la plier et la mettre devant vous.
+* Ramener cette feuille lors des prochains cours.
+
+== Matériel
+
+* un grand cahier: pour pouvoir y noter le cours, y faire des exercices, et coller des feuilles
+* ramener un ordinateur lors des cours en demi-groupe, bien vérifier qu'il est chargé
+
+== Le travail en NSI
+
+* il faut fournir du travail personnel régulier pour progresser
+* il faut chercher à comprendre le cours, s'interroger sur ce que l'on a retenu
+* il faut s'assurer d'être capable de refaire les exercices déjà traités
+* les méthodes de travail peuvent beaucoup varier selon les thèmes
+
+== Evaluations
+
+* des interrogations régulières
+* 2-3 devoirs sur table bilan par trimestre
+* des T.P notés en classe ou hors classe
+* des projets
+
+== Règles
+
+* Respectez et soyez polis, avec toutes les personnes.
+* Écoutez lorsque quelqu’un parle.
+* Soyez prêts et prompts.
+* Soyez à l'heure et suivez les règles du lycée.
