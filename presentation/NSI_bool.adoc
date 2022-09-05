@@ -1,0 +1,95 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+= Chapitre 0: Représentation de l'information, booléens
+
+== Numérique et science informatique ?
+
+=== Qu'est-ce que le numérique ?
+
+[.step]
+* Un sens large au sens culturel
+* un sens propre simple: est numérique une information qui se présente sous forme de nombres.
+
+=== Qu'est-ce que l'informatique ?
+
+[.step]
+Une définition possible: la science du traitement automatique de l'information.
+
+=== Qu'est-ce que l'information ?
+
+[.step]
+* Question compliquée
+* représenter, manipuler, échanger, des textes, des nombres, des images, des sons.
+
+=== !
+
+* Comment et pourquoi représenter numériquement de l'information ?
+* Comment la stocker physiquement ?
+* Comment la manipuler ?
+* Comment la transmettre à distance ?
+
+=== Stockage/transmission physique
+
+* Stockage
+** polarisation magnétique
+** charge électrique
+** etc
+* Transmission
+** tension électriques
+** l'intensité lumineuse
+** etc
+
+=== Stockage/transmission physique
+
+En commun: plus facile de distinguer deux états
+
+* tension dépassant un seuil ou non
+(utilisée dans la plupart des circuits électroniques)
+* aimantation dans un sens ou dans l’autre sens
+(utilisée dans les disques durs)
+* lumière ou pas de lumière (utilisée dans la lecture optique pour CD, DVD...)
+
+
+=== Deux états
+
+
+* Nos briques élémentaires ne possédent donc que deux états.
+* Correspond à la plus petite brique d'information que l'on puisse imaginer: être
+dans un état ou non.
+* On peut aussi voir cela comme: allumé/éteint, fermé/ouvert, oui/non, vrai/faux, 0/1.
+
+
+=== Plus d'états ?
+
+L'informatique quantique permettrait de manipuler un plus grand nombre d'état
+mais cela semble éloigné pour le moment.
+
+== Binary digit
+
+* Littéralement chiffre binaire, aussi appelé *bit*.
+* Peut être vu comme un chiffre ne pouvant prendre que deux valeurs 0 ou 1
+* et comme la plus petite unité d'information.
+
+
+=== Octet
+
+* Un ensemble de 8 bits consécutifs est appelé un *octet* (byte).
+* C’est l’octet qui est utilisé comme unité de référence pour mesurer la capacité des mémoires.
+* Nous verrons plus tard la manipulation de plusieurs bits.
+
+
+== Logique et algébre de Boole
+
+* Manipuler les bits, faire des calculs
+* Définition de l'informatique: la science du calcul
+* Ordinateur: machine à calculer
+
+=== !
+
+* Dans la logique classique une proposition est vraie ou fausse.
+* il n'y a que deux possibilités, et on associe 1 à vrai et 0 à faux.
+* il est possible de manipuler les bits en s'inspirant de la logique.
