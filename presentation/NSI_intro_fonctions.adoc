@@ -265,6 +265,11 @@ Deux types de division entre nombres:
  1
 ----
 
+=== Quizz
+
+link:Quizz_NSI_intro_fonctions.html[Quizz évaluation-type]
+
+
 == III. Fonctions
 
 === !
