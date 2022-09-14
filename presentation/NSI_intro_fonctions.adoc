@@ -321,7 +321,7 @@ Définir la fonction `perimetre` se fait de la sorte:
 def perimetre(longueur, largeur):
     """ int, int -> int
     precondition : (longueur > 0) and (largeur > 0)
-    retourne le perimetre d'un rectangle defini par sa largeur et
+    renvoie le perimetre d'un rectangle defini par sa largeur et
     sa longueur.
     """
     return 2 * (longueur + largeur)
@@ -388,7 +388,7 @@ de calcul permettant de résoudre le problème posé.
 
 === !
 
-La fonction retourne une valeur si le corps de la fonction contient le terme `return`
+La fonction renvoie une valeur si le corps de la fonction contient le terme `return`
 
 === !
 
