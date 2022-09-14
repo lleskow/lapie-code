@@ -7,6 +7,19 @@
 
 = Chapitre I: Le langage Python
 
+
+== Présentation
+
+==  Présentation:
+
+Sur une feuille, indiquer:
+
+* Nom, prénom
+* Langages: listes des langages de programmation dont vous avez une bonne maîtrise
+* Python: niveau estimé en Python (cela peut-être je découvre)
+* Thèmes avec lesquels vous vous sentez à l'aise (réseaux, algorithmiques sur les graphes, architecture, etc)
+* Thèmes avec lesquels vous ne vous sentez pas à l'aise
+
 == Objectif du cours
 
 * Python pour enseigner à des néo-débutants.
