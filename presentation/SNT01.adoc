@@ -1,0 +1,166 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+= Organisation de l'année
+
+== Présentation
+
+* Je suis M. Leskow enseignant d'informatique.
+* Ecrire votre prénom en grand sur une feuille, la plier et la mettre devant vous.
+* Ramener cette feuille lors des prochains cours.
+
+=== Matériel
+
+* aux choix: cahier, trieur, classeur
+* il faut venir avec le cours du thème en cours
+* il sera parfois demandé de ramener l'ordinateur donné par la région
+
+=== Le travail en SNT
+
+* il faut fournir du travail personnel régulier pour progresser
+* il faut chercher à comprendre le cours, s'interroger sur ce que l'on a retenu
+* il faut s'assurer d'être capable de refaire les exercices déjà traités
+* les méthodes de travail peuvent beaucoup varier selon les thèmes
+
+=== Evaluations
+
+* des «petites» interrogations régulièrement
+* les activités/T.P seront parfois notées
+* parfois des devoirs à faire hors temps scolaire
+
+=== Règles
+
+* Respectez et soyez polis, avec toutes les personnes.
+* Écoutez lorsque quelqu’un parle.
+* Soyez prêts et prompts.
+* Soyez à l'heure et suivez les règles du lycée.
+
+== SNT
+
+Sciences numériques et technologie
+
+=== Thèmes
+
+* Internet
+* Le Web
+* Les réseaux sociaux
+* Les données structurées et leur traitement
+* Localisation, cartographie et mobilité
+* Informatique embarquée et objets connectés
+* La photographie numérique
+
+
+== Thème I: La photographie numérique
+
+== Qu'est-ce que le numérique ?
+
+[.step]
+* Un sens large au sens culturel
+* un sens propre simple: est numérique une information qui se présente sous forme de nombres.
+
+=== Analogique vs Numérique
+
+Sont analogiques les appareils, notamment instruments de mesure et de communication, ainsi que
+les méthodes de calcul qui représentent une grandeur physique par une autre
+
+=== Thermomètre
+
+Un thermomètre indique la température à l'aide d'une hauteur de mercure ou d'alcool coloré sur une échelle graduée. La longueur du fluide est analogue à la température : c'est un instrument analogique.
+
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Hotel_Baron_thermometer.jpg/127px-Hotel_Baron_thermometer.jpg?uselang=fr[alt]
+
+
+=== L'intérêt
+
+Les ordinateurs sont avant tout des machines capables:
+
+* de stocker des nombres
+* faire des calculs
+
+=== !
+
+Cela permet de traiter algorithmiquement les données
+
+=== !
+
+Nous allons voir:
+
+* comment la représentation numérique des images est possibles
+* le rôle des algorithmes dans la photographie
+
+
+== Histoire
+
+=== Photographie argentique
+
+1826 : naissance de la photographie argentique
+
+image::https://www.open-museeniepce.com/protectimage?img=1975.149.3.1P38B.jpg&w=550[alt]
+
+=== Principe de la photographie argentique
+
+* Obtention d'une photographie par un processus photochimique
+* Réaction sur une surface sensible à la lumière
+
+=== !
+
+* 1900 : photographie argentique en couleurs.
+* 1975 : apparition des premiers appareils numériques.
+* 2006 : de nombreux fabricants abandonnent l'argentique.
+* 2007 : arrivée du smartphone.
+
+== Image numérique matricielle
+
+* C'est un tableau à deux dimensions de valeurs.
+* On parle de pixel pour les cases du tableau.
+
+=== Image numérique en niveau de gris
+
+* Les valeurs des pixels des nombres entiers en général entre 0 et 255.
+* La valeur 0 correspond au noir, et la valeur 255 correspond au blanc.
+* Les valeurs intermédiaires correspondent à des niveaux de gris allant du noir au blanc.
+
+=== !
+
+image::http://images.math.cnrs.fr/IMG/png/section1-original-zoom.png[]
+
+=== Image numérique en niveau de gris
+
+* Les valeurs des pixels sont trois nombres entiers en général entre 0 et 255.
+* Le premier nombre représente la quantité de rouge, le deuxième de vert, le troisième de bleu.
+* RGB: Red Green Blue
+
+=== !
+
+image::http://images.math.cnrs.fr/IMG/png/section8-image.png[]
+image::http://images.math.cnrs.fr/IMG/png/section8-rouge.png[]
+
+=== !
+
+image::http://images.math.cnrs.fr/IMG/png/section8-vert.png[]
+image::http://images.math.cnrs.fr/IMG/png/section8-bleu.png[]
+
+
+=== Synthèse additive
+
+image::http://images.math.cnrs.fr/local/cache-vignettes/L300xH289/section8-synthese-additive-43dea.png[]
+
+== Ecran
+
+Un écran est composé de pixel.
+
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cell_Phone_screen_Pixels.jpg/175px-Cell_Phone_screen_Pixels.jpg[]
+
+=== Définition
+
+* La définition d'un écran est le nombre de pixels qui composent l'écran.
+* Généralement données sous la forme 1024×780, signifiant « 1024 pixels de large, et 780 pixels de haut »).
+
+
+=== Résolution
+
+* La résolution d'un écran (exprimée en dpi (dots per inch), ppi (pixels per inch), ou ppp (pixels par pource)) est le nombre de pixels disponibles sur une longueur d'un pouce (environ 2,54 cm).
+* Plus ce nombre est élevé, plus la taille des pixels est petite, et plus l'image sera précise.

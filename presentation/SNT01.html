@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Organisation de l&#8217;année</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+tex2jax: {
+  inlineMath: [["\\(", "\\)"]],
+  displayMath: [["\\[", "\\]"]],
+  ignoreClass: "nostem|nolatexmath"
+},
+asciimath2jax: {
+  delimiters: [["\\$", "\\$"]],
+  ignoreClass: "nostem|noasciimath"
+},
+TeX: { equationNumbers: { autoNumber: "none" } }
+});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.listingblock .pygments .tok-g { color: #000000 } /* Generic */
+.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-l { color: #000000 } /* Literal */
+.listingblock .pygments .tok-n { color: #000000 } /* Name */
+.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
+.listingblock .pygments .tok-x { color: #000000 } /* Other */
+.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
+.listingblock .pygments .tok-ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
+.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
+.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #4e9a06 } /* Literal.String.Affix */
+.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #4e9a06 } /* Literal.String.Delimiter */
+.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #000000 } /* Name.Function.Magic */
+.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #000000 } /* Name.Variable.Magic */
+.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title"><h1>Organisation de l&#8217;année</h1></section><section><section id="_prsentation"><h2>Présentation</h2><div class="ulist"><ul><li><p>Je suis M. Leskow enseignant d&#8217;informatique.</p></li><li><p>Ecrire votre prénom en grand sur une feuille, la plier et la mettre devant vous.</p></li><li><p>Ramener cette feuille lors des prochains cours.</p></li></ul></div></section><section id="_matriel"><h2>Matériel</h2><div class="ulist"><ul><li><p>aux choix: cahier, trieur, classeur</p></li><li><p>il faut venir avec le cours du thème en cours</p></li><li><p>il sera parfois demandé de ramener l&#8217;ordinateur donné par la région</p></li></ul></div></section><section id="_le_travail_en_snt"><h2>Le travail en SNT</h2><div class="ulist"><ul><li><p>il faut fournir du travail personnel régulier pour progresser</p></li><li><p>il faut chercher à comprendre le cours, s&#8217;interroger sur ce que l&#8217;on a retenu</p></li><li><p>il faut s&#8217;assurer d&#8217;être capable de refaire les exercices déjà traités</p></li><li><p>les méthodes de travail peuvent beaucoup varier selon les thèmes</p></li></ul></div></section><section id="_evaluations"><h2>Evaluations</h2><div class="ulist"><ul><li><p>des «petites» interrogations régulièrement</p></li><li><p>les activités/T.P seront parfois notées</p></li><li><p>parfois des devoirs à faire hors temps scolaire</p></li></ul></div></section><section id="_rgles"><h2>Règles</h2><div class="ulist"><ul><li><p>Respectez et soyez polis, avec toutes les personnes.</p></li><li><p>Écoutez lorsque quelqu’un parle.</p></li><li><p>Soyez prêts et prompts.</p></li><li><p>Soyez à l&#8217;heure et suivez les règles du lycée.</p></li></ul></div></section></section>
+<section><section id="_snt"><h2>SNT</h2><div class="paragraph"><p>Sciences numériques et technologie</p></div></section><section id="_thmes"><h2>Thèmes</h2><div class="ulist"><ul><li><p>Internet</p></li><li><p>Le Web</p></li><li><p>Les réseaux sociaux</p></li><li><p>Les données structurées et leur traitement</p></li><li><p>Localisation, cartographie et mobilité</p></li><li><p>Informatique embarquée et objets connectés</p></li><li><p>La photographie numérique</p></li></ul></div></section></section>
+<section id="_thme_i_la_photographie_numrique"><h2>Thème I: La photographie numérique</h2></section>
+<section><section id="_qu_est_ce_que_le_numrique"><h2>Qu&#8217;est-ce que le numérique ?</h2><div class="ulist step"><ul><li class="fragment"><p>Un sens large au sens culturel</p></li><li class="fragment"><p>un sens propre simple: est numérique une information qui se présente sous forme de nombres.</p></li></ul></div></section><section id="_analogique_vs_numrique"><h2>Analogique vs Numérique</h2><div class="paragraph"><p>Sont analogiques les appareils, notamment instruments de mesure et de communication, ainsi que
+les méthodes de calcul qui représentent une grandeur physique par une autre</p></div></section><section id="_thermomtre"><h2>Thermomètre</h2><div class="paragraph"><p>Un thermomètre indique la température à l&#8217;aide d&#8217;une hauteur de mercure ou d&#8217;alcool coloré sur une échelle graduée. La longueur du fluide est analogue à la température : c&#8217;est un instrument analogique.</p></div>
+<div class="imageblock" style=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Hotel_Baron_thermometer.jpg/127px-Hotel_Baron_thermometer.jpg?uselang=fr" alt="alt"></div></section><section id="_l_intrt"><h2>L&#8217;intérêt</h2><div class="paragraph"><p>Les ordinateurs sont avant tout des machines capables:</p></div>
+<div class="ulist"><ul><li><p>de stocker des nombres</p></li><li><p>faire des calculs</p></li></ul></div></section><section><div class="paragraph"><p>Cela permet de traiter algorithmiquement les données</p></div></section><section><div class="paragraph"><p>Nous allons voir:</p></div>
+<div class="ulist"><ul><li><p>comment la représentation numérique des images est possibles</p></li><li><p>le rôle des algorithmes dans la photographie</p></li></ul></div></section></section>
+<section><section id="_histoire"><h2>Histoire</h2></section><section id="_photographie_argentique"><h2>Photographie argentique</h2><div class="paragraph"><p>1826 : naissance de la photographie argentique</p></div>
+<div class="imageblock" style=""><img src="https://www.open-museeniepce.com/protectimage?img=1975.149.3.1P38B.jpg&w=550" alt="alt"></div></section><section id="_principe_de_la_photographie_argentique"><h2>Principe de la photographie argentique</h2><div class="ulist"><ul><li><p>Obtention d&#8217;une photographie par un processus photochimique</p></li><li><p>Réaction sur une surface sensible à la lumière</p></li></ul></div></section><section><div class="ulist"><ul><li><p>1900 : photographie argentique en couleurs.</p></li><li><p>1975 : apparition des premiers appareils numériques.</p></li><li><p>2006 : de nombreux fabricants abandonnent l&#8217;argentique.</p></li><li><p>2007 : arrivée du smartphone.</p></li></ul></div></section></section>
+<section><section id="_image_numrique_matricielle"><h2>Image numérique matricielle</h2><div class="ulist"><ul><li><p>C&#8217;est un tableau à deux dimensions de valeurs.</p></li><li><p>On parle de pixel pour les cases du tableau.</p></li></ul></div></section><section id="_image_numrique_en_niveau_de_gris"><h2>Image numérique en niveau de gris</h2><div class="ulist"><ul><li><p>Les valeurs des pixels des nombres entiers en général entre 0 et 255.</p></li><li><p>La valeur 0 correspond au noir, et la valeur 255 correspond au blanc.</p></li><li><p>Les valeurs intermédiaires correspondent à des niveaux de gris allant du noir au blanc.</p></li></ul></div></section><section><div class="imageblock" style=""><img src="http://images.math.cnrs.fr/IMG/png/section1-original-zoom.png" alt="section1 original zoom"></div></section><section id="_image_numrique_en_niveau_de_gris_2"><h2>Image numérique en niveau de gris</h2><div class="ulist"><ul><li><p>Les valeurs des pixels sont trois nombres entiers en général entre 0 et 255.</p></li><li><p>Le premier nombre représente la quantité de rouge, le deuxième de vert, le troisième de bleu.</p></li><li><p>RGB: Red Green Blue</p></li></ul></div></section><section><div class="imageblock" style=""><img src="http://images.math.cnrs.fr/IMG/png/section8-image.png" alt="section8 image"></div>
+<div class="imageblock" style=""><img src="http://images.math.cnrs.fr/IMG/png/section8-rouge.png" alt="section8 rouge"></div></section><section><div class="imageblock" style=""><img src="http://images.math.cnrs.fr/IMG/png/section8-vert.png" alt="section8 vert"></div>
+<div class="imageblock" style=""><img src="http://images.math.cnrs.fr/IMG/png/section8-bleu.png" alt="section8 bleu"></div></section><section id="_synthse_additive"><h2>Synthèse additive</h2><div class="imageblock" style=""><img src="http://images.math.cnrs.fr/local/cache-vignettes/L300xH289/section8-synthese-additive-43dea.png" alt="section8 synthese additive 43dea"></div></section></section>
+<section><section id="_ecran"><h2>Ecran</h2><div class="paragraph"><p>Un écran est composé de pixel.</p></div><div class="imageblock" style=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cell_Phone_screen_Pixels.jpg/175px-Cell_Phone_screen_Pixels.jpg" alt="175px Cell Phone screen Pixels"></div></section><section id="_dfinition"><h2>Définition</h2><div class="ulist"><ul><li><p>La définition d&#8217;un écran est le nombre de pixels qui composent l&#8217;écran.</p></li><li><p>Généralement données sous la forme 1024×780, signifiant « 1024 pixels de large, et 780 pixels de haut »).</p></li></ul></div></section><section id="_rsolution"><h2>Résolution</h2><div class="ulist"><ul><li><p>La résolution d&#8217;un écran (exprimée en dpi (dots per inch), ppi (pixels per inch), ou ppp (pixels par pource)) est le nombre de pixels disponibles sur une longueur d&#8217;un pouce (environ 2,54 cm).</p></li><li><p>Plus ce nombre est élevé, plus la taille des pixels est petite, et plus l&#8217;image sera précise.</p></li></ul></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'moon',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
