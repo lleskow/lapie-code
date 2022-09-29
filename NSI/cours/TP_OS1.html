@@ -586,7 +586,7 @@ vous avez tapé, vous devriez avoir un message d&#8217;erreur en rouge du type:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="powershell"><span></span><span class="tok-p">$</span> <span class="tok-n">dr</span></code></pre>
+<pre class="pygments highlight"><code data-lang="powershell"><span></span><span class="tok-p">&gt;</span> <span class="tok-n">dr</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -714,7 +714,7 @@ en utilisant l&#8217;option <code>-Name</code> (on parle aussi de drapeau/flag p
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="powershell"><span></span><span class="tok-n">dir</span> <span class="tok-o">-F</span> <span class="tok-n">C</span><span class="tok-err">:</span><span class="tok-p">\</span><span class="tok-n">Users</span></code></pre>
+<pre class="pygments highlight"><code data-lang="powershell"><span></span><span class="tok-n">dir</span> <span class="tok-n">-Name</span> <span class="tok-n">C</span><span class="tok-err">:</span><span class="tok-p">\</span><span class="tok-n">Users</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -908,7 +908,7 @@ pour rejoindre son répertoire personnel ?</p>
 <p><code>cd C:\home\amanda</code></p>
 </li>
 <li>
-<p><code>cd ../..</code></p>
+<p><code>cd ..\..</code></p>
 </li>
 <li>
 <p><code>cd ~</code></p>
@@ -917,7 +917,7 @@ pour rejoindre son répertoire personnel ?</p>
 <p><code>cd amanda</code></p>
 </li>
 <li>
-<p><code>cd ~/data/..</code></p>
+<p><code>cd ~\data\..</code></p>
 </li>
 <li>
 <p><code>cd ..</code></p>
@@ -969,21 +969,21 @@ pour rejoindre son répertoire personnel ?</p>
 <div class="content">
 <div class="paragraph">
 <p>En se basant sur le diagramme ci-dessous, si <code>pwd</code> affiche
-<code>C:\Users/amanda/home/thing</code>, qu&#8217;affiche <code>dir -Name ../backup</code> ?</p>
+<code>C:\Users\amanda\home\thing</code>, qu&#8217;affiche <code>dir -Name ..\backup</code> ?</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>../backup: No such file or directory</code></p>
+<p><code>..\backup: No such file or directory</code></p>
 </li>
 <li>
 <p><code>2018-12-01 2019-01-08 2019-01-27</code></p>
 </li>
 <li>
-<p><code>2018-12-01/ 2019-01-08/ 2019-01-27/</code></p>
+<p><code>2018-12-01\ 2019-01-08\ 2019-01-27\</code></p>
 </li>
 <li>
-<p><code>original/ pnas_final/ pnas_sub/</code></p>
+<p><code>original\ pnas_final\ pnas_sub\</code></p>
 </li>
 </ol>
 </div>
@@ -1003,17 +1003,17 @@ pour rejoindre son répertoire personnel ?</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Non: il y a un dossier <code>backup</code> dans <code>/home</code>.</p>
+<p>Non: il y a un dossier <code>backup</code> dans <code>\home</code>.</p>
 </li>
 <li>
-<p>Non: c&#8217;est le contenu de <code>home/thing/backup</code>, mais avec  <code>..</code>
+<p>Non: c&#8217;est le contenu de <code>home\thing\backup</code>, mais avec  <code>..</code>
 nous avons demandé un niveau au dessus.</p>
 </li>
 <li>
 <p>Non: comme pour la question précédente.</p>
 </li>
 <li>
-<p>Oui: <code>../backup/</code> correspond à <code>/home/backup/</code>.</p>
+<p>Oui: <code>..\backup\</code> correspond à <code>\home\backup\</code>.</p>
 </li>
 </ol>
 </div>
@@ -1082,7 +1082,8 @@ nous avons demandé un niveau au dessus.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="powershell"><span></span><span class="tok-p">&gt;</span> <span class="tok-n">dir</span></code></pre>
+<pre class="pygments highlight"><code data-lang="powershell"><span></span><span class="tok-p">&gt;</span> <span class="tok-n">mkdir</span> <span class="tok-n">NSI</span>
+<span class="tok-p">&gt;</span> <span class="tok-n">dir</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1267,7 +1268,7 @@ qu&#8217;elle copie les fichiers au lieu de les déplacer.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="powershell"><span></span><span class="tok-p">&gt;</span> <span class="tok-n">cp</span> <span class="tok-p">../</span><span class="tok-n">chapitre</span><span class="tok-p">.</span><span class="tok-n">txt</span> <span class="tok-p">.</span>
+<pre class="pygments highlight"><code data-lang="powershell"><span></span><span class="tok-p">&gt;</span> <span class="tok-n">cp</span> <span class="tok-p">..\</span><span class="tok-n">chapitre</span><span class="tok-p">.</span><span class="tok-n">txt</span> <span class="tok-p">.</span>
 <span class="tok-p">&gt;</span> <span class="tok-n">dir</span></code></pre>
 </div>
 </div>
@@ -1354,7 +1355,7 @@ Quelles sont les ou la bonnes commandes pour renommer le fichier en <code>statis
  <span class="tok-n">proteins</span><span class="tok-p">.</span><span class="tok-n">dat</span>
 <span class="tok-p">&gt;</span> <span class="tok-n">mkdir</span> <span class="tok-n">recombine</span>
 <span class="tok-p">&gt;</span> <span class="tok-n">mv</span> <span class="tok-n">proteins</span><span class="tok-p">.</span><span class="tok-n">dat</span> <span class="tok-n">recombine</span><span class="tok-p">\</span>
-<span class="tok-p">&gt;</span> <span class="tok-n">cp</span> <span class="tok-n">recombine</span><span class="tok-p">/</span><span class="tok-n">proteins</span><span class="tok-p">.</span><span class="tok-n">dat</span> <span class="tok-p">../</span><span class="tok-n">proteins-saved</span><span class="tok-p">.</span><span class="tok-n">dat</span>
+<span class="tok-p">&gt;</span> <span class="tok-n">cp</span> <span class="tok-n">recombine</span><span class="tok-p">\</span><span class="tok-n">proteins</span><span class="tok-p">.</span><span class="tok-n">dat</span> <span class="tok-p">..\</span><span class="tok-n">proteins-saved</span><span class="tok-p">.</span><span class="tok-n">dat</span>
 <span class="tok-p">&gt;</span> <span class="tok-n">dir</span></code></pre>
 </div>
 </div>
@@ -1450,7 +1451,7 @@ La commande pour cela est <code>rm</code> (pour remove).</p>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="powershell"><span></span><span class="tok-p">&gt;</span> <span class="tok-n">dir</span> <span class="tok-n">-Name</span>
- <span class="tok-n">analyzed</span><span class="tok-p">/</span>  <span class="tok-n">fructose</span><span class="tok-p">.</span><span class="tok-n">dat</span>    <span class="tok-n">raw</span><span class="tok-p">/</span>   <span class="tok-n">sucrose</span><span class="tok-p">.</span><span class="tok-n">dat</span></code></pre>
+ <span class="tok-n">analyzed</span><span class="tok-p">\</span>  <span class="tok-n">fructose</span><span class="tok-p">.</span><span class="tok-n">dat</span>    <span class="tok-n">raw</span><span class="tok-p">\</span>   <span class="tok-n">sucrose</span><span class="tok-p">.</span><span class="tok-n">dat</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
