@@ -1,0 +1,110 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+= De l'image au fichier
+
+== Ce que nous avons vu:
+
+* Un capteur photo est composé d'un grand nombre de photosites.
+* Les photosites du capteur sont organisés selon la matrice de Bayer:
+
+image::assets/photosite2.png[400, 200]
+
+* Les données issues des photosites sont sauvegardés dans un fichier au format RAW.
+* Une image numérique est obtenu en appliquant un algorithme de traitement
+sur les données issues de la matrice de Bayer, c'est le dématriçage.
+
+=== Fichiers et formats
+
+* Comment les images sont-elles stockées dans la machine ?
+* Pourquoi existe-t-il plusieurs formats de fichier ?
+
+
+== Format RAW et métadonnées
+
+=== Format RAW
+
+* Le format RAW contient les données brutes des photosites.
+* Il contient également les métadonnées.
+
+=== Métadonnées
+
+Les métadonnées sont les données qui fournissent des informations sur les données.
+
+=== Métadonnées: exemple
+
+Dans le cadre de la photographie numérique ce sont:
+
+* Les informations sur l'appareil qui a pris la photo (modèle, etc).
+* Les réglages de l'appareil au moment de la photo.
+* La date, l'auteur, la localisation (GPS).
+
+=== Format EXIF
+
+* Le format d'un fichier est la façon dont ses données sont organisées.
+* Les métadonnées des photographies sont au format EXIF.
+* On dit souvent les données EXIF pour dire les métadonnées.
+
+=== Fichier RAW
+
+Le fichier RAW est l'image avant tout traitement.
+
+* Souvent il n'est pas conservé.
+* C'est l'image après traitement qui est conservé.
+* La conservation est faite en cas d'usage avancé/professionnel.
+
+== Portable PixMap
+
+=== PPM
+
+Format d'image, après traitement, en mode texte sans compression.
+
+
+=== Format du fichier
+
+* Le nombre magique du format;
+* la largeur de l'image et la hauteur de l'image (idem);
+* les données de l'image : succession des valeurs associées à chaque pixel;
+* Maximum pour les couleurs
+* l'image est codée ligne par ligne en partant du haut.
+* Toutes les lignes commençant par croisillon # sont ignorées.
+
+=== !
+
+```
+P3
+3 2
+255
+
+255 0 0    0 255 0     0 0 255
+255 255    0 255 255   255 0 0 0
+```
+
+=== !
+
+On va en général privilégier les formats avec compression.
+
+== PNG
+
+Portable Network Graphics est un format de fichier contenant des images.
+
+
+=== Compression
+
+* Compression sans perte.
+* Basée sur la répétition de motif.
+* Pratique pour les images générés, pas les photos.
+
+
+== JPEG
+
+Joint Photographic Experts Group est un format de fichier contenant des images.
+
+=== Compression
+
+* Compression avec perte.
+* Basée sur des mathématiques avancées.
+* Pratique pour les photos.
