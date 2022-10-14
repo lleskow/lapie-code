@@ -13,7 +13,7 @@
 === En pratique:
 
 L'éditeur de texte que nous utiliserons est
-link:https://www.geany.org/[Geany]
+link:https://portableapps.com/apps/development/geany_portable[Geany]
 image:https://www.geany.org/images/geany.png[geany]
 
 == De quoi est fait une page web ?
