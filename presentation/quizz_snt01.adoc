@@ -1,0 +1,231 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+:revealjs_autoSlide: "15000"
+
+
+== Préparez vous !
+
+(Préparez vous à écrire des réponses dans la partie exercice de votre cours)
+
+== !
+
+Evaluer (donner la valeur de l'expression)
+
+[source,python]
+----
+2 ** 4
+----
+
+
+== !
+
+Quel est le type de l'expression:
+
+[source,python]
+----
+7 // 3
+----
+
+
+== !
+
+Evaluer
+
+[source,python]
+----
+22 % 5
+----
+
+
+== !
+
+Quel est le type de l'expression:
+
+[source,python]
+----
+"473"
+----
+
+== !
+
+Evaluer
+
+[source,python]
+----
+max(4, min(2, 7)) # + 10
+----
+
+== !
+
+Quel est le type de l'expression:
+
+[source,python]
+----
+(3 + 5) / 2
+----
+
+== !
+
+Expression ou instruction ?
+
+[source,python]
+----
+a = (3 + 5) / 2
+----
+
+== !
+
+Evaluer
+
+[source,python]
+----
+(2 ** 32) % 2
+----
+
+== !
+
+Quel est le type de l'expression:
+
+[source,python]
+----
+str(123)
+----
+
+== !
+
+Expression ou instruction ?
+
+[source,python]
+----
+"Suis-je, une expression ?"
+----
+
+
+== Corrections
+
+
+== !
+
+Evaluer (donner la valeur de l'expression)
+
+[source,python]
+----
+2 ** 4
+----
+
+[%step]
+* 16
+
+== !
+
+Quel est le type de l'expression:
+
+[source,python]
+----
+7 // 3
+----
+
+[%step]
+* réponses possibles: int, integer, entier
+
+== !
+
+Evaluer
+
+[source,python]
+----
+23 % 5
+----
+
+[%step]
+* 3
+
+== !
+
+Quel est le type de l'expression:
+
+[source,python]
+----
+"473"
+----
+
+[%step]
+* str, string, chaîne de caractères
+
+== !
+
+Evaluer
+
+[source,python]
+----
+max(4, min(2, 7)) # + 10
+----
+
+[%step]
+* 4
+
+== !
+
+Quel est le type de l'expression:
+
+[source,python]
+----
+(3 + 5) / 2
+----
+
+[%step]
+* float, flottants
+
+
+== !
+
+Expression ou instruction ?
+
+[source,python]
+----
+a = (3 + 5) / 2
+----
+
+[%step]
+* Instruction
+
+
+== !
+
+Evaluer
+
+[source,python]
+----
+(2 ** 32) % 2
+----
+
+[%step]
+* 0
+
+== !
+
+Quel est le type de l'expression:
+
+[source,python]
+----
+>>> str(123)
+----
+
+[%step]
+* str, string, chaînes de caractères
+
+
+== !
+
+Expression ou instruction ?
+
+[source,python]
+----
+"Suis-je, une expression ?"
+----
+
+[%step]
+* Expression

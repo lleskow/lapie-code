@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Préparez vous !</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+tex2jax: {
+  inlineMath: [["\\(", "\\)"]],
+  displayMath: [["\\[", "\\]"]],
+  ignoreClass: "nostem|nolatexmath"
+},
+asciimath2jax: {
+  delimiters: [["\\$", "\\$"]],
+  ignoreClass: "nostem|noasciimath"
+},
+TeX: { equationNumbers: { autoNumber: "none" } }
+});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.listingblock .pygments .tok-g { color: #000000 } /* Generic */
+.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-l { color: #000000 } /* Literal */
+.listingblock .pygments .tok-n { color: #000000 } /* Name */
+.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
+.listingblock .pygments .tok-x { color: #000000 } /* Other */
+.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
+.listingblock .pygments .tok-ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
+.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
+.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
+.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
+.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #4e9a06 } /* Literal.String.Affix */
+.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #4e9a06 } /* Literal.String.Delimiter */
+.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #000000 } /* Name.Function.Magic */
+.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #000000 } /* Name.Variable.Magic */
+.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section id="_prparez_vous"><h2>Préparez vous !</h2><div class="paragraph"><p>(Préparez vous à écrire des réponses dans la partie exercice de votre cours)</p></div></section>
+<section><div class="paragraph"><p>Evaluer (donner la valeur de l&#8217;expression)</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-mi">2</span> <span class="tok-o">**</span> <span class="tok-mi">4</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Quel est le type de l&#8217;expression:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-mi">7</span> <span class="tok-o">//</span> <span class="tok-mi">3</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Evaluer</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-mi">22</span> <span class="tok-o">%</span> <span class="tok-mi">5</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Quel est le type de l&#8217;expression:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-s2">&quot;473&quot;</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Evaluer</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-nb">max</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-nb">min</span><span class="tok-p">(</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">))</span> <span class="tok-c1"># + 10</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Quel est le type de l&#8217;expression:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-p">(</span><span class="tok-mi">3</span> <span class="tok-o">+</span> <span class="tok-mi">5</span><span class="tok-p">)</span> <span class="tok-o">/</span> <span class="tok-mi">2</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Expression ou instruction ?</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-mi">3</span> <span class="tok-o">+</span> <span class="tok-mi">5</span><span class="tok-p">)</span> <span class="tok-o">/</span> <span class="tok-mi">2</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Evaluer</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-p">(</span><span class="tok-mi">2</span> <span class="tok-o">**</span> <span class="tok-mi">32</span><span class="tok-p">)</span> <span class="tok-o">%</span> <span class="tok-mi">2</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Quel est le type de l&#8217;expression:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-nb">str</span><span class="tok-p">(</span><span class="tok-mi">123</span><span class="tok-p">)</span></code></pre></div></div></section>
+<section><div class="paragraph"><p>Expression ou instruction ?</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-s2">&quot;Suis-je, une expression ?&quot;</span></code></pre></div></div></section>
+<section id="_corrections"><h2>Corrections</h2></section>
+<section><div class="paragraph"><p>Evaluer (donner la valeur de l&#8217;expression)</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-mi">2</span> <span class="tok-o">**</span> <span class="tok-mi">4</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>16</p></li></ul></div></section>
+<section><div class="paragraph"><p>Quel est le type de l&#8217;expression:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-mi">7</span> <span class="tok-o">//</span> <span class="tok-mi">3</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>réponses possibles: int, integer, entier</p></li></ul></div></section>
+<section><div class="paragraph"><p>Evaluer</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-mi">23</span> <span class="tok-o">%</span> <span class="tok-mi">5</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>3</p></li></ul></div></section>
+<section><div class="paragraph"><p>Quel est le type de l&#8217;expression:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-s2">&quot;473&quot;</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>str, string, chaîne de caractères</p></li></ul></div></section>
+<section><div class="paragraph"><p>Evaluer</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-nb">max</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-nb">min</span><span class="tok-p">(</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">))</span> <span class="tok-c1"># + 10</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>4</p></li></ul></div></section>
+<section><div class="paragraph"><p>Quel est le type de l&#8217;expression:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-p">(</span><span class="tok-mi">3</span> <span class="tok-o">+</span> <span class="tok-mi">5</span><span class="tok-p">)</span> <span class="tok-o">/</span> <span class="tok-mi">2</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>float, flottants</p></li></ul></div></section>
+<section><div class="paragraph"><p>Expression ou instruction ?</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-mi">3</span> <span class="tok-o">+</span> <span class="tok-mi">5</span><span class="tok-p">)</span> <span class="tok-o">/</span> <span class="tok-mi">2</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>Instruction</p></li></ul></div></section>
+<section><div class="paragraph"><p>Evaluer</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-p">(</span><span class="tok-mi">2</span> <span class="tok-o">**</span> <span class="tok-mi">32</span><span class="tok-p">)</span> <span class="tok-o">%</span> <span class="tok-mi">2</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>0</p></li></ul></div></section>
+<section><div class="paragraph"><p>Quel est le type de l&#8217;expression:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-o">&gt;&gt;&gt;</span> <span class="tok-nb">str</span><span class="tok-p">(</span><span class="tok-mi">123</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>str, string, chaînes de caractères</p></li></ul></div></section>
+<section><div class="paragraph"><p>Expression ou instruction ?</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span></span><span class="tok-s2">&quot;Suis-je, une expression ?&quot;</span></code></pre></div></div>
+<div class="ulist"><ul><li class="fragment"><p>Expression</p></li></ul></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: "15000",
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'moon',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
