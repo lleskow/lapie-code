@@ -1,0 +1,43 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+= Internet: principe
+
+== Comment communiquer à distance ?
+
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tour_Chappe_-_Saint_Marcan_-_Ille-et-Vilaine_-_France.jpg/320px-Tour_Chappe_-_Saint_Marcan_-_Ille-et-Vilaine_-_France.jpg?uselang=fr[]
+
+=== De quoi a-t-on besoin pour communiquer à distance ?
+
+* l'organisation en réseau
+* l'existence de protocole
+* un procédé permettant de coder physiquement l'information
+* la présence de points de relais
+* l'identification des destinataires et expéditeurs
+* un procédé permettant de déterminer la route à prendre
+
+
+=== Qu'est-ce qu'un protocole ?
+
+un protocole de communication est un ensemble de contraintes permettant d'établir une communication entre deux entités
+
+== Qu'est-ce qu'Internet ?
+
+[%step]
+* Un réseau de réseaux: chaque réseau communique localement et est relié aux autres
+* A la fois l'ensemble des dispositifs physiques et des protocoles permettant à ces réseaux de communiquer.
+
+=== Internet vs Web ?
+
+Quel est la différence entre Internet et le Web ?
+
+[%step]
+* Le Web n’est qu’une des applications d’Internet, comme le courrier électronique, la visioconférence ou le partage de fichiers en pair à pair.
+* Le Web est un ensemble de page/document Web, consultables avec un navigateur, souvent relié entre elles par des liens.
+
+=== !
+
+https://www.youtube.com/watch?v=aX3z3JoVEdE
