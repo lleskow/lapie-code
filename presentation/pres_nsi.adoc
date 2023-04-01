@@ -45,9 +45,9 @@ Il existe une nouvelle classe plus orienté informatique: MP2I
 * I.U.T: informatique, génie électrique, génie mécanique, etc.
 * Etudes scientifiques en général
 
-== C'est tout ?
-
-«L'informatique est partout», platitude pour parler de bureautique ?
+// == C'est tout ?
+//
+// «L'informatique est partout», platitude pour parler de bureautique ?
 
 == Exemple media: Datajournalisme
 
@@ -59,13 +59,13 @@ https://www.lemonde.fr/blog/data/2016/04/08/panama-papers-un-defi-technique-pour
 
 https://www.lemonde.fr/blog/data/2016/01/18/comment-buzzfeed-et-la-bbc-ont-analyse-26-000-matchs-de-tennis/
 
-== Quels &laquo;prérequis&raquo; ?
+// == Quels &laquo;prérequis&raquo; ?
+//
+// Les mathématiques ont un rôle fondamental en informatique.
+//
+// Pour cela, il est *fortement recommandée de suivre la spécialité mathématiques* conjointement.
 
-Les mathématiques ont un rôle fondamental en informatique.
-
-Pour cela, il est *fortement recommandée de suivre la spécialité mathématiques* conjointement.
-
-== La place des femmes dans l'informatique ?
+// == La place des femmes dans l'informatique ?
 
 == Un exemple de problème étudié: le problème du sac à dos
 
@@ -85,10 +85,11 @@ image::assets/decouvrir/dec1.png[size=cover]
 
 image::assets/decouvrir/dec2.png[size=cover]
 
-== !
+== Exemples de projet:
 
-image::assets/decouvrir/dec3.png[size=cover]
+* Programme de génération de Photomosaique
+* Site Web
+* Jeux 2d
+* etc
 
-== !
-
-image::assets/decouvrir/dec4.png[size=cover]
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Mosaicr_seagull.jpg/320px-Mosaicr_seagull.jpg[]
