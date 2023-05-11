@@ -1,0 +1,256 @@
+:backend: revealjs
+:revealjs_theme: solarized
+
+= Thème: Web
+:source-highlighter: pygments
+:pygments-style: tango
+
+== Qu'est-ce que le Web
+
+=== !
+
+Le World Wide Web (la « toile d’araignée mondiale » abrégé www ou le Web) est:
+
+* un système hypertexte public fonctionnant sur Internet
+* permettant de consulter, avec un navigateur, des pages accessibles sur des sites.
+* une page Web peut contenir: texte, image, son, vidéo
+
+
+=== Date de création
+
+1989 : naissance au CERN par Tim Berners Lee
+
+== De quoi est fait une page web ?
+
+=== !
+
+image:assets/html5-logo.png[html,300,300,float="left",align="center"]
+image:assets/css3-logo.png[css3,300,300,align="center"]
+image:assets/js-logo.png[javascript,300,300,float="right",align="center"]
+
+
+=== Le contenu et sa structure
+
+image:assets/html5-logo.png[html,350,350,align="center"]
+
+Hypertext Markup Language
+
+C'est le fond et des étiquettes.
+
+=== L'apparence
+
+image:assets/css3-logo.png[css3,350,350,align="center"]
+
+Cascading Style Sheets
+
+C'est la forme.
+
+=== Pour rendre la page dynamique
+
+image:assets/js-logo.png[javascript,350,350,align="center"]
+
+
+C'est un langage de programmation. Le code est exécuté par le navigateur
+de la personne consultant la page.
+
+== HTML
+
+C'est un langage de balisage.
+
+Les balises ou tag permettent d'identifier et de structurer le contenu.
+
+=== Le squelette d'un fichier HTML
+
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello world</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <!-- Pour simplifier: le contenu affiché -->
+
+  </body>
+</html>
+<!-- end of file -->
+----
+
+=== Première page
+
+[source,html]
+----
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello world</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    Une page web, c'est aussi simple que cela à faire.
+
+  </body>
+</html>
+<!-- end of file -->
+----
+
+=== La syntaxe d'un élément HTML:
+
+image:assets/syntaxebalise.png[element html]
+
+=== Exemple:
+
+[source,html]
+----
+<a href="http://lapiecode.info/" target="_blank">
+  Le site pour NSI
+</a>
+----
+
+Résultat: link:http://lapiecode.info/[Le site pour NSI]
+
+Test:
+
+* Quel est le nom de l'élément ?
+* Citer le nom d'un attribut ? Sa valeur ?
+* Quel est le contenu de l'élément ?
+
+=== Quelques éléments HTML:
+
+* Les titres
+* Les paragraphes
+* Les listes
+* Les images
+* Les liens
+
+=== Les titres
+
+[source,html]
+----
+<h1>[...]</h1>  <!-- Titre principal -->
+<h2>[...]</h2>  <!-- Sous-titre -->
+<h3>[...]</h3>  <!-- Sous-sous-titre -->
+<h4>[...]</h4>  <!-- Etc.. -->
+<h5>[...]</h5>
+<h6>[...]</h6>
+----
+
+
+=== Les paragraphes
+
+[source,html]
+----
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  Veritatis laboriosam mollitia autem at ab omnis iure quis
+  asperiores inventore eos nam aut iusto officiis deserunt
+  nihil, sequi tempore impedit quae?
+</p>
+----
+
+
+=== Les paragraphes
+
+[source,html]
+----
+<p>
+  On peut <em>insister</em> plus particulièrement sur une
+  partie du texte. On peut <strong>encore plus insister</strong>.
+</p>
+----
+
+=== Les listes:
+
+[source,html]
+----
+<h1>Guacamole rapide à faire</h1>
+
+<h2>Ingrédients</h2>
+<ul>
+  <li>2 avocats (pelés et avec les noyaux retirés)</li>
+  <li>le jus d'un citron</li>
+  <li>1 petite tomate, coupée</li>
+</ul>
+
+<h2>Instructions</h2>
+<ol>
+  <li>Écrasez délicatement les avocats avec une fourchette</li>
+  <li>Placez la purée obtenue dans un plat et arrosez avec le jus de citron</li>
+  <li>Mélangez avec la tomate </li>
+  <li>Gardez au frais et servir rapidement avec des tortillas</li>
+</ol>
+----
+
+Elles peuvent être ordonnées `ol` ou non ordonnées `ul`.
+
+
+=== Images
+
+[source,html]
+----
+<img src="http://lapiecode.info/images/logo-entete.png"
+     alt="Le logo lapie code">
+----
+
+=== Les liens
+
+[source,html]
+----
+<a href="https://developer.mozilla.org/fr/">
+Une très bonne référence pour le HTML et le CSS.
+</a>
+----
+
+== Architecture Client-Serveur
+
+=== Qu'est-ce qu'un serveur web ?
+
+Un « serveur web » peut faire référence à:
+
+*  des composants logiciels (software)
+* des composants matériels (hardware)
+* les deux ensembles.
+
+=== Niveau matériel
+
+* un serveur web est un ordinateur qui stocke les fichiers qui composent un site web
+* qui les envoie à l'appareil de l'utilisateur qui visite le site.
+* Cet ordinateur est connecté à Internet et est généralement accessible via un nom
+de domaine tel que lapiecode.info.
+
+=== Niveau logiciel
+
+* Un serveur web contient différents fragments qui contrôlent la façon dont les utilisateurs peuvent accéder aux fichiers hébergés.
+* On trouvera a minima un serveur HTTP.
+* Un serveur HTTP est un logiciel qui comprend les URL et le protocole HTTP (le protocole utilisé par le navigateur pour afficher les pages web).
+
+=== !
+
+* Au niveau le plus simple, à chaque fois qu'un navigateur a besoin d'un fichier hébergé
+sur un serveur web, le navigateur demande (on dit qu'il envoie une requête)
+le fichier via HTTP.
+* Quand la requête atteint le bon serveur web (matériel),
+le serveur HTTP (logiciel) renvoie le document demandé, également grâce à HTTP.
+
+
+=== HTTP
+
+* HTTP pour HyperText Transfer Protocol en anglais, soit Protocole de transfert hypertexte.
+* définit comment transférer des fichiers hypertextes (c'est-à-dire des documents web liés entre eux) entre deux ordinateurs.
+
+=== HTTPS
+
+* Il existe une version chiffrée de HTTP, c'est HTTPS.
+* Si vous échanger des données dont vous souhaitez qu'elle reste confidentiel avec
+un serveur Web. Il faut s'assurer qu'il soit en HTTPS.
+
+=== URL
+
+* Une URL (Uniform Resource Locator) est une chaîne de caractères indiquant où une ressource peut être trouvée sur Internet.
+* Dans le contexte HTTP, les URL sont appelées des « adresses Web » ou « liens ». Votre navigateur affiche les URL dans sa barre d'adresse, par exemple https://lapiecode.info
+
+
+// == DNS
