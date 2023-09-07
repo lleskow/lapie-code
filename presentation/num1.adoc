@@ -1,0 +1,147 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "25000"
+
+== Préparez vous !
+
+== !
+
+Qu'est-ce qu'un bit ?
+
+
+== !
+
+Le nombre suivant a-t-il du sens ?
+
+stem:[\LARGE{(101301)_2}]
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{(101)_2}]
+
+== !
+
+32 bits correspond à combien d'octets ?
+
+== !
+
+7 est-il un nombre ou un chiffre ?
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{(1000)_2}]
+
+== !
+
+Peut-on écrire tout les nombres entiers en base 2 ?
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{(100)_2}]
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{(111)_2}]
+
+
+== !
+
+Quel est le plus grand nombre des deux ?
+
+stem:[\LARGE{(101000)_2}]
+
+stem:[\LARGE{(100111)_2}]
+
+== Solution
+
+== !
+
+Qu'est-ce qu'un bit ?
+
+[.step]
+* Un binary digit, la plus petite quantité d'information, valant soit 0 soit 1.
+
+== !
+
+Le nombre suivant a-t-il du sens ?
+
+stem:[\LARGE{(101301)_2}]
+
+[.step]
+* Non, car il ne peut y avoir le chiffre 3 en base 2.
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{(101)_2}]
+
+[.step]
+* stem:[\LARGE{1+ 0 + 4 = 5}]
+== !
+
+32 bits correspond à combien d'octets ?
+
+[.step]
+* 4 octets, un octet fait 8 bits
+
+== !
+
+7 est-il un nombre ou un chiffre ?
+
+[.step]
+* C'est un nombre et un chiffre
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{(1000)_2}]
+
+[.step]
+* stem:[\LARGE{(8)_{10}}]
+
+== !
+
+Peut-on écrire tout les nombres entiers en base 2 ?
+
+[.step]
+* Oui
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{(100)_2}]
+
+[.step]
+* stem:[\LARGE{(101)_2}]
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{(111)_2}]
+
+[.step]
+* stem:[\LARGE{(1000)_2}]
+
+== !
+
+Quel est le plus grand nombre des deux ?
+
+stem:[\LARGE{(101000)_2}]
+
+stem:[\LARGE{(100111)_2}]
+
+[.step]
+* stem:[\LARGE{(101000)_2}]
