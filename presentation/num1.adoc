@@ -9,6 +9,11 @@
 
 Qu'est-ce qu'un bit ?
 
+== !
+
+Quelle est la base du nombre suivant ?
+
+stem:[\LARGE{(101001)_{10}}]
 
 == !
 
@@ -72,6 +77,15 @@ Qu'est-ce qu'un bit ?
 
 == !
 
+Quelle est la base du nombre suivant ?
+
+stem:[\LARGE{(101001)_{10}}]
+
+[.step]
+* 10
+
+== !
+
 Le nombre suivant a-t-il du sens ?
 
 stem:[\LARGE{(101301)_2}]
@@ -87,6 +101,7 @@ stem:[\LARGE{(101)_2}]
 
 [.step]
 * stem:[\LARGE{1+ 0 + 4 = 5}]
+
 == !
 
 32 bits correspond à combien d'octets ?
@@ -112,7 +127,7 @@ stem:[\LARGE{(1000)_2}]
 
 == !
 
-Peut-on écrire tout les nombres entiers en base 2 ?
+Peut-on écrire tous les nombres entiers en base 2 ?
 
 [.step]
 * Oui

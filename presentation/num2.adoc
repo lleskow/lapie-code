@@ -1,0 +1,130 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "25000"
+
+== Préparez vous !
+
+
+== !
+
+Le nombre suivant peut-il être en base 2 ?
+
+stem:[\LARGE{12011}]
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{(110)_2}]
+
+== !
+
+Donner en base 2 le nombre:
+
+stem:[\LARGE{(4)_{10}}]
+
+== !
+
+Donner en base 2 le nombre:
+
+stem:[\LARGE{(7)_{10}}]
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{(101)_2}]
+
+== !
+
+Calculer
+
+stem:[\LARGE{(11)_2+(1)_2}]
+
+== !
+
+Multiplier par 4
+
+stem:[\LARGE{(110)_2}] 
+
+== !
+
+Calculer
+
+stem:[\LARGE{(11)_2+(10)_2}]
+
+== Solution
+
+
+== !
+
+Le nombre suivant peut-il être en base 2 ?
+
+stem:[\LARGE{12011}]
+
+[.step]
+* Non, il y a un 2
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{(110)_2}]
+
+[.step]
+* stem:[\LARGE{(0+2+4=(6)_{10}}]
+
+== !
+
+Donner en base 2 le nombre:
+
+stem:[\LARGE{(4)_{10}}]
+
+[.step]
+* stem:[\LARGE{(100)_{2}}]
+
+== !
+
+Donner en base 2 le nombre:
+
+stem:[\LARGE{(7)_{10}}]
+
+[.step]
+* stem:[\LARGE{(111)_{2}}]
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{(101)_2}]
+
+[.step]
+* stem:[\LARGE{(110)_{2}}]
+
+== !
+
+Calculer
+
+stem:[\LARGE{(11)_2+(1)_2}]
+
+[.step]
+* stem:[\LARGE{(100)_2}]
+
+== !
+
+Multiplier stem:[\LARGE{(110)_2}] par 4
+
+
+[.step]
+* stem:[\LARGE{(11000)_2}]
+
+
+== !
+
+Calculer
+
+stem:[\LARGE{(11)_2+(10)_2}]
+
+[.step]
+* stem:[\LARGE{(101)_2}]
