@@ -1,0 +1,167 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:revealjs_autoSlide: "25000"
+
+== Préparez vous !
+
+== !
+
+Qu'est-ce qu'un bit ?
+
+== !
+
+Quelle est la base du nombre suivant ?
+
+stem:[\LARGE{101001_{10}}]
+
+== !
+
+Le nombre suivant a-t-il du sens ?
+
+stem:[\LARGE{101301_2}]
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{101_2}]
+
+== !
+
+7 est-il un nombre ou un chiffre ?
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{1000_2}]
+
+== !
+
+Peut-on écrire tout les nombres entiers en base 2 ?
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{100_2}]
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{111_2}]
+
+
+== !
+
+Quel est le plus grand nombre des deux ?
+
+stem:[\LARGE{101000_2}]
+
+stem:[\LARGE{100111_2}]
+
+== !
+
+Le nombre suivant est-il pair ou impair ?
+
+stem:[\LARGE{10110111_2}]
+
+== Solution
+
+== !
+
+Qu'est-ce qu'un bit ?
+
+[.step]
+* Un binary digit, ou chiffre binaire, la plus petite quantité d'information, valant soit 0 soit 1.
+
+== !
+
+Quelle est la base du nombre suivant ?
+
+stem:[\LARGE{101001_{10}}]
+
+[.step]
+* 10
+
+== !
+
+Le nombre suivant a-t-il du sens ?
+
+stem:[\LARGE{101301_2}]
+
+[.step]
+* Non, car il ne peut y avoir le chiffre 3 en base 2.
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{101_2}]
+
+[.step]
+* stem:[\LARGE{1+ 0 + 4 = 5}]
+
+== !
+
+7 est-il un nombre ou un chiffre ?
+
+[.step]
+* C'est un nombre et un chiffre
+
+== !
+
+Donner en base 10 le nombre:
+
+stem:[\LARGE{1000_2}]
+
+[.step]
+* stem:[\LARGE{(8)_{10}}]
+
+== !
+
+Peut-on écrire tous les nombres entiers en base 2 ?
+
+[.step]
+* Oui
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{100_2}]
+
+[.step]
+* stem:[\LARGE{101_2}]
+
+== !
+
+Quel est le nombre en base 2 après
+
+stem:[\LARGE{111_2}]
+
+[.step]
+* stem:[\LARGE{1000_2}]
+
+== !
+
+Quel est le plus grand nombre des deux ?
+
+stem:[\LARGE{101000_2}]
+
+stem:[\LARGE{100111_2}]
+
+[.step]
+* stem:[\LARGE{101000_2}]
+
+
+== !
+
+Le nombre suivant est-il pair ou impair ?
+
+stem:[\LARGE{10110111_2}]
+
+[.step]
+* Impair car il termine par un 1.
