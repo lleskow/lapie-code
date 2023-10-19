@@ -729,7 +729,7 @@ image:assets/float2.png[]
 
 Pour réaliser des mises en page plus complexes, il peut être intéressant de découvrir la propriété `css`: `flexbox`:
 
-link:https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/la-mise-en-page-avec-flexbox[La partie sur flexbox d'Openclassrooms.]
+link:https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et-css3/8061384-faites-votre-mise-en-page-avec-flexbox[La partie sur flexbox d'Openclassrooms.]
 
 === Réaliser une barre de navigation:
 
