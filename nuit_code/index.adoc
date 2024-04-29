@@ -1,0 +1,189 @@
+= Prise en main Pyxel, shoot-em up
+:last-update-label!:
+:linkattrs:
+:toc: left
+:toc-title: Table des matières
+:icons: font
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: monokai
+:sectnums:
+:experimental:
+
+
+== Introduction
+
+On se propose dans ce TP de réaliser un jeu en utilisant la librairie Pyxel, qui sera utilisée
+lors de la nuit du code. Toutes les fonctions proposées par cette librairie se trouvent dans le
+paragraphe intitulé https://github.com/kitao/pyxel/blob/main/docs/README.fr.md#documentation-de-lapi[documentation de l’api]
+
+
+Tous les codes seront écrits dans un fichier commençant par:
+
+[source,python]
+----
+import pyxel
+
+----
+
+Il est possible d'utiliser le module pyxel en ligne via: https://www.pyxelstudio.net/new-project[pyxelstudio] ou de
+l'installer directement sur la machine via le gestionnaire de package Thonny.
+
+
+== Initialisation de l'application
+
+La fonction ```init``` du module pyxel initialise l’application Pyxel avec un écran de taille ```(width,
+height)```. Il est possible de passer comme options : le titre de la fenêtre avec ```title```, le nombre
+d’images par seconde avec ```fps```, la touche pour quitter l’application avec ```quit_key```, l’échelle de
+l’affichage avec ```display_scale```.
+
+Nous appelerons en suite la fonction ```run``` avec pour arguments la fonction update nécessaire pour mettre à
+jour chaque frame et la fonction ```draw``` pour dessiner sur l’écran quand c’est nécessaire (cf section
+suivante).
+La nuit du code impose l’utilisation d’une fenêtre de taille ```(128, 128)```, ayant pour titre ```"La Nuit
+du Code"```.
+
+Vous pouvez tester le code suivant, qui devrait afficher un carré en haut à gauche sur un fond noir:
+
+[source,python]
+----
+import pyxel
+
+
+pyxel.init(128, 128, title="Nuit du c0de")
+
+
+def update():
+    """mise à jour des variables (30 fois par seconde)"""
+    pass
+
+def draw():
+    """ Affiche les éléments dans la fenêtre graphique """
+    pyxel.cls(0) # vide la fenêtre
+    pyxel.rect(0, 0, 10, 10, 3) # affiche un carré en haut à gauche
+
+
+pyxel.run(update, draw)
+----
+
+=== Méthode draw et update
+
+
+L’instruction ```pyxel.rect(x, y, w, h, col)``` dessine un rectangle de largeur ```w```,
+de hauteur ```h``` et de couleur ```col``` à partir de ```(x, y)``` (coin supérieur gauche). Les couleurs par défaut (elles sont paramétrables) sont données dans la documentation de la librairie pyxel.
+
+image:https://github.com/kitao/pyxel/raw/main/docs/images/05_color_palette.png[couleur pyxel de base]
+
+WARNING: L’origine du repère est le coin supérieur gauche de la fenêtre. Les axes du repère de la
+fenêtre graphique sont orientés vers la droite et vers le bas. Ainsi, l’instruction permettant de
+dessiner le pixel noir de la figure ci-dessous est pyxel.rect(0, 0, 1, 1, 0)
+
+image:./grille.png[grille]
+
+
+=== Exercice 1
+
+Compléter le code de la méthode ```draw``` de telle sorte que l’affichage réalisé lors de
+l’exécution du programme soit ("l’épaisseur" des traits est de 8 pixels) :
+
+image:./ex1.png[forme à reproduire]
+
+== Le vaisseau
+
+
+Le vaisseau manipulé par le joueur possède une position ```(x, y)``` à l’écran. Il faut pouvoir le
+deplacer selon une direction et l’afficher à l’écran. La taille du vaisseau sera fixé à 8 pixels
+par 8 pixels. Initialement on représente le vaisseau à l’aide d’un carré de couleur, on verra par
+la suite comment utiliser une image pour l’affichage.
+
+La position du vaisseau sera stocké dans deux variables globales ```x_vais``` et ```y_vais```.
+
+
+[source,python]
+----
+import pyxel
+
+
+pyxel.init(128, 128, title="Nuit du c0de")
+x_vais, y_vais = 56, 112
+
+def update():
+    """mise à jour des variables (30 fois par seconde)"""
+    pass
+
+def draw():
+    """ Affiche les éléments dans la fenêtre graphique """
+    pass
+
+
+pyxel.run(update, draw)
+----
+
+=== Affichage du vaisseau
+
+Écrire une fonction ```afficher``` qui affiche un carré d’une certaine couleur de taille (8, 8) (en
+pixels) à la position ```(x_vais, y_vais)``` du vaisseau. La couleur choisie sera la valeur par défaut 5.
+
+
+[source,python]
+----
+def afficher():
+    """ Affiche le vaisseau à l'écran """
+----
+
+Modifier la fonction ```draw``` de façon à quelle appelle la fonction afficher.
+
+=== Déplacement du vaisseau
+
+Écrire une fonction ```deplacer``` qui met à jour les coordonnées du vaisseau suivant le déplacement ```direction```. ```direction``` est un couple d’entiers (dx, dy) : on incrémente x_vais de dx et y_vais de dy.
+
+[source,python]
+----
+def deplacer(dx, dy):
+    """ deplace le vaisseau """
+    global x_vais, y_vais # permet de faire référence aux variables globales
+----
+
+=== Exercice 2
+
+. Modifier les méthodes ```update``` et ```draw``` de telle sorte qu’à chaque frame: on déplace le personnage suivant la direction ```(1, -1)``` et on l’affiche à sa position courante. Que constate-t-on ? Ajouter l’instruction pyxel.cls(0) pour corriger ce problème.
+. Modifier l’argument optionnel fps de la fonction pyxel.init : tester avec les valeurs fps=1, fps=5, et fps=10.
+
+
+== Commande clavier
+
+
+On cherche maintenant à déplacer le vaisseau à l’aide des touches du clavier. L’instruction ```pyxel.btn(key)``` renvoie ```True``` si la touche ```key``` est appuyée, sinon renvoie ```False```. On trouve (entre
+autres) dans la liste des touches les constantes :
+
+* ```pyxel.KEY_RIGHT```
+* ```pyxel.KEY_LEFT```
+* ```pyxel.KEY_DOWN```
+* ```pyxel.KEY_UP```
+
+
+=== Exercice 3
+
+[source,python]
+----
+def vaisseau_deplacement():
+    """déplacement avec les touches de directions"""
+    if pyxel.btn(pyxel.KEY_RIGHT):
+        deplacer(1, 0)
+----
+
+. Compléter le code de la fonction suivante, de sorte que le vaisseau se déplace vers la gauche, le bas et le haut
+selon les touches correspondantes. (la fonction ```vaisseau_deplacement```) devra être appelé par la fonction ```update```.
+. Que se passe-t-il quand le vaisseau est sur le point de disparaitre de l'écran ? Modifier la fonction ```vaisseau_deplacement```
+de façon à ce que quand le vaisseau sort par la droite il revienne par la gauche, et qu'il ne puisse pas «sortir de l'écran» par
+le haut et par le bas.
+
+== Ajouter des ennemis
+
+En vous inspirant de ce qui a été fait précédement ajouter des ennemis. Les ennemis doivent apparaitre aléatoirement dans le temps en haut de
+l'écran (mais à une abscisse aléatoire) et descrendre jusqu'à sortir de l'écran par le bas.
+Pour cela, on créera une liste correspondant à une variable globale ```ennemis```.
+
+== Ajouter des tirs
+
+Ajouter des tirs. Pour cela, on créera une liste correspondant à une variable globale ```tirs```.
