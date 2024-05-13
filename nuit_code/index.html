@@ -462,8 +462,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_exercice_3">4.1. Exercice 3</a></li>
 </ul>
 </li>
-<li><a href="#_ajouter_des_ennemis">5. Ajouter des ennemis</a></li>
-<li><a href="#_ajouter_des_tirs">6. Ajouter des tirs</a></li>
+<li><a href="#_ajouter_des_images">5. Ajouter des images</a></li>
+<li><a href="#_ajouter_des_ennemis">6. Ajouter des ennemis</a></li>
+<li><a href="#_ajouter_des_tirs">7. Ajouter des tirs</a></li>
+<li><a href="#_ajouter_du_son">8. Ajouter du son</a></li>
+<li><a href="#_animer_des_sprites">9. Animer des sprites</a></li>
+<li><a href="#_pistes_daméliorations">10. Pistes d&#8217;améliorations</a></li>
 </ul>
 </div>
 </div>
@@ -695,7 +699,72 @@ le haut et par le bas.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ajouter_des_ennemis">5. Ajouter des ennemis</h2>
+<h2 id="_ajouter_des_images">5. Ajouter des images</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nous allons maintenant essayer de faire en sorte que notre vaisseau n&#8217;ait plus l&#8217;apparence d&#8217;un carré mais d&#8217;un vaisseau.
+Pour cela nous allons charger une banque de ressource proposant une image de vaisseau.</p>
+</div>
+<div class="paragraph">
+<p>Une tuile (tile en anglais) est un élément graphique d&#8217;un jeu vidéo, constitué de petites images (en général) carrées disposées sur une grille.</p>
+</div>
+<div class="paragraph">
+<p>Une tuile peut représenter un sprite ou un élément de décor, avec lequel on peut interagir ou non. L&#8217;ensemble complet des tuiles disponibles pour une utilisation dans une zone de jeu est appelé un jeu de tuiles (ou tileset en anglais).</p>
+</div>
+<div class="paragraph">
+<p>Pour ce tutoriel nous allons utiliser le jeu d&#8217;image suivant: <a href="https://nuit-du-code.forge.apps.education.fr/DOCUMENTATION/PYTHON/TUTORIELS/tutoriel-detaille-terminale/scripts/images.pyxres">fichier ressource</a>.
+Le télécharger et le placer dans le même répertoire que votre code</p>
+</div>
+<div class="paragraph">
+<p>L’éditeur Pyxel peut créer des images et des sons utilisables dans des applications Pyxel. (voir la documentation Pyxel)
+La commande suivante permet de visualiser et même éditer ce fichier ressource.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code><span></span>pyxel edit images.pyxres</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lors de l&#8217;initialisation du jeu, il est nécessaire de charger en mémoire le fichier de ressources.
+Pour faire cela, il faut placer la ressource dans le même répertoire que votre code. Puis placer la ligne suivant
+après la ligne <code><code>pyxel.init(&#8230;&#8203;)</code></code> correspondant à l&#8217;initialisation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-c1"># chargement des images</span>
+<span class="tok-n">pyxel</span><span class="tok-o">.</span><span class="tok-n">load</span><span class="tok-p">(</span><span class="tok-s2">&quot;images.pyxres&quot;</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour afficher l&#8217;image sur notre fenêtre de jeu nous allons utiliser la fonction suivante <code><code>blt(x, y, img, u, v, w, h, [colkey])</code></code>, où:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>x et y sont les coordonnées où seront placées l&#8217;images</p>
+</li>
+<li>
+<p>img permet de préciser le fichier ressource utilisé lorsqu&#8217;il y en a plusieurs, nous n&#8217;en avons qu&#8217;un. On mettera donc la valeur à 0.</p>
+</li>
+<li>
+<p>(u, v) correspond aux coordonnées du pixel haut-gauche de la zone sélectionnée dans l&#8217;image.</p>
+</li>
+<li>
+<p>(w, h) correspond à la largeur et la hauteur de cette zone.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ainsi avec les valeurs u=0, v=8, w=8, h=8, on aura la zone de l&#8217;image correspondant à un monstre vert avec des yeux rouges.
+Quelles valeurs prendre pour obtenir l&#8217;image correspondant à un vaisseau ?</p>
+</div>
+<div class="paragraph">
+<p>Utiliser cette image pour représenter le vaisseau.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ajouter_des_ennemis">6. Ajouter des ennemis</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>En vous inspirant de ce qui a été fait précédement ajouter des ennemis. Les ennemis doivent apparaitre aléatoirement dans le temps en haut de
@@ -705,10 +774,89 @@ Pour cela, on créera une liste correspondant à une variable globale <code><cod
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ajouter_des_tirs">6. Ajouter des tirs</h2>
+<h2 id="_ajouter_des_tirs">7. Ajouter des tirs</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Ajouter des tirs. Pour cela, on créera une liste correspondant à une variable globale <code><code>tirs</code></code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ajouter_du_son">8. Ajouter du son</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Il est possible de rajouter des sons et des musiques au jeu. Ces derniers peuvent être créés à partir de l’éditeur de ressources.</p>
+</div>
+<div class="paragraph">
+<p>On peut charger les fichiers ressources grâce à la méthode load(). Le fichier peut être chargé en entier, ou partiellement. Dans ce cas on spécifie quelles parties chargées.</p>
+</div>
+<div class="paragraph">
+<p>La méthode playm() permet de lancer une musique en continu.</p>
+</div>
+<div class="paragraph">
+<p>On pourra utiliser le <a href="https://depot.nuitducode.net/1.pyxres">fichier suivant</a> pour avoir une ressource avec du son.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-c1"># chargement des images et des sons</span>
+<span class="tok-n">pyxel</span><span class="tok-o">.</span><span class="tok-n">load</span><span class="tok-p">(</span><span class="tok-s2">&quot;images.pyxres&quot;</span><span class="tok-p">,</span> <span class="tok-bp">False</span><span class="tok-p">,</span> <span class="tok-bp">False</span><span class="tok-p">,</span> <span class="tok-bp">True</span><span class="tok-p">,</span> <span class="tok-bp">True</span><span class="tok-p">)</span> <span class="tok-c1"># voir la documentation pyxel pour comprendre les valeurs</span>
+<span class="tok-c1"># à True ou False</span>
+<span class="tok-n">pyxel</span><span class="tok-o">.</span><span class="tok-n">load</span><span class="tok-p">(</span><span class="tok-s2">&quot;1.pyxres&quot;</span><span class="tok-p">,</span> <span class="tok-bp">True</span><span class="tok-p">,</span> <span class="tok-bp">True</span><span class="tok-p">,</span> <span class="tok-bp">False</span><span class="tok-p">,</span> <span class="tok-bp">False</span><span class="tok-p">)</span>
+
+<span class="tok-c1">#Lancement de la musique</span>
+<span class="tok-n">pyxel</span><span class="tok-o">.</span><span class="tok-n">playm</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">loop</span><span class="tok-o">=</span><span class="tok-bp">True</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut également émettre des bruitages (ici, le son numéro 1) :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-c1">#lancement d&#39;un bruitage</span>
+<span class="tok-n">pyxel</span><span class="tok-o">.</span><span class="tok-n">play</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_animer_des_sprites">9. Animer des sprites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour animer les sprites, on va utiliser plusieurs images du pavé pour un seul sprite.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://nuit-du-code.forge.apps.education.fr/DOCUMENTATION/PYTHON/TUTORIELS/tutoriel-detaille-terminale/images/monstre.png" alt="alt">
+</div>
+</div>
+<div class="paragraph">
+<p>L’enchainement des images donne l’impression de mouvement. On utilise l’attribut pyxel.frame_count pour modifier l’image toutes les 1/10ème de seconde. On utilise la variable coef pour choisir l’image.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-c1">#Change l&#39;aspect tous les 1/10 de secondes</span>
+<span class="tok-c1">#coef peut valoir 0,1 ou 2</span>
+<span class="tok-n">coef</span> <span class="tok-o">=</span> <span class="tok-n">pyxel</span><span class="tok-o">.</span><span class="tok-n">frame_count</span> <span class="tok-o">//</span><span class="tok-mi">3</span><span class="tok-o">%</span> <span class="tok-mi">3</span>
+<span class="tok-n">pyxel</span><span class="tok-o">.</span><span class="tok-n">blt</span><span class="tok-p">(</span><span class="tok-bp">self</span><span class="tok-o">.</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-bp">self</span><span class="tok-o">.</span><span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">8</span> <span class="tok-o">+</span> <span class="tok-mi">8</span><span class="tok-o">*</span><span class="tok-n">coef</span><span class="tok-p">,</span> <span class="tok-mi">8</span><span class="tok-p">,</span> <span class="tok-mi">8</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pistes_daméliorations">10. Pistes d&#8217;améliorations</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Faire un menu de pause</p>
+</li>
+<li>
+<p>Gestion des collisions</p>
+</li>
+<li>
+<p>Faire apparaître une page de lancement avec un bouton à cliquer pour lancer le jeu</p>
+</li>
+</ul>
 </div>
 </div>
 </div>

@@ -1,7 +1,10 @@
 import pyxel
 
-
 pyxel.init(128, 128, title="Nuit du c0de")
+pyxel.load("images.pyxres", False, False, True, True)
+pyxel.load("1.pyxres", True, True, False, False)
+pyxel.playm(0, loop=True)
+
 x_vais, y_vais = 56, 112
 
 def deplacer(dx, dy):
@@ -22,8 +25,7 @@ def update():
 
 def afficher():
     """ Affiche le vaisseau à l'écran """
-    pyxel.rect(x_vais, y_vais, 8, 8, 5)
-
+    pyxel.blt(x_vais, y_vais, 0, 0, 0, 8, 8)
 
 def draw():
     """ Affiche les éléments dans la fenêtre graphique """
