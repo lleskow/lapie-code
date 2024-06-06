@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Interface graphique avec Pygame</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+tex2jax: {
+  inlineMath: [["\\(", "\\)"]],
+  displayMath: [["\\[", "\\]"]],
+  ignoreClass: "nostem|nolatexmath"
+},
+asciimath2jax: {
+  delimiters: [["\\$", "\\$"]],
+  ignoreClass: "nostem|noasciimath"
+},
+TeX: { equationNumbers: { autoNumber: "none" } }
+});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments  { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+.listingblock .pygments .tok-g { color: #000000 } /* Generic */
+.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-l { color: #000000 } /* Literal */
+.listingblock .pygments .tok-n { color: #000000 } /* Name */
+.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
+.listingblock .pygments .tok-x { color: #000000 } /* Other */
+.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
+.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
+.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
+.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Interface graphique avec Pygame</h1></section><section><section id="_cli_vs_gui"><h2>CLI vs GUI</h2><div class="ulist"><ul><li><p>CLI: Command-line interface</p></li></ul></div><div class="paragraph"><p>Ce que nous utilisions: <code>print()</code> et <code>input()</code></p></div><div class="ulist"><ul><li><p>GUI: Graphical user interface</p></li></ul></div><div class="paragraph"><p>On peut interagir de façon graphique: click de souris, touches du clavier, etc.</p></div></section><section id="_cli_vs_gui_2"><h2>CLI vs GUI ?</h2><div class="paragraph"><p>Contrairement à ce que l&#8217;on pourrait croire, la &laquo; majorité &raquo; des
+programmes ont une CLI mais pas de GUI.</p></div></section></section>
+<section><section id="_pygame"><h2>Pygame</h2><div class="paragraph"><p>Pour obtenir une interface graphique, nous allons utiliser le module pygame.</p></div><div class="paragraph"><p>Pour l&#8217;importer et l&#8217;utiliser:</p></div><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">import</span> <span class="tok-nn">pygame</span>
+<span class="tok-kn">from</span> <span class="tok-nn">pygame.locals</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+
+<span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">init</span><span class="tok-p">()</span></code></pre></div></div></section><section id="_premier_jeu"><h2>Premier jeu</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-kn">import</span> <span class="tok-nn">pygame</span>
+<span class="tok-kn">from</span> <span class="tok-nn">pygame.locals</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+
+<span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">init</span><span class="tok-p">()</span>
+
+<span class="tok-n">affi_surface</span> <span class="tok-o">=</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">set_mode</span><span class="tok-p">((</span><span class="tok-mi">800</span><span class="tok-p">,</span> <span class="tok-mi">600</span><span class="tok-p">))</span>
+<span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">set_caption</span><span class="tok-p">(</span><span class="tok-s">&quot;Mon premier jeu !&quot;</span><span class="tok-p">)</span>
+
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
+  <span class="tok-k">for</span> <span class="tok-n">event</span> <span class="tok-ow">in</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">():</span>
+    <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">QUIT</span><span class="tok-p">:</span>
+      <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">quit</span><span class="tok-p">()</span>
+  <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">affi_surface</span> <span class="tok-o">=</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">set_mode</span><span class="tok-p">((</span><span class="tok-mi">800</span><span class="tok-p">,</span> <span class="tok-mi">600</span><span class="tok-p">))</span></code></pre></div></div>
+<div class="paragraph"><p>Permet de créer une surface dans laquelle nous allons pouvoir dessiner.
+Correspond à la zone noire pour le moment.</p></div>
+<div class="paragraph"><p>Sa taille est de 800 pixels de large, 600 de haut.</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
+  <span class="tok-k">for</span> <span class="tok-n">event</span> <span class="tok-ow">in</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">():</span>
+    <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">QUIT</span><span class="tok-p">:</span>
+      <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">quit</span><span class="tok-p">()</span>
+  <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span></code></pre></div></div>
+<div class="paragraph"><p>Nous avons besoin d&#8217;une boucle qui demande en permanence si l&#8217;utilisateur
+a fait quelque chose.</p></div></section><section><div class="paragraph"><p>Un peu comme si le programme faisait:</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">Hey</span> <span class="tok-err">?</span> <span class="tok-n">tu</span> <span class="tok-n">fais</span> <span class="tok-n">quoi</span> <span class="tok-err">?!?</span>
+<span class="tok-n">Hey</span> <span class="tok-err">?</span> <span class="tok-n">tu</span> <span class="tok-n">fais</span> <span class="tok-n">quoi</span> <span class="tok-err">?!?</span>
+<span class="tok-n">Hey</span> <span class="tok-err">?</span> <span class="tok-n">tu</span> <span class="tok-n">fais</span> <span class="tok-n">quoi</span> <span class="tok-err">?!?</span>
+<span class="tok-n">Hey</span> <span class="tok-err">?</span> <span class="tok-n">tu</span> <span class="tok-n">fais</span> <span class="tok-n">quoi</span> <span class="tok-err">?!?</span>
+<span class="tok-n">Hey</span> <span class="tok-err">?</span> <span class="tok-n">tu</span> <span class="tok-n">fais</span> <span class="tok-n">quoi</span> <span class="tok-err">?!?</span>
+<span class="tok-n">Hey</span> <span class="tok-err">?</span> <span class="tok-n">tu</span> <span class="tok-n">fais</span> <span class="tok-n">quoi</span> <span class="tok-err">?!?</span>
+<span class="tok-n">Hey</span> <span class="tok-err">?</span> <span class="tok-n">tu</span> <span class="tok-n">fais</span> <span class="tok-n">quoi</span> <span class="tok-err">?!?</span>
+<span class="tok-n">Hey</span> <span class="tok-err">?</span> <span class="tok-n">tu</span> <span class="tok-n">fais</span> <span class="tok-n">quoi</span> <span class="tok-err">?!?</span>
+<span class="tok-n">Hey</span> <span class="tok-err">?</span> <span class="tok-n">tu</span> <span class="tok-n">fais</span> <span class="tok-n">quoi</span> <span class="tok-err">?!?</span>
+<span class="tok-o">...</span></code></pre></div></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">QUIT</span><span class="tok-p">:</span>
+  <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">quit</span><span class="tok-p">()</span></code></pre></div></div>
+<div class="paragraph"><p>Ici nous réagissons à un événement, l&#8217;événement appuyer sur la croix quitter.</p></div>
+<div class="paragraph"><p>Nous réagissons en quittant le jeu&#8230;&#8203;</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span></code></pre></div></div>
+<div class="paragraph"><p>Affiche les modifications apportées à la fenêtre d&#8217;affichage.</p></div></section></section>
+<section><section id="_un_premier_vaisseau_spatial"><h2>Un premier vaisseau spatial !</h2><div class="paragraph"><p>Nous allons essayer de créer un jeu dans lequel nous conduisons un vaisseau
+spatial devant éviter différents obstacles.</p></div></section><section id="_the_vaisseau"><h2>THE vaisseau</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">blanc</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-mi">255</span><span class="tok-p">,</span><span class="tok-mi">255</span><span class="tok-p">,</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+<span class="tok-n">rouge</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-mi">255</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">vaisseau</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-p">):</span>
+  <span class="tok-n">rect_vaisseau</span> <span class="tok-o">=</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">40</span><span class="tok-p">)</span>
+  <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">rect</span><span class="tok-p">(</span><span class="tok-n">affi_surface</span><span class="tok-p">,</span> <span class="tok-n">rouge</span><span class="tok-p">,</span> <span class="tok-n">rect_vaisseau</span><span class="tok-p">)</span>
+
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
+  <span class="tok-k">for</span> <span class="tok-n">event</span> <span class="tok-ow">in</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">():</span>
+    <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">QUIT</span><span class="tok-p">:</span>
+      <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">quit</span><span class="tok-p">()</span>
+  <span class="tok-n">vaisseau</span><span class="tok-p">(</span><span class="tok-mi">360</span><span class="tok-p">,</span><span class="tok-mi">500</span><span class="tok-p">)</span>
+  <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span></code></pre></div></div></section><section id="_le_vaisseau_est_un_rectangle"><h2>Le vaisseau est un rectangle&#8230;&#8203;</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">rect_vaisseau</span> <span class="tok-o">=</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-mi">80</span><span class="tok-p">,</span> <span class="tok-mi">40</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>Nous définissons une surface rectangulaire, de 80 pixel de large et 40
+pixel de haut.</p></div>
+<div class="paragraph"><p>Le coin haut gauche du rectangle est le point de coordonnées cartésiennes
+\((x;y)\)</p></div></section><section id="_dessin"><h2>dessiné</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">rect</span><span class="tok-p">(</span><span class="tok-n">affi_surface</span><span class="tok-p">,</span> <span class="tok-n">rouge</span><span class="tok-p">,</span> <span class="tok-n">rect_vaisseau</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>Cette commande permet de dessiner notre <span class="line-through">vaisseau</span> rectangle dans
+notre surface d&#8217;affichage.</p></div></section><section id="_en_rouge"><h2>en rouge</h2><div class="paragraph"><p>Pygame ne propose pas de couleurs prédéfinies.</p></div>
+<div class="paragraph"><p>On peut cependant définir des couleurs à partir de leur code RGB</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">rouge</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-mi">255</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">)</span></code></pre></div></div></section><section id="_en_bas"><h2>en bas ?</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">vaisseau</span><span class="tok-p">(</span><span class="tok-mi">360</span><span class="tok-p">,</span><span class="tok-mi">500</span><span class="tok-p">)</span></code></pre></div></div>
+<div class="paragraph"><p>L&#8217;abscisse du coin haut gauche du <span class="line-through">vaisseau</span> rectangle est de
+360 et son ordonnée 500. Avec une ordonnée de 500, il devrait en haut pas
+en bas, non ?</p></div></section><section id="_non"><h2>Non</h2><div class="paragraph"><p>Les informaticiens commencent à compter à partir de 0 et mettent le bas en haut.</p></div></section><section id="_mathmatiques"><h2>Mathématiques:</h2><div class="imageblock" style=""><img src="assets/coord_math.png" alt="Repère cartésien maths"></div></section><section id="_informatique"><h2>Informatique:</h2><div class="imageblock" style=""><img src="assets/coord_info.png" alt="Repère cartésien info"></div></section></section>
+<section><section id="_dplacer_le_vaisseau"><h2>Déplacer le vaisseau</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">360</span>
+<span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">550</span>
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
+  <span class="tok-k">for</span> <span class="tok-n">event</span> <span class="tok-ow">in</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">():</span>
+    <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">QUIT</span><span class="tok-p">:</span>
+      <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">quit</span><span class="tok-p">()</span>
+  <span class="tok-n">y_change</span> <span class="tok-o">=</span> <span class="tok-o">-</span><span class="tok-mi">5</span>
+  <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">y</span> <span class="tok-o">+</span> <span class="tok-n">y_change</span>
+  <span class="tok-n">vaisseau</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span></code></pre></div></div></section><section id="_le_vaisseau_ne_se_dplace_pas"><h2>Le vaisseau ne se déplace pas ?</h2><div class="ulist"><ul><li class="fragment"><p>Rien ne se déplace jamais dans un écran</p></li><li class="fragment"><p>Les personnages de jeux video ne se déplacent pas !</p></li><li class="fragment"><p>Il n&#8217;y a que des pixels qui changent de couleur</p></li></ul></div></section><section id="_la_solution"><h2>La solution:</h2><div class="imageblock" style=""><img src="https://media.giphy.com/media/S60BAGcMCRHzy/giphy.gif" alt="giphy"></div></section><section id="_en_pratique"><h2>En pratique:</h2><div class="ulist"><ul><li><p>On peint tout en blanc</p></li><li><p>On dessine un rectangle rouge</p></li><li><p>On affiche le tout</p></li><li><p>On repeint tout en blanc, l&#8217;ancien rectangle rouge a disparu</p></li><li><p>On dessine un rectangle rouge quelques pixels au dessus du précédent</p></li><li><p>On affiche le tout</p></li><li><p>&#8230;&#8203;.</p></li></ul></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">360</span>
+<span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">550</span>
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
+  <span class="tok-k">for</span> <span class="tok-n">event</span> <span class="tok-ow">in</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">():</span>
+    <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">QUIT</span><span class="tok-p">:</span>
+      <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">quit</span><span class="tok-p">()</span>
+  <span class="tok-n">y_change</span> <span class="tok-o">=</span> <span class="tok-o">-</span><span class="tok-mi">5</span>
+  <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">y</span> <span class="tok-o">+</span> <span class="tok-n">y_change</span>
+  <span class="tok-n">affi_surface</span><span class="tok-o">.</span><span class="tok-n">fill</span><span class="tok-p">(</span><span class="tok-n">blanc</span><span class="tok-p">)</span>
+  <span class="tok-n">vaisseau</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span></code></pre></div></div></section></section>
+<section><section id="_fps"><h2>FPS</h2><div class="paragraph"><p>FPS: Frames per second, nombre d&#8217;images par seconde</p></div></section><section><div class="paragraph"><p>Un jeu est donc une suite d&#8217;image à l&#8217;écran.</p></div>
+<div class="paragraph"><p>Comme notre vaisseau se déplace à chaque image, le nombre d&#8217;image par
+seconde influe sur la &laquo; vitesse &raquo; de notre vaisseau.</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">fps</span> <span class="tok-o">=</span> <span class="tok-mi">30</span>
+<span class="tok-n">fps_clock</span> <span class="tok-o">=</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">time</span><span class="tok-o">.</span><span class="tok-n">Clock</span><span class="tok-p">()</span>
+<span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-mi">360</span>
+<span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">550</span>
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
+  <span class="tok-k">for</span> <span class="tok-n">event</span> <span class="tok-ow">in</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">():</span>
+    <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">QUIT</span><span class="tok-p">:</span>
+      <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">quit</span><span class="tok-p">()</span>
+  <span class="tok-n">y_change</span> <span class="tok-o">=</span> <span class="tok-o">-</span><span class="tok-mi">5</span>
+  <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">y</span> <span class="tok-o">+</span> <span class="tok-n">y_change</span>
+  <span class="tok-n">affi_surface</span><span class="tok-o">.</span><span class="tok-n">fill</span><span class="tok-p">(</span><span class="tok-n">blanc</span><span class="tok-p">)</span>
+  <span class="tok-n">vaisseau</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span>
+  <span class="tok-n">fps_clock</span><span class="tok-o">.</span><span class="tok-n">tick</span><span class="tok-p">(</span><span class="tok-n">fps</span><span class="tok-p">)</span></code></pre></div></div></section><section><div class="paragraph"><p>Attention, pour chaque affichage d&#8217;image, des calculs sont effectués, ces
+calculs prennent du temps, et s&#8217;ils prennent trop de temps, il n&#8217;est pas
+possible d&#8217;obtenir le FPS voulu.</p></div></section></section>
+<section><section id="_piloter_le_vaisseau"><h2>Piloter le vaisseau</h2><div class="paragraph"><p>Au clavier !</p></div></section><section><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">360</span><span class="tok-p">,</span> <span class="tok-mi">550</span>
+<span class="tok-n">x_change</span><span class="tok-p">,</span> <span class="tok-n">y_change</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span>
+<span class="tok-k">while</span> <span class="tok-bp">True</span><span class="tok-p">:</span>
+  <span class="tok-k">for</span> <span class="tok-n">event</span> <span class="tok-ow">in</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">():</span>
+    <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">QUIT</span><span class="tok-p">:</span>
+      <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">quit</span><span class="tok-p">()</span>
+    <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">KEYDOWN</span><span class="tok-p">:</span>
+      <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">key</span> <span class="tok-o">==</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">K_LEFT</span><span class="tok-p">:</span>
+        <span class="tok-n">x_change</span> <span class="tok-o">=</span> <span class="tok-o">-</span><span class="tok-mi">5</span>
+  <span class="tok-n">affi_surface</span><span class="tok-o">.</span><span class="tok-n">fill</span><span class="tok-p">(</span><span class="tok-n">blanc</span><span class="tok-p">)</span>
+  <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">x</span> <span class="tok-o">+</span> <span class="tok-n">x_change</span><span class="tok-p">,</span> <span class="tok-n">y</span> <span class="tok-o">+</span> <span class="tok-n">y_change</span>
+  <span class="tok-n">vaisseau</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span><span class="tok-n">y</span><span class="tok-p">)</span>
+  <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">display</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span>
+  <span class="tok-n">fps_clock</span><span class="tok-o">.</span><span class="tok-n">tick</span><span class="tok-p">(</span><span class="tok-n">fps</span><span class="tok-p">)</span></code></pre></div></div></section><section id="_observez_bien_quel_est_le_problme"><h2>Observez bien, quel est le problème ?</h2></section><section id="_la_solution_2"><h2>La solution</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="python language-python"><span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">type</span> <span class="tok-o">==</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">KEYUP</span><span class="tok-p">:</span>
+  <span class="tok-k">if</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">key</span> <span class="tok-o">==</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">K_LEFT</span> <span class="tok-ow">or</span> <span class="tok-n">event</span><span class="tok-o">.</span><span class="tok-n">key</span> <span class="tok-o">==</span> <span class="tok-n">pygame</span><span class="tok-o">.</span><span class="tok-n">K_RIGHT</span><span class="tok-p">:</span>
+    <span class="tok-n">x_change</span> <span class="tok-o">=</span> <span class="tok-mi">0</span></code></pre></div></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'moon',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
