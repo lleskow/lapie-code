@@ -278,7 +278,7 @@ else:
     chose()
 ```
 
-On branche vers le ```else``` que si la condition des jamais satisfaite.
+On branche vers le ```else``` si la boucle s'est terminée car la condition n'était plus vérifiée (et non par un break par exemple)
 
 === Pour
 
