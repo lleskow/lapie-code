@@ -1,0 +1,43 @@
+:backend: revealjs
+:revealjs_theme: moon
+:stem: latexmath
+:source-highlighter: pygments
+:pygments-style: tango
+
+= NSI: Numérique et science informatique
+
+== ! 
+
+* Comme la physique-chimie mais pour le monde numérique.
+* Les grands principes généraux de l'informatique.
+* Mais aussi un temps important réservé à la pratique et la manipulation.
+
+== Contenu: 4 thèmes
+
+* Langages: programmation en Python, Web
+* Architecture/Réseau: fonctionnement d'un ordinateur et d'Internet
+* Algorithmiques
+* Données
+
+== !
+
+Comme les mathématiques, une discipline « outil » et cumulative.
+
+== On retrouve des cours d'algorithmique et programmation
+
+* la plus part des licences scientifiques
+* en prépa scientifiques (même « bio ») intégrés ou non
+* en prépa aux écoles de commerce
+* etc
+
+== Pour qui
+
+* Ceux qui veulent découvrir l'informatique
+* Ceux qui savent déjà qu'ils veulent de faire de l'informatique
+* Ceux qui veulent faire des études scientifiques (au sens large)
+
+== Pousser les filles à s'inscrire
+
+* trop peu de filles malheureusement dans les filières informatiques
+* ce n'est pas une discipline pour les geeks
+* le climat est bienveillant
