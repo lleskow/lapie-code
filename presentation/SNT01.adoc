@@ -70,8 +70,7 @@ les méthodes de calcul qui représentent une grandeur physique par une autre
 
 Un thermomètre indique la température à l'aide d'une hauteur de mercure ou d'alcool coloré sur une échelle graduée. La longueur du fluide est analogue à la température : c'est un instrument analogique.
 
-image::https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Hotel_Baron_thermometer.jpg/127px-Hotel_Baron_thermometer.jpg?uselang=fr[alt]
-
+image::https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Hotel_Baron_thermometer.jpg/250px-Hotel_Baron_thermometer.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail[alt]
 
 === L'intérêt
 
@@ -125,7 +124,7 @@ image::https://www.open-museeniepce.com/protectimage?img=1975.149.3.1P38B.jpg&w=
 
 === !
 
-image::http://images.math.cnrs.fr/IMG/png/section1-original-zoom.png[]
+image::https://images.math.cnrs.fr/freeze/img/png/section1-original-zoom.png[]
 
 === Image numérique en niveau de gris
 
@@ -135,24 +134,23 @@ image::http://images.math.cnrs.fr/IMG/png/section1-original-zoom.png[]
 
 === !
 
-image::http://images.math.cnrs.fr/IMG/png/section8-image.png[]
-image::http://images.math.cnrs.fr/IMG/png/section8-rouge.png[]
+image::https://images.math.cnrs.fr/freeze/img/png/section8-image.png[]
+image::https://images.math.cnrs.fr/freeze/img/png/section8-rouge.png[]
 
 === !
 
-image::http://images.math.cnrs.fr/IMG/png/section8-vert.png[]
-image::http://images.math.cnrs.fr/IMG/png/section8-bleu.png[]
-
+image::https://images.math.cnrs.fr/freeze/img/png/section8-image.png[]
+image::https://images.math.cnrs.fr/freeze/img/png/section8-rouge.png[]
 
 === Synthèse additive
 
-image::http://images.math.cnrs.fr/local/cache-vignettes/L300xH289/section8-synthese-additive-43dea.png[]
+image::https://images.math.cnrs.fr/freeze/img/png/section8-synthese-additive.png[]
 
 == Ecran
 
 Un écran est composé de pixel.
 
-image::https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cell_Phone_screen_Pixels.jpg/175px-Cell_Phone_screen_Pixels.jpg[]
+image::https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Cell_Phone_screen_Pixels.jpg/250px-Cell_Phone_screen_Pixels.jpg[]
 
 === Définition
 
