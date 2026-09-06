@@ -57,7 +57,7 @@ image::assets/photosite2.png[alt]
 
 === !
 
-image::https://interstices.info/wp-content/uploads/2020/05/output.gif[alt]
+image::https://interstices.info/app/uploads/2020/05/output.gif[alt]
 
 
 === Matrice de Bayer
@@ -109,12 +109,12 @@ On fait la moyenne des couleurs des voisins.
 
 === Image avant dématriçage
 
-image::https://interstices.info/wp-content/uploads/2020/05/0raw.png[]
+image::https://interstices.info/app/uploads/2020/05/0raw.png[]
 
 
 === Image après dématriçage
 
-image::https://interstices.info/wp-content/uploads/2020/05/1demo.png[alt]
+image::https://interstices.info/app/uploads/2020/05/1demo.png[alt]
 
 === Les opérations classiques sur l'image
 

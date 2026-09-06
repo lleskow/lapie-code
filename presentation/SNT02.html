@@ -1,111 +1,467 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>De la photographie à l&#8217;image</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><script type="text/x-mathjax-config">MathJax.Hub.Config({
-tex2jax: {
-  inlineMath: [["\\(", "\\)"]],
-  displayMath: [["\\[", "\\]"]],
-  ignoreClass: "nostem|nolatexmath"
-},
-asciimath2jax: {
-  delimiters: [["\\$", "\\$"]],
-  ignoreClass: "nostem|noasciimath"
-},
-TeX: { equationNumbers: { autoNumber: "none" } }
-});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><style>.listingblock .pygments .hll { background-color: #ffffcc }
-.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
-.listingblock .pygments .tok-c { color: #8f5902; font-style: italic } /* Comment */
-.listingblock .pygments .tok-err { color: #a40000; border: 1px solid #ef2929 } /* Error */
-.listingblock .pygments .tok-g { color: #000000 } /* Generic */
-.listingblock .pygments .tok-k { color: #204a87; font-weight: bold } /* Keyword */
-.listingblock .pygments .tok-l { color: #000000 } /* Literal */
-.listingblock .pygments .tok-n { color: #000000 } /* Name */
-.listingblock .pygments .tok-o { color: #ce5c00; font-weight: bold } /* Operator */
-.listingblock .pygments .tok-x { color: #000000 } /* Other */
-.listingblock .pygments .tok-p { color: #000000; font-weight: bold } /* Punctuation */
-.listingblock .pygments .tok-ch { color: #8f5902; font-style: italic } /* Comment.Hashbang */
-.listingblock .pygments .tok-cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
-.listingblock .pygments .tok-cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
-.listingblock .pygments .tok-cpf { color: #8f5902; font-style: italic } /* Comment.PreprocFile */
-.listingblock .pygments .tok-c1 { color: #8f5902; font-style: italic } /* Comment.Single */
-.listingblock .pygments .tok-cs { color: #8f5902; font-style: italic } /* Comment.Special */
-.listingblock .pygments .tok-gd { color: #a40000 } /* Generic.Deleted */
-.listingblock .pygments .tok-ge { color: #000000; font-style: italic } /* Generic.Emph */
-.listingblock .pygments .tok-gr { color: #ef2929 } /* Generic.Error */
-.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
-.listingblock .pygments .tok-go { color: #000000; font-style: italic } /* Generic.Output */
-.listingblock .pygments .tok-gp { color: #8f5902 } /* Generic.Prompt */
-.listingblock .pygments .tok-gs { color: #000000; font-weight: bold } /* Generic.Strong */
-.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.listingblock .pygments .tok-gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
-.listingblock .pygments .tok-kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
-.listingblock .pygments .tok-kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
-.listingblock .pygments .tok-kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
-.listingblock .pygments .tok-kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
-.listingblock .pygments .tok-kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
-.listingblock .pygments .tok-kt { color: #204a87; font-weight: bold } /* Keyword.Type */
-.listingblock .pygments .tok-ld { color: #000000 } /* Literal.Date */
-.listingblock .pygments .tok-m { color: #0000cf; font-weight: bold } /* Literal.Number */
-.listingblock .pygments .tok-s { color: #4e9a06 } /* Literal.String */
-.listingblock .pygments .tok-na { color: #c4a000 } /* Name.Attribute */
-.listingblock .pygments .tok-nb { color: #204a87 } /* Name.Builtin */
-.listingblock .pygments .tok-nc { color: #000000 } /* Name.Class */
-.listingblock .pygments .tok-no { color: #000000 } /* Name.Constant */
-.listingblock .pygments .tok-nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
-.listingblock .pygments .tok-ni { color: #ce5c00 } /* Name.Entity */
-.listingblock .pygments .tok-ne { color: #cc0000; font-weight: bold } /* Name.Exception */
-.listingblock .pygments .tok-nf { color: #000000 } /* Name.Function */
-.listingblock .pygments .tok-nl { color: #f57900 } /* Name.Label */
-.listingblock .pygments .tok-nn { color: #000000 } /* Name.Namespace */
-.listingblock .pygments .tok-nx { color: #000000 } /* Name.Other */
-.listingblock .pygments .tok-py { color: #000000 } /* Name.Property */
-.listingblock .pygments .tok-nt { color: #204a87; font-weight: bold } /* Name.Tag */
-.listingblock .pygments .tok-nv { color: #000000 } /* Name.Variable */
-.listingblock .pygments .tok-ow { color: #204a87; font-weight: bold } /* Operator.Word */
-.listingblock .pygments .tok-w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
-.listingblock .pygments .tok-mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
-.listingblock .pygments .tok-mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
-.listingblock .pygments .tok-mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
-.listingblock .pygments .tok-mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
-.listingblock .pygments .tok-mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
-.listingblock .pygments .tok-sa { color: #4e9a06 } /* Literal.String.Affix */
-.listingblock .pygments .tok-sb { color: #4e9a06 } /* Literal.String.Backtick */
-.listingblock .pygments .tok-sc { color: #4e9a06 } /* Literal.String.Char */
-.listingblock .pygments .tok-dl { color: #4e9a06 } /* Literal.String.Delimiter */
-.listingblock .pygments .tok-sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
-.listingblock .pygments .tok-s2 { color: #4e9a06 } /* Literal.String.Double */
-.listingblock .pygments .tok-se { color: #4e9a06 } /* Literal.String.Escape */
-.listingblock .pygments .tok-sh { color: #4e9a06 } /* Literal.String.Heredoc */
-.listingblock .pygments .tok-si { color: #4e9a06 } /* Literal.String.Interpol */
-.listingblock .pygments .tok-sx { color: #4e9a06 } /* Literal.String.Other */
-.listingblock .pygments .tok-sr { color: #4e9a06 } /* Literal.String.Regex */
-.listingblock .pygments .tok-s1 { color: #4e9a06 } /* Literal.String.Single */
-.listingblock .pygments .tok-ss { color: #4e9a06 } /* Literal.String.Symbol */
-.listingblock .pygments .tok-bp { color: #3465a4 } /* Name.Builtin.Pseudo */
-.listingblock .pygments .tok-fm { color: #000000 } /* Name.Function.Magic */
-.listingblock .pygments .tok-vc { color: #000000 } /* Name.Variable.Class */
-.listingblock .pygments .tok-vg { color: #000000 } /* Name.Variable.Global */
-.listingblock .pygments .tok-vi { color: #000000 } /* Name.Variable.Instance */
-.listingblock .pygments .tok-vm { color: #000000 } /* Name.Variable.Magic */
-.listingblock .pygments .tok-il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title"><h1>De la photographie à l&#8217;image</h1></section><section><section id="_ce_que_nous_avons_vu"><h2>Ce que nous avons vu</h2><div class="ulist"><ul><li><p>Une image numérique matricielle est un tableau de triplet de nombres.</p></li><li><p>Ces nombres sont entre 0 et 255</p></li><li><p>Ils correspondent au rouge, au vert et au bleu. (RGB)</p></li></ul></div></section><section id="_rgb"><h2>RGB</h2><div class="paragraph"><p><a href="https://www.w3schools.com/colors/colors_rgb.asp" class="bare">https://www.w3schools.com/colors/colors_rgb.asp</a></p></div></section><section id="_ce_que_nous_avons_vu_2"><h2>Ce que nous avons vu</h2><div class="ulist"><ul><li><p>La définition d&#8217;un écran est son nombre de pixel.</p></li><li><p>Sa résolution est son nombre de pixel par pouce (inch).</p></li></ul></div></section></section>
-<section id="_principe_de_l_appareil_photographique_numrique"><h2>Principe de l&#8217;appareil photographique numérique</h2></section>
-<section><section id="_capteur_photo"><h2>Capteur photo</h2></section><section><div class="videoblock stretch"><video src="http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv20/html/imageHTML/videos/sorcier2.mp4" width="100%" height="100%" controls>Your browser does not support the video tag.</video></div></section><section><div class="videoblock stretch"><video src="http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv20/html/imageHTML/videos/sorcier3.mp4" width="100%" height="100%" controls>Your browser does not support the video tag.</video></div></section><section><div class="ulist"><ul><li><p>Le capteur photo est composé d&#8217;un grand nombre de photosites.</p></li><li><p>Chaque photosite est une cellule photoélectrique qui transforme une intensité lumineuse en signal électrique.</p></li><li><p>La tension électrique produite par un photosite est « convertie » en nombre.</p></li></ul></div></section><section><div class="paragraph"><p>Attention la vidéo par de pixel pour les photosites.</p></div></section><section><div class="videoblock stretch"><video src="http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv20/html/imageHTML/videos/sorcier4.mp4" width="100%" height="100%" controls>Your browser does not support the video tag.</video></div></section><section id="_vers_la_couleur"><h2>Vers la couleur</h2><div class="imageblock" style=""><img src="assets/photosite2.png" alt="alt"></div>
-<div class="ulist"><ul><li><p>Chaque photosite possède un filtre.</p></li><li><p>Filtres rouges qui laisseront uniquement passer la lumière rouge, ou vert ou bleu.</p></li></ul></div></section><section><div class="imageblock" style=""><img src="https://interstices.info/wp-content/uploads/2020/05/output.gif" alt="alt"></div></section><section id="_matrice_de_bayer"><h2>Matrice de Bayer</h2><div class="paragraph"><p>Les filtres de la matrice de Bayer sont constitués:</p></div>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><title>De la photographie à l&#8217;image</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/moon.css" id="theme"><!--This CSS is generated by the Asciidoctor reveal.js converter to further integrate AsciiDoc's existing semantic with reveal.js--><style type="text/css">.reveal div.right {
+  float: right
+}
+
+/* source blocks */
+.reveal .listingblock.stretch > .content {
+  height: 100%
+}
+
+.reveal .listingblock.stretch > .content > pre {
+  height: 100%
+}
+
+.reveal .listingblock.stretch > .content > pre > code {
+  height: 100%;
+  max-height: 100%
+}
+
+/* auto-animate feature */
+/* hide the scrollbar when auto-animating source blocks */
+.reveal pre[data-auto-animate-target] {
+  overflow: hidden;
+}
+
+.reveal pre[data-auto-animate-target] code {
+  overflow: hidden;
+}
+
+/* add a min width to avoid horizontal shift on line numbers */
+code.hljs .hljs-ln-line.hljs-ln-n {
+  min-width: 1.25em;
+}
+
+/* tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+table {
+  margin-bottom: 1.25em;
+  border: solid 1px #dedede
+}
+
+table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td {
+  padding: .5em .625em .625em;
+  font-size: inherit;
+  text-align: left
+}
+
+table tr th, table tr td {
+  padding: .5625em .625em;
+  font-size: inherit
+}
+
+table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td {
+  display: table-cell;
+  line-height: 1.6
+}
+
+td.tableblock > .content {
+  margin-bottom: 1.25em
+}
+
+td.tableblock > .content > :last-child {
+  margin-bottom: -1.25em
+}
+
+table.tableblock, th.tableblock, td.tableblock {
+  border: 0 solid #dedede
+}
+
+table.grid-all > thead > tr > .tableblock, table.grid-all > tbody > tr > .tableblock {
+  border-width: 0 1px 1px 0
+}
+
+table.grid-all > tfoot > tr > .tableblock {
+  border-width: 1px 1px 0 0
+}
+
+table.grid-cols > * > tr > .tableblock {
+  border-width: 0 1px 0 0
+}
+
+table.grid-rows > thead > tr > .tableblock, table.grid-rows > tbody > tr > .tableblock {
+  border-width: 0 0 1px
+}
+
+table.grid-rows > tfoot > tr > .tableblock {
+  border-width: 1px 0 0
+}
+
+table.grid-all > * > tr > .tableblock:last-child, table.grid-cols > * > tr > .tableblock:last-child {
+  border-right-width: 0
+}
+
+table.grid-all > tbody > tr:last-child > .tableblock, table.grid-all > thead:last-child > tr > .tableblock, table.grid-rows > tbody > tr:last-child > .tableblock, table.grid-rows > thead:last-child > tr > .tableblock {
+  border-bottom-width: 0
+}
+
+table.frame-all {
+  border-width: 1px
+}
+
+table.frame-sides {
+  border-width: 0 1px
+}
+
+table.frame-topbot, table.frame-ends {
+  border-width: 1px 0
+}
+
+.reveal table th.halign-left, .reveal table td.halign-left {
+  text-align: left
+}
+
+.reveal table th.halign-right, .reveal table td.halign-right {
+  text-align: right
+}
+
+.reveal table th.halign-center, .reveal table td.halign-center {
+  text-align: center
+}
+
+.reveal table th.valign-top, .reveal table td.valign-top {
+  vertical-align: top
+}
+
+.reveal table th.valign-bottom, .reveal table td.valign-bottom {
+  vertical-align: bottom
+}
+
+.reveal table th.valign-middle, .reveal table td.valign-middle {
+  vertical-align: middle
+}
+
+table thead th, table tfoot th {
+  font-weight: bold
+}
+
+tbody tr th {
+  display: table-cell;
+  line-height: 1.6
+}
+
+tbody tr th, tbody tr th p, tfoot tr th, tfoot tr th p {
+  font-weight: bold
+}
+
+thead {
+  display: table-header-group
+}
+
+.reveal table.grid-none th, .reveal table.grid-none td {
+  border-bottom: 0 !important
+}
+
+/* kbd macro */
+kbd {
+  font-family: "Droid Sans Mono", "DejaVu Sans Mono", monospace;
+  display: inline-block;
+  color: rgba(0, 0, 0, .8);
+  font-size: .65em;
+  line-height: 1.45;
+  background: #f7f7f7;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em white inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em #fff inset;
+  margin: 0 .15em;
+  padding: .2em .5em;
+  vertical-align: middle;
+  position: relative;
+  top: -.1em;
+  white-space: nowrap
+}
+
+.keyseq kbd:first-child {
+  margin-left: 0
+}
+
+.keyseq kbd:last-child {
+  margin-right: 0
+}
+
+/* callouts */
+.conum[data-value] {
+  display: inline-block;
+  color: #fff !important;
+  background: rgba(0, 0, 0, .8);
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  font-size: .75em;
+  width: 1.67em;
+  height: 1.67em;
+  line-height: 1.67em;
+  font-family: "Open Sans", "DejaVu Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold
+}
+
+.conum[data-value] * {
+  color: #fff !important
+}
+
+.conum[data-value] + b {
+  display: none
+}
+
+.conum[data-value]:after {
+  content: attr(data-value)
+}
+
+pre .conum[data-value] {
+  position: relative;
+  top: -.125em
+}
+
+b.conum * {
+  color: inherit !important
+}
+
+.conum:not([data-value]):empty {
+  display: none
+}
+
+/* Callout list */
+.hdlist > table, .colist > table {
+  border: 0;
+  background: none
+}
+
+.hdlist > table > tbody > tr, .colist > table > tbody > tr {
+  background: none
+}
+
+td.hdlist1, td.hdlist2 {
+  vertical-align: top;
+  padding: 0 .625em
+}
+
+td.hdlist1 {
+  font-weight: bold;
+  padding-bottom: 1.25em
+}
+
+/* Disabled from Asciidoctor CSS because it caused callout list to go under the
+ * source listing when .stretch is applied (see #335)
+ * .literalblock+.colist,.listingblock+.colist{margin-top:-.5em} */
+.colist td:not([class]):first-child {
+  padding: .4em .75em 0;
+  line-height: 1;
+  vertical-align: top
+}
+
+.colist td:not([class]):first-child img {
+  max-width: none
+}
+
+.colist td:not([class]):last-child {
+  padding: .25em 0
+}
+
+/* Override Asciidoctor CSS that causes issues with reveal.js features */
+.reveal .hljs table {
+  border: 0
+}
+
+/* Callout list rows would have a bottom border with some reveal.js themes (see #335) */
+.reveal .colist > table th, .reveal .colist > table td {
+  border-bottom: 0
+}
+
+/* Fixes line height with Highlight.js source listing when linenums enabled (see #331) */
+.reveal .hljs table thead tr th, .reveal .hljs table tfoot tr th, .reveal .hljs table tbody tr td, .reveal .hljs table tr td, .reveal .hljs table tfoot tr td {
+  line-height: inherit
+}
+
+/* Columns layout */
+.columns .slide-content {
+  display: flex;
+}
+
+.columns.wrap .slide-content {
+  flex-wrap: wrap;
+}
+
+.columns.is-vcentered .slide-content {
+  align-items: center;
+}
+
+.columns .slide-content > .column {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.columns .slide-content > .column > * {
+  padding: .75rem;
+}
+
+/* See #353 */
+.columns.wrap .slide-content > .column {
+  flex-basis: auto;
+}
+
+.columns .slide-content > .column.is-full {
+  flex: none;
+  width: 100%;
+}
+
+.columns .slide-content > .column.is-four-fifths {
+  flex: none;
+  width: 80%;
+}
+
+.columns .slide-content > .column.is-three-quarters {
+  flex: none;
+  width: 75%;
+}
+
+.columns .slide-content > .column.is-two-thirds {
+  flex: none;
+  width: 66.6666%;
+}
+
+.columns .slide-content > .column.is-three-fifths {
+  flex: none;
+  width: 60%;
+}
+
+.columns .slide-content > .column.is-half {
+  flex: none;
+  width: 50%;
+}
+
+.columns .slide-content > .column.is-two-fifths {
+  flex: none;
+  width: 40%;
+}
+
+.columns .slide-content > .column.is-one-third {
+  flex: none;
+  width: 33.3333%;
+}
+
+.columns .slide-content > .column.is-one-quarter {
+  flex: none;
+  width: 25%;
+}
+
+.columns .slide-content > .column.is-one-fifth {
+  flex: none;
+  width: 20%;
+}
+
+.columns .slide-content > .column.has-text-left {
+  text-align: left;
+}
+
+.columns .slide-content > .column.has-text-justified {
+  text-align: justify;
+}
+
+.columns .slide-content > .column.has-text-right {
+  text-align: right;
+}
+
+.columns .slide-content > .column.has-text-left {
+  text-align: left;
+}
+
+.columns .slide-content > .column.has-text-justified {
+  text-align: justify;
+}
+
+.columns .slide-content > .column.has-text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left !important
+}
+
+.text-right {
+  text-align: right !important
+}
+
+.text-center {
+  text-align: center !important
+}
+
+.text-justify {
+  text-align: justify !important
+}
+
+.footnotes {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5em 0 0 0;
+  font-size: 0.65em;
+  margin-top: 4em;
+}
+
+.byline {
+  font-size:.8em
+}
+ul.byline {
+  list-style-type: none;
+}
+ul.byline li + li {
+  margin-top: 0.25em;
+}
+</style><script>window.MathJax = {"tex":{"inlineMath":[["\\(","\\)"]],"displayMath":[["\\[","\\]"]],"processEscapes":false,"tags":"none"},"options":{"ignoreHtmlClass":"nostem|nolatexmath"},"asciimath":{"delimiters":[["\\$","\\$"]]},"loader":{"load":["input/asciimath","output/chtml","ui/menu"]}};</script><script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>De la photographie à l&#8217;image</h1></section><section><section id="_ce_que_nous_avons_vu"><h2>Ce que nous avons vu</h2><div class="slide-content"><div class="ulist"><ul><li><p>Une image numérique matricielle est un tableau de triplet de nombres.</p></li><li><p>Ces nombres sont entre 0 et 255</p></li><li><p>Ils correspondent au rouge, au vert et au bleu. (RGB)</p></li></ul></div></div></section><section id="_rgb"><h2>RGB</h2><div class="slide-content"><div class="paragraph"><p><a href="https://www.w3schools.com/colors/colors_rgb.asp" class="bare">https://www.w3schools.com/colors/colors_rgb.asp</a></p></div></div></section><section id="_ce_que_nous_avons_vu_2"><h2>Ce que nous avons vu</h2><div class="slide-content"><div class="ulist"><ul><li><p>La définition d&#8217;un écran est son nombre de pixel.</p></li><li><p>Sa résolution est son nombre de pixel par pouce (inch).</p></li></ul></div></div></section></section>
+<section id="_principe_de_lappareil_photographique_numérique"><h2>Principe de l&#8217;appareil photographique numérique</h2></section>
+<section><section id="_capteur_photo"><h2>Capteur photo</h2></section><section><div class="slide-content"><div class="videoblock stretch"><video src="http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv20/html/imageHTML/videos/sorcier2.mp4" width="100%" height="100%" controls>Your browser does not support the video tag.</video></div></div></section><section><div class="slide-content"><div class="videoblock stretch"><video src="http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv20/html/imageHTML/videos/sorcier3.mp4" width="100%" height="100%" controls>Your browser does not support the video tag.</video></div></div></section><section><div class="slide-content"><div class="ulist"><ul><li><p>Le capteur photo est composé d&#8217;un grand nombre de photosites.</p></li><li><p>Chaque photosite est une cellule photoélectrique qui transforme une intensité lumineuse en signal électrique.</p></li><li><p>La tension électrique produite par un photosite est « convertie » en nombre.</p></li></ul></div></div></section><section><div class="slide-content"><div class="paragraph"><p>Attention la vidéo par de pixel pour les photosites.</p></div></div></section><section><div class="slide-content"><div class="videoblock stretch"><video src="http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv20/html/imageHTML/videos/sorcier4.mp4" width="100%" height="100%" controls>Your browser does not support the video tag.</video></div></div></section><section id="_vers_la_couleur"><h2>Vers la couleur</h2><div class="slide-content"><div class="imageblock"><img src="assets/photosite2.png" alt="alt"></div>
+<div class="ulist"><ul><li><p>Chaque photosite possède un filtre.</p></li><li><p>Filtres rouges qui laisseront uniquement passer la lumière rouge, ou vert ou bleu.</p></li></ul></div></div></section><section><div class="slide-content"><div class="imageblock"><img src="https://interstices.info/app/uploads/2020/05/output.gif" alt="alt"></div></div></section><section id="_matrice_de_bayer"><h2>Matrice de Bayer</h2><div class="slide-content"><div class="paragraph"><p>Les filtres de la matrice de Bayer sont constitués:</p></div>
 <div class="ulist"><ul><li><p>50% de filtres vert</p></li><li><p>25% de filtre rouge</p></li><li><p>25% de filtre bleu</p></li></ul></div>
-<div class="paragraph"><p>Car notre oeil est plus sensible au vert qu&#8217;au bleu et au rouge.</p></div></section><section id="_fichier_raw"><h2>Fichier RAW</h2><div class="paragraph"><p>Les nombres obtenus grace au capteur photo sont stockés dans un fichier RAW.</p></div></section><section id="_des_photosites_aux_pixels"><h2>Des photosites aux pixels</h2><div class="imageblock" style=""><img src="assets/photosite2.png" alt="alt"></div>
-<div class="ulist"><ul><li><p>Chaque photosite correspond à une seule couleur ?</p></li><li><p>Comment obtenir un pixel (trois couleurs) depuis un photosite ?</p></li></ul></div></section><section id="_dmatriage"><h2>Dématriçage</h2><div class="ulist"><ul><li><p>Le fait d&#8217;obtenir un pixel à partir des valeurs données par les photosites.</p></li><li><p>C&#8217;est un traitement algorithmique.</p></li><li><p>Il existe différente façon de faire, cela joue sur la qualité finale de l&#8217;image.</p></li></ul></div></section><section id="_plusieurs_photosites_pour_un_pixel"><h2>Plusieurs photosites pour un pixel</h2><div class="imageblock" style=""><img src="assets/photosite3.png" alt="alt"></div>
-<div class="paragraph"><p>Dans ce cas, il faut prendre plusieurs photosites pour un pixel: bof.</p></div></section><section id="_dmatriage_par_copie_de_pixels"><h2>Dématriçage par copie de pixels</h2><div class="paragraph"><p>Consiste à prendre la couleur du voisin le plus proche.</p></div></section><section id="_dmatriage_par_interpolation_bilinaire"><h2>Dématriçage par Interpolation bilinéaire</h2><div class="paragraph"><p>On fait la moyenne des couleurs des voisins.</p></div></section><section id="_dmatriage_2"><h2>Dématriçage</h2><div class="ulist"><ul><li><p>Il existe d&#8217;autres moyens plus ou moins complexes de le faire.</p></li><li><p>Il est possible par interpolation d&#8217;avoir plus de pixel que de photosite.</p></li></ul></div></section><section id="_image_avant_dmatriage"><h2>Image avant dématriçage</h2><div class="imageblock" style=""><img src="https://interstices.info/wp-content/uploads/2020/05/0raw.png" alt="0raw"></div></section><section id="_image_aprs_dmatriage"><h2>Image après dématriçage</h2><div class="imageblock" style=""><img src="https://interstices.info/wp-content/uploads/2020/05/1demo.png" alt="alt"></div></section><section id="_les_oprations_classiques_sur_l_image"><h2>Les opérations classiques sur l&#8217;image</h2><div class="paragraph"><p><a href="https://interstices.info/tout-ce-que-les-algorithmes-de-traitement-dimages-font-pour-nous/#4">Les étapes pour l&#8217;image du chien</a></p></div></section><section id="_correction_optique_exemple_du_fisheye"><h2>Correction optique: exemple du fisheye</h2><div class="imageblock" style=""><img src="assets/remap.jpg" alt="alt"></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<div class="paragraph"><p>Car notre oeil est plus sensible au vert qu&#8217;au bleu et au rouge.</p></div></div></section><section id="_fichier_raw"><h2>Fichier RAW</h2><div class="slide-content"><div class="paragraph"><p>Les nombres obtenus grace au capteur photo sont stockés dans un fichier RAW.</p></div></div></section><section id="_des_photosites_aux_pixels"><h2>Des photosites aux pixels</h2><div class="slide-content"><div class="imageblock"><img src="assets/photosite2.png" alt="alt"></div>
+<div class="ulist"><ul><li><p>Chaque photosite correspond à une seule couleur ?</p></li><li><p>Comment obtenir un pixel (trois couleurs) depuis un photosite ?</p></li></ul></div></div></section><section id="_dématriçage"><h2>Dématriçage</h2><div class="slide-content"><div class="ulist"><ul><li><p>Le fait d&#8217;obtenir un pixel à partir des valeurs données par les photosites.</p></li><li><p>C&#8217;est un traitement algorithmique.</p></li><li><p>Il existe différente façon de faire, cela joue sur la qualité finale de l&#8217;image.</p></li></ul></div></div></section><section id="_plusieurs_photosites_pour_un_pixel"><h2>Plusieurs photosites pour un pixel</h2><div class="slide-content"><div class="imageblock"><img src="assets/photosite3.png" alt="alt"></div>
+<div class="paragraph"><p>Dans ce cas, il faut prendre plusieurs photosites pour un pixel: bof.</p></div></div></section><section id="_dématriçage_par_copie_de_pixels"><h2>Dématriçage par copie de pixels</h2><div class="slide-content"><div class="paragraph"><p>Consiste à prendre la couleur du voisin le plus proche.</p></div></div></section><section id="_dématriçage_par_interpolation_bilinéaire"><h2>Dématriçage par Interpolation bilinéaire</h2><div class="slide-content"><div class="paragraph"><p>On fait la moyenne des couleurs des voisins.</p></div></div></section><section id="_dématriçage_2"><h2>Dématriçage</h2><div class="slide-content"><div class="ulist"><ul><li><p>Il existe d&#8217;autres moyens plus ou moins complexes de le faire.</p></li><li><p>Il est possible par interpolation d&#8217;avoir plus de pixel que de photosite.</p></li></ul></div></div></section><section id="_image_avant_dématriçage"><h2>Image avant dématriçage</h2><div class="slide-content"><div class="imageblock"><img src="https://interstices.info/app/uploads/2020/05/0raw.png" alt="0raw"></div></div></section><section id="_image_après_dématriçage"><h2>Image après dématriçage</h2><div class="slide-content"><div class="imageblock"><img src="https://interstices.info/app/uploads/2020/05/1demo.png" alt="alt"></div></div></section><section id="_les_opérations_classiques_sur_limage"><h2>Les opérations classiques sur l&#8217;image</h2><div class="slide-content"><div class="paragraph"><p><a href="https://interstices.info/tout-ce-que-les-algorithmes-de-traitement-dimages-font-pour-nous/#4">Les étapes pour l&#8217;image du chien</a></p></div></div></section><section id="_correction_optique_exemple_du_fisheye"><h2>Correction optique: exemple du fisheye</h2><div class="slide-content"><div class="imageblock"><img src="assets/remap.jpg" alt="alt"></div></div></section></section></div></div><script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+  if (slide.getAttribute('data-background-color')) return;
+  // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
+  if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
+  var bgColor = getComputedStyle(slide).backgroundColor;
+  if (bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+    slide.setAttribute('data-background-color', bgColor);
+    slide.style.backgroundColor = 'transparent';
+  }
+});
+
+// More info about config & dependencies:
+// - https://github.com/hakimel/reveal.js#configuration
+// - https://github.com/hakimel/reveal.js#dependencies
 Reveal.initialize({
-  // Display controls in the bottom right corner
+  // Display presentation control arrows
   controls: true,
+  // Help the user learn the controls by providing hints, for example by
+  // bouncing the down arrow when they first encounter a vertical slide
+  controlsTutorial: true,
+  // Determines where controls appear, "edges" or "bottom-right"
+  controlsLayout: 'bottom-right',
+  // Visibility rule for backwards navigation arrows; "faded", "hidden"
+  // or "visible"
+  controlsBackArrows: 'faded',
   // Display a presentation progress bar
   progress: true,
   // Display the page number of the current slide
   slideNumber: false,
-  // Push each slide change to the browser history
+  // Control which views the slide number displays on
+  showSlideNumber: 'all',
+  // Add the current slide number to the URL hash so that reloading the
+  // page/copying the URL will return you to the same slide
+  hash: false,
+  // Push each slide change to the browser history. Implies `hash: true`
   history: false,
   // Enable keyboard shortcuts for navigation
   keyboard: true,
   // Enable the slide overview mode
   overview: true,
+  // Disables the default reveal.js slide layout so that you can use custom CSS layout
+  disableLayout: false,
   // Vertical centering of slides
   center: true,
   // Enables touch navigation on devices with touch input
@@ -114,38 +470,92 @@ Reveal.initialize({
   loop: false,
   // Change the presentation direction to be RTL
   rtl: false,
+  // See https://github.com/hakimel/reveal.js/#navigation-mode
+  navigationMode: 'default',
+  // Randomizes the order of slides each time the presentation loads
+  shuffle: false,
   // Turns fragments on and off globally
   fragments: true,
+  // Flags whether to include the current fragment in the URL,
+  // so that reloading brings you to the same fragment position
+  fragmentInURL: false,
   // Flags if the presentation is running in an embedded mode,
   // i.e. contained within a limited portion of the screen
   embedded: false,
+  // Flags if we should show a help overlay when the questionmark
+  // key is pressed
+  help: true,
+  // Flags if speaker notes should be visible to all viewers
+  showNotes: false,
+  // Global override for autolaying embedded media (video/audio/iframe)
+  // - null: Media will only autoplay if data-autoplay is present
+  // - true: All media will autoplay, regardless of individual setting
+  // - false: No media will autoplay, regardless of individual setting
+  autoPlayMedia: null,
+  // Global override for preloading lazy-loaded iframes
+  // - null: Iframes with data-src AND data-preload will be loaded when within
+  //   the viewDistance, iframes with only data-src will be loaded when visible
+  // - true: All iframes with data-src will be loaded when within the viewDistance
+  // - false: All iframes with data-src will be loaded only when visible
+  preloadIframes: null,
   // Number of milliseconds between automatically proceeding to the
   // next slide, disabled when set to 0, this value can be overwritten
   // by using a data-autoslide attribute on your slides
   autoSlide: 0,
   // Stop auto-sliding after user input
   autoSlideStoppable: true,
+  // Use this method for navigation when auto-sliding
+  autoSlideMethod: Reveal.navigateNext,
+  // Specify the average time in seconds that you think you will spend
+  // presenting each slide. This is used to show a pacing timer in the
+  // speaker view
+  defaultTiming: 120,
+  // Specify the total time in seconds that is available to
+  // present.  If this is set to a nonzero value, the pacing
+  // timer will work out the time available for each slide,
+  // instead of using the defaultTiming value
+  totalTime: 0,
+  // Specify the minimum amount of time you want to allot to
+  // each slide, if using the totalTime calculation method.  If
+  // the automated time allocation causes slide pacing to fall
+  // below this threshold, then you will see an alert in the
+  // speaker notes window
+  minimumTimePerSlide: 0,
   // Enable slide navigation via mouse wheel
   mouseWheel: false,
+  // Hide cursor if inactive
+  hideInactiveCursor: true,
+  // Time before the cursor is hidden (in ms)
+  hideCursorTime: 5000,
   // Hides the address bar on mobile devices
   hideAddressBar: true,
   // Opens links in an iframe preview overlay
+  // Add `data-preview-link` and `data-preview-link="false"` to customise each link
+  // individually
   previewLinks: false,
-  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
-  // NOTE setting the theme in the config no longer works in reveal.js 3.x
-  //theme: Reveal.getQueryHash().theme || 'moon',
   // Transition style (e.g., none, fade, slide, convex, concave, zoom)
-  transition: Reveal.getQueryHash().transition || 'slide',
+  transition: 'slide',
   // Transition speed (e.g., default, fast, slow)
   transitionSpeed: 'default',
   // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
   backgroundTransition: 'fade',
   // Number of slides away from the current that are visible
   viewDistance: 3,
+  // Number of slides away from the current that are visible on mobile
+  // devices. It is advisable to set this to a lower number than
+  // viewDistance in order to save resources.
+  mobileViewDistance: 3,
   // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
   parallaxBackgroundImage: '',
   // Parallax background size in CSS syntax (e.g., "2100px 900px")
   parallaxBackgroundSize: '',
+  // Number of pixels to move the parallax background per slide
+  // - Calculated automatically unless specified
+  // - Set to 0 to disable movement along an axis
+  parallaxBackgroundHorizontal: null,
+  parallaxBackgroundVertical: null,
+  // The display mode that will be used to show slides
+  display: 'block',
 
   // The "normal" size of the presentation, aspect ratio will be preserved
   // when the presentation is scaled to fit different resolutions. Can be
@@ -160,13 +570,78 @@ Reveal.initialize({
   minScale: 0.2,
   maxScale: 1.5,
 
+  // PDF Export Options
+  // Put each fragment on a separate page
+  pdfSeparateFragments: true,
+  // For slides that do not fit on a page, max number of pages
+  pdfMaxPagesPerSlide: 1,
+
   // Optional libraries used to extend on reveal.js
   dependencies: [
-      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      
-      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-  ]
+      { src: 'https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/zoom/zoom.js', async: true, callback: function () { Reveal.registerPlugin(RevealZoom) } },
+      { src: 'https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js', async: true, callback: function () { Reveal.registerPlugin(RevealNotes) } }
+  ],
+});</script><script>var dom = {};
+dom.slides = document.querySelector('.reveal .slides');
+
+function getRemainingHeight(element, slideElement, height) {
+  height = height || 0;
+  if (element) {
+    var newHeight, oldHeight = element.style.height;
+    // Change the .stretch element height to 0 in order find the height of all
+    // the other elements
+    element.style.height = '0px';
+    // In Overview mode, the parent (.slide) height is set of 700px.
+    // Restore it temporarily to its natural height.
+    slideElement.style.height = 'auto';
+    newHeight = height - slideElement.offsetHeight;
+    // Restore the old height, just in case
+    element.style.height = oldHeight + 'px';
+    // Clear the parent (.slide) height. .removeProperty works in IE9+
+    slideElement.style.removeProperty('height');
+    return newHeight;
+  }
+  return height;
+}
+
+function layoutSlideContents(width, height) {
+  // Handle sizing of elements with the 'stretch' class
+  toArray(dom.slides.querySelectorAll('section .stretch')).forEach(function (element) {
+    // Determine how much vertical space we can use
+    var limit = 5; // hard limit
+    var parent = element.parentNode;
+    while (parent.nodeName !== 'SECTION' && limit > 0) {
+      parent = parent.parentNode;
+      limit--;
+    }
+    if (limit === 0) {
+      // unable to find parent, aborting!
+      return;
+    }
+    var remainingHeight = getRemainingHeight(element, parent, height);
+    // Consider the aspect ratio of media elements
+    if (/(img|video)/gi.test(element.nodeName)) {
+      var nw = element.naturalWidth || element.videoWidth, nh = element.naturalHeight || element.videoHeight;
+      var es = Math.min(width / nw, remainingHeight / nh);
+      element.style.width = (nw * es) + 'px';
+      element.style.height = (nh * es) + 'px';
+    } else {
+      element.style.width = width + 'px';
+      element.style.height = remainingHeight + 'px';
+    }
+  });
+}
+
+function toArray(o) {
+  return Array.prototype.slice.call(o);
+}
+
+Reveal.addEventListener('slidechanged', function () {
+  layoutSlideContents(960, 700)
+});
+Reveal.addEventListener('ready', function () {
+  layoutSlideContents(960, 700)
+});
+Reveal.addEventListener('resize', function () {
+  layoutSlideContents(960, 700)
 });</script></body></html>
