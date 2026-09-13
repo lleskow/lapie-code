@@ -111,7 +111,6 @@ On fait la moyenne des couleurs des voisins.
 
 image::https://interstices.info/app/uploads/2020/05/0raw.png[]
 
-
 === Image après dématriçage
 
 image::https://interstices.info/app/uploads/2020/05/1demo.png[alt]
